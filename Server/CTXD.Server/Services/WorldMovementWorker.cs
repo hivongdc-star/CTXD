@@ -5,10 +5,16 @@ namespace CTXD.Server.Services;
 
 public sealed class WorldMovementWorker(
     GameDb db,
+    CanonicalContent content,
+    TechnologyEffectService technologies,
+    ResourceProductionService production,
     WorldService world,
+    BattleService battles,
     GamePushHub push,
     ILogger<WorldMovementWorker> log) : BackgroundService
 {
+    readonly AutoBattleService autoBattle=new(db,content,technologies,production,world,battles);
+
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         using var timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
@@ -18,6 +24,7 @@ public sealed class WorldMovementWorker(
             {
                 foreach (var playerId in await FindDuePlayersAsync(stoppingToken))
                 {
+                    await autoBattle.PrepareDueMovementAsync(playerId,stoppingToken);
                     var state = await world.GetAsync(playerId, stoppingToken);
                     await push.SendAsync(playerId, "world.updated", state, stoppingToken);
                 }
