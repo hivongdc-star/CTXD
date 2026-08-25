@@ -61,6 +61,11 @@ public sealed class AutoBattleService(
                 if(value is null)throw new GameException("PLAYER_NOT_FOUND","Player does not exist.",404);
                 force=Convert.ToInt32(value);
             }
+            // The player row serializes concurrent start requests. Re-read after acquiring it so a
+            // request that waited for another start cannot charge the 50k food a second time.
+            existing=await ReadRowAsync(c,t,playerId,true,ct);
+            if(existing?.State==1)throw new GameException("AUTO_BATTLE_ALREADY_ACTIVE","Auto Battle is already active.",409);
+
             if(await technologies.GetCompletedIntEffectAsync(playerId,TechKey,0,ct,c,t)<=0)
                 throw new GameException("AUTO_BATTLE_TECH_REQUIRED","Legacy Auto Battle requires completed TechEffect 59.",403);
 
