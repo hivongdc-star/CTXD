@@ -38,13 +38,13 @@ FOR UPDATE OF d,pg,s",c,t))
         }
         if(state!=1)throw new GameException("KFGZ_MUBING_GENERAL_BUSY","Legacy mubing can only start while the general is idle in a KFGZ city.",409);
 
-        await KfgzResourceLedger.RefreshSnapshotAsync(c,t,db,content,production,playerId,seasonId,ct);
+        await KfgzResourceLedger.RefreshSnapshotAsync(c,t,content,production,playerId,seasonId,ct);
         var max=await MaxForcesAsync(c,t,playerId,generalId,ct);
         if(forces>=max)throw new GameException("KFGZ_MUBING_ALREADY_FULL","General forces are already full.",409);
 
         int mubing,food;
         await using(var res=new NpgsqlCommand("SELECT mubing,food FROM kfgz_signups WHERE season_id=$1 AND player_id=$2",c,t))
-        {res.Parameters.AddWithValue(seasonId);res.Parameters.AddWithValue(playerId);await using var r=await res.ExecuteReaderAsync(ct);await r.ReadAsync(ct);mubing=r.GetInt32(0);food=checked((int)Math.Min(int.MaxValue,r.GetInt64(1)));}
+        {res.Parameters.AddWithValue(seasonId);res.Parameters.AddWithValue(playerId);await using var r=await res.ExecuteReaderAsync(ct);await r.ReadAsync(ct);mubing=Convert.ToInt32(r.GetValue(0));food=checked((int)Math.Min(int.MaxValue,Convert.ToInt64(r.GetValue(1))));}
 
         await using(var start=new NpgsqlCommand("UPDATE kfgz_deployments SET mubing_active=true,mubing_updated_at=now(),updated_at=now() WHERE round_id=$1 AND player_id=$2 AND general_id=$3",c,t))
         {start.Parameters.AddWithValue(roundId);start.Parameters.AddWithValue(playerId);start.Parameters.AddWithValue(generalId);await start.ExecuteNonQueryAsync(ct);}
@@ -74,7 +74,7 @@ FOR UPDATE OF d,pg",c,t))
         if(rows.Count==0){await t.CommitAsync(ct);return;}
 
         var seasonId=rows[0].season;
-        await KfgzResourceLedger.RefreshSnapshotAsync(c,t,db,content,production,playerId,seasonId,ct);
+        await KfgzResourceLedger.RefreshSnapshotAsync(c,t,content,production,playerId,seasonId,ct);
         int mubing;
         await using(var q=new NpgsqlCommand("SELECT mubing FROM kfgz_signups WHERE season_id=$1 AND player_id=$2 FOR UPDATE",c,t))
         {q.Parameters.AddWithValue(seasonId);q.Parameters.AddWithValue(playerId);mubing=Convert.ToInt32(await q.ExecuteScalarAsync(ct)??0);}
@@ -134,12 +134,12 @@ FOR UPDATE OF d,pg",c,t))
 
 internal static class KfgzResourceLedger
 {
-    public static async Task RefreshSnapshotAsync(NpgsqlConnection c,NpgsqlTransaction t,GameDb db,CanonicalContent content,ResourceProductionService production,long playerId,long seasonId,CancellationToken ct)
+    public static async Task RefreshSnapshotAsync(NpgsqlConnection c,NpgsqlTransaction t,CanonicalContent content,ResourceProductionService production,long playerId,long seasonId,CancellationToken ct)
     {
         await using(var ensure=new NpgsqlCommand("INSERT INTO player_battle_resources(player_id) VALUES($1) ON CONFLICT(player_id) DO NOTHING",c,t)){ensure.Parameters.AddWithValue(playerId);await ensure.ExecuteNonQueryAsync(ct);}
         long gold,copper,wood,food,iron;int recruit,phantom;
         await using(var q=new NpgsqlCommand("SELECT p.sys_gold,r.copper,r.wood,r.food,r.iron,b.recruit_token,b.phantom_count FROM players p JOIN player_resources r ON r.player_id=p.id JOIN player_battle_resources b ON b.player_id=p.id WHERE p.id=$1",c,t))
-        {q.Parameters.AddWithValue(playerId);await using var r=await q.ExecuteReaderAsync(ct);if(!await r.ReadAsync(ct))throw new GameException("PLAYER_NOT_FOUND","Player resources do not exist.",404);gold=r.GetInt64(0);copper=r.GetInt64(1);wood=r.GetInt64(2);food=r.GetInt64(3);iron=r.GetInt64(4);recruit=r.GetInt32(5);phantom=r.GetInt32(6);}
+        {q.Parameters.AddWithValue(playerId);await using var r=await q.ExecuteReaderAsync(ct);if(!await r.ReadAsync(ct))throw new GameException("PLAYER_NOT_FOUND","Player resources do not exist.",404);gold=Convert.ToInt64(r.GetValue(0));copper=Convert.ToInt64(r.GetValue(1));wood=Convert.ToInt64(r.GetValue(2));food=Convert.ToInt64(r.GetValue(3));iron=Convert.ToInt64(r.GetValue(4));recruit=Convert.ToInt32(r.GetValue(5));phantom=Convert.ToInt32(r.GetValue(6));}
         var perBuilding=await production.GetPerBuildingBaseOutputAsync(c,t,playerId,ct);var mubing=0;
         foreach(var pair in perBuilding)if(content.Buildings.TryGetValue(pair.Key,out var b)&&b.OutputType==5)mubing+=pair.Value;
         await using var save=new NpgsqlCommand("UPDATE kfgz_signups SET sys_gold=$3,copper=$4,wood=$5,food=$6,iron=$7,recruit_token=$8,mubing=$9,phantom_count=$10,synced_at=now() WHERE season_id=$1 AND player_id=$2",c,t);
