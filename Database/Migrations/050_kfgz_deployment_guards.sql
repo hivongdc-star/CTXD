@@ -46,10 +46,7 @@ RETURNS trigger
 LANGUAGE plpgsql
 AS $$
 BEGIN
-  SELECT COALESCE(user_gold,0) + COALESCE(sys_gold,0)
-    INTO NEW.sys_gold
-  FROM players
-  WHERE id = NEW.player_id;
+  NEW.sys_gold := COALESCE((SELECT COALESCE(user_gold,0) + COALESCE(sys_gold,0) FROM players WHERE id = NEW.player_id), NEW.sys_gold);
   RETURN NEW;
 END;
 $$;
