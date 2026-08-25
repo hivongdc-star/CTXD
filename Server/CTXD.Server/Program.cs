@@ -34,6 +34,8 @@ builder.Services.AddSingleton<KfwdService>();
 builder.Services.AddSingleton<KfzbService>();
 builder.Services.AddSingleton<KfzbFeastService>();
 builder.Services.AddSingleton<KfgzService>();
+builder.Services.AddSingleton<KfgzExtendedCombatService>();
+builder.Services.AddSingleton<KfgzRushService>();
 builder.Services.AddSingleton<ActivityGiftService>();
 builder.Services.AddSingleton<DailyGiftService>();
 builder.Services.AddSingleton<BattleExpActivityService>();
@@ -85,6 +87,7 @@ static string? Bearer(HttpRequest request)
 }
 
 app.MapGet("/health", () => Results.Ok(new { status = "ok", game = "CTXD Remake" }));
+app.MapKfgzExtendedCombat();
 
 app.MapGet("/api/quests/current",async(HttpRequest request,AuthService auth,QuestService quests,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await quests.GetCurrentAsync(id,ct));});
 app.MapPost("/api/quests/current/claim",async(HttpRequest request,AuthService auth,QuestService quests,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await quests.ClaimCurrentAsync(id,ct);await push.SendAsync(id,"quest.updated",result,ct);return Results.Ok(result);});
