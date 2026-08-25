@@ -7,7 +7,7 @@ public sealed record KfgzCallGeneralInfo(int CityId,int[] GeneralIds);
 public sealed record KfgzCallGeneralFailure(int GeneralId,string Code,string Message);
 public sealed record KfgzCallGeneralResult(int CityId,int[] MovedGeneralIds,KfgzCallGeneralFailure[] Failed);
 
-public sealed class KfgzCallGeneralService(CanonicalContent content,KfgzService kfgz)
+public sealed class KfgzCallGeneralService(CanonicalContent content,KfgzService kfgz,KfgzReinforcementService reinforcement)
 {
     public async Task<KfgzCallGeneralInfo> InfoAsync(long playerId,int cityId,CancellationToken ct)
     {
@@ -32,13 +32,15 @@ public sealed class KfgzCallGeneralService(CanonicalContent content,KfgzService 
         ValidateTarget(world,cityId);
         var known=world.Deployments.Where(x=>x.PlayerId==playerId).Select(x=>x.GeneralId).ToHashSet();
         if(ids.Any(x=>!known.Contains(x)))throw new GameException("KFGZ_CALL_GENERAL_INVALID","One or more selected generals are not synchronized into this KFGZ round.",400);
+        var activeBattle=(world.Battles??[]).FirstOrDefault(x=>x.CityId==cityId&&x.State==1);
 
         var moved=new List<int>();var failed=new List<KfgzCallGeneralFailure>();
         foreach(var generalId in ids)
         {
             try
             {
-                await kfgz.MoveAsync(playerId,generalId,cityId,ct);
+                if(activeBattle is null)await kfgz.MoveAsync(playerId,generalId,cityId,ct);
+                else await reinforcement.ReinforceAsync(playerId,activeBattle.BattleId,new KfgzReinforcementRequest([generalId]),ct);
                 moved.Add(generalId);
             }
             catch(GameException ex)
@@ -53,7 +55,5 @@ public sealed class KfgzCallGeneralService(CanonicalContent content,KfgzService 
     {
         if(!content.KfgzWorldCities.TryGetValue(cityId,out var city)||city.World!=world.WorldId)
             throw new GameException("KFGZ_CALL_GENERAL_CITY_INVALID","Call-general target must be a city in the active KFGZ world.",404);
-        if((world.Battles??[]).Any(x=>x.CityId==cityId&&x.State==1))
-            throw new GameException("KFGZ_CALL_GENERAL_TARGET_FIGHTING","Call-general cannot target a city with an active KFGZ battle until multi-player reinforcement is ported.",409);
     }
 }
