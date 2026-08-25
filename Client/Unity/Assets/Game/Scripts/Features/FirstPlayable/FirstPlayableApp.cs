@@ -50,6 +50,7 @@ namespace CTXD.Client.Features.FirstPlayable
                     _ = RefreshFromPush();
                 }
                 if (message.Contains("\"type\":\"world.updated\"")) WorldPanel.RefreshOpenFromPush();
+                if (message.Contains("\"type\":\"auto-battle.updated\"")) AutoBattlePanel.RefreshOpenFromPush();
                 if (message.Contains("\"type\":\"battle.updated\"")) BattlePanel.RefreshOpenFromPush();
                 if (message.Contains("\"type\":\"chat.message\"")) ChatPanel.RefreshOpenFromPush();
             }
