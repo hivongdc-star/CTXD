@@ -23,6 +23,13 @@ public static class KfgzExtendedCombatEndpoints
             return Results.Ok(await mubing.StartAsync(id,generalId,ct));
         });
 
+        app.MapPost("/api/kfgz/generals/{generalId:int}/fast-recruit",async(int generalId,HttpRequest request,AuthService auth,GameDb db,CanonicalContent content,ResourceProductionService production,TechnologyEffectService technologies,DstqActivityService dstq,GamePushHub push,CancellationToken ct)=>
+        {
+            var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
+            var fast=new KfgzFastRecruitService(db,content,production,technologies,dstq,push);
+            return Results.Ok(await fast.FastRecruitAsync(id,generalId,ct));
+        });
+
         app.MapPost("/api/battles/{battleId:long}/phantom",async(long battleId,KfgzPhantomRequest body,HttpRequest request,AuthService auth,KfgzExtendedCombatService combat,CancellationToken ct)=>
         {
             var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
