@@ -106,7 +106,7 @@ SELECT player_id,array_agg(general_id ORDER BY general_id)
 FROM kfgz_deployments
 WHERE round_id=$1 AND city_id=$2 AND state=1 AND player_id<>$3
   AND player_id IN(SELECT player_id FROM kfgz_signups WHERE season_id=$4 AND force_id=$5)
-GROUP BY player_id ORDER BY player_id LIMIT 1 FOR UPDATE",c,t))
+GROUP BY player_id ORDER BY player_id LIMIT 1",c,t))
             {
                 defenders.Parameters.AddWithValue(roundId);defenders.Parameters.AddWithValue(request.CityId);defenders.Parameters.AddWithValue(playerId);defenders.Parameters.AddWithValue(seasonId);defenders.Parameters.AddWithValue(enemyForce);
                 await using var r=await defenders.ExecuteReaderAsync(ct);
