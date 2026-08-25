@@ -129,7 +129,7 @@ FOR UPDATE OF d,pg",c,t))
     }
 
     static async Task StopAsync(NpgsqlConnection c,NpgsqlTransaction t,long round,long player,int general,CancellationToken ct)
-    {await using var q=new NpgsqlCommand("UPDATE kfgz_deployments SET mubing_active=false,updated_at=now() WHERE round_id=$1 AND player_id=$2 AND general_id=$3",c,t);q.Parameters.AddWithValue(round);q.Parameters.AddWithValue(player);q.Parameters.AddWithValue(general);await q.ExecuteNonQueryAsync(ct);}
+    {await using var q=new NpgsqlCommand("UPDATE kfgz_deployments SET mubing_active=false,mubing_updated_at=NULL,updated_at=now() WHERE round_id=$1 AND player_id=$2 AND general_id=$3",c,t);q.Parameters.AddWithValue(round);q.Parameters.AddWithValue(player);q.Parameters.AddWithValue(general);await q.ExecuteNonQueryAsync(ct);}
 }
 
 internal static class KfgzResourceLedger
@@ -138,7 +138,7 @@ internal static class KfgzResourceLedger
     {
         await using(var ensure=new NpgsqlCommand("INSERT INTO player_battle_resources(player_id) VALUES($1) ON CONFLICT(player_id) DO NOTHING",c,t)){ensure.Parameters.AddWithValue(playerId);await ensure.ExecuteNonQueryAsync(ct);}
         long gold,copper,wood,food,iron;int recruit,phantom;
-        await using(var q=new NpgsqlCommand("SELECT p.sys_gold,r.copper,r.wood,r.food,r.iron,b.recruit_token,b.phantom_count FROM players p JOIN player_resources r ON r.player_id=p.id JOIN player_battle_resources b ON b.player_id=p.id WHERE p.id=$1",c,t))
+        await using(var q=new NpgsqlCommand("SELECT p.user_gold+p.sys_gold,r.copper,r.wood,r.food,r.iron,b.recruit_token,b.phantom_count FROM players p JOIN player_resources r ON r.player_id=p.id JOIN player_battle_resources b ON b.player_id=p.id WHERE p.id=$1",c,t))
         {q.Parameters.AddWithValue(playerId);await using var r=await q.ExecuteReaderAsync(ct);if(!await r.ReadAsync(ct))throw new GameException("PLAYER_NOT_FOUND","Player resources do not exist.",404);gold=Convert.ToInt64(r.GetValue(0));copper=Convert.ToInt64(r.GetValue(1));wood=Convert.ToInt64(r.GetValue(2));food=Convert.ToInt64(r.GetValue(3));iron=Convert.ToInt64(r.GetValue(4));recruit=Convert.ToInt32(r.GetValue(5));phantom=Convert.ToInt32(r.GetValue(6));}
         var perBuilding=await production.GetPerBuildingBaseOutputAsync(c,t,playerId,ct);var mubing=0;
         foreach(var pair in perBuilding)if(content.Buildings.TryGetValue(pair.Key,out var b)&&b.OutputType==5)mubing+=pair.Value;
