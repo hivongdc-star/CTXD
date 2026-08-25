@@ -9,6 +9,8 @@ namespace CTXD.Client.Networking
     [Serializable] public class KfgzPhantomResult { public long battleId; public long phantomUnitId; public int generalId; public bool usedFree; public int goldCost; public int phantomCount; }
     [Serializable] public class KfgzRushRequest { public int[] generalIds; public int cityId; }
     [Serializable] public class KfgzRushResult { public long sourceBattleId; public int targetCityId; public long targetBattleId; public int[] generalIds; public bool captured; }
+    [Serializable] public class KfgzReinforcementRequest { public int[] generalIds; }
+    [Serializable] public class KfgzReinforcementResult { public long battleId; public int cityId; public int side; public int[] generalIds; }
     [Serializable] public class KfgzCallGeneralRequest { public int[] generalIds; }
     [Serializable] public class KfgzCallGeneralInfo { public int cityId; public int[] generalIds; }
     [Serializable] public class KfgzCallGeneralFailure { public int generalId; public string code; public string message; }
