@@ -76,6 +76,16 @@ public sealed class KfgzExtendedCombatService(
         if(status!=0)throw new GameException("BATTLE_ENDED","Battle has ended.",409);
         if(battleType is not(3 or 14 or 18))throw new GameException("PHANTOM_BATTLE_TYPE_INVALID","Legacy phantom is only available in battle types 3, 14 and 18.",409);
 
+        long? kfgzSeasonId=null;
+        if(battleType==18)
+        {
+            await using var kfgz=new NpgsqlCommand("SELECT r.season_id FROM kfgz_battles kb JOIN kfgz_rounds r ON r.id=kb.round_id WHERE kb.battle_id=$1 AND kb.state=1 LIMIT 1",c,t);
+            kfgz.Parameters.AddWithValue(battleId);
+            var value=await kfgz.ExecuteScalarAsync(ct);
+            if(value is not null)kfgzSeasonId=Convert.ToInt64(value);
+            if(kfgzSeasonId.HasValue)await KfgzResourceLedger.RefreshSnapshotAsync(c,t,content,production,playerId,kfgzSeasonId.Value,ct);
+        }
+
         var candidates=new List<(long id,int side,int general,int level)>();
         await using(var q=new NpgsqlCommand("SELECT id,side,general_id,level FROM battle_units WHERE battle_id=$1 AND player_id=$2 AND hp>0 AND detached=false AND is_phantom=false ORDER BY level DESC,sequence",c,t))
         {
@@ -107,6 +117,7 @@ public sealed class KfgzExtendedCombatService(
         {
             await using var use=new NpgsqlCommand("UPDATE player_battle_resources SET phantom_count=phantom_count-1,updated_at=now() WHERE player_id=$1",c,t);
             use.Parameters.AddWithValue(playerId);await use.ExecuteNonQueryAsync(ct);free--;
+            if(kfgzSeasonId.HasValue)await KfgzResourceLedger.RecordDeltaAsync(c,t,kfgzSeasonId.Value,playerId,"phantomCount",-1,"kfgz.phantom",source.general,ct);
         }
         else
         {
@@ -116,6 +127,7 @@ public sealed class KfgzExtendedCombatService(
             await using(var pay=new NpgsqlCommand("UPDATE players SET user_gold=user_gold-$2,sys_gold=sys_gold-$3,updated_at=now() WHERE id=$1",c,t))
             {pay.Parameters.AddWithValue(playerId);pay.Parameters.AddWithValue(useUser);pay.Parameters.AddWithValue(useSys);await pay.ExecuteNonQueryAsync(ct);}
             await dstq.RecordGoldSpendAsync(c,t,playerId,goldCost,ct);
+            if(kfgzSeasonId.HasValue)await KfgzResourceLedger.RecordDeltaAsync(c,t,kfgzSeasonId.Value,playerId,"gold",-goldCost,"kfgz.phantom",source.general,ct);
             var exp=await technologies.GetCompletedIntEffectAsync(playerId,49,0,ct,c,t);
             if(exp>0)await experience.AddAsync(c,t,playerId,exp,ct);
         }
