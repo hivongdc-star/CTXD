@@ -16,6 +16,7 @@ namespace CTXD.Client.Networking
         public Task<KfgzFastRecruitResult> FastRecruitAsync(int generalId) => SendAsync<KfgzFastRecruitResult>("POST", "/api/kfgz/generals/" + generalId + "/fast-recruit", null);
         public Task<KfgzCallGeneralInfo> GetCallGeneralsAsync(int cityId) => SendAsync<KfgzCallGeneralInfo>("GET", "/api/kfgz/world/" + cityId + "/call-generals", null);
         public Task<KfgzCallGeneralResult> CallGeneralsAsync(int cityId, int[] generalIds) => SendAsync<KfgzCallGeneralResult>("POST", "/api/kfgz/world/" + cityId + "/call-generals", new KfgzCallGeneralRequest { generalIds = generalIds });
+        public Task<KfgzReinforcementResult> ReinforceAsync(long battleId, int[] generalIds) => SendAsync<KfgzReinforcementResult>("POST", "/api/kfgz/battles/" + battleId + "/reinforce", new KfgzReinforcementRequest { generalIds = generalIds });
         public Task<KfgzPhantomResult> CreatePhantomAsync(long battleId) => SendAsync<KfgzPhantomResult>("POST", "/api/battles/" + battleId + "/phantom", new KfgzPhantomRequest { requestKey = Guid.NewGuid().ToString() });
         public Task<KfgzRushResult> RushAsync(long battleId, int[] generalIds, int cityId) => SendAsync<KfgzRushResult>("POST", "/api/battles/" + battleId + "/rush", new KfgzRushRequest { generalIds = generalIds, cityId = cityId });
 
