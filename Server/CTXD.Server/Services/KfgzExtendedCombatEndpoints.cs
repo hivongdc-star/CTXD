@@ -10,6 +10,7 @@ public static class KfgzExtendedCombatEndpoints
         AutoBattleWorker.Start(app.ServiceProvider);
         app.MapRankEndpoints();
         app.MapAutoBattleEndpoints();
+        app.MapFarmEndpoints();
 
         app.MapGet("/api/kfgz/resources",async(HttpRequest request,AuthService auth,KfgzExtendedCombatService combat,GameDb db,CanonicalContent content,ResourceProductionService production,TechnologyEffectService technologies,GamePushHub push,CancellationToken ct)=>
         {
