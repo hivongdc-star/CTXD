@@ -57,11 +57,11 @@ public sealed class KfgzExtendedCombatService(
             await using var r=await old.ExecuteReaderAsync(ct);
             if(await r.ReadAsync(ct))
             {
-                var phantomUnit=r.GetInt64(0);var sourceUnit=r.GetInt64(1);var usedFree=r.GetBoolean(2);var goldCost=r.GetInt32(3);
-                int generalId;await using(var source=new NpgsqlCommand("SELECT general_id FROM battle_units WHERE id=$1",c,t)){source.Parameters.AddWithValue(sourceUnit);generalId=Convert.ToInt32(await source.ExecuteScalarAsync(ct));}
+                var phantomUnit=r.GetInt64(0);var sourceUnit=r.GetInt64(1);var existingUsedFree=r.GetBoolean(2);var existingGoldCost=r.GetInt32(3);
+                int generalId;await using(var sourceCmd=new NpgsqlCommand("SELECT general_id FROM battle_units WHERE id=$1",c,t)){sourceCmd.Parameters.AddWithValue(sourceUnit);generalId=Convert.ToInt32(await sourceCmd.ExecuteScalarAsync(ct));}
                 int remaining;await using(var resource=new NpgsqlCommand("SELECT phantom_count FROM player_battle_resources WHERE player_id=$1",c,t)){resource.Parameters.AddWithValue(playerId);remaining=Convert.ToInt32(await resource.ExecuteScalarAsync(ct));}
                 await t.CommitAsync(ct);
-                return new(battleId,phantomUnit,generalId,usedFree,goldCost,remaining);
+                return new(battleId,phantomUnit,generalId,existingUsedFree,existingGoldCost,remaining);
             }
         }
 
