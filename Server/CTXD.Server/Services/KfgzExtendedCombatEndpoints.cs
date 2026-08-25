@@ -15,6 +15,12 @@ public static class KfgzExtendedCombatEndpoints
             var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
             return Results.Ok(await combat.CreatePhantomAsync(id,battleId,body,ct));
         });
+
+        app.MapPost("/api/battles/{battleId:long}/rush",async(long battleId,KfgzRushRequest body,HttpRequest request,AuthService auth,KfgzRushService rush,CancellationToken ct)=>
+        {
+            var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
+            return Results.Ok(await rush.RushAsync(id,battleId,body,ct));
+        });
         return app;
     }
 
