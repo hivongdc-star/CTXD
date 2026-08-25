@@ -25,6 +25,7 @@ namespace CTXD.Client.Features.World
         readonly HashSet<int> _selectedGenerals = new HashSet<int>();
         int _cityId;
         bool _busy;
+        float _nextRefresh;
 
         public static KfgzPanel Open(RectTransform host, ApiClient api, Action<string> status)
         {
@@ -43,6 +44,13 @@ namespace CTXD.Client.Features.World
 
         public static void RefreshOpenFromPush() { if (_open != null && !_open._busy) _ = _open.RefreshAsync(); }
         void OnDestroy() { if (_open == this) _open = null; }
+
+        void Update()
+        {
+            if (_busy || _api == null || string.IsNullOrEmpty(_api.Token) || Time.unscaledTime < _nextRefresh) return;
+            _nextRefresh = Time.unscaledTime + 10f;
+            _ = RefreshAsync();
+        }
 
         void Build()
         {
@@ -72,6 +80,7 @@ namespace CTXD.Client.Features.World
                         _cityId = own != null ? own.cityId : (_war.cities ?? Array.Empty<KfgzCityView>()).FirstOrDefault()?.id ?? 0;
                     }
                 }
+                _nextRefresh = Time.unscaledTime + 10f;
                 Draw();
             }
             catch (Exception ex)
@@ -139,7 +148,8 @@ namespace CTXD.Client.Features.World
                 var city = cities[i];
                 var mark = city.id == _cityId ? "▶ " : "";
                 var owner = city.ownerSide == 1 ? "P1" : city.ownerSide == 2 ? "P2" : "--";
-                LegacyUiFactory.PixelButton(_window, mark + city.name + " #" + city.id + "  " + owner,
+                var fighting = (_war.battles ?? Array.Empty<KfgzBattleView>()).Any(x => x.cityId == city.id && x.state == 1) ? " ⚔" : "";
+                LegacyUiFactory.PixelButton(_window, mark + city.name + " #" + city.id + "  " + owner + fighting,
                     370, 145 + i * 36, 380, 29, () => { _cityId = city.id; Draw(); });
             }
         }
@@ -214,7 +224,23 @@ namespace CTXD.Client.Features.World
         async void MoveSelected()
         {
             if (_busy) return; _busy = true;
-            try { var general = RequireSingle(); var city = RequireCity(); _war = await _api.MoveKfgzGeneralAsync(general, city); _status("Đã điều tướng trong KFGZ."); await RefreshAsync(); }
+            try
+            {
+                var general = RequireSingle();
+                var city = RequireCity();
+                var targetBattle = (_war?.battles ?? Array.Empty<KfgzBattleView>()).FirstOrDefault(x => x.cityId == city && x.state == 1);
+                if (targetBattle != null)
+                {
+                    var result = await _ext.ReinforceAsync(targetBattle.battleId, new[] { general });
+                    _status("Đã gia nhập battle #" + result.battleId + " ở side " + result.side + ".");
+                }
+                else
+                {
+                    _war = await _api.MoveKfgzGeneralAsync(general, city);
+                    _status("Đã điều tướng trong KFGZ.");
+                }
+                await RefreshAsync();
+            }
             catch (Exception ex) { _status(ex.Message); }
             finally { _busy = false; }
         }
