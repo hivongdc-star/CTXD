@@ -101,16 +101,32 @@ FROM battle_units WHERE battle_id=$1",c,t))
             if(ownerSide==side)throw new GameException("KFGZ_RUSH_OWN_CITY","Legacy rush cannot enter an unopposed city already owned by the player's side.",409);
 
             var enemyForce=side==1?force2:force1;
-            await using(var defenders=new NpgsqlCommand(@"
-SELECT player_id,array_agg(general_id ORDER BY general_id)
-FROM kfgz_deployments
-WHERE round_id=$1 AND city_id=$2 AND state=1 AND player_id<>$3
-  AND player_id IN(SELECT player_id FROM kfgz_signups WHERE season_id=$4 AND force_id=$5)
-GROUP BY player_id ORDER BY player_id LIMIT 1",c,t))
+            await using(var defenderOwner=new NpgsqlCommand(@"
+SELECT d.player_id
+FROM kfgz_deployments d
+WHERE d.round_id=$1 AND d.city_id=$2 AND d.state=1 AND d.player_id<>$3
+  AND d.player_id IN(SELECT player_id FROM kfgz_signups WHERE season_id=$4 AND force_id=$5)
+GROUP BY d.player_id ORDER BY d.player_id LIMIT 1",c,t))
             {
-                defenders.Parameters.AddWithValue(roundId);defenders.Parameters.AddWithValue(request.CityId);defenders.Parameters.AddWithValue(playerId);defenders.Parameters.AddWithValue(seasonId);defenders.Parameters.AddWithValue(enemyForce);
-                await using var r=await defenders.ExecuteReaderAsync(ct);
-                if(await r.ReadAsync(ct)){defenderPlayer=r.GetInt64(0);defenderGenerals=r.GetFieldValue<int[]>(1);}
+                defenderOwner.Parameters.AddWithValue(roundId);defenderOwner.Parameters.AddWithValue(request.CityId);defenderOwner.Parameters.AddWithValue(playerId);defenderOwner.Parameters.AddWithValue(seasonId);defenderOwner.Parameters.AddWithValue(enemyForce);
+                defenderPlayer=Convert.ToInt64(await defenderOwner.ExecuteScalarAsync(ct)??0L);
+            }
+            if(defenderPlayer!=0)
+            {
+                var locked=new List<int>();
+                await using(var defenders=new NpgsqlCommand(@"
+SELECT general_id
+FROM kfgz_deployments
+WHERE round_id=$1 AND city_id=$2 AND state=1 AND player_id=$3
+ORDER BY general_id
+FOR UPDATE",c,t))
+                {
+                    defenders.Parameters.AddWithValue(roundId);defenders.Parameters.AddWithValue(request.CityId);defenders.Parameters.AddWithValue(defenderPlayer);
+                    await using var r=await defenders.ExecuteReaderAsync(ct);
+                    while(await r.ReadAsync(ct))locked.Add(r.GetInt32(0));
+                }
+                defenderGenerals=locked.ToArray();
+                if(defenderGenerals.Length==0)defenderPlayer=0;
             }
 
             await using(var detach=new NpgsqlCommand("UPDATE battle_units SET detached=true WHERE id=ANY($1)",c,t))
@@ -147,8 +163,8 @@ RETURNING id",c,t))
                 await using(var match=new NpgsqlCommand("INSERT INTO kfgz_battles(round_id,city_id,attacker_player_id,defender_player_id,attacker_side,defender_side,battle_id) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING id",c,t))
                 {match.Parameters.AddWithValue(roundId);match.Parameters.AddWithValue(request.CityId);match.Parameters.AddWithValue(playerId);match.Parameters.AddWithValue(defenderPlayer);match.Parameters.AddWithValue(side);match.Parameters.AddWithValue(side==1?2:1);match.Parameters.AddWithValue(targetBattleId.Value);matchId=Convert.ToInt64(await match.ExecuteScalarAsync(ct));}
                 await using(var deploy=new NpgsqlCommand(@"
-UPDATE kfgz_deployments SET city_id=$4,state=3,battle_id=$5,updated_at=now() WHERE round_id=$1 AND player_id=$2 AND general_id=ANY($3);
-UPDATE kfgz_deployments SET state=3,battle_id=$5,updated_at=now() WHERE round_id=$1 AND player_id=$6 AND general_id=ANY($7);
+UPDATE kfgz_deployments SET city_id=$4,state=3,battle_id=$5,mubing_active=false,mubing_updated_at=NULL,updated_at=now() WHERE round_id=$1 AND player_id=$2 AND general_id=ANY($3);
+UPDATE kfgz_deployments SET state=3,battle_id=$5,mubing_active=false,mubing_updated_at=NULL,updated_at=now() WHERE round_id=$1 AND player_id=$6 AND general_id=ANY($7);
 UPDATE player_generals SET state=3,updated_at=now() WHERE (player_id=$2 AND general_id=ANY($3)) OR (player_id=$6 AND general_id=ANY($7));",c,t))
                 {deploy.Parameters.AddWithValue(roundId);deploy.Parameters.AddWithValue(playerId);deploy.Parameters.AddWithValue(generalIds);deploy.Parameters.AddWithValue(request.CityId);deploy.Parameters.AddWithValue(targetBattleId.Value);deploy.Parameters.AddWithValue(defenderPlayer);deploy.Parameters.AddWithValue(defenderGenerals);await deploy.ExecuteNonQueryAsync(ct);}
                 await push.SendAsync(defenderPlayer,"kfgz.battle",new{matchId,battleId=targetBattleId.Value,cityId=request.CityId,opponent=playerId,rush=true},ct);
