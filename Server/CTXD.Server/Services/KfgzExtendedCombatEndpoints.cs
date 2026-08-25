@@ -30,6 +30,20 @@ public static class KfgzExtendedCombatEndpoints
             return Results.Ok(await fast.FastRecruitAsync(id,generalId,ct));
         });
 
+        app.MapGet("/api/kfgz/world/{cityId:int}/call-generals",async(int cityId,HttpRequest request,AuthService auth,CanonicalContent content,KfgzService kfgz,CancellationToken ct)=>
+        {
+            var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
+            var call=new KfgzCallGeneralService(content,kfgz);
+            return Results.Ok(await call.InfoAsync(id,cityId,ct));
+        });
+
+        app.MapPost("/api/kfgz/world/{cityId:int}/call-generals",async(int cityId,KfgzCallGeneralRequest body,HttpRequest request,AuthService auth,CanonicalContent content,KfgzService kfgz,CancellationToken ct)=>
+        {
+            var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
+            var call=new KfgzCallGeneralService(content,kfgz);
+            return Results.Ok(await call.CallAsync(id,cityId,body,ct));
+        });
+
         app.MapPost("/api/battles/{battleId:long}/phantom",async(long battleId,KfgzPhantomRequest body,HttpRequest request,AuthService auth,KfgzExtendedCombatService combat,CancellationToken ct)=>
         {
             var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
