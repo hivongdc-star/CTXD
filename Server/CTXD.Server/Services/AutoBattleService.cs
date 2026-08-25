@@ -20,6 +20,7 @@ public sealed class AutoBattleService(
     static readonly TimeSpan DurationLimit=TimeSpan.FromMinutes(30);
     static readonly TimeSpan CheckInterval=TimeSpan.FromSeconds(10);
     readonly WorldBattleReinforcementService reinforcement=new(db,content,technologies,battles);
+    readonly RecruitRecoveryService recruitRecovery=new(db,content,technologies,production);
 
     sealed record Row(
         long PlayerId,int ForceId,int TargetCityId,int State,int AutoType,long Exp,long Lost,int Result,
@@ -190,9 +191,15 @@ LIMIT 200",c);
         var generals=await MilitaryGeneralsAsync(playerId,ct);
         foreach(var g in generals)
         {
-            if(g.Forces<=0||g.State is 6 or 24 or 25 or 26 or 27 or 28||g.State>1)continue;
+            if(g.State is 6 or 24 or 25 or 26 or 27 or 28||g.State>1)continue;
             try
             {
+                // Legacy AutoBattleService calls GeneralService.cdRecoverConfirm(...,1) first and
+                // only assembles the general after forces reach max HP. Token/food shortage leaves
+                // that general idle for the next daemon cycle while other full generals continue.
+                var recovery=await recruitRecovery.RecoverWithTokensAsync(playerId,g.GeneralId,ct);
+                if(!recovery.Full)continue;
+
                 if(active is not null)
                 {
                     if(!participant)
