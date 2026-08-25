@@ -30,18 +30,27 @@ public static class KfgzExtendedCombatEndpoints
             return Results.Ok(await fast.FastRecruitAsync(id,generalId,ct));
         });
 
-        app.MapGet("/api/kfgz/world/{cityId:int}/call-generals",async(int cityId,HttpRequest request,AuthService auth,CanonicalContent content,KfgzService kfgz,CancellationToken ct)=>
+        app.MapGet("/api/kfgz/world/{cityId:int}/call-generals",async(int cityId,HttpRequest request,AuthService auth,CanonicalContent content,KfgzService kfgz,GameDb db,TechnologyEffectService technologies,BattleService battles,GamePushHub push,CancellationToken ct)=>
         {
             var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
-            var call=new KfgzCallGeneralService(content,kfgz);
+            var reinforcement=new KfgzReinforcementService(db,content,technologies,battles,push);
+            var call=new KfgzCallGeneralService(content,kfgz,reinforcement);
             return Results.Ok(await call.InfoAsync(id,cityId,ct));
         });
 
-        app.MapPost("/api/kfgz/world/{cityId:int}/call-generals",async(int cityId,KfgzCallGeneralRequest body,HttpRequest request,AuthService auth,CanonicalContent content,KfgzService kfgz,CancellationToken ct)=>
+        app.MapPost("/api/kfgz/world/{cityId:int}/call-generals",async(int cityId,KfgzCallGeneralRequest body,HttpRequest request,AuthService auth,CanonicalContent content,KfgzService kfgz,GameDb db,TechnologyEffectService technologies,BattleService battles,GamePushHub push,CancellationToken ct)=>
         {
             var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
-            var call=new KfgzCallGeneralService(content,kfgz);
+            var reinforcement=new KfgzReinforcementService(db,content,technologies,battles,push);
+            var call=new KfgzCallGeneralService(content,kfgz,reinforcement);
             return Results.Ok(await call.CallAsync(id,cityId,body,ct));
+        });
+
+        app.MapPost("/api/kfgz/battles/{battleId:long}/reinforce",async(long battleId,KfgzReinforcementRequest body,HttpRequest request,AuthService auth,GameDb db,CanonicalContent content,TechnologyEffectService technologies,BattleService battles,GamePushHub push,CancellationToken ct)=>
+        {
+            var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
+            var reinforcement=new KfgzReinforcementService(db,content,technologies,battles,push);
+            return Results.Ok(await reinforcement.ReinforceAsync(id,battleId,body,ct));
         });
 
         app.MapPost("/api/battles/{battleId:long}/phantom",async(long battleId,KfgzPhantomRequest body,HttpRequest request,AuthService auth,KfgzExtendedCombatService combat,CancellationToken ct)=>
