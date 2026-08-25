@@ -7,6 +7,7 @@ public static class KfgzExtendedCombatEndpoints
     public static IEndpointRouteBuilder MapKfgzExtendedCombat(this IEndpointRouteBuilder app)
     {
         KfgzMubingWorker.Start(app.ServiceProvider);
+        app.MapRankEndpoints();
 
         app.MapGet("/api/kfgz/resources",async(HttpRequest request,AuthService auth,KfgzExtendedCombatService combat,GameDb db,CanonicalContent content,ResourceProductionService production,TechnologyEffectService technologies,GamePushHub push,CancellationToken ct)=>
         {
