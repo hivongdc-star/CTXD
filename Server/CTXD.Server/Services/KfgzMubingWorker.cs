@@ -31,14 +31,23 @@ internal static class KfgzMubingWorker
                 await Task.Delay(TimeSpan.FromSeconds(10),ct);
                 var players=new List<long>();
                 await using(var c=await db.DataSource.OpenConnectionAsync(ct))
-                await using(var q=new NpgsqlCommand(@"
+                {
+                    await using(var stopBusy=new NpgsqlCommand(@"
+UPDATE kfgz_deployments d
+SET mubing_active=false,mubing_updated_at=NULL,updated_at=now()
+FROM kfgz_rounds r
+WHERE r.id=d.round_id AND r.state=1 AND d.mubing_active=true AND d.state<>1",c))
+                        await stopBusy.ExecuteNonQueryAsync(ct);
+
+                    await using var q=new NpgsqlCommand(@"
 SELECT DISTINCT d.player_id
 FROM kfgz_deployments d
 JOIN kfgz_rounds r ON r.id=d.round_id
-WHERE r.state=1 AND d.mubing_active=true
-ORDER BY d.player_id",c))
-                await using(var r=await q.ExecuteReaderAsync(ct))
+WHERE r.state=1 AND d.state=1 AND d.mubing_active=true
+ORDER BY d.player_id",c);
+                    await using var r=await q.ExecuteReaderAsync(ct);
                     while(await r.ReadAsync(ct))players.Add(r.GetInt64(0));
+                }
                 foreach(var player in players)
                 {
                     try{await mubing.TickPlayerAsync(player,ct);}
