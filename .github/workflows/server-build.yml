@@ -15,9 +15,43 @@ on:
 jobs:
   build-server:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: ctxd
+          POSTGRES_USER: ctxd
+          POSTGRES_PASSWORD: ctxd_dev
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ctxd -d ctxd"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
       - run: dotnet build Server/CTXD.Server/CTXD.Server.csproj --configuration Release --nologo
+      - name: Apply migrations and start server
+        run: |
+          dotnet run --project Server/CTXD.Server/CTXD.Server.csproj --configuration Release --no-build > server.log 2>&1 &
+          echo $! > server.pid
+          for i in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:5080/health > health.json; then
+              cat health.json
+              exit 0
+            fi
+            if ! kill -0 "$(cat server.pid)" 2>/dev/null; then
+              cat server.log
+              exit 1
+            fi
+            sleep 1
+          done
+          cat server.log
+          exit 1
+      - name: Show server log on failure
+        if: failure()
+        run: cat server.log || true
