@@ -1,0 +1,450 @@
+[
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "1",
+        "city_num":  "0",
+        "period":  "1",
+        "reward_exp":  "0",
+        "id":  "1"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "1",
+        "city_num":  "1",
+        "period":  "1",
+        "reward_exp":  "10000",
+        "id":  "2"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "1",
+        "city_num":  "2",
+        "period":  "1",
+        "reward_exp":  "20000",
+        "id":  "3"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "1",
+        "city_num":  "3",
+        "period":  "1",
+        "reward_exp":  "30000",
+        "id":  "4"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "1",
+        "city_num":  "0",
+        "period":  "2",
+        "reward_exp":  "24000",
+        "id":  "5"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "1",
+        "city_num":  "1",
+        "period":  "2",
+        "reward_exp":  "30000",
+        "id":  "6"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "1",
+        "city_num":  "2",
+        "period":  "2",
+        "reward_exp":  "36000",
+        "id":  "7"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "1",
+        "city_num":  "3",
+        "period":  "2",
+        "reward_exp":  "42000",
+        "id":  "8"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "2",
+        "city_num":  "0",
+        "period":  "1",
+        "reward_exp":  "0",
+        "id":  "9"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "2",
+        "city_num":  "1",
+        "period":  "1",
+        "reward_exp":  "20000",
+        "id":  "10"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "2",
+        "city_num":  "2",
+        "period":  "1",
+        "reward_exp":  "40000",
+        "id":  "11"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "2",
+        "city_num":  "3",
+        "period":  "1",
+        "reward_exp":  "60000",
+        "id":  "12"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "2",
+        "city_num":  "0",
+        "period":  "2",
+        "reward_exp":  "48000",
+        "id":  "13"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "2",
+        "city_num":  "1",
+        "period":  "2",
+        "reward_exp":  "60000",
+        "id":  "14"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "2",
+        "city_num":  "2",
+        "period":  "2",
+        "reward_exp":  "72000",
+        "id":  "15"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "2",
+        "city_num":  "3",
+        "period":  "2",
+        "reward_exp":  "84000",
+        "id":  "16"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "3",
+        "city_num":  "0",
+        "period":  "1",
+        "reward_exp":  "0",
+        "id":  "17"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "3",
+        "city_num":  "1",
+        "period":  "1",
+        "reward_exp":  "30000",
+        "id":  "18"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "3",
+        "city_num":  "2",
+        "period":  "1",
+        "reward_exp":  "60000",
+        "id":  "19"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "3",
+        "city_num":  "3",
+        "period":  "1",
+        "reward_exp":  "90000",
+        "id":  "20"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "3",
+        "city_num":  "0",
+        "period":  "2",
+        "reward_exp":  "72000",
+        "id":  "21"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "3",
+        "city_num":  "1",
+        "period":  "2",
+        "reward_exp":  "90000",
+        "id":  "22"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "3",
+        "city_num":  "2",
+        "period":  "2",
+        "reward_exp":  "108000",
+        "id":  "23"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "3",
+        "city_num":  "3",
+        "period":  "2",
+        "reward_exp":  "126000",
+        "id":  "24"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "4",
+        "city_num":  "0",
+        "period":  "1",
+        "reward_exp":  "0",
+        "id":  "25"
+    },
+    {
+        "reward_iron":  "4000",
+        "kindom_lv":  "4",
+        "city_num":  "1",
+        "period":  "1",
+        "reward_exp":  "40000",
+        "id":  "26"
+    },
+    {
+        "reward_iron":  "8000",
+        "kindom_lv":  "4",
+        "city_num":  "2",
+        "period":  "1",
+        "reward_exp":  "80000",
+        "id":  "27"
+    },
+    {
+        "reward_iron":  "12000",
+        "kindom_lv":  "4",
+        "city_num":  "3",
+        "period":  "1",
+        "reward_exp":  "120000",
+        "id":  "28"
+    },
+    {
+        "reward_iron":  "9600",
+        "kindom_lv":  "4",
+        "city_num":  "0",
+        "period":  "2",
+        "reward_exp":  "96000",
+        "id":  "29"
+    },
+    {
+        "reward_iron":  "12000",
+        "kindom_lv":  "4",
+        "city_num":  "1",
+        "period":  "2",
+        "reward_exp":  "120000",
+        "id":  "30"
+    },
+    {
+        "reward_iron":  "14400",
+        "kindom_lv":  "4",
+        "city_num":  "2",
+        "period":  "2",
+        "reward_exp":  "144000",
+        "id":  "31"
+    },
+    {
+        "reward_iron":  "16800",
+        "kindom_lv":  "4",
+        "city_num":  "3",
+        "period":  "2",
+        "reward_exp":  "168000",
+        "id":  "32"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "5",
+        "city_num":  "0",
+        "period":  "1",
+        "reward_exp":  "0",
+        "id":  "33"
+    },
+    {
+        "reward_iron":  "5000",
+        "kindom_lv":  "5",
+        "city_num":  "1",
+        "period":  "1",
+        "reward_exp":  "50000",
+        "id":  "34"
+    },
+    {
+        "reward_iron":  "10000",
+        "kindom_lv":  "5",
+        "city_num":  "2",
+        "period":  "1",
+        "reward_exp":  "100000",
+        "id":  "35"
+    },
+    {
+        "reward_iron":  "15000",
+        "kindom_lv":  "5",
+        "city_num":  "3",
+        "period":  "1",
+        "reward_exp":  "150000",
+        "id":  "36"
+    },
+    {
+        "reward_iron":  "12000",
+        "kindom_lv":  "5",
+        "city_num":  "0",
+        "period":  "2",
+        "reward_exp":  "120000",
+        "id":  "37"
+    },
+    {
+        "reward_iron":  "15000",
+        "kindom_lv":  "5",
+        "city_num":  "1",
+        "period":  "2",
+        "reward_exp":  "150000",
+        "id":  "38"
+    },
+    {
+        "reward_iron":  "18000",
+        "kindom_lv":  "5",
+        "city_num":  "2",
+        "period":  "2",
+        "reward_exp":  "180000",
+        "id":  "39"
+    },
+    {
+        "reward_iron":  "21000",
+        "kindom_lv":  "5",
+        "city_num":  "3",
+        "period":  "2",
+        "reward_exp":  "210000",
+        "id":  "40"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "6",
+        "city_num":  "0",
+        "period":  "1",
+        "reward_exp":  "0",
+        "id":  "41"
+    },
+    {
+        "reward_iron":  "7500",
+        "kindom_lv":  "6",
+        "city_num":  "1",
+        "period":  "1",
+        "reward_exp":  "75000",
+        "id":  "42"
+    },
+    {
+        "reward_iron":  "15000",
+        "kindom_lv":  "6",
+        "city_num":  "2",
+        "period":  "1",
+        "reward_exp":  "150000",
+        "id":  "43"
+    },
+    {
+        "reward_iron":  "22500",
+        "kindom_lv":  "6",
+        "city_num":  "3",
+        "period":  "1",
+        "reward_exp":  "225000",
+        "id":  "44"
+    },
+    {
+        "reward_iron":  "18000",
+        "kindom_lv":  "6",
+        "city_num":  "0",
+        "period":  "2",
+        "reward_exp":  "180000",
+        "id":  "45"
+    },
+    {
+        "reward_iron":  "22500",
+        "kindom_lv":  "6",
+        "city_num":  "1",
+        "period":  "2",
+        "reward_exp":  "225000",
+        "id":  "46"
+    },
+    {
+        "reward_iron":  "27000",
+        "kindom_lv":  "6",
+        "city_num":  "2",
+        "period":  "2",
+        "reward_exp":  "270000",
+        "id":  "47"
+    },
+    {
+        "reward_iron":  "31500",
+        "kindom_lv":  "6",
+        "city_num":  "3",
+        "period":  "2",
+        "reward_exp":  "315000",
+        "id":  "48"
+    },
+    {
+        "reward_iron":  "0",
+        "kindom_lv":  "7",
+        "city_num":  "0",
+        "period":  "1",
+        "reward_exp":  "0",
+        "id":  "49"
+    },
+    {
+        "reward_iron":  "10000",
+        "kindom_lv":  "7",
+        "city_num":  "1",
+        "period":  "1",
+        "reward_exp":  "100000",
+        "id":  "50"
+    },
+    {
+        "reward_iron":  "20000",
+        "kindom_lv":  "7",
+        "city_num":  "2",
+        "period":  "1",
+        "reward_exp":  "200000",
+        "id":  "51"
+    },
+    {
+        "reward_iron":  "30000",
+        "kindom_lv":  "7",
+        "city_num":  "3",
+        "period":  "1",
+        "reward_exp":  "300000",
+        "id":  "52"
+    },
+    {
+        "reward_iron":  "24000",
+        "kindom_lv":  "7",
+        "city_num":  "0",
+        "period":  "2",
+        "reward_exp":  "240000",
+        "id":  "53"
+    },
+    {
+        "reward_iron":  "30000",
+        "kindom_lv":  "7",
+        "city_num":  "1",
+        "period":  "2",
+        "reward_exp":  "300000",
+        "id":  "54"
+    },
+    {
+        "reward_iron":  "36000",
+        "kindom_lv":  "7",
+        "city_num":  "2",
+        "period":  "2",
+        "reward_exp":  "360000",
+        "id":  "55"
+    },
+    {
+        "reward_iron":  "42000",
+        "kindom_lv":  "7",
+        "city_num":  "3",
+        "period":  "2",
+        "reward_exp":  "420000",
+        "id":  "56"
+    }
+]

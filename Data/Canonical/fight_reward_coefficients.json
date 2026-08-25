@@ -1,0 +1,222 @@
+[
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Cá Nhân Phó Bản ",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "1",
+        "delta":  "1",
+        "id":  "1"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Đa Nhân Phó Bản ",
+        "m":  "0.12",
+        "intro":  "-",
+        "lv_coe":  "1",
+        "delta":  "1",
+        "id":  "2"
+    },
+    {
+        "c":  "0.38",
+        "e":  "0.38",
+        "name":  "Quốc Chiến （Thế Giới Chiến @Quốc Gia ）",
+        "m":  "0.165",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "3"
+    },
+    {
+        "c":  "0.15",
+        "e":  "0.15",
+        "name":  "Quan Chức Chiến （Bao Quát Quan Chức Phó Bản ）",
+        "m":  "0.05",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "4"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Tự Động Cá Nhân Phó Bản ",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "1",
+        "delta":  "1",
+        "id":  "5"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Cá Nhân Quáng Chiến （Bảo Thạch 、Thiết Quáng ）",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "6"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Đoàn Thể Quáng Chiến （Bảo Thạch 、Thiết Quáng ）",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "7"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Cá Nhân Quốc Gia Bài Vị Tái ",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "8"
+    },
+    {
+        "c":  "0",
+        "e":  "0",
+        "name":  "Khóa Phục Vũ Đấu Tái ",
+        "m":  "0",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "9"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Thế Giới Phó Bản （Thế Giới NPC）",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "10"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Tưởng Lệ Phó Bản (Armies_Reward)",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "1",
+        "delta":  "1",
+        "id":  "11"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Cá Nhân Ngạch Ngoại Phó Bản （Armies_Extra)",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "1",
+        "delta":  "1",
+        "id":  "12"
+    },
+    {
+        "c":  "0.38",
+        "e":  "0.38",
+        "name":  "Quốc Chiến Đan Khiêu ",
+        "m":  "0.165",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "13"
+    },
+    {
+        "c":  "0.32",
+        "e":  "0.32",
+        "name":  "Man Tộc Nhập Xâm ",
+        "m":  "0.13",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "14"
+    },
+    {
+        "c":  "0.32",
+        "e":  "0.32",
+        "name":  "Man Tộc Đan Khiêu ",
+        "m":  "0.13",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "15"
+    },
+    {
+        "c":  "0.4",
+        "e":  "0.4",
+        "name":  "Vũ Đấu Tích Phân Tái ",
+        "m":  "0.15",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "16"
+    },
+    {
+        "c":  "0.38",
+        "e":  "0.38",
+        "name":  "Thế Giới Sự Kiện BONUS",
+        "m":  "0.165",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "17"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Kịch Bản Chiến Đấu ",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "18"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Kịch Bản Đan Khiêu ",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "19"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Kịch Bản Sự Kiện ",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "20"
+    },
+    {
+        "c":  "0",
+        "e":  "0",
+        "name":  "Đan Nhân Kịch Bản Chiến Đấu ",
+        "m":  "0",
+        "intro":  "-",
+        "lv_coe":  "0",
+        "delta":  "1",
+        "id":  "21"
+    },
+    {
+        "c":  "0.26",
+        "e":  "0.26",
+        "name":  "Định Thì Đa Nhân Phó Bản ",
+        "m":  "0.1",
+        "intro":  "-",
+        "lv_coe":  "1",
+        "delta":  "1",
+        "id":  "333"
+    }
+]

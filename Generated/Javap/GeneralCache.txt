@@ -1,0 +1,687 @@
+Compiled from "GeneralCache.java"
+public class com.reign.gcld.sdata.cache.GeneralCache extends com.reign.framework.common.cache.AbstractCache<java.lang.Integer, com.reign.gcld.sdata.domain.General> {
+  private com.reign.framework.common.cache.SDataLoader dataLoader;
+    descriptor: Lcom/reign/framework/common/cache/SDataLoader;
+
+  private java.util.Map<java.lang.Integer, java.util.List<com.reign.gcld.sdata.domain.General>> qualityCivilGeneralMap;
+    descriptor: Ljava/util/Map;
+
+  private java.util.Map<java.lang.Integer, java.util.List<com.reign.gcld.sdata.domain.General>> qualityMilitaryGeneralMap;
+    descriptor: Ljava/util/Map;
+
+  private static java.util.List<java.lang.String> name;
+    descriptor: Ljava/util/List;
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #20                 // class java/util/ArrayList
+       3: dup
+       4: invokespecial #22                 // Method java/util/ArrayList."<init>":()V
+       7: putstatic     #25                 // Field name:Ljava/util/List;
+      10: return
+
+  public com.reign.gcld.sdata.cache.GeneralCache();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #29                 // Method com/reign/framework/common/cache/AbstractCache."<init>":()V
+       4: aload_0
+       5: new           #30                 // class java/util/HashMap
+       8: dup
+       9: invokespecial #32                 // Method java/util/HashMap."<init>":()V
+      12: putfield      #33                 // Field qualityCivilGeneralMap:Ljava/util/Map;
+      15: aload_0
+      16: new           #30                 // class java/util/HashMap
+      19: dup
+      20: invokespecial #32                 // Method java/util/HashMap."<init>":()V
+      23: putfield      #35                 // Field qualityMilitaryGeneralMap:Ljava/util/Map;
+      26: return
+
+  public static java.util.List<java.lang.String> getGeneralName();
+    descriptor: ()Ljava/util/List;
+    Code:
+       0: getstatic     #25                 // Field name:Ljava/util/List;
+       3: areturn
+
+  public java.util.List<com.reign.gcld.sdata.domain.General> getGeneralByQuality(int, int);
+    descriptor: (II)Ljava/util/List;
+    Code:
+       0: new           #20                 // class java/util/ArrayList
+       3: dup
+       4: invokespecial #22                 // Method java/util/ArrayList."<init>":()V
+       7: astore_3
+       8: iload_2
+       9: iconst_1
+      10: if_icmpne     33
+      13: aload_0
+      14: getfield      #33                 // Field qualityCivilGeneralMap:Ljava/util/Map;
+      17: iload_1
+      18: invokestatic  #45                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      21: invokeinterface #51,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      26: checkcast     #57                 // class java/util/List
+      29: astore_3
+      30: goto          55
+      33: iload_2
+      34: iconst_2
+      35: if_icmpne     55
+      38: aload_0
+      39: getfield      #35                 // Field qualityMilitaryGeneralMap:Ljava/util/Map;
+      42: iload_1
+      43: invokestatic  #45                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      46: invokeinterface #51,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      51: checkcast     #57                 // class java/util/List
+      54: astore_3
+      55: aload_3
+      56: areturn
+
+  public void afterPropertiesSet() throws java.lang.Exception;
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #70                 // Field dataLoader:Lcom/reign/framework/common/cache/SDataLoader;
+       4: ldc           #72                 // class com/reign/gcld/sdata/domain/General
+       6: invokevirtual #74                 // Method com/reign/framework/common/cache/SDataLoader.getModels:(Ljava/lang/Class;)Ljava/util/List;
+       9: astore_1
+      10: aload_0
+      11: getfield      #70                 // Field dataLoader:Lcom/reign/framework/common/cache/SDataLoader;
+      14: ldc           #80                 // class com/reign/gcld/sdata/domain/Troop
+      16: invokevirtual #74                 // Method com/reign/framework/common/cache/SDataLoader.getModels:(Ljava/lang/Class;)Ljava/util/List;
+      19: astore_2
+      20: new           #82                 // class java/util/HashSet
+      23: dup
+      24: invokespecial #84                 // Method java/util/HashSet."<init>":()V
+      27: astore_3
+      28: new           #82                 // class java/util/HashSet
+      31: dup
+      32: invokespecial #84                 // Method java/util/HashSet."<init>":()V
+      35: astore        4
+      37: aload_2
+      38: invokeinterface #85,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      43: astore        6
+      45: goto          85
+      48: aload         6
+      50: invokeinterface #89,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      55: checkcast     #80                 // class com/reign/gcld/sdata/domain/Troop
+      58: astore        5
+      60: aload_3
+      61: aload         5
+      63: invokevirtual #95                 // Method com/reign/gcld/sdata/domain/Troop.getType:()Ljava/lang/Integer;
+      66: invokeinterface #99,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+      71: pop
+      72: aload         4
+      74: aload         5
+      76: invokevirtual #105                // Method com/reign/gcld/sdata/domain/Troop.getId:()Ljava/lang/Integer;
+      79: invokeinterface #99,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+      84: pop
+      85: aload         6
+      87: invokeinterface #108,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      92: ifne          48
+      95: aload_1
+      96: invokeinterface #85,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     101: astore        6
+     103: goto          1218
+     106: aload         6
+     108: invokeinterface #89,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     113: checkcast     #72                 // class com/reign/gcld/sdata/domain/General
+     116: astore        5
+     118: aload         5
+     120: invokevirtual #112                // Method com/reign/gcld/sdata/domain/General.getType:()Ljava/lang/Integer;
+     123: invokevirtual #113                // Method java/lang/Integer.intValue:()I
+     126: iconst_1
+     127: if_icmpeq     142
+     130: aload         5
+     132: invokevirtual #112                // Method com/reign/gcld/sdata/domain/General.getType:()Ljava/lang/Integer;
+     135: invokevirtual #113                // Method java/lang/Integer.intValue:()I
+     138: iconst_2
+     139: if_icmpne     168
+     142: aload         5
+     144: invokevirtual #117                // Method com/reign/gcld/sdata/domain/General.getName:()Ljava/lang/String;
+     147: invokevirtual #121                // Method java/lang/String.length:()I
+     150: iconst_5
+     151: if_icmpge     168
+     154: getstatic     #25                 // Field name:Ljava/util/List;
+     157: aload         5
+     159: invokevirtual #117                // Method com/reign/gcld/sdata/domain/General.getName:()Ljava/lang/String;
+     162: invokeinterface #126,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     167: pop
+     168: aload         5
+     170: invokevirtual #112                // Method com/reign/gcld/sdata/domain/General.getType:()Ljava/lang/Integer;
+     173: invokevirtual #113                // Method java/lang/Integer.intValue:()I
+     176: iconst_2
+     177: if_icmpne     235
+     180: aload_3
+     181: aload         5
+     183: invokevirtual #127                // Method com/reign/gcld/sdata/domain/General.getTroop:()Ljava/lang/Integer;
+     186: invokeinterface #130,  2          // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     191: ifne          303
+     194: new           #133                // class java/lang/RuntimeException
+     197: dup
+     198: new           #135                // class java/lang/StringBuilder
+     201: dup
+     202: ldc           #137                // String General init fail in npcs, id:
+     204: invokespecial #139                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     207: aload         5
+     209: invokevirtual #142                // Method com/reign/gcld/sdata/domain/General.getId:()Ljava/lang/Integer;
+     212: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     215: ldc           #147                // String  TroopType:
+     217: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     220: aload         5
+     222: invokevirtual #127                // Method com/reign/gcld/sdata/domain/General.getTroop:()Ljava/lang/Integer;
+     225: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     228: invokevirtual #152                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     231: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+     234: athrow
+     235: aload         5
+     237: invokevirtual #112                // Method com/reign/gcld/sdata/domain/General.getType:()Ljava/lang/Integer;
+     240: invokevirtual #113                // Method java/lang/Integer.intValue:()I
+     243: iconst_3
+     244: if_icmpne     303
+     247: aload         4
+     249: aload         5
+     251: invokevirtual #127                // Method com/reign/gcld/sdata/domain/General.getTroop:()Ljava/lang/Integer;
+     254: invokeinterface #130,  2          // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     259: ifne          303
+     262: new           #133                // class java/lang/RuntimeException
+     265: dup
+     266: new           #135                // class java/lang/StringBuilder
+     269: dup
+     270: ldc           #137                // String General init fail in npcs, id:
+     272: invokespecial #139                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     275: aload         5
+     277: invokevirtual #142                // Method com/reign/gcld/sdata/domain/General.getId:()Ljava/lang/Integer;
+     280: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     283: ldc           #156                // String  TroopId:
+     285: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     288: aload         5
+     290: invokevirtual #127                // Method com/reign/gcld/sdata/domain/General.getTroop:()Ljava/lang/Integer;
+     293: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     296: invokevirtual #152                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     299: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+     302: athrow
+     303: new           #158                // class com/reign/gcld/sdata/common/GeneralSpecialInfo
+     306: dup
+     307: iconst_1
+     308: dconst_0
+     309: invokespecial #160                // Method com/reign/gcld/sdata/common/GeneralSpecialInfo."<init>":(ID)V
+     312: astore        7
+     314: aload         5
+     316: invokevirtual #163                // Method com/reign/gcld/sdata/domain/General.getSp:()Ljava/lang/String;
+     319: invokestatic  #166                // Method org/apache/commons/lang/StringUtils.isBlank:(Ljava/lang/String;)Z
+     322: ifne          1053
+     325: aload         5
+     327: invokevirtual #163                // Method com/reign/gcld/sdata/domain/General.getSp:()Ljava/lang/String;
+     330: ldc           #172                // String ,
+     332: invokevirtual #174                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+     335: astore        8
+     337: aload         8
+     339: iconst_0
+     340: aaload
+     341: ldc           #178                // String fs
+     343: invokevirtual #180                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     346: ifeq          363
+     349: new           #158                // class com/reign/gcld/sdata/common/GeneralSpecialInfo
+     352: dup
+     353: iconst_2
+     354: dconst_0
+     355: invokespecial #160                // Method com/reign/gcld/sdata/common/GeneralSpecialInfo."<init>":(ID)V
+     358: astore        7
+     360: goto          1053
+     363: aload         8
+     365: iconst_0
+     366: aaload
+     367: ldc           #183                // String mz
+     369: invokevirtual #180                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     372: ifeq          461
+     375: aload         8
+     377: arraylength
+     378: iconst_3
+     379: if_icmpge     423
+     382: new           #133                // class java/lang/RuntimeException
+     385: dup
+     386: new           #135                // class java/lang/StringBuilder
+     389: dup
+     390: ldc           #185                // String General init fail in GeneralSpecialInfo, id:
+     392: invokespecial #139                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     395: aload         5
+     397: invokevirtual #142                // Method com/reign/gcld/sdata/domain/General.getId:()Ljava/lang/Integer;
+     400: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     403: ldc           #187                // String  Sp:
+     405: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     408: aload         5
+     410: invokevirtual #163                // Method com/reign/gcld/sdata/domain/General.getSp:()Ljava/lang/String;
+     413: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     416: invokevirtual #152                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     419: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+     422: athrow
+     423: new           #158                // class com/reign/gcld/sdata/common/GeneralSpecialInfo
+     426: dup
+     427: iconst_3
+     428: aload         8
+     430: iconst_1
+     431: aaload
+     432: invokestatic  #189                // Method java/lang/Double.valueOf:(Ljava/lang/String;)Ljava/lang/Double;
+     435: invokevirtual #194                // Method java/lang/Double.doubleValue:()D
+     438: invokespecial #160                // Method com/reign/gcld/sdata/common/GeneralSpecialInfo."<init>":(ID)V
+     441: astore        7
+     443: aload         7
+     445: aload         8
+     447: iconst_2
+     448: aaload
+     449: invokestatic  #189                // Method java/lang/Double.valueOf:(Ljava/lang/String;)Ljava/lang/Double;
+     452: invokevirtual #194                // Method java/lang/Double.doubleValue:()D
+     455: putfield      #198                // Field com/reign/gcld/sdata/common/GeneralSpecialInfo.param2:D
+     458: goto          1053
+     461: aload         8
+     463: iconst_0
+     464: aaload
+     465: ldc           #202                // String hy
+     467: invokevirtual #180                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     470: ifeq          544
+     473: aload         8
+     475: arraylength
+     476: iconst_2
+     477: if_icmpge     521
+     480: new           #133                // class java/lang/RuntimeException
+     483: dup
+     484: new           #135                // class java/lang/StringBuilder
+     487: dup
+     488: ldc           #185                // String General init fail in GeneralSpecialInfo, id:
+     490: invokespecial #139                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     493: aload         5
+     495: invokevirtual #142                // Method com/reign/gcld/sdata/domain/General.getId:()Ljava/lang/Integer;
+     498: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     501: ldc           #187                // String  Sp:
+     503: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     506: aload         5
+     508: invokevirtual #163                // Method com/reign/gcld/sdata/domain/General.getSp:()Ljava/lang/String;
+     511: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     514: invokevirtual #152                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     517: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+     520: athrow
+     521: new           #158                // class com/reign/gcld/sdata/common/GeneralSpecialInfo
+     524: dup
+     525: iconst_4
+     526: aload         8
+     528: iconst_1
+     529: aaload
+     530: invokestatic  #189                // Method java/lang/Double.valueOf:(Ljava/lang/String;)Ljava/lang/Double;
+     533: invokevirtual #194                // Method java/lang/Double.doubleValue:()D
+     536: invokespecial #160                // Method com/reign/gcld/sdata/common/GeneralSpecialInfo."<init>":(ID)V
+     539: astore        7
+     541: goto          1053
+     544: aload         8
+     546: iconst_0
+     547: aaload
+     548: ldc           #204                // String ft
+     550: invokevirtual #180                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     553: ifeq          627
+     556: aload         8
+     558: arraylength
+     559: iconst_2
+     560: if_icmpge     604
+     563: new           #133                // class java/lang/RuntimeException
+     566: dup
+     567: new           #135                // class java/lang/StringBuilder
+     570: dup
+     571: ldc           #185                // String General init fail in GeneralSpecialInfo, id:
+     573: invokespecial #139                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     576: aload         5
+     578: invokevirtual #142                // Method com/reign/gcld/sdata/domain/General.getId:()Ljava/lang/Integer;
+     581: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     584: ldc           #187                // String  Sp:
+     586: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     589: aload         5
+     591: invokevirtual #163                // Method com/reign/gcld/sdata/domain/General.getSp:()Ljava/lang/String;
+     594: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     597: invokevirtual #152                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     600: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+     603: athrow
+     604: new           #158                // class com/reign/gcld/sdata/common/GeneralSpecialInfo
+     607: dup
+     608: iconst_5
+     609: aload         8
+     611: iconst_1
+     612: aaload
+     613: invokestatic  #189                // Method java/lang/Double.valueOf:(Ljava/lang/String;)Ljava/lang/Double;
+     616: invokevirtual #194                // Method java/lang/Double.doubleValue:()D
+     619: invokespecial #160                // Method com/reign/gcld/sdata/common/GeneralSpecialInfo."<init>":(ID)V
+     622: astore        7
+     624: goto          1053
+     627: aload         8
+     629: iconst_0
+     630: aaload
+     631: ldc           #206                // String bs
+     633: invokevirtual #180                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     636: ifeq          702
+     639: aload         8
+     641: arraylength
+     642: iconst_1
+     643: if_icmpge     687
+     646: new           #133                // class java/lang/RuntimeException
+     649: dup
+     650: new           #135                // class java/lang/StringBuilder
+     653: dup
+     654: ldc           #185                // String General init fail in GeneralSpecialInfo, id:
+     656: invokespecial #139                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     659: aload         5
+     661: invokevirtual #142                // Method com/reign/gcld/sdata/domain/General.getId:()Ljava/lang/Integer;
+     664: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     667: ldc           #187                // String  Sp:
+     669: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     672: aload         5
+     674: invokevirtual #163                // Method com/reign/gcld/sdata/domain/General.getSp:()Ljava/lang/String;
+     677: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     680: invokevirtual #152                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     683: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+     686: athrow
+     687: new           #158                // class com/reign/gcld/sdata/common/GeneralSpecialInfo
+     690: dup
+     691: bipush        6
+     693: dconst_0
+     694: invokespecial #160                // Method com/reign/gcld/sdata/common/GeneralSpecialInfo."<init>":(ID)V
+     697: astore        7
+     699: goto          1053
+     702: aload         8
+     704: iconst_0
+     705: aaload
+     706: ldc           #208                // String zf
+     708: invokevirtual #180                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     711: ifeq          779
+     714: aload         8
+     716: arraylength
+     717: iconst_1
+     718: if_icmpge     762
+     721: new           #133                // class java/lang/RuntimeException
+     724: dup
+     725: new           #135                // class java/lang/StringBuilder
+     728: dup
+     729: ldc           #185                // String General init fail in GeneralSpecialInfo, id:
+     731: invokespecial #139                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     734: aload         5
+     736: invokevirtual #142                // Method com/reign/gcld/sdata/domain/General.getId:()Ljava/lang/Integer;
+     739: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     742: ldc           #187                // String  Sp:
+     744: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     747: aload         5
+     749: invokevirtual #163                // Method com/reign/gcld/sdata/domain/General.getSp:()Ljava/lang/String;
+     752: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     755: invokevirtual #152                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     758: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+     761: athrow
+     762: new           #158                // class com/reign/gcld/sdata/common/GeneralSpecialInfo
+     765: dup
+     766: bipush        7
+     768: ldc2_w        #210                // double 2.0d
+     771: invokespecial #160                // Method com/reign/gcld/sdata/common/GeneralSpecialInfo."<init>":(ID)V
+     774: astore        7
+     776: goto          1053
+     779: aload         8
+     781: iconst_0
+     782: aaload
+     783: ldc           #212                // String rb
+     785: invokevirtual #180                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     788: ifeq          854
+     791: aload         8
+     793: arraylength
+     794: iconst_1
+     795: if_icmpge     839
+     798: new           #133                // class java/lang/RuntimeException
+     801: dup
+     802: new           #135                // class java/lang/StringBuilder
+     805: dup
+     806: ldc           #185                // String General init fail in GeneralSpecialInfo, id:
+     808: invokespecial #139                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     811: aload         5
+     813: invokevirtual #142                // Method com/reign/gcld/sdata/domain/General.getId:()Ljava/lang/Integer;
+     816: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     819: ldc           #187                // String  Sp:
+     821: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     824: aload         5
+     826: invokevirtual #163                // Method com/reign/gcld/sdata/domain/General.getSp:()Ljava/lang/String;
+     829: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     832: invokevirtual #152                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     835: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+     838: athrow
+     839: new           #158                // class com/reign/gcld/sdata/common/GeneralSpecialInfo
+     842: dup
+     843: bipush        8
+     845: dconst_0
+     846: invokespecial #160                // Method com/reign/gcld/sdata/common/GeneralSpecialInfo."<init>":(ID)V
+     849: astore        7
+     851: goto          1053
+     854: aload         8
+     856: iconst_0
+     857: aaload
+     858: ldc           #214                // String yx
+     860: invokevirtual #180                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     863: ifeq          881
+     866: new           #158                // class com/reign/gcld/sdata/common/GeneralSpecialInfo
+     869: dup
+     870: bipush        9
+     872: dconst_0
+     873: invokespecial #160                // Method com/reign/gcld/sdata/common/GeneralSpecialInfo."<init>":(ID)V
+     876: astore        7
+     878: goto          1053
+     881: aload         8
+     883: iconst_0
+     884: aaload
+     885: ldc           #216                // String td
+     887: invokevirtual #180                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     890: ifeq          981
+     893: aload         8
+     895: arraylength
+     896: iconst_3
+     897: if_icmpge     941
+     900: new           #133                // class java/lang/RuntimeException
+     903: dup
+     904: new           #135                // class java/lang/StringBuilder
+     907: dup
+     908: ldc           #185                // String General init fail in GeneralSpecialInfo, id:
+     910: invokespecial #139                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     913: aload         5
+     915: invokevirtual #142                // Method com/reign/gcld/sdata/domain/General.getId:()Ljava/lang/Integer;
+     918: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     921: ldc           #187                // String  Sp:
+     923: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     926: aload         5
+     928: invokevirtual #163                // Method com/reign/gcld/sdata/domain/General.getSp:()Ljava/lang/String;
+     931: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     934: invokevirtual #152                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     937: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+     940: athrow
+     941: aload         7
+     943: bipush        10
+     945: putfield      #218                // Field com/reign/gcld/sdata/common/GeneralSpecialInfo.generalType:I
+     948: aload         7
+     950: aload         8
+     952: iconst_1
+     953: aaload
+     954: invokestatic  #221                // Method java/lang/Integer.valueOf:(Ljava/lang/String;)Ljava/lang/Integer;
+     957: invokevirtual #113                // Method java/lang/Integer.intValue:()I
+     960: putfield      #224                // Field com/reign/gcld/sdata/common/GeneralSpecialInfo.rowNum:I
+     963: aload         7
+     965: aload         8
+     967: iconst_2
+     968: aaload
+     969: invokestatic  #189                // Method java/lang/Double.valueOf:(Ljava/lang/String;)Ljava/lang/Double;
+     972: invokevirtual #194                // Method java/lang/Double.doubleValue:()D
+     975: putfield      #198                // Field com/reign/gcld/sdata/common/GeneralSpecialInfo.param2:D
+     978: goto          1053
+     981: aload         8
+     983: iconst_0
+     984: aaload
+     985: ldc           #227                // String dx
+     987: invokevirtual #180                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+     990: ifeq          1053
+     993: aload         8
+     995: arraylength
+     996: iconst_1
+     997: if_icmpge     1041
+    1000: new           #133                // class java/lang/RuntimeException
+    1003: dup
+    1004: new           #135                // class java/lang/StringBuilder
+    1007: dup
+    1008: ldc           #185                // String General init fail in GeneralSpecialInfo, id:
+    1010: invokespecial #139                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+    1013: aload         5
+    1015: invokevirtual #142                // Method com/reign/gcld/sdata/domain/General.getId:()Ljava/lang/Integer;
+    1018: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1021: ldc           #187                // String  Sp:
+    1023: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1026: aload         5
+    1028: invokevirtual #163                // Method com/reign/gcld/sdata/domain/General.getSp:()Ljava/lang/String;
+    1031: invokevirtual #149                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1034: invokevirtual #152                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1037: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+    1040: athrow
+    1041: new           #158                // class com/reign/gcld/sdata/common/GeneralSpecialInfo
+    1044: dup
+    1045: bipush        11
+    1047: dconst_0
+    1048: invokespecial #160                // Method com/reign/gcld/sdata/common/GeneralSpecialInfo."<init>":(ID)V
+    1051: astore        7
+    1053: aload         5
+    1055: aload         7
+    1057: invokevirtual #229                // Method com/reign/gcld/sdata/domain/General.setGeneralSpecialInfo:(Lcom/reign/gcld/sdata/common/GeneralSpecialInfo;)V
+    1060: aload_0
+    1061: aload         5
+    1063: invokevirtual #142                // Method com/reign/gcld/sdata/domain/General.getId:()Ljava/lang/Integer;
+    1066: aload         5
+    1068: invokespecial #233                // Method com/reign/framework/common/cache/AbstractCache.put:(Ljava/lang/Object;Ljava/lang/Object;)V
+    1071: aload         5
+    1073: invokevirtual #112                // Method com/reign/gcld/sdata/domain/General.getType:()Ljava/lang/Integer;
+    1076: invokevirtual #113                // Method java/lang/Integer.intValue:()I
+    1079: iconst_1
+    1080: if_icmpne     1146
+    1083: aload_0
+    1084: getfield      #33                 // Field qualityCivilGeneralMap:Ljava/util/Map;
+    1087: aload         5
+    1089: invokevirtual #237                // Method com/reign/gcld/sdata/domain/General.getQuality:()Ljava/lang/Integer;
+    1092: invokeinterface #51,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+    1097: checkcast     #57                 // class java/util/List
+    1100: astore        8
+    1102: aload         8
+    1104: ifnonnull     1133
+    1107: new           #20                 // class java/util/ArrayList
+    1110: dup
+    1111: invokespecial #22                 // Method java/util/ArrayList."<init>":()V
+    1114: astore        8
+    1116: aload_0
+    1117: getfield      #33                 // Field qualityCivilGeneralMap:Ljava/util/Map;
+    1120: aload         5
+    1122: invokevirtual #237                // Method com/reign/gcld/sdata/domain/General.getQuality:()Ljava/lang/Integer;
+    1125: aload         8
+    1127: invokeinterface #240,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    1132: pop
+    1133: aload         8
+    1135: aload         5
+    1137: invokeinterface #126,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1142: pop
+    1143: goto          1218
+    1146: aload         5
+    1148: invokevirtual #112                // Method com/reign/gcld/sdata/domain/General.getType:()Ljava/lang/Integer;
+    1151: invokevirtual #113                // Method java/lang/Integer.intValue:()I
+    1154: iconst_2
+    1155: if_icmpne     1218
+    1158: aload_0
+    1159: getfield      #35                 // Field qualityMilitaryGeneralMap:Ljava/util/Map;
+    1162: aload         5
+    1164: invokevirtual #237                // Method com/reign/gcld/sdata/domain/General.getQuality:()Ljava/lang/Integer;
+    1167: invokeinterface #51,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+    1172: checkcast     #57                 // class java/util/List
+    1175: astore        8
+    1177: aload         8
+    1179: ifnonnull     1208
+    1182: new           #20                 // class java/util/ArrayList
+    1185: dup
+    1186: invokespecial #22                 // Method java/util/ArrayList."<init>":()V
+    1189: astore        8
+    1191: aload_0
+    1192: getfield      #35                 // Field qualityMilitaryGeneralMap:Ljava/util/Map;
+    1195: aload         5
+    1197: invokevirtual #237                // Method com/reign/gcld/sdata/domain/General.getQuality:()Ljava/lang/Integer;
+    1200: aload         8
+    1202: invokeinterface #240,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    1207: pop
+    1208: aload         8
+    1210: aload         5
+    1212: invokeinterface #126,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1217: pop
+    1218: aload         6
+    1220: invokeinterface #108,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+    1225: ifne          106
+    1228: aload_0
+    1229: invokespecial #243                // Method checkThisCache:()V
+    1232: return
+
+  private void checkThisCache();
+    descriptor: ()V
+    Code:
+       0: getstatic     #262                // Field com/reign/gcld/activity/common/MiddleAutumnCache.checkMap:Ljava/util/Map;
+       3: invokeinterface #267,  1          // InterfaceMethod java/util/Map.keySet:()Ljava/util/Set;
+       8: invokeinterface #271,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      13: astore_2
+      14: goto          60
+      17: aload_2
+      18: invokeinterface #89,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      23: checkcast     #46                 // class java/lang/Integer
+      26: astore_1
+      27: aload_0
+      28: aload_1
+      29: invokevirtual #272                // Method get:(Ljava/lang/Object;)Ljava/lang/Object;
+      32: ifnonnull     60
+      35: new           #133                // class java/lang/RuntimeException
+      38: dup
+      39: new           #135                // class java/lang/StringBuilder
+      42: dup
+      43: ldc_w         #273                // String General init fail, General is absent, id:
+      46: invokespecial #139                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      49: aload_1
+      50: invokevirtual #143                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      53: invokevirtual #152                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      56: invokespecial #155                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+      59: athrow
+      60: aload_2
+      61: invokeinterface #108,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      66: ifne          17
+      69: return
+
+  public com.reign.gcld.sdata.domain.General getGeneralByName(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/reign/gcld/sdata/domain/General;
+    Code:
+       0: aload_0
+       1: invokevirtual #279                // Method getModels:()Ljava/util/Vector;
+       4: invokevirtual #282                // Method java/util/Vector.iterator:()Ljava/util/Iterator;
+       7: astore_3
+       8: goto          34
+      11: aload_3
+      12: invokeinterface #89,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      17: checkcast     #72                 // class com/reign/gcld/sdata/domain/General
+      20: astore_2
+      21: aload_2
+      22: invokevirtual #117                // Method com/reign/gcld/sdata/domain/General.getName:()Ljava/lang/String;
+      25: aload_1
+      26: invokevirtual #285                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      29: ifeq          34
+      32: aload_2
+      33: areturn
+      34: aload_3
+      35: invokeinterface #108,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      40: ifne          11
+      43: aconst_null
+      44: areturn
+
+  public void clear();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #292                // Method com/reign/framework/common/cache/AbstractCache.clear:()V
+       4: aload_0
+       5: getfield      #33                 // Field qualityCivilGeneralMap:Ljava/util/Map;
+       8: invokeinterface #294,  1          // InterfaceMethod java/util/Map.clear:()V
+      13: aload_0
+      14: getfield      #35                 // Field qualityMilitaryGeneralMap:Ljava/util/Map;
+      17: invokeinterface #294,  1          // InterfaceMethod java/util/Map.clear:()V
+      22: return
+}

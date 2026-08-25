@@ -1,0 +1,412 @@
+{
+  "Chief.UpgradeExpS": {
+    "value": "31",
+    "id": 1,
+    "intro": "Chủ tướng cấp bậc kinh nghiệm danh sách đánh số"
+  },
+  "Officer.OutputS": {
+    "value": "11",
+    "id": 2,
+    "intro": "Quan văn tài nguyên sản xuất danh sách"
+  },
+  "Officer.OutputE": {
+    "value": "5",
+    "id": 3,
+    "intro": "Quan văn tài nguyên sản xuất hệ số"
+  },
+  "Incense.Exchange.RToM": {
+    "value": "0.02",
+    "id": 4,
+    "intro": "Tài nguyên đổi quân công hệ số ，dùng cho hiến tế"
+  },
+  "General.Origin.Att": {
+    "value": "150",
+    "id": 5,
+    "intro": "Võ tướng mới bắt đầu lực công kích"
+  },
+  "General.Origin.Def": {
+    "value": "50",
+    "id": 6,
+    "intro": "Võ tướng mới bắt đầu lực phòng ngự"
+  },
+  "General.Origin.Blood": {
+    "value": "1200",
+    "id": 7,
+    "intro": "Võ tướng mới bắt đầu huyết lượng"
+  },
+  "General.Grow.Att": {
+    "value": "3",
+    "id": 8,
+    "intro": "Võ tướng mỗi cấp công đánh cho dài ，cũng là công kích /phòng ngự /huyết lượng tỉ lệ  công kích bộ phận"
+  },
+  "General.Grow.Def": {
+    "value": "1",
+    "id": 9,
+    "intro": "Võ tướng mỗi cấp phòng ngự trưởng thành ，cũng là công kích /phòng ngự /huyết lượng tỉ lệ  phòng ngự bộ phận"
+  },
+  "General.Grow.Blood": {
+    "value": "24",
+    "id": 10,
+    "intro": "Võ tướng mỗi cấp huyết lượng trưởng thành ，cũng là công kích /phòng ngự /huyết lượng tỉ lệ  huyết lượng bộ phận ，đặc biệt chú ý ，huyết lượng lấy viết ra từng điều tính toán"
+  },
+  "Fight.Morale": {
+    "value": "35",
+    "id": 11,
+    "intro": "Mỗi hiệp chiến đấu sĩ khí gia tăng"
+  },
+  "Troop.Conscribe.BaseSpeed": {
+    "value": "40000",
+    "id": 12,
+    "intro": "Đạt được binh doanh tiền các binh chủng  trưng binh tốc độ"
+  },
+  "Resource.Muti.Sale.Weekly": {
+    "value": "0.8",
+    "id": 13,
+    "intro": "Tài nguyên phiên lần tiêu phí “chu ”mua chiết khấu"
+  },
+  "Resource.Muti.Sale.Monthly": {
+    "value": "0.7",
+    "id": 14,
+    "intro": "Tài nguyên phiên lần tiêu phí “nguyệt ”mua chiết khấu"
+  },
+  "World.Search.SpecialProb.Basic": {
+    "value": "0.1",
+    "id": 15,
+    "intro": "Bình thường thẩm tra theo xuất hiện đặc thù sự kiện  xác suất"
+  },
+  "World.Search.SpecialProb.Golden": {
+    "value": "0.5",
+    "id": 16,
+    "intro": "Bạch kim thẩm tra theo xuất hiện đặc thù sự kiện  xác suất"
+  },
+  "World.Search.SpecialProb.Extreme": {
+    "value": "1",
+    "id": 17,
+    "intro": "Chí tôn thẩm tra theo xuất hiện đặc thù sự kiện  xác suất"
+  },
+  "Official.Attack.LvLimit": {
+    "value": "20",
+    "id": 18,
+    "intro": "Cấp bậc so với mục tiêu cấp bậc thấp bao nhiêu cấp đã ngoài không thể phát động chức quan chiến"
+  },
+  "World.NPC.DailyNum": {
+    "value": "5",
+    "id": 19,
+    "intro": "Thế giới bản đồ quốc gia NPCmỗi ngày cam chịu bỏ thêm vào số lượng"
+  },
+  "World.NPC.MaxNum": {
+    "value": "30",
+    "id": 20,
+    "intro": "Thế giới bản đồ quốc gia NPCthượng hạn"
+  },
+  "Dinner.Base.Speed": {
+    "value": "99999",
+    "id": 21,
+    "intro": "Yến hội mỗi lần khôi phục thời gian ，lấy phút nhớ ，thừa lấy binh doanh sản xuất tốc độ sau ，chính là mỗi lần khôi phục  binh lực sổ ，các võ tướng dựa theo binh chủng chia đều"
+  },
+  "Fight.City.DefAddition": {
+    "value": "15",
+    "id": 22,
+    "intro": "Thành trì hình trung phòng thủ phương gia tăng  công phòng tỉ lệ ，như ：15tỏ vẻ gia tăng 15% trụ cột công phòng ，cùng hình gia tăng ở giống nhau  vị trí ，sở hữu binh chủng cũng có 。"
+  },
+  "BlackMarket.BaseQuantity": {
+    "value": "8000",
+    "id": 23,
+    "intro": "Hắc thị Mở ra khi  trụ cột giao dịch lượng ，lấy được đến  tài nguyên kế （đổi ra  tài nguyên =được đến  tài nguyên *trao đổi hệ số ）"
+  },
+  "BlackMarket.BaseCD": {
+    "value": "5",
+    "id": 24,
+    "intro": "Hắc thị Mở ra khi  trụ cột CD，lấy phút nhớ"
+  },
+  "BlackMarket.BaseE": {
+    "value": "3",
+    "id": 25,
+    "intro": "Hắc thị Mở ra khi  trụ cột hệ số ，dùng cho tính toán hắc thị đổi ra  tài nguyên số lượng"
+  },
+  "Base.MuBingLing.Daily": {
+    "value": "20",
+    "id": 26,
+    "intro": "Trụ cột Mộ Binh Lệnh mỗi ngày hồi phục ，nếu ngoạn gia Mộ Binh Lệnh số lượng lớn hơn 50cái ，tắc không phát phóng ，nếu không đủ 50cái nhưng lĩnh sau vượt qua 50cái ，tắc lĩnh sau vì 50cái"
+  },
+  "Qualifying.Credit.Reward": {
+    "value": "15",
+    "id": 27,
+    "intro": "Sắp xếp vị tái tích phân đạt tới 1000sau ，có thể lĩnh  hiến tế số lần"
+  },
+  "Treasure.GetProb.Incense": {
+    "value": "0.005",
+    "id": 28,
+    "intro": "Hiến tế đạt được bảo vật  xác suất"
+  },
+  "Treasure.GetProb.Search": {
+    "value": "0.005",
+    "id": 29,
+    "intro": "Thẩm tra theo đạt được bảo vật  xác suất"
+  },
+  "Treasure.GetProb.Store": {
+    "value": "0.001",
+    "id": 30,
+    "intro": "Cửa hàng nảy sinh cái mới đạt được bảo vật  xác suất"
+  },
+  "Treasure.GetProb.Event_Daily": {
+    "value": "0.001",
+    "id": 31,
+    "intro": "Chính vụ sự kiện điệu bảo vật  xác suất"
+  },
+  "Market.GoldProb": {
+    "value": "0.1",
+    "id": 32,
+    "intro": "Tập khu phố ra tiền mặt tệ hạng mục  xác suất ，chợ y nên xác suất tùy cơ đến ra tiền mặt tệ khi ，động thái khố trung thêm vào gia tăng một cái phẩm chất vì 7 thương phẩm"
+  },
+  "GeneralTreasure.GetProb.Search": {
+    "value": "0.0005",
+    "id": 33,
+    "intro": "Thẩm tra theo đạt được ngự bảo （võ tướng bảo vật ） xác suất"
+  },
+  "World.Move.FoodConsume": {
+    "value": "0.01",
+    "id": 34,
+    "intro": "Thế giới di động háo lương"
+  },
+  "World.MoveBack.DeserterProportion": {
+    "value": "0",
+    "id": 35,
+    "intro": "Thế giới trên bản đồ hướng di động về phía sau  đào binh tỉ lệ （như ：0.1tỏ vẻ nên di động hội khấu trừ ngoạn gia 10% binh lực ）"
+  },
+  "World.MoveDuringFighting.DeserterProportion": {
+    "value": "0.1",
+    "id": 36,
+    "intro": "Thế giới trên bản đồ trong chiến đấu triệt thối lui đến liền nhau thành trì  đào binh tỉ lệ"
+  },
+  "World.DamageWeaken.Besiege1": {
+    "value": "0",
+    "id": 37,
+    "intro": "Thế giới trên bản đồ vây quanh loại hình 1 công phòng làm giảm lượng"
+  },
+  "World.DamageWeaken.Besiege2": {
+    "value": "0",
+    "id": 38,
+    "intro": "Thế giới trên bản đồ vây quanh loại hình 2 công phòng làm giảm lượng"
+  },
+  "World.TroopConscribe.Consume.E": {
+    "value": "0.01",
+    "id": 39,
+    "intro": "Thế giới thành trì khoảng cách chủ thành khoảng cách 1điểm gia tăng  mộ binh tiêu hao tỉ lệ phần trăm ，0.01kỳ thật là 1%"
+  },
+  "World.Besiege1.DeserterTime": {
+    "value": "60",
+    "id": 40,
+    "intro": "Thế giới vây quanh loại hình 1đào binh khoảng cách thời gian"
+  },
+  "World.Besiege2.DeserterTime": {
+    "value": "120",
+    "id": 41,
+    "intro": "Thế giới vây quanh loại hình 2đào binh khoảng cách thời gian"
+  },
+  "World.Besiege1.DeserterProportion": {
+    "value": "0.1",
+    "id": 42,
+    "intro": "Thế giới vây quanh loại hình 1mỗi lần đào binh  tỉ lệ"
+  },
+  "World.Besiege2.DeserterProportion": {
+    "value": "0.1",
+    "id": 43,
+    "intro": "Thế giới vây quanh loại hình 2mỗi lần đào binh  tỉ lệ"
+  },
+  "EventDaily.Base.Prob": {
+    "value": "0.05",
+    "id": 44,
+    "intro": "Thăng cấp dân cư đạt được chính vụ sự kiện  trụ cột xác suất （mỗi lần gia tăng  lượng ，thêm đến 1cấp một cái chính vụ sự kiện ）"
+  },
+  "BlackMarket.CDMax": {
+    "value": "15",
+    "id": 45,
+    "intro": "Hắc thị Mở ra khi CDcó thể mệt thêm đến  thời gian thượng hạn ，cùng này hắn CDmệt thêm giống nhau ，thấp hơn này CDthời gian ，là có thể giao dịch"
+  },
+  "World.MoveBack.Deserter.MinLv": {
+    "value": "50",
+    "id": 46,
+    "intro": "Ngoạn gia cấp bậc nhỏ nên hạng mục trung ghi lại giá trị khi ，thế giới bản đồ trung hướng di động về phía sau sẽ không sinh ra đào binh"
+  },
+  "Equip.FreeSkillRefresh.RechargeTime": {
+    "value": "120",
+    "id": 47,
+    "intro": "Miễn phí mạch lạc số lần  hồi phục thời gian ，lấy phút nhớ"
+  },
+  "Equip.FreeSkillRefresh.MaxAcc": {
+    "value": "12",
+    "id": 48,
+    "intro": "Miễn phí mạch lạc số lần  tích lũy thượng hạn"
+  },
+  "KillTopList.Treasure.MaxNum": {
+    "value": "100",
+    "id": 49,
+    "intro": "Giết địch bảng bảo tương  lớn 1 số lượng"
+  },
+  "ServerBattle.EndTime": {
+    "value": "30",
+    "id": 50,
+    "intro": "Báo danh thời hạn cuối cùng （phút ）"
+  },
+  "ServerBattle.ReadyTime": {
+    "value": "60",
+    "id": 51,
+    "intro": "Chuẩn bị thời gian （giây ）"
+  },
+  "World.Due.BaseTime": {
+    "value": "2",
+    "id": 52,
+    "intro": "Thế giới dụ địch mỗi lần gia tăng  CD，lấy phút tính toán"
+  },
+  "World.Due.MaxTime": {
+    "value": "2",
+    "id": 53,
+    "intro": "Thế giới dụ địch có thể mệt thêm  lớn 1 CDsổ ，lấy phút tính toán (mục tiền đồ tự không đọc này hạng mục ）"
+  },
+  "World.Due.SuccessProb": {
+    "value": "1",
+    "id": 54,
+    "intro": "Thế giới dụ địch  xác xuất thành công"
+  },
+  "World.InitDue.BaseTime": {
+    "value": "1",
+    "id": 55,
+    "intro": "Thế giới chủ động phóng ra mỗi lần gia tăng  CD，lấy phút tính toán"
+  },
+  "World.InitDue.MaxTime": {
+    "value": "1",
+    "id": 56,
+    "intro": "Thế giới chủ động phóng ra có thể mệt thêm  lớn 1 CDsổ ，lấy phút tính toán (mục tiền đồ tự không đọc này hạng mục ）"
+  },
+  "World.InitDue.SuccessProb": {
+    "value": "1",
+    "id": 57,
+    "intro": "Thế giới chủ động phóng ra  xác xuất thành công"
+  },
+  "World.KillRanking.KilltoIron": {
+    "value": "0.0005",
+    "id": 58,
+    "intro": "Giết địch bảng giết người sổ đổi thép ròng hệ số"
+  },
+  "World.Guard.NumPerHour": {
+    "value": "5",
+    "id": 59,
+    "intro": "Mỗi giờ đưa lên  quốc gia cận vệ NPC số lượng"
+  },
+  "World.KindomRanking.KilltoIron": {
+    "value": "0.0025",
+    "id": 60,
+    "intro": "Quốc gia nhiệm vụ giết người bảng giết người sổ đổi thép ròng hệ số"
+  },
+  "World.KindomRanking.KilltoExp": {
+    "value": "0.005",
+    "id": 61,
+    "intro": "Quốc gia nhiệm vụ giết người bảng giết người sổ đổi kinh nghiệm hệ số"
+  },
+  "World.KindomRanking.KilltoIronMax": {
+    "value": "1500",
+    "id": 62,
+    "intro": "Quốc gia nhiệm vụ giết người bảng giết người sổ đổi thép ròng có thể đổi lấy  thép ròng thượng hạn"
+  },
+  "World.KindomRanking.KilltoExpMax": {
+    "value": "5000",
+    "id": 63,
+    "intro": "Quốc gia nhiệm vụ giết người bảng giết người sổ đổi kinh nghiệm thượng hạn"
+  },
+  "Incense.Max.Ordinary": {
+    "value": "6",
+    "id": 64,
+    "intro": "Tiền bạc 、bó củi hiến tế thượng hạn"
+  },
+  "Incense.Max.Food": {
+    "value": "15",
+    "id": 65,
+    "intro": "Lương thực hiến tế thượng hạn"
+  },
+  "Incense.Max.Iron": {
+    "value": "15",
+    "id": 66,
+    "intro": "Thép ròng hiến tế thượng hạn"
+  },
+  "Tavern.CD": {
+    "value": "20",
+    "id": 67,
+    "intro": "Tửu quán nảy sinh cái mới CD，lấy phút nhớ"
+  },
+  "Tavern.CD.Max": {
+    "value": "60",
+    "id": 68,
+    "intro": "Tửu quán nảy sinh cái mới CDtích lũy thượng hạn ，lấy phút nhớ"
+  },
+  "KindomTask.Extra.Muti": {
+    "value": "3",
+    "id": 69,
+    "intro": "Quốc gia nhiệm vụ đệ một gã đạt được thêm vào thưởng cho nhu nếu đệ hai tên  valuelần"
+  },
+  "KindomTask.Extra.e": {
+    "value": "0.5",
+    "id": 70,
+    "intro": "Quốc gia nhiệm vụ đệ một gã quốc gia  toàn bộ ngoạn gia có thể đạt được tự thân bao nhiêu lần  thêm vào thưởng cho"
+  },
+  "KindomTask.Def.NPC.Number": {
+    "value": "200",
+    "id": 71,
+    "intro": "Quốc gia nhiệm vụ （thành trì chiếm lĩnh ）mới bắt đầu cấp phòng thủ thành trì điền nhập  NPCsố lượng"
+  },
+  "KindomTask.Att.NPC.Interval": {
+    "value": "12",
+    "id": 72,
+    "intro": "Quốc gia nhiệm vụ （thành trì chiếm lĩnh ）tiến công NPCtiến công  thời gian khoảng cách"
+  },
+  "KindomTask.Att.NPC.Number": {
+    "value": "20",
+    "id": 73,
+    "intro": "Quốc gia nhiệm vụ （thành trì chiếm lĩnh ）tiến công NPCmỗi ba  số lượng"
+  },
+  "World.Due.CopperE": {
+    "value": "0.15",
+    "id": 74,
+    "intro": "Dụ địch cần tiêu hao  binh lương tiền bạc hệ số ，binh lương tiền bạc tiêu phí =dụ địch võ tướng trước mặt binh lương *bản hệ số"
+  },
+  "World.InitDue.CopperE": {
+    "value": "0.1",
+    "id": 75,
+    "intro": "Chủ động phóng ra cần tiêu hao  binh lương tiền bạc hệ số ，binh lương tiền bạc tiêu phí =phóng ra võ tướng trước mặt binh lương *bản hệ số"
+  },
+  "World.Due.LvCopperE": {
+    "value": "8",
+    "id": 76,
+    "intro": "Dụ địch cần tiêu hao  tiền bạc cấp bậc hệ số ，cấp bậc tiền bạc tiêu phí =ngoạn gia chủ tướng trước mặt cấp bậc *bản hệ số"
+  },
+  "World.InitDue.LvCopperE": {
+    "value": "5",
+    "id": 77,
+    "intro": "Chủ động phóng ra cần tiêu hao  tiền bạc cấp bậc hệ số ，cấp bậc tiền bạc tiêu phí =ngoạn gia võ tướng trước mặt cấp bậc *bản hệ số"
+  },
+  "World.GoldOrd.Food": {
+    "value": "5000",
+    "id": 78,
+    "intro": "Ngoạn gia hưởng ứng Mộ Binh Lệnh khi từng cái võ tướng có thể đạt được  lương thực thưởng cho"
+  },
+  "World.GoldOrd.Att": {
+    "value": "50",
+    "id": 79,
+    "intro": "Ngoạn gia hưởng ứng Mộ Binh Lệnh sau đạt được  lực công kích gia tăng"
+  },
+  "World.GoldOrd.Def": {
+    "value": "30",
+    "id": 80,
+    "intro": "Ngoạn gia hưởng ứng Mộ Binh Lệnh sau đạt được  lực phòng ngự gia tăng"
+  },
+  "World.GoldOrd.LegionE": {
+    "value": "0.15",
+    "id": 81,
+    "intro": "Ngoạn gia hưởng ứng Mộ Binh Lệnh sau đạt được  sức chiến đấu gia tăng tỉ lệ phần trăm"
+  },
+  "Tp.Ft.tIronProb": {
+    "value": "0.12",
+    "id": 82,
+    "intro": "Công huân bảng bảo tương thưởng cho trung khai ra thép ròng  xác suất"
+  }
+}

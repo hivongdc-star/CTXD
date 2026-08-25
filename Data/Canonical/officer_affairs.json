@@ -1,0 +1,80 @@
+[
+    {
+        "upgrade_output_increase":  "20",
+        "name":  "Tinh Đả Tế Toán ",
+        "max_level":  "10",
+        "upgrade_interval":  "5",
+        "open_lv":  "0",
+        "resource_output":  "100",
+        "intro":  "Dân cư nội tổ chức hội chùa ，nhân cơ hội này kiếm thủ tiền bạc ，phát triển dân cư ",
+        "time":  "15",
+        "resource_output_type":  "1",
+        "officer_exp_output":  "5",
+        "id":  "1"
+    },
+    {
+        "upgrade_output_increase":  "20",
+        "name":  "Khoa Học Vụ Nông ",
+        "max_level":  "10",
+        "upgrade_interval":  "5",
+        "open_lv":  "10",
+        "resource_output":  "100",
+        "intro":  "Đồng ruộng nội khai khẩn ra ốc thổ ，gieo trồng mùa thu hoạch ，phát triển đồng ruộng 。",
+        "time":  "15",
+        "resource_output_type":  "2",
+        "officer_exp_output":  "5",
+        "id":  "2"
+    },
+    {
+        "upgrade_output_increase":  "20",
+        "name":  "Thực Thụ Tạo Lâm ",
+        "max_level":  "10",
+        "upgrade_interval":  "5",
+        "open_lv":  "20",
+        "resource_output":  "100",
+        "intro":  "Mộc tràng chặt cây quá nhiều ，đúng lúc gieo trồng cây giống sứ mộc tràng khả liên tục phát triển 。",
+        "time":  "20",
+        "resource_output_type":  "3",
+        "officer_exp_output":  "5",
+        "id":  "3"
+    },
+    {
+        "upgrade_output_increase":  "20",
+        "name":  "Thám Tầm Quáng Sơn ",
+        "max_level":  "10",
+        "upgrade_interval":  "5",
+        "open_lv":  "30",
+        "resource_output":  "100",
+        "intro":  "Mỏ quặng sắt bần cùng ，tìm kiếm tân mỏ tiến hành quặng sắt tài nguyên  đào móc 。",
+        "time":  "30",
+        "resource_output_type":  "4",
+        "officer_exp_output":  "5",
+        "id":  "4"
+    },
+    {
+        "upgrade_output_increase":  "20",
+        "name":  "Lương Sư Ích Hữu ",
+        "max_level":  "10",
+        "upgrade_interval":  "5",
+        "open_lv":  "40",
+        "resource_output":  "150",
+        "intro":  "Cộng đồng tham thảo giang sơn xã tắc ，sứ tướng quân lấy được lấy kinh nghiệm nghiệm ，rất nhanh trưởng thành 。",
+        "time":  "40",
+        "resource_output_type":  "5",
+        "officer_exp_output":  "5",
+        "id":  "5"
+    },
+    {
+        "upgrade_output_increase":  "0",
+        "name":  "Điểm Thạch Thành Kim ",
+        "max_level":  "1",
+        "upgrade_interval":  "999",
+        "open_lv":  "50",
+        "resource_output":  "1",
+        "intro":  "Tiền sinh tiền ，bạc biến vàng 。ngày tư đêm tưởng thu hoạch vàng phương pháp 。",
+        "time":  "50",
+        "resource_output_type":  "9",
+        "officer_exp_output":  "5",
+        "id":  "6"
+    }
+]

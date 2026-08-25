@@ -1,0 +1,1080 @@
+Compiled from "ResourceService.java"
+public class com.reign.gcld.player.service.ResourceService implements com.reign.gcld.player.service.IResourceService {
+  private com.reign.gcld.building.service.IBuildingOutputCache buildingOutputCache;
+    descriptor: Lcom/reign/gcld/building/service/IBuildingOutputCache;
+
+  private com.reign.gcld.player.dao.IPlayerResourceDao playerResourceDao;
+    descriptor: Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+
+  private com.reign.gcld.general.dao.IPlayerGeneralMilitaryDao playerGeneralMilitaryDao;
+    descriptor: Lcom/reign/gcld/general/dao/IPlayerGeneralMilitaryDao;
+
+  private com.reign.gcld.sdata.cache.GeneralCache generalCache;
+    descriptor: Lcom/reign/gcld/sdata/cache/GeneralCache;
+
+  private com.reign.gcld.general.service.IGeneralService generalService;
+    descriptor: Lcom/reign/gcld/general/service/IGeneralService;
+
+  private com.reign.gcld.battle.service.IBattleDataCache battleDataCache;
+    descriptor: Lcom/reign/gcld/battle/service/IBattleDataCache;
+
+  private com.reign.gcld.sdata.cache.TroopCache troopCache;
+    descriptor: Lcom/reign/gcld/sdata/cache/TroopCache;
+
+  private com.reign.gcld.sdata.cache.WorldCityCache worldCityCache;
+    descriptor: Lcom/reign/gcld/sdata/cache/WorldCityCache;
+
+  private com.reign.gcld.sdata.cache.HallsCache hallsCache;
+    descriptor: Lcom/reign/gcld/sdata/cache/HallsCache;
+
+  private com.reign.gcld.player.dao.IPlayerOfficeRelativeDao playerOfficeRelativeDao;
+    descriptor: Lcom/reign/gcld/player/dao/IPlayerOfficeRelativeDao;
+
+  private com.reign.gcld.juben.service.IJuBenService juBenService;
+    descriptor: Lcom/reign/gcld/juben/service/IJuBenService;
+
+  private com.reign.gcld.common.IDataGetter dataGetter;
+    descriptor: Lcom/reign/gcld/common/IDataGetter;
+
+  private static final java.util.Map<java.lang.Integer, java.lang.Integer> resourceLimitBuildingMap;
+    descriptor: Ljava/util/Map;
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #40                 // class java/util/HashMap
+       3: dup
+       4: invokespecial #42                 // Method java/util/HashMap."<init>":()V
+       7: putstatic     #45                 // Field resourceLimitBuildingMap:Ljava/util/Map;
+      10: getstatic     #45                 // Field resourceLimitBuildingMap:Ljava/util/Map;
+      13: iconst_1
+      14: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      17: bipush        16
+      19: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      22: invokeinterface #53,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      27: pop
+      28: getstatic     #45                 // Field resourceLimitBuildingMap:Ljava/util/Map;
+      31: iconst_2
+      32: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      35: bipush        32
+      37: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      40: invokeinterface #53,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      45: pop
+      46: getstatic     #45                 // Field resourceLimitBuildingMap:Ljava/util/Map;
+      49: iconst_3
+      50: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      53: bipush        48
+      55: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      58: invokeinterface #53,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      63: pop
+      64: getstatic     #45                 // Field resourceLimitBuildingMap:Ljava/util/Map;
+      67: iconst_4
+      68: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      71: bipush        64
+      73: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      76: invokeinterface #53,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      81: pop
+      82: return
+
+  public com.reign.gcld.player.service.ResourceService();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #61                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public void output(com.reign.gcld.player.dto.PlayerDto);
+    descriptor: (Lcom/reign/gcld/player/dto/PlayerDto;)V
+    Code:
+       0: aload_1
+       1: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+       4: istore_2
+       5: new           #73                 // class java/util/Date
+       8: dup
+       9: invokespecial #75                 // Method java/util/Date."<init>":()V
+      12: astore_3
+      13: aload_0
+      14: getfield      #76                 // Field playerResourceDao:Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+      17: iload_2
+      18: invokeinterface #78,  2           // InterfaceMethod com/reign/gcld/player/dao/IPlayerResourceDao.read:(I)Lcom/reign/gcld/player/domain/PlayerResource;
+      23: astore        4
+      25: aload         4
+      27: ifnonnull     31
+      30: return
+      31: aload_3
+      32: invokevirtual #84                 // Method java/util/Date.getTime:()J
+      35: lstore        5
+      37: aload         4
+      39: invokevirtual #88                 // Method com/reign/gcld/player/domain/PlayerResource.getUpdateTime:()Ljava/util/Date;
+      42: invokevirtual #84                 // Method java/util/Date.getTime:()J
+      45: lstore        7
+      47: lload         5
+      49: lload         7
+      51: lsub
+      52: lstore        9
+      54: lload         9
+      56: ldc2_w        #94                 // long 10000l
+      59: ldiv
+      60: lstore        11
+      62: lload         11
+      64: lconst_1
+      65: lcmp
+      66: ifge          70
+      69: return
+      70: lload         11
+      72: ldc2_w        #96                 // long 10l
+      75: lmul
+      76: lstore        11
+      78: lload         11
+      80: ldc2_w        #98                 // long 60l
+      83: lcmp
+      84: iflt          148
+      87: aload_0
+      88: iload_2
+      89: lload         11
+      91: invokespecial #100                // Method buildingOutput:(IJ)Ljava/util/List;
+      94: astore        13
+      96: aload_0
+      97: getfield      #76                 // Field playerResourceDao:Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+     100: iload_2
+     101: aload         13
+     103: new           #73                 // class java/util/Date
+     106: dup
+     107: aload         4
+     109: invokevirtual #88                 // Method com/reign/gcld/player/domain/PlayerResource.getUpdateTime:()Ljava/util/Date;
+     112: invokevirtual #84                 // Method java/util/Date.getTime:()J
+     115: ldc2_w        #104                // long 1000l
+     118: lload         11
+     120: lmul
+     121: ladd
+     122: invokespecial #106                // Method java/util/Date."<init>":(J)V
+     125: ldc           #109                // String ????
+     127: aload         4
+     129: iconst_1
+     130: invokeinterface #111,  7          // InterfaceMethod com/reign/gcld/player/dao/IPlayerResourceDao.updateResourceCareMax:(ILjava/util/List;Ljava/util/Date;Ljava/lang/Object;Lcom/reign/gcld/player/domain/PlayerResource;Z)V
+     135: aload_0
+     136: iload_2
+     137: aload         13
+     139: iconst_0
+     140: invokespecial #115                // Method pushData:(ILjava/util/List;Z)V
+     143: aload_0
+     144: iload_2
+     145: invokespecial #119                // Method checkReputationInfo:(I)V
+     148: aload_0
+     149: aload_1
+     150: lload         11
+     152: invokevirtual #123                // Method dealTroop:(Lcom/reign/gcld/player/dto/PlayerDto;J)V
+     155: return
+
+  private void checkReputationInfo(int);
+    descriptor: (I)V
+    Code:
+       0: aload_0
+       1: getfield      #143                // Field playerOfficeRelativeDao:Lcom/reign/gcld/player/dao/IPlayerOfficeRelativeDao;
+       4: iload_1
+       5: invokeinterface #145,  2          // InterfaceMethod com/reign/gcld/player/dao/IPlayerOfficeRelativeDao.read:(I)Lcom/reign/gcld/player/domain/PlayerOfficeRelative;
+      10: astore_2
+      11: aload_2
+      12: ifnull        154
+      15: aload_2
+      16: invokevirtual #150                // Method com/reign/gcld/player/domain/PlayerOfficeRelative.getLastOfficerId:()Ljava/lang/Integer;
+      19: ifnonnull     26
+      22: iconst_0
+      23: goto          33
+      26: aload_2
+      27: invokevirtual #150                // Method com/reign/gcld/player/domain/PlayerOfficeRelative.getLastOfficerId:()Ljava/lang/Integer;
+      30: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+      33: istore_3
+      34: aload_2
+      35: invokevirtual #160                // Method com/reign/gcld/player/domain/PlayerOfficeRelative.getReputationTime:()Ljava/util/Date;
+      38: ifnonnull     47
+      41: invokestatic  #163                // Method java/lang/System.currentTimeMillis:()J
+      44: goto          54
+      47: aload_2
+      48: invokevirtual #160                // Method com/reign/gcld/player/domain/PlayerOfficeRelative.getReputationTime:()Ljava/util/Date;
+      51: invokevirtual #84                 // Method java/util/Date.getTime:()J
+      54: lstore        4
+      56: aload_0
+      57: getfield      #168                // Field hallsCache:Lcom/reign/gcld/sdata/cache/HallsCache;
+      60: iload_3
+      61: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      64: invokevirtual #170                // Method com/reign/gcld/sdata/cache/HallsCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      67: checkcast     #176                // class com/reign/gcld/sdata/domain/Halls
+      70: astore        6
+      72: aload         6
+      74: ifnull        154
+      77: aload         6
+      79: invokevirtual #178                // Method com/reign/gcld/sdata/domain/Halls.getOfficialId:()Ljava/lang/Integer;
+      82: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+      85: istore        7
+      87: iload         7
+      89: iconst_5
+      90: if_icmpgt     102
+      93: lload         4
+      95: invokestatic  #163                // Method java/lang/System.currentTimeMillis:()J
+      98: lcmp
+      99: ifge          154
+     102: aload_0
+     103: getfield      #143                // Field playerOfficeRelativeDao:Lcom/reign/gcld/player/dao/IPlayerOfficeRelativeDao;
+     106: iload_1
+     107: aconst_null
+     108: iconst_0
+     109: invokeinterface #181,  4          // InterfaceMethod com/reign/gcld/player/dao/IPlayerOfficeRelativeDao.updateReputationTime:(ILjava/util/Date;I)I
+     114: pop
+     115: aload_0
+     116: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+     119: iload_1
+     120: invokeinterface #187,  2          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.clearOfficer:(I)V
+     125: goto          154
+     128: astore_2
+     129: invokestatic  #192                // Method com/reign/gcld/battle/common/ErrorSceneLog.getInstance:()Lcom/reign/gcld/battle/common/ErrorSceneLog;
+     132: astore_3
+     133: aload_3
+     134: new           #198                // class java/lang/StringBuilder
+     137: dup
+     138: ldc           #200                // String checkReputationInfo exception...playerId:
+     140: invokespecial #202                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     143: iload_1
+     144: invokevirtual #205                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     147: invokevirtual #209                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     150: aload_2
+     151: invokevirtual #213                // Method com/reign/gcld/battle/common/ErrorSceneLog.error:(Ljava/lang/Object;Ljava/lang/Throwable;)V
+     154: return
+    Exception table:
+       from    to  target type
+           0   125   128   Class java/lang/Exception
+
+  private java.util.List<com.reign.gcld.player.dto.ResourceDto> buildingOutput(int, long);
+    descriptor: (IJ)Ljava/util/List;
+    Code:
+       0: new           #231                // class java/util/ArrayList
+       3: dup
+       4: invokespecial #233                // Method java/util/ArrayList."<init>":()V
+       7: astore        4
+       9: iconst_1
+      10: istore        5
+      12: goto          84
+      15: aload_0
+      16: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+      19: iload_1
+      20: iload         5
+      22: invokeinterface #234,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingsOutput:(II)I
+      27: istore        6
+      29: iload         6
+      31: i2d
+      32: dconst_1
+      33: dmul
+      34: ldc2_w        #238                // double 3600.0d
+      37: ddiv
+      38: dstore        7
+      40: aload_0
+      41: iload_1
+      42: iload         5
+      44: invokevirtual #240                // Method getMax:(II)J
+      47: lstore        9
+      49: dload         7
+      51: lload_2
+      52: l2d
+      53: dmul
+      54: dstore        11
+      56: new           #244                // class com/reign/gcld/player/dto/ResourceDto
+      59: dup
+      60: iload         5
+      62: dload         11
+      64: lload         9
+      66: invokespecial #246                // Method com/reign/gcld/player/dto/ResourceDto."<init>":(IDJ)V
+      69: astore        13
+      71: aload         4
+      73: aload         13
+      75: invokeinterface #249,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      80: pop
+      81: iinc          5, 1
+      84: iload         5
+      86: iconst_4
+      87: if_icmple     15
+      90: aload         4
+      92: areturn
+
+  public java.util.List<com.reign.gcld.player.dto.ResourceDto> buildingOutputPerHour(int);
+    descriptor: (I)Ljava/util/List;
+    Code:
+       0: new           #231                // class java/util/ArrayList
+       3: dup
+       4: invokespecial #233                // Method java/util/ArrayList."<init>":()V
+       7: astore_2
+       8: iconst_1
+       9: istore_3
+      10: goto          65
+      13: aload_0
+      14: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+      17: iload_1
+      18: iload_3
+      19: invokeinterface #234,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingsOutput:(II)I
+      24: istore        4
+      26: aload_0
+      27: iload_1
+      28: iload_3
+      29: invokevirtual #240                // Method getMax:(II)J
+      32: lstore        5
+      34: iload         4
+      36: i2d
+      37: dstore        7
+      39: new           #244                // class com/reign/gcld/player/dto/ResourceDto
+      42: dup
+      43: iload_3
+      44: dload         7
+      46: lload         5
+      48: invokespecial #246                // Method com/reign/gcld/player/dto/ResourceDto."<init>":(IDJ)V
+      51: astore        9
+      53: aload_2
+      54: aload         9
+      56: invokeinterface #249,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      61: pop
+      62: iinc          3, 1
+      65: iload_3
+      66: iconst_4
+      67: if_icmple     13
+      70: aload_2
+      71: areturn
+
+  public void dealTroop(com.reign.gcld.player.dto.PlayerDto, long);
+    descriptor: (Lcom/reign/gcld/player/dto/PlayerDto;J)V
+    Code:
+       0: aload_0
+       1: getfield      #265                // Field playerGeneralMilitaryDao:Lcom/reign/gcld/general/dao/IPlayerGeneralMilitaryDao;
+       4: aload_1
+       5: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+       8: iconst_1
+       9: invokeinterface #267,  3          // InterfaceMethod com/reign/gcld/general/dao/IPlayerGeneralMilitaryDao.getMilitaryByState:(II)Ljava/util/List;
+      14: astore        4
+      16: aload         4
+      18: invokeinterface #273,  1          // InterfaceMethod java/util/List.size:()I
+      23: iconst_1
+      24: if_icmpge     28
+      27: return
+      28: new           #73                 // class java/util/Date
+      31: dup
+      32: invokespecial #75                 // Method java/util/Date."<init>":()V
+      35: astore        5
+      37: aload_0
+      38: getfield      #76                 // Field playerResourceDao:Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+      41: aload_1
+      42: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+      45: invokeinterface #78,  2           // InterfaceMethod com/reign/gcld/player/dao/IPlayerResourceDao.read:(I)Lcom/reign/gcld/player/domain/PlayerResource;
+      50: astore        6
+      52: iconst_0
+      53: istore        7
+      55: new           #40                 // class java/util/HashMap
+      58: dup
+      59: invokespecial #42                 // Method java/util/HashMap."<init>":()V
+      62: astore        8
+      64: iconst_0
+      65: istore        9
+      67: iconst_0
+      68: istore        10
+      70: iconst_0
+      71: istore        11
+      73: invokestatic  #276                // Method com/reign/gcld/juben/service/JuBenManager.getInstance:()Lcom/reign/gcld/juben/service/JuBenManager;
+      76: aload_1
+      77: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+      80: invokevirtual #281                // Method com/reign/gcld/juben/service/JuBenManager.getByPid:(I)Lcom/reign/gcld/juben/common/JuBenDto;
+      83: astore        12
+      85: aload         12
+      87: ifnull        109
+      90: aload_0
+      91: getfield      #285                // Field juBenService:Lcom/reign/gcld/juben/service/IJuBenService;
+      94: aload_1
+      95: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+      98: invokeinterface #287,  2          // InterfaceMethod com/reign/gcld/juben/service/IJuBenService.isInWorldDrama:(I)Z
+     103: ifne          109
+     106: iconst_1
+     107: istore        11
+     109: new           #40                 // class java/util/HashMap
+     112: dup
+     113: invokespecial #42                 // Method java/util/HashMap."<init>":()V
+     116: astore        13
+     118: iconst_0
+     119: istore        14
+     121: goto          496
+     124: aload         4
+     126: iload         14
+     128: invokeinterface #293,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     133: checkcast     #296                // class com/reign/gcld/general/domain/PlayerGeneralMilitary
+     136: astore        15
+     138: aload         15
+     140: invokevirtual #298                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getGeneralId:()Ljava/lang/Integer;
+     143: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     146: istore        9
+     148: aload_0
+     149: getfield      #301                // Field worldCityCache:Lcom/reign/gcld/sdata/cache/WorldCityCache;
+     152: aload         15
+     154: invokevirtual #303                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getLocationId:()Ljava/lang/Integer;
+     157: invokevirtual #306                // Method com/reign/gcld/sdata/cache/WorldCityCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     160: checkcast     #309                // class com/reign/gcld/sdata/domain/WorldCity
+     163: astore        16
+     165: aload_0
+     166: getfield      #311                // Field generalService:Lcom/reign/gcld/general/service/IGeneralService;
+     169: aload_1
+     170: getfield      #313                // Field com/reign/gcld/player/dto/PlayerDto.forceId:I
+     173: aload         16
+     175: invokeinterface #316,  3          // InterfaceMethod com/reign/gcld/general/service/IGeneralService.getRate:(ILcom/reign/gcld/sdata/domain/WorldCity;)I
+     180: istore        10
+     182: aload         5
+     184: invokevirtual #84                 // Method java/util/Date.getTime:()J
+     187: aload         15
+     189: invokevirtual #322                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getUpdateForcesTime:()Ljava/util/Date;
+     192: invokevirtual #84                 // Method java/util/Date.getTime:()J
+     195: lsub
+     196: ldc2_w        #104                // long 1000l
+     199: ldiv
+     200: lstore        17
+     202: aload_0
+     203: getfield      #325                // Field generalCache:Lcom/reign/gcld/sdata/cache/GeneralCache;
+     206: iload         9
+     208: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     211: invokevirtual #327                // Method com/reign/gcld/sdata/cache/GeneralCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     214: checkcast     #330                // class com/reign/gcld/sdata/domain/General
+     217: astore        19
+     219: aload_0
+     220: getfield      #332                // Field troopCache:Lcom/reign/gcld/sdata/cache/TroopCache;
+     223: aload         19
+     225: invokevirtual #334                // Method com/reign/gcld/sdata/domain/General.getTroop:()Ljava/lang/Integer;
+     228: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     231: aload_1
+     232: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+     235: invokevirtual #337                // Method com/reign/gcld/sdata/cache/TroopCache.getTroop:(II)Lcom/reign/gcld/sdata/domain/Troop;
+     238: astore        20
+     240: aload_0
+     241: aload_1
+     242: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+     245: invokevirtual #342                // Method getOutput:(I)Ljava/lang/Double;
+     248: invokevirtual #346                // Method java/lang/Double.doubleValue:()D
+     251: iload         10
+     253: i2d
+     254: dmul
+     255: ldc2_w        #352                // double 100.0d
+     258: ddiv
+     259: dstore        21
+     261: dload         21
+     263: d2i
+     264: istore        23
+     266: aload_0
+     267: getfield      #311                // Field generalService:Lcom/reign/gcld/general/service/IGeneralService;
+     270: aload         20
+     272: invokevirtual #354                // Method com/reign/gcld/sdata/domain/Troop.getId:()Ljava/lang/Integer;
+     275: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     278: aload_1
+     279: getfield      #313                // Field com/reign/gcld/player/dto/PlayerDto.forceId:I
+     282: aload         16
+     284: invokeinterface #359,  4          // InterfaceMethod com/reign/gcld/general/service/IGeneralService.getRecuitConsume:(IILcom/reign/gcld/sdata/domain/WorldCity;)D
+     289: dstore        24
+     291: lload         17
+     293: l2d
+     294: dload         21
+     296: dmul
+     297: dstore        21
+     299: aload_0
+     300: getfield      #363                // Field battleDataCache:Lcom/reign/gcld/battle/service/IBattleDataCache;
+     303: aload         15
+     305: invokeinterface #365,  2          // InterfaceMethod com/reign/gcld/battle/service/IBattleDataCache.getMaxHp:(Lcom/reign/gcld/general/domain/PlayerGeneralMilitary;)I
+     310: istore        26
+     312: aload         15
+     314: invokevirtual #371                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getForces:()Ljava/lang/Integer;
+     317: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     320: i2d
+     321: dload         21
+     323: dadd
+     324: iload         26
+     326: i2d
+     327: dcmpl
+     328: iflt          348
+     331: iload         26
+     333: aload         15
+     335: invokevirtual #371                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getForces:()Ljava/lang/Integer;
+     338: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     341: isub
+     342: i2d
+     343: dstore        21
+     345: goto          378
+     348: lload_2
+     349: ldc2_w        #98                 // long 60l
+     352: lcmp
+     353: ifge          378
+     356: iload         26
+     358: aload         15
+     360: invokevirtual #371                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getForces:()Ljava/lang/Integer;
+     363: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     366: isub
+     367: iload         23
+     369: bipush        60
+     371: imul
+     372: if_icmple     378
+     375: goto          493
+     378: dload         21
+     380: dconst_1
+     381: dcmpg
+     382: ifge          388
+     385: goto          493
+     388: dload         24
+     390: dload         21
+     392: dmul
+     393: d2i
+     394: istore        27
+     396: new           #374                // class com/reign/gcld/player/service/GeneralOutPut
+     399: dup
+     400: invokespecial #376                // Method com/reign/gcld/player/service/GeneralOutPut."<init>":()V
+     403: astore        28
+     405: aload         28
+     407: iload         27
+     409: putfield      #377                // Field com/reign/gcld/player/service/GeneralOutPut.consumeFood:I
+     412: aload         28
+     414: dload         21
+     416: putfield      #380                // Field com/reign/gcld/player/service/GeneralOutPut.output:D
+     419: aload         28
+     421: iload         26
+     423: putfield      #382                // Field com/reign/gcld/player/service/GeneralOutPut.maxHp:I
+     426: iload         7
+     428: iload         27
+     430: iadd
+     431: aload         6
+     433: invokevirtual #385                // Method com/reign/gcld/player/domain/PlayerResource.getFood:()Ljava/lang/Integer;
+     436: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     439: if_icmpgt     458
+     442: iload         7
+     444: iload         27
+     446: iadd
+     447: istore        7
+     449: aload         28
+     451: iconst_1
+     452: putfield      #388                // Field com/reign/gcld/player/service/GeneralOutPut.canConsume:Z
+     455: goto          478
+     458: iload         11
+     460: ifeq          472
+     463: aload         28
+     465: iconst_1
+     466: putfield      #388                // Field com/reign/gcld/player/service/GeneralOutPut.canConsume:Z
+     469: goto          478
+     472: aload         28
+     474: iconst_0
+     475: putfield      #388                // Field com/reign/gcld/player/service/GeneralOutPut.canConsume:Z
+     478: aload         13
+     480: aload         15
+     482: invokevirtual #298                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getGeneralId:()Ljava/lang/Integer;
+     485: aload         28
+     487: invokeinterface #53,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     492: pop
+     493: iinc          14, 1
+     496: iload         14
+     498: aload         4
+     500: invokeinterface #273,  1          // InterfaceMethod java/util/List.size:()I
+     505: if_icmplt     124
+     508: iload         7
+     510: ifle          537
+     513: iload         11
+     515: ifne          537
+     518: aload_0
+     519: getfield      #76                 // Field playerResourceDao:Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+     522: aload_1
+     523: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+     526: iload         7
+     528: ldc_w         #392                // String ??????
+     531: invokeinterface #394,  4          // InterfaceMethod com/reign/gcld/player/dao/IPlayerResourceDao.consumeFood:(IILjava/lang/Object;)Z
+     536: pop
+     537: iconst_0
+     538: istore        14
+     540: goto          836
+     543: aload         4
+     545: iload         14
+     547: invokeinterface #293,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     552: checkcast     #296                // class com/reign/gcld/general/domain/PlayerGeneralMilitary
+     555: astore        15
+     557: aload         13
+     559: aload         15
+     561: invokevirtual #298                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getGeneralId:()Ljava/lang/Integer;
+     564: invokeinterface #397,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     569: checkcast     #374                // class com/reign/gcld/player/service/GeneralOutPut
+     572: astore        16
+     574: aload         16
+     576: ifnonnull     582
+     579: goto          833
+     582: lconst_0
+     583: lstore        17
+     585: aload         16
+     587: getfield      #388                // Field com/reign/gcld/player/service/GeneralOutPut.canConsume:Z
+     590: ifeq          767
+     593: aload_0
+     594: getfield      #265                // Field playerGeneralMilitaryDao:Lcom/reign/gcld/general/dao/IPlayerGeneralMilitaryDao;
+     597: aload_1
+     598: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+     601: aload         15
+     603: invokevirtual #298                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getGeneralId:()Ljava/lang/Integer;
+     606: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     609: aload         5
+     611: aload         16
+     613: getfield      #380                // Field com/reign/gcld/player/service/GeneralOutPut.output:D
+     616: aload         16
+     618: getfield      #382                // Field com/reign/gcld/player/service/GeneralOutPut.maxHp:I
+     621: i2l
+     622: invokeinterface #398,  8          // InterfaceMethod com/reign/gcld/general/dao/IPlayerGeneralMilitaryDao.updateForcesDate:(IILjava/util/Date;DJ)I
+     627: pop
+     628: aload         15
+     630: invokevirtual #371                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getForces:()Ljava/lang/Integer;
+     633: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     636: i2d
+     637: aload         16
+     639: getfield      #380                // Field com/reign/gcld/player/service/GeneralOutPut.output:D
+     642: dadd
+     643: d2i
+     644: i2l
+     645: lstore        17
+     647: aload         8
+     649: aload         15
+     651: invokevirtual #298                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getGeneralId:()Ljava/lang/Integer;
+     654: lload         17
+     656: invokestatic  #402                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+     659: invokeinterface #53,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     664: pop
+     665: lload         17
+     667: aload         16
+     669: getfield      #382                // Field com/reign/gcld/player/service/GeneralOutPut.maxHp:I
+     672: i2l
+     673: lcmp
+     674: iflt          833
+     677: aload_0
+     678: getfield      #407                // Field dataGetter:Lcom/reign/gcld/common/IDataGetter;
+     681: invokeinterface #409,  1          // InterfaceMethod com/reign/gcld/common/IDataGetter.getAutoBattleService:()Lcom/reign/gcld/auto/service/IAutoBattleService;
+     686: aload         15
+     688: invokevirtual #415                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getPlayerId:()Ljava/lang/Integer;
+     691: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     694: aload         15
+     696: invokevirtual #298                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getGeneralId:()Ljava/lang/Integer;
+     699: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     702: invokeinterface #418,  3          // InterfaceMethod com/reign/gcld/auto/service/IAutoBattleService.recoverAutoBattleAfterMuBing:(II)V
+     707: aload_0
+     708: getfield      #265                // Field playerGeneralMilitaryDao:Lcom/reign/gcld/general/dao/IPlayerGeneralMilitaryDao;
+     711: aload         15
+     713: invokevirtual #424                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getVId:()Ljava/lang/Integer;
+     716: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     719: aload         5
+     721: iconst_0
+     722: iconst_1
+     723: invokeinterface #427,  5          // InterfaceMethod com/reign/gcld/general/dao/IPlayerGeneralMilitaryDao.updateState:(ILjava/util/Date;II)I
+     728: istore        19
+     730: iload         19
+     732: iconst_1
+     733: if_icmpne     833
+     736: aload_1
+     737: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+     740: invokestatic  #431                // Method com/reign/gcld/task/message/TaskMessageHelper.sendFullBloodTaskMessage:(I)V
+     743: aload_0
+     744: getfield      #311                // Field generalService:Lcom/reign/gcld/general/service/IGeneralService;
+     747: aload_1
+     748: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+     751: aload         15
+     753: invokevirtual #298                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getGeneralId:()Ljava/lang/Integer;
+     756: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     759: invokeinterface #436,  3          // InterfaceMethod com/reign/gcld/general/service/IGeneralService.sendGeneralMilitaryRecruitInfo:(II)V
+     764: goto          833
+     767: aload_0
+     768: getfield      #76                 // Field playerResourceDao:Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+     771: aload_1
+     772: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+     775: iconst_3
+     776: invokeinterface #439,  3          // InterfaceMethod com/reign/gcld/player/dao/IPlayerResourceDao.pushIncenseData:(II)V
+     781: aload_0
+     782: getfield      #265                // Field playerGeneralMilitaryDao:Lcom/reign/gcld/general/dao/IPlayerGeneralMilitaryDao;
+     785: aload         15
+     787: invokevirtual #424                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getVId:()Ljava/lang/Integer;
+     790: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     793: aload         5
+     795: iconst_0
+     796: iconst_1
+     797: iconst_1
+     798: invokeinterface #442,  6          // InterfaceMethod com/reign/gcld/general/dao/IPlayerGeneralMilitaryDao.updateStateAuto:(ILjava/util/Date;III)I
+     803: istore        19
+     805: iload         19
+     807: iconst_1
+     808: if_icmpne     833
+     811: aload_0
+     812: getfield      #311                // Field generalService:Lcom/reign/gcld/general/service/IGeneralService;
+     815: aload_1
+     816: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+     819: aload         15
+     821: invokevirtual #298                // Method com/reign/gcld/general/domain/PlayerGeneralMilitary.getGeneralId:()Ljava/lang/Integer;
+     824: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     827: iconst_0
+     828: invokeinterface #446,  4          // InterfaceMethod com/reign/gcld/general/service/IGeneralService.sendGmStateSet:(III)V
+     833: iinc          14, 1
+     836: iload         14
+     838: aload         4
+     840: invokeinterface #273,  1          // InterfaceMethod java/util/List.size:()I
+     845: if_icmplt     543
+     848: aload_0
+     849: getfield      #311                // Field generalService:Lcom/reign/gcld/general/service/IGeneralService;
+     852: aload_1
+     853: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+     856: aload         8
+     858: invokeinterface #450,  3          // InterfaceMethod com/reign/gcld/general/service/IGeneralService.sendGmForcesSet:(ILjava/util/Map;)V
+     863: return
+
+  public java.lang.Double getOutput(int);
+    descriptor: (I)Ljava/lang/Double;
+    Code:
+       0: aload_0
+       1: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+       4: iload_1
+       5: iconst_5
+       6: invokeinterface #234,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingsOutput:(II)I
+      11: istore_2
+      12: iload_2
+      13: i2d
+      14: dconst_1
+      15: dmul
+      16: ldc2_w        #238                // double 3600.0d
+      19: ddiv
+      20: invokestatic  #485                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      23: areturn
+
+  private void pushData(int, java.util.List<com.reign.gcld.player.dto.ResourceDto>, boolean);
+    descriptor: (ILjava/util/List;Z)V
+    Code:
+       0: aload_0
+       1: getfield      #76                 // Field playerResourceDao:Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+       4: iload_1
+       5: invokeinterface #78,  2           // InterfaceMethod com/reign/gcld/player/dao/IPlayerResourceDao.read:(I)Lcom/reign/gcld/player/domain/PlayerResource;
+      10: astore        4
+      12: new           #489                // class com/reign/framework/json/JsonDocument
+      15: dup
+      16: invokespecial #491                // Method com/reign/framework/json/JsonDocument."<init>":()V
+      19: astore        5
+      21: aload         5
+      23: invokevirtual #492                // Method com/reign/framework/json/JsonDocument.startObject:()V
+      26: aload         5
+      28: ldc_w         #495                // String outputInfo
+      31: invokevirtual #497                // Method com/reign/framework/json/JsonDocument.startArray:(Ljava/lang/String;)V
+      34: iconst_0
+      35: istore        6
+      37: goto          121
+      40: aload_2
+      41: iload         6
+      43: invokeinterface #293,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      48: checkcast     #244                // class com/reign/gcld/player/dto/ResourceDto
+      51: astore        7
+      53: aload         5
+      55: invokevirtual #492                // Method com/reign/framework/json/JsonDocument.startObject:()V
+      58: aload         5
+      60: ldc_w         #500                // String buildingType
+      63: aload         7
+      65: invokevirtual #502                // Method com/reign/gcld/player/dto/ResourceDto.getType:()I
+      68: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      71: invokevirtual #505                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+      74: aload         5
+      76: ldc_w         #509                // String output
+      79: aload         7
+      81: invokevirtual #510                // Method com/reign/gcld/player/dto/ResourceDto.getValue:()D
+      84: d2i
+      85: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      88: invokevirtual #505                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+      91: aload         5
+      93: ldc_w         #513                // String realValue
+      96: aload_0
+      97: aload         4
+      99: aload         7
+     101: invokevirtual #502                // Method com/reign/gcld/player/dto/ResourceDto.getType:()I
+     104: invokespecial #514                // Method getResourceByType:(Lcom/reign/gcld/player/domain/PlayerResource;I)J
+     107: invokestatic  #402                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+     110: invokevirtual #505                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     113: aload         5
+     115: invokevirtual #518                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     118: iinc          6, 1
+     121: iload         6
+     123: aload_2
+     124: invokeinterface #273,  1          // InterfaceMethod java/util/List.size:()I
+     129: if_icmplt     40
+     132: aload         5
+     134: invokevirtual #521                // Method com/reign/framework/json/JsonDocument.endArray:()V
+     137: aload         5
+     139: ldc_w         #524                // String isChangeDisplaye
+     142: iload_3
+     143: invokestatic  #526                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     146: invokevirtual #505                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     149: aload         5
+     151: invokevirtual #518                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     154: iload_1
+     155: getstatic     #531                // Field com/reign/gcld/common/PushCommand.PUSH_BUILDING_OUTPUT:Lcom/reign/gcld/common/PushCommand;
+     158: aload         5
+     160: invokevirtual #537                // Method com/reign/framework/json/JsonDocument.toByte:()[B
+     163: invokestatic  #541                // Method com/reign/gcld/common/Players.push:(ILcom/reign/gcld/common/PushCommand;[B)V
+     166: return
+
+  private long getResourceByType(com.reign.gcld.player.domain.PlayerResource, int);
+    descriptor: (Lcom/reign/gcld/player/domain/PlayerResource;I)J
+    Code:
+       0: lconst_0
+       1: lstore_3
+       2: iload_2
+       3: tableswitch   { // 1 to 4
+                     1: 32
+                     2: 44
+                     3: 56
+                     4: 68
+               default: 80
+          }
+      32: aload_1
+      33: invokevirtual #551                // Method com/reign/gcld/player/domain/PlayerResource.getCopper:()Ljava/lang/Integer;
+      36: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+      39: i2l
+      40: lstore_3
+      41: goto          80
+      44: aload_1
+      45: invokevirtual #554                // Method com/reign/gcld/player/domain/PlayerResource.getWood:()Ljava/lang/Integer;
+      48: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+      51: i2l
+      52: lstore_3
+      53: goto          80
+      56: aload_1
+      57: invokevirtual #385                // Method com/reign/gcld/player/domain/PlayerResource.getFood:()Ljava/lang/Integer;
+      60: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+      63: i2l
+      64: lstore_3
+      65: goto          80
+      68: aload_1
+      69: invokevirtual #557                // Method com/reign/gcld/player/domain/PlayerResource.getIron:()Ljava/lang/Integer;
+      72: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+      75: i2l
+      76: lstore_3
+      77: goto          80
+      80: lload_3
+      81: lreturn
+
+  public long getMax(int, int);
+    descriptor: (II)J
+    Code:
+       0: iconst_0
+       1: istore_3
+       2: iload_2
+       3: tableswitch   { // 1 to 4
+                     1: 32
+                     2: 48
+                     3: 64
+                     4: 80
+               default: 96
+          }
+      32: aload_0
+      33: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+      36: iload_1
+      37: bipush        16
+      39: invokeinterface #561,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingOutput:(II)I
+      44: istore_3
+      45: goto          96
+      48: aload_0
+      49: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+      52: iload_1
+      53: bipush        32
+      55: invokeinterface #561,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingOutput:(II)I
+      60: istore_3
+      61: goto          96
+      64: aload_0
+      65: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+      68: iload_1
+      69: bipush        48
+      71: invokeinterface #561,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingOutput:(II)I
+      76: istore_3
+      77: goto          96
+      80: aload_0
+      81: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+      84: iload_1
+      85: bipush        64
+      87: invokeinterface #561,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingOutput:(II)I
+      92: istore_3
+      93: goto          96
+      96: iload_3
+      97: i2l
+      98: lreturn
+
+  public com.reign.util.Tuple<java.lang.Boolean, java.lang.String> canAddResource(int, int);
+    descriptor: (II)Lcom/reign/util/Tuple;
+    Code:
+       0: new           #568                // class com/reign/util/Tuple
+       3: dup
+       4: invokespecial #570                // Method com/reign/util/Tuple."<init>":()V
+       7: astore_3
+       8: aload_0
+       9: getfield      #76                 // Field playerResourceDao:Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+      12: iload_2
+      13: invokeinterface #78,  2           // InterfaceMethod com/reign/gcld/player/dao/IPlayerResourceDao.read:(I)Lcom/reign/gcld/player/domain/PlayerResource;
+      18: astore        4
+      20: lconst_0
+      21: lstore        5
+      23: ldc2_w        #571                // long -1l
+      26: lstore        7
+      28: ldc_w         #573                // String
+      31: astore        9
+      33: iload_1
+      34: tableswitch   { // 1 to 4
+                     1: 64
+                     2: 98
+                     3: 132
+                     4: 166
+               default: 200
+          }
+      64: aload_0
+      65: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+      68: iload_2
+      69: bipush        16
+      71: invokeinterface #561,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingOutput:(II)I
+      76: i2l
+      77: lstore        5
+      79: aload         4
+      81: invokevirtual #551                // Method com/reign/gcld/player/domain/PlayerResource.getCopper:()Ljava/lang/Integer;
+      84: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+      87: i2l
+      88: lstore        7
+      90: getstatic     #575                // Field com/reign/gcld/common/LocalMessages.RESOURCE_COPEER_TOP:Ljava/lang/String;
+      93: astore        9
+      95: goto          200
+      98: aload_0
+      99: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+     102: iload_2
+     103: bipush        32
+     105: invokeinterface #561,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingOutput:(II)I
+     110: i2l
+     111: lstore        5
+     113: aload         4
+     115: invokevirtual #554                // Method com/reign/gcld/player/domain/PlayerResource.getWood:()Ljava/lang/Integer;
+     118: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     121: i2l
+     122: lstore        7
+     124: getstatic     #581                // Field com/reign/gcld/common/LocalMessages.RESOURCE_WOOD_TOP:Ljava/lang/String;
+     127: astore        9
+     129: goto          200
+     132: aload_0
+     133: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+     136: iload_2
+     137: bipush        48
+     139: invokeinterface #561,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingOutput:(II)I
+     144: i2l
+     145: lstore        5
+     147: aload         4
+     149: invokevirtual #385                // Method com/reign/gcld/player/domain/PlayerResource.getFood:()Ljava/lang/Integer;
+     152: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     155: i2l
+     156: lstore        7
+     158: getstatic     #584                // Field com/reign/gcld/common/LocalMessages.RESOURCE_FOOD_TOP:Ljava/lang/String;
+     161: astore        9
+     163: goto          200
+     166: aload_0
+     167: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+     170: iload_2
+     171: bipush        64
+     173: invokeinterface #561,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingOutput:(II)I
+     178: i2l
+     179: lstore        5
+     181: aload         4
+     183: invokevirtual #557                // Method com/reign/gcld/player/domain/PlayerResource.getIron:()Ljava/lang/Integer;
+     186: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+     189: i2l
+     190: lstore        7
+     192: getstatic     #587                // Field com/reign/gcld/common/LocalMessages.RESOURCE_IRON_TOP:Ljava/lang/String;
+     195: astore        9
+     197: goto          200
+     200: lload         5
+     202: lload         7
+     204: lcmp
+     205: ifle          212
+     208: iconst_1
+     209: goto          213
+     212: iconst_0
+     213: istore        10
+     215: aload_3
+     216: iload         10
+     218: invokestatic  #526                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     221: putfield      #590                // Field com/reign/util/Tuple.left:Ljava/lang/Object;
+     224: aload_3
+     225: aload         9
+     227: putfield      #594                // Field com/reign/util/Tuple.right:Ljava/lang/Object;
+     230: aload_3
+     231: areturn
+
+  public void pushOutput(int);
+    descriptor: (I)V
+    Code:
+       0: new           #489                // class com/reign/framework/json/JsonDocument
+       3: dup
+       4: invokespecial #491                // Method com/reign/framework/json/JsonDocument."<init>":()V
+       7: astore_2
+       8: aload_2
+       9: invokevirtual #492                // Method com/reign/framework/json/JsonDocument.startObject:()V
+      12: aload_2
+      13: ldc_w         #509                // String output
+      16: invokevirtual #497                // Method com/reign/framework/json/JsonDocument.startArray:(Ljava/lang/String;)V
+      19: iconst_1
+      20: istore_3
+      21: goto          105
+      24: aload_2
+      25: invokevirtual #492                // Method com/reign/framework/json/JsonDocument.startObject:()V
+      28: aload_2
+      29: ldc_w         #606                // String outputType
+      32: iload_3
+      33: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      36: invokevirtual #505                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+      39: aload_2
+      40: ldc_w         #608                // String outputValue
+      43: aload_0
+      44: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+      47: iload_1
+      48: iload_3
+      49: invokeinterface #234,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingsOutput:(II)I
+      54: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      57: invokevirtual #505                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+      60: aload_2
+      61: ldc_w         #610                // String outputMax
+      64: aload_0
+      65: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+      68: iload_1
+      69: getstatic     #45                 // Field resourceLimitBuildingMap:Ljava/util/Map;
+      72: iload_3
+      73: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      76: invokeinterface #397,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      81: checkcast     #48                 // class java/lang/Integer
+      84: invokevirtual #156                // Method java/lang/Integer.intValue:()I
+      87: invokeinterface #561,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingOutput:(II)I
+      92: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      95: invokevirtual #505                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+      98: aload_2
+      99: invokevirtual #518                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     102: iinc          3, 1
+     105: iload_3
+     106: iconst_4
+     107: if_icmple     24
+     110: aload_2
+     111: invokevirtual #492                // Method com/reign/framework/json/JsonDocument.startObject:()V
+     114: aload_2
+     115: ldc_w         #606                // String outputType
+     118: iconst_5
+     119: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     122: invokevirtual #505                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     125: aload_2
+     126: ldc_w         #608                // String outputValue
+     129: aload_0
+     130: getfield      #185                // Field buildingOutputCache:Lcom/reign/gcld/building/service/IBuildingOutputCache;
+     133: iload_1
+     134: iconst_5
+     135: invokeinterface #234,  3          // InterfaceMethod com/reign/gcld/building/service/IBuildingOutputCache.getBuildingsOutput:(II)I
+     140: bipush        60
+     142: idiv
+     143: invokestatic  #47                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     146: invokevirtual #505                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     149: aload_2
+     150: invokevirtual #518                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     153: aload_2
+     154: invokevirtual #521                // Method com/reign/framework/json/JsonDocument.endArray:()V
+     157: aload_2
+     158: invokevirtual #518                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     161: iload_1
+     162: getstatic     #612                // Field com/reign/gcld/common/PushCommand.PUSH_UPDATE:Lcom/reign/gcld/common/PushCommand;
+     165: aload_2
+     166: invokevirtual #537                // Method com/reign/framework/json/JsonDocument.toByte:()[B
+     169: invokestatic  #541                // Method com/reign/gcld/common/Players.push:(ILcom/reign/gcld/common/PushCommand;[B)V
+     172: return
+}

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--用户界面配置文件-->
+<config>
+	<!--背景图片-->
+	<bg value="assets/{resVersion}/img/bg/{0}.jpg"/>
+	<!-- 主城背景 -->
+	<mainCityBG value="assets/{resVersion}/img/mainCityBG/{0}.jpg" />
+	<!-- 战争背景 -->
+	<warBG value="assets/{resVersion}/img/warBG/{0}.jpg" />
+	<!-- 战争标题 -->
+	<warTitle value="assets/{resVersion}/img/warTitle/{0}.png" />
+	<!--武将小头像资源-->
+	<generalSmallPic value="assets/{resVersion}/img/generalSmallPic/{0}.jpg"/>
+	<!--酒馆 武将头像-->
+	<generalPic value="assets/{resVersion}/img/generalPic/{0}.jpg" />
+	<!--武将大头像资源-->
+	<generalPicMax value="assets/{resVersion}/img/generalPicMax/{0}.png" />
+	<!--战法武将头像资源-->
+	<tacticalGeneralPicMax value="assets/{resVersion}/img/tacticalGeneralPicMax/{0}.png" />
+	
+	<!-- 不同区域资源 -->
+	<areaSWF value="assets/{resVersion}/swf/area/area{0}.swf" />
+	<!-- 不同副本资源 -->
+	<expeditionSWF value="assets/{resVersion}/swf/expedition/expedition{0}.swf" />
+	<!--皇城区域资源-->
+	<officialSWF value="assets/{resVersion}/swf/official/official{0}.swf" />
+	<!--角色武将头像-->
+	<rolePic72 value="assets/{resVersion}/img/rolePic72/{0}.jpg" />
+	<!-- 军团-->
+	<legionBadge value="assets/{resVersion}/img/legionBadge/{0}.jpg" />
+	
+	<!--科技图标-->
+	<tech value="assets/{resVersion}/img/tech/{0}.jpg" />
+	
+	<!--科技图标-->
+	<icon value="assets/{resVersion}/img/icon/{0}.png" />
+	
+	<!-- 武器装备-->
+	<item value="assets/{resVersion}/img/item/{0}.jpg" />
+	
+	<!--武器装备小图片-->
+	<smallItem value="assets/{resVersion}/img/smallItem/{0}.jpg" />
+	
+	<!-- 官职-->
+	<official value="assets/{resVersion}/img/official/{0}.png" />
+	
+	<!-- 晶石技能-->
+	<gemSkill value="assets/{resVersion}/img/gemSkill/{0}.png" />
+		
+	<!-- 世界地图区块 -->
+	<worldBlock value="assets/{resVersion}/img/worldBlock/{0}.jpg" />
+	
+	<!-- 祭祀 -->
+	<incensePic value="assets/{resVersion}/img/incensePic/{0}.jpg" />
+	
+	<!--势力君主头像小图片-->
+	<forces value="assets/{resVersion}/img/forces/{0}.jpg" />
+	
+	<!--寻访 事件图片-->
+	<searchPic value="assets/{resVersion}/img/searchPic/{0}.jpg" />
+	
+	<!--士兵资源-->
+	<soldiers value="assets/{resVersion}/swf/soldiers/{0}.swf" />
+	
+	<!-- 创建角色半身像 -->
+	<roleBigPic value="assets/{resVersion}/img/roleBigPic/{0}.png" />
+	<!--政务事件图像-->
+	<politicsPic value="assets/{resVersion}/img/politicsPic/{0}.png" />
+	<!--集市图像-->
+	<marketPic value="assets/{resVersion}/img/market/{0}.jpg" />
+	<!--镔铁大放送活动图像-->
+	<ironGiftPic value="assets/{resVersion}/img/irongift/{0}.png" />
+	<!--黑市图像-->
+	<blackMarketPic value="assets/{resVersion}/img/blackMarket/{0}.jpg" />	
+	<!--兵器图像-->
+	<weaponryPic value="assets/{resVersion}/img/weaponry/{0}.jpg" />	
+	<!--铁矿 宝石背景-->
+	<IronGemOrePic value="assets/{resVersion}/img/IronGemOre/{0}.jpg" />
+	<!--点券图片-->
+	<ticketShop72_72 value="assets/{resVersion}/img/ticketShop72_72/{0}.png" />
+	<!--庆功头像图片-->
+	<kfWorldFeteRolePic value="assets/{resVersion}/img/kfWorldFeteRolePic/{0}.png" />
+	
+	<!--宝物小图片-->
+	<generalTreasurePic value="assets/{resVersion}/img/GeneralTreasurePic/{0}.jpg" />
+	<!--宝物图片72-->
+	<TreasurePic72 value="assets/{resVersion}/img/TreasurePic72/{0}.jpg" />	
+	
+	
+	<!--战斗结果 获得官职-->
+	<resultapppo value="assets/{resVersion}/img/resultapppo/{0}.png" />
+	<!--跨服计策图片-->
+	<kfWorldStm value="assets/{resVersion}/img/kfWorldStm/{0}.png" />
+	
+	<!--科技小图标-->
+	<teachPic value="assets/{resVersion}/img/techIcon/{0}.jpg" />
+	<!--奴隶角色图片-->
+	<slavePic value="assets/{resVersion}/img/slavePic/{0}.png" />	
+	<!--额外副本小图片-->
+	<fubenPic value="assets/{resVersion}/img/fubenPic40/{0}.png" />
+	<!--Loading背景图片-->
+	<loadBgPic value="assets/{resVersion}/img/loadBgPic/{0}.jpg" />
+	<!--Loading特效-->
+	<loadBgMC value="assets/{resVersion}/swf/core/{0}.swf" />
+	
+	<!-- 武将buff 图片-->
+	<warbuffpic value="assets/{resVersion}/img/warBuff/{0}.png" />
+	<!--投资事件图像-->
+	<investPic value="assets/{resVersion}/img/investPic/{0}.png" />
+	
+	<!--准备面板兵器加成-->
+	<warvsicon value="assets/{resVersion}/img/warvsicon/{0}.png" />
+	
+	<!-- 官职名称图片-->
+	<officialNamePic value="assets/{resVersion}/img/officialName/{0}.png" />
+	
+	<!-- 剧本世界小地图图片-->
+	<jbWorldSmallMap value="assets/{resVersion}/img/jbWorld/{0}/smallMap.png"/>
+	
+	<!-- 跨服世界小地图图片-->
+	<kfWorldSmallMap value="assets/{resVersion}/img/kfWorld/{0}/smallMap.png"/>
+	
+	<!-- 跨服争霸图片-->
+	<kfZb value="assets/{resVersion}/img/kfZb/{0}.png"/>
+	
+	<!--术士工坊头像图片-->
+	<warLock value="assets/{resVersion}/img/warLock/{0}.jpg" />
+	<!--副本指引图片-->
+	<expeditionGuild value="assets/{resVersion}/img/expeditionGuild/{0}.png" />
+	<!--铁匠铺头像图片-->
+	<smithy value="assets/{resVersion}/img/smithy/{0}.jpg" />
+	<!--牢房活动头像头像图片-->
+	<prisonActivity value="assets/{resVersion}/img/prisonActivity/{0}.png" />
+	<!--世界剧本截图-->
+	<worldDramaBg value="assets/{resVersion}/img/worldDramaBg/{0}.png" />
+	<!--世界剧本标题图片-->
+	<worldDramaTitle value="assets/{resVersion}/img/worldDramaTitle/{0}.png" />
+	<!--宝石商铺图片-->
+	<gemShopPic value="assets/{resVersion}/img/gemShop/{0}.png" />
+	
+	
+	<!-- 军团职位颜色 -->
+    <legionPositionColor value="0xCCCCCC,0x44AB66,0x97AB44,0xAB6644,0xAB558C"/>
+	
+	<!--武将颜色 白 白 蓝 绿 黄 红 紫 紫-->
+	<generalsColor value="0xFFFFFF,0xFFFFFF,0x7AA6E7,0x72DF37,0xFFBD42,0xFD6262,0xD16FF2,0xD16FF2"/>
+	
+	<generalsColors value="#FFFFFF,#FFFFFF,#7AA6E7,#72DF37,#FFBD42,#FD6262,#D16FF2"/>
+	
+	<!-- 装备名称颜色 白 蓝 绿 黄 红 紫-->
+    <equipColor value="0xD7D7D6,0xD7D7D6,0x85C8FF,0x95FFA2,0xFFF461,0xFF8C7F,0xE57FFF"/>
+    <equipColors value="#D7D7D6,#D7D7D6,#85C8FF,#95FFA2,#FFF461,#FF8C7F,#E57FFF"/>
+	
+	<!--寻访城市等级颜色-->
+	<citiesColor value="0xFFFFFF,0xFFFFFF,0x7AA6E7,0x72DF37,0xFFBD42,0xFD6262,0xD16FF2"/>
+	<!--寻访模式颜色-->
+	<searchModeColor value="0x7AA6E7,0xFFBD42,0xD16FF2"/>
+	
+	<!--军团名称颜色 从高到低紫、红、黄、绿、蓝-->
+	<legionColor value="0xFFFFCC,0x7AA6E7,0x72DF37,0xFFBD42,0xFD6262,0xD16FF2"/>
+	
+	<!--通商颜色-->
+	<businessColor value="0xFFFFFF,0xFFFFFF,0x7AA6E7,0x72DF37,0xFFBD42,0xFD6262,0xD16FF2"/>
+	
+	<!--参加战斗角色name-->
+	<jionPlayerColor value="#FFFFCC,#5A9FFF,#FF9114,#A1EC07"/>
+	<!-- 宝物名称颜色 白 蓝 绿 黄 红 紫-->
+    <treasureColor value="0xD7D7D6,0xD7D7D6,0x5E8DA2,0x669966,0x94A354,0xAA7366,0xA7729D"/>
+	<!--排行等级颜色-->
+	<qulifyingColor value="0xD7D7D6,0x5E8DA2,0x669966,0x94A354,0xAA7366,0xA7729D"/>
+	<!--势力颜色-->
+	<forceColor value="0xFFFFFF,0x67a4d6,0xc27f5d,0x8ec25d,0xCD91FF,0xDBB82C"/>
+	<!--势力颜色#颜色-->
+	<forceColors value="#FFFFFF,#67a4d6,#c27f5d,#8ec25d,#B88AFD,#DBB82C,#60F9FF"/>
+	<!-- 称号颜色 -->
+    <titlePicColors value="#999999,#FFFFCF,#7AA6E7,#72DF37,#FFBD42,#FD6262,#D16FF2"/>
+    <!--牢房等级以及鞭笞等级的颜色-->
+    <cellLevelColors value="0x999999,0xD7D7D6,0x72DF37,0xFFBD42,0xFD6262,0xD16FF2"/>
+    <!--抓捕颜色 黄 绿 蓝 白 灰-->
+	<cellColor value="#FFBD42,#72DF37,#7AA6E7,#FFFFFF,#999999"/>
+</config>

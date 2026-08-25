@@ -1,0 +1,92 @@
+[
+    {
+        "name":  "Thành Trì Chiêm Lĩnh ",
+        "j1":  "0",
+        "j2":  "0",
+        "id":  "1",
+        "intro":  "Đồng thời tuyên bố hai nhiệm vụ ，3 quốc gia chém giết thành ",
+        "j3":  "0",
+        "prob":  "0"
+    },
+    {
+        "name":  "Sát Địch Sổ Bỉ Bính ",
+        "j1":  "4",
+        "j2":  "2",
+        "id":  "2",
+        "intro":  "3 quốc gia so với ai khác giết địch nhiều ",
+        "j3":  "1",
+        "prob":  "0"
+    },
+    {
+        "name":  "Man Tộc Nhập Xâm ",
+        "j1":  "4",
+        "j2":  "2",
+        "id":  "3",
+        "intro":  "3 quốc gia so với ai khác man tộc giết được nhiều ",
+        "j3":  "1",
+        "prob":  "0"
+    },
+    {
+        "name":  "Phú Giáp Thiên Hạ ",
+        "j1":  "4",
+        "j2":  "2",
+        "id":  "4",
+        "intro":  "3 quốc gia so với ai khác tiền bạc nhiều ",
+        "j3":  "1",
+        "prob":  "0"
+    },
+    {
+        "name":  "Tích Phân Tái ",
+        "j1":  "4",
+        "j2":  "2",
+        "id":  "5",
+        "intro":  "3 quốc gia so với ai khác tích phân cao ",
+        "j3":  "1",
+        "prob":  "0"
+    },
+    {
+        "name":  "Khai Cương Khoách Thổ ",
+        "j1":  "0",
+        "j2":  "0",
+        "id":  "6",
+        "intro":  "3 quốc gia so với ai khác giết địch nhiều ",
+        "j3":  "0",
+        "prob":  "0"
+    },
+    {
+        "name":  "Tảo Đãng Man Tộc ",
+        "j1":  "0",
+        "j2":  "0",
+        "id":  "7",
+        "intro":  "Đánh man tộc ，đánh 1 ba khai tiếp theo ba ",
+        "j3":  "0",
+        "prob":  "0"
+    },
+    {
+        "name":  "Kiên Thủ Biên Cương ",
+        "j1":  "0",
+        "j2":  "0",
+        "id":  "8",
+        "intro":  "Man tộc khuếch trương ，thủ vững thành trì ，đâu thành ngài liền thua ",
+        "j3":  "0",
+        "prob":  "0"
+    },
+    {
+        "name":  "Trấn Áp Hoàng Cân ",
+        "j1":  "0",
+        "j2":  "0",
+        "id":  "9",
+        "intro":  "Thưởng trung gian  tương dương ",
+        "j3":  "0",
+        "prob":  "0"
+    },
+    {
+        "name":  "Kiến Tạo Kỳ Tích ",
+        "j1":  "0",
+        "j2":  "0",
+        "id":  "10",
+        "intro":  "Kiến thiết bên ta  đô thành ",
+        "j3":  "0",
+        "prob":  "0"
+    }
+]

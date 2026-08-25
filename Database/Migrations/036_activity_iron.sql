@@ -1,0 +1,4 @@
+BEGIN;
+CREATE TABLE IF NOT EXISTS player_iron_activity(player_id BIGINT PRIMARY KEY REFERENCES players(id) ON DELETE CASCADE,activity_id BIGINT NOT NULL REFERENCES scheduled_activities(id) ON DELETE CASCADE,iron_gained BIGINT NOT NULL DEFAULT 0,reward_level INTEGER NOT NULL DEFAULT 0,received_level INTEGER NOT NULL DEFAULT 0,updated_at TIMESTAMPTZ NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS player_iron_claims(player_id BIGINT NOT NULL REFERENCES players(id) ON DELETE CASCADE,request_key TEXT NOT NULL,activity_id BIGINT NOT NULL,reward_level INTEGER NOT NULL,reward_iron INTEGER NOT NULL,created_at TIMESTAMPTZ NOT NULL DEFAULT now(),PRIMARY KEY(player_id,request_key));
+COMMIT;

@@ -1,0 +1,842 @@
+[
+    {
+        "degree":  "1",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "500",
+        "cost_num":  "800",
+        "Quality":  "1",
+        "id":  "1"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "700",
+        "cost_num":  "800",
+        "Quality":  "2",
+        "id":  "2"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "800",
+        "cost_num":  "800",
+        "Quality":  "3",
+        "id":  "3"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.3",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "4"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.35",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1200",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "5"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.4",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1600",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "6"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "7"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1200",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "8"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1600",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "9"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "500",
+        "cost_num":  "800",
+        "Quality":  "1",
+        "id":  "10"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "700",
+        "cost_num":  "800",
+        "Quality":  "2",
+        "id":  "11"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "800",
+        "cost_num":  "800",
+        "Quality":  "3",
+        "id":  "12"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.3",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "13"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.35",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1200",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "14"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.4",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1600",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "15"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "16"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1200",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "17"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1600",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "18"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.4",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "1",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "19"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.3",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "2",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "20"
+    },
+    {
+        "degree":  "1",
+        "prob":  "0.2",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "3",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "21"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "500",
+        "cost_num":  "800",
+        "Quality":  "1",
+        "id":  "22"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "700",
+        "cost_num":  "800",
+        "Quality":  "2",
+        "id":  "23"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "800",
+        "cost_num":  "800",
+        "Quality":  "3",
+        "id":  "24"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.3",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "25"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.35",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1200",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "26"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.4",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1600",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "27"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "28"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1200",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "29"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1600",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "30"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "500",
+        "cost_num":  "800",
+        "Quality":  "1",
+        "id":  "31"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "700",
+        "cost_num":  "800",
+        "Quality":  "2",
+        "id":  "32"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "800",
+        "cost_num":  "800",
+        "Quality":  "3",
+        "id":  "33"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.3",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "34"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.35",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1200",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "35"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.4",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1600",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "36"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "37"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1200",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "38"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1600",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "39"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.4",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "1",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "40"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.3",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "2",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "41"
+    },
+    {
+        "degree":  "2",
+        "prob":  "0.2",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "3",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "42"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "625",
+        "cost_num":  "800",
+        "Quality":  "1",
+        "id":  "43"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "875",
+        "cost_num":  "800",
+        "Quality":  "2",
+        "id":  "44"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "3",
+        "id":  "45"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.3",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1250",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "46"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.35",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1500",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "47"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.4",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "2000",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "48"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1250",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "49"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1500",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "50"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "2000",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "51"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "625",
+        "cost_num":  "800",
+        "Quality":  "1",
+        "id":  "52"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "875",
+        "cost_num":  "800",
+        "Quality":  "2",
+        "id":  "53"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "3",
+        "id":  "54"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.3",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1250",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "55"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.35",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1500",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "56"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.4",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "2000",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "57"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1250",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "58"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1500",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "59"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "2000",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "60"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.4",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "1",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "61"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.3",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "2",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "62"
+    },
+    {
+        "degree":  "3",
+        "prob":  "0.2",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "3",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "63"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "625",
+        "cost_num":  "800",
+        "Quality":  "1",
+        "id":  "64"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "875",
+        "cost_num":  "800",
+        "Quality":  "2",
+        "id":  "65"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.5",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "3",
+        "id":  "66"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.3",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1250",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "67"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.35",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1500",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "68"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.4",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "2000",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "69"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1250",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "70"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "1500",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "71"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0",
+        "item_type":  "lumber",
+        "cost_type":  "copper",
+        "item_num":  "2000",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "72"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "625",
+        "cost_num":  "800",
+        "Quality":  "1",
+        "id":  "73"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "875",
+        "cost_num":  "800",
+        "Quality":  "2",
+        "id":  "74"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.5",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1000",
+        "cost_num":  "800",
+        "Quality":  "3",
+        "id":  "75"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.3",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1250",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "76"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.35",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1500",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "77"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.4",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "2000",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "78"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1250",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "79"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "1500",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "80"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0",
+        "item_type":  "food",
+        "cost_type":  "copper",
+        "item_num":  "2000",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "81"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.4",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "1",
+        "cost_num":  "800",
+        "Quality":  "4",
+        "id":  "82"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.3",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "2",
+        "cost_num":  "800",
+        "Quality":  "5",
+        "id":  "83"
+    },
+    {
+        "degree":  "4",
+        "prob":  "0.2",
+        "item_type":  "recruit_token",
+        "cost_type":  "copper",
+        "item_num":  "3",
+        "cost_num":  "800",
+        "Quality":  "6",
+        "id":  "84"
+    }
+]

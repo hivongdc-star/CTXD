@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--核心UI配置文件-->
+<config>
+
+	<!--加载条-->
+	<loadBar properties='{"x":0, "y":0}' autoAlign='{"width":354,"height":120}'>
+		<modalBG name="modalBG" properties='{"alpha":0.6}' />
+		<displayObject name="view" definition="mainUI.view.LoadBar" />
+	</loadBar>
+	
+	<!--将与服务端通信的请求进行模态的界面-->
+	<requestModal properties='{"bgSemiModalAlpha":0.01, "bgModalAlpha":0.2}' autoAlign='{"width":120,"height":80}'>
+		<modalBG name="modalBG" />
+		<displayObject name="view" definition="mainUI.view.RequestModal" />
+		<!--
+		<button name="closeBtn" properties='{"x":30, "y":50, "width":60, "styleName":"button1", "labelID":"030305"}' />
+		-->
+		<!--公用AlerText属性-->
+		<alertText patent="null" properties='{"key":"serviceError", "color":"0xCC3300", "stroke":"0x282818", "alertLayerShow":true}' /> 
+		<alertText parent="null" properties='{"key":"common", "color":"0x00CC33", "stroke":"0x282818", "alertLayerShow":true}' /> 
+	</requestModal>
+	
+	
+</config>

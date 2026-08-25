@@ -1,0 +1,16 @@
+BEGIN;
+CREATE TABLE IF NOT EXISTS social_teams(
+ id UUID PRIMARY KEY,owner_player_id BIGINT NOT NULL REFERENCES players(id) ON DELETE CASCADE,
+ force_id SMALLINT NOT NULL,team_type INTEGER NOT NULL,name TEXT NOT NULL,max_generals INTEGER NOT NULL,
+ created_at TIMESTAMPTZ NOT NULL DEFAULT now(),expires_at TIMESTAMPTZ NOT NULL,
+ inspired BOOLEAN NOT NULL DEFAULT FALSE,inspire_effect DOUBLE PRECISION NOT NULL DEFAULT 0,
+ ordered BOOLEAN NOT NULL DEFAULT FALSE,
+ UNIQUE(owner_player_id)
+);
+CREATE TABLE IF NOT EXISTS social_team_generals(
+ team_id UUID NOT NULL REFERENCES social_teams(id) ON DELETE CASCADE,
+ player_id BIGINT NOT NULL REFERENCES players(id) ON DELETE CASCADE,
+ general_id INTEGER NOT NULL,joined_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+ PRIMARY KEY(team_id,player_id,general_id),UNIQUE(player_id,general_id)
+);
+COMMIT;

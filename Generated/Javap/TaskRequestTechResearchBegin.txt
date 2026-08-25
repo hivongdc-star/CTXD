@@ -1,0 +1,151 @@
+Compiled from "TaskRequestTechResearchBegin.java"
+public class com.reign.gcld.task.request.TaskRequestTechResearchBegin extends com.reign.gcld.task.request.TaskRequestCount {
+  private int techId;
+
+  public com.reign.gcld.task.request.TaskRequestTechResearchBegin(java.lang.String[]);
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: invokespecial #10                 // Method com/reign/gcld/task/request/TaskRequestCount."<init>":(I)V
+       5: aload_0
+       6: aload_1
+       7: iconst_1
+       8: aaload
+       9: invokestatic  #13                 // Method java/lang/Integer.valueOf:(Ljava/lang/String;)Ljava/lang/Integer;
+      12: invokevirtual #19                 // Method java/lang/Integer.intValue:()I
+      15: putfield      #23                 // Field techId:I
+      18: return
+
+  public boolean check(com.reign.gcld.player.dto.PlayerDto, com.reign.gcld.common.IDataGetter, int);
+    Code:
+       0: aload_2
+       1: invokeinterface #33,  1           // InterfaceMethod com/reign/gcld/common/IDataGetter.getPlayerTechDao:()Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+       6: aload_1
+       7: getfield      #39                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+      10: aload_0
+      11: getfield      #23                 // Field techId:I
+      14: invokeinterface #44,  3           // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getPlayerTech:(II)Lcom/reign/gcld/tech/domain/PlayerTech;
+      19: astore        4
+      21: aload         4
+      23: ifnonnull     28
+      26: iconst_0
+      27: ireturn
+      28: aload         4
+      30: invokevirtual #50                 // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+      33: invokevirtual #19                 // Method java/lang/Integer.intValue:()I
+      36: iconst_4
+      37: if_icmplt     42
+      40: iconst_1
+      41: ireturn
+      42: iconst_0
+      43: ireturn
+
+  public boolean doRequest(com.reign.gcld.player.dto.PlayerDto, com.reign.gcld.common.IDataGetter, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: iload_3
+       4: invokevirtual #65                 // Method check:(Lcom/reign/gcld/player/dto/PlayerDto;Lcom/reign/gcld/common/IDataGetter;I)Z
+       7: ireturn
+
+  public void handleMessage(com.reign.gcld.task.message.TaskMessage, com.reign.gcld.common.IDataGetter, int);
+    Code:
+       0: aload_1
+       1: instanceof    #69                 // class com/reign/gcld/task/message/TaskMessageTechResearchBegin
+       4: ifeq          147
+       7: aload_2
+       8: invokeinterface #71,  1           // InterfaceMethod com/reign/gcld/common/IDataGetter.getPlayerTaskDao:()Lcom/reign/gcld/task/dao/PlayerTaskDao;
+      13: iload_3
+      14: invokevirtual #75                 // Method com/reign/gcld/task/dao/PlayerTaskDao.read:(I)Lcom/reign/gcld/task/domain/PlayerTask;
+      17: astore        4
+      19: aload         4
+      21: ifnonnull     25
+      24: return
+      25: aload_1
+      26: checkcast     #69                 // class com/reign/gcld/task/message/TaskMessageTechResearchBegin
+      29: astore        5
+      31: aload         5
+      33: invokevirtual #81                 // Method com/reign/gcld/task/message/TaskMessageTechResearchBegin.getTechId:()I
+      36: aload_0
+      37: getfield      #23                 // Field techId:I
+      40: if_icmpeq     44
+      43: return
+      44: aload_2
+      45: invokeinterface #71,  1           // InterfaceMethod com/reign/gcld/common/IDataGetter.getPlayerTaskDao:()Lcom/reign/gcld/task/dao/PlayerTaskDao;
+      50: iload_3
+      51: iconst_1
+      52: invokevirtual #84                 // Method com/reign/gcld/task/dao/PlayerTaskDao.addProcess:(II)I
+      55: pop
+      56: new           #88                 // class com/reign/gcld/task/request/TaskRequestProcessViewer
+      59: dup
+      60: aload         4
+      62: invokevirtual #90                 // Method com/reign/gcld/task/domain/PlayerTask.getProcess:()Ljava/lang/Integer;
+      65: invokevirtual #19                 // Method java/lang/Integer.intValue:()I
+      68: iconst_1
+      69: iadd
+      70: aload_0
+      71: invokevirtual #95                 // Method getTimes:()I
+      74: if_icmplt     81
+      77: iconst_1
+      78: goto          82
+      81: iconst_0
+      82: aload_0
+      83: invokevirtual #95                 // Method getTimes:()I
+      86: aload         4
+      88: invokevirtual #90                 // Method com/reign/gcld/task/domain/PlayerTask.getProcess:()Ljava/lang/Integer;
+      91: invokevirtual #19                 // Method java/lang/Integer.intValue:()I
+      94: iconst_1
+      95: iadd
+      96: invokespecial #98                 // Method com/reign/gcld/task/request/TaskRequestProcessViewer."<init>":(ZII)V
+      99: astore        6
+     101: new           #101                // class com/reign/gcld/task/common/TaskChangeContent
+     104: dup
+     105: aload_0
+     106: invokevirtual #103                // Method getTask:()Lcom/reign/gcld/task/common/GameTask;
+     109: aload         6
+     111: invokevirtual #107                // Method com/reign/gcld/task/request/TaskRequestProcessViewer.getProcessStr:()Ljava/lang/String;
+     114: aload         6
+     116: invokevirtual #111                // Method com/reign/gcld/task/request/TaskRequestProcessViewer.isCompleted:()Z
+     119: invokespecial #115                // Method com/reign/gcld/task/common/TaskChangeContent."<init>":(Lcom/reign/gcld/task/common/GameTask;Ljava/lang/String;Z)V
+     122: astore        7
+     124: aload_1
+     125: invokevirtual #118                // Method com/reign/gcld/task/message/TaskMessage.getPlayerId:()I
+     128: getstatic     #123                // Field com/reign/gcld/common/PushCommand.PUSH_TASK:Lcom/reign/gcld/common/PushCommand;
+     131: aload         7
+     133: aload_1
+     134: invokevirtual #118                // Method com/reign/gcld/task/message/TaskMessage.getPlayerId:()I
+     137: invokestatic  #129                // Method com/reign/gcld/common/Players.getPlayer:(I)Lcom/reign/gcld/player/dto/PlayerDto;
+     140: aload_2
+     141: invokestatic  #135                // Method com/reign/gcld/task/message/TaskBuilderJson.sendJsonTaskChange:(Lcom/reign/gcld/task/common/TaskChangeContent;Lcom/reign/gcld/player/dto/PlayerDto;Lcom/reign/gcld/common/IDataGetter;)[B
+     144: invokestatic  #141                // Method com/reign/gcld/common/Players.push:(ILcom/reign/gcld/common/PushCommand;[B)V
+     147: return
+
+  public boolean isConcernedMessage(com.reign.gcld.task.message.TaskMessage);
+    Code:
+       0: aload_1
+       1: instanceof    #69                 // class com/reign/gcld/task/message/TaskMessageTechResearchBegin
+       4: ireturn
+
+  public com.reign.gcld.task.request.TaskRequestProcessViewer getProcess(com.reign.gcld.player.dto.PlayerDto, com.reign.gcld.common.IDataGetter, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: iload_3
+       4: invokevirtual #65                 // Method check:(Lcom/reign/gcld/player/dto/PlayerDto;Lcom/reign/gcld/common/IDataGetter;I)Z
+       7: istore        4
+       9: new           #88                 // class com/reign/gcld/task/request/TaskRequestProcessViewer
+      12: dup
+      13: iload         4
+      15: iconst_1
+      16: iload         4
+      18: ifeq          25
+      21: iconst_1
+      22: goto          26
+      25: iconst_0
+      26: invokespecial #98                 // Method com/reign/gcld/task/request/TaskRequestProcessViewer."<init>":(ZII)V
+      29: astore        5
+      31: aload         5
+      33: areturn
+}

@@ -1,0 +1,1861 @@
+Compiled from "TechService.java"
+public class com.reign.gcld.tech.service.TechService implements com.reign.gcld.tech.service.ITechService,org.springframework.beans.factory.InitializingBean {
+  private com.reign.gcld.tech.dao.IPlayerTechDao playerTechDao;
+
+  private com.reign.gcld.sdata.cache.TechCache techCache;
+
+  private com.reign.gcld.player.dao.IPlayerResourceDao playerResourceDao;
+
+  private com.reign.gcld.job.service.IJobService jobService;
+
+  private com.reign.gcld.sdata.cache.ChargeitemCache chargeitemCache;
+
+  private com.reign.gcld.player.dao.IPlayerDao playerDao;
+
+  private com.reign.gcld.player.dao.IPlayerAttributeDao playerAttributeDao;
+
+  private com.reign.gcld.sdata.cache.ArmiesCache armiesCache;
+
+  private com.reign.gcld.common.IDataGetter dataGetter;
+
+  private com.reign.gcld.timer.dao.IPlayerJobDao playerJobDao;
+
+  private com.reign.gcld.common.ConsumeResource consumeResource;
+
+  private com.reign.gcld.tech.service.TechEffectCache techEffectCache;
+
+  private com.reign.gcld.building.service.BuildingOutputCache buildingOutputCache;
+
+  private com.reign.gcld.general.service.IGeneralService generalService;
+
+  private com.reign.gcld.sdata.cache.ArmiesRewardCache armiesRewardCache;
+
+  private com.reign.gcld.store.service.IQuenchingService quenchingService;
+
+  private com.reign.gcld.incense.service.IIncenseService incenseService;
+
+  private static final com.reign.gcld.common.log.Logger errorLogger;
+
+  static {};
+    Code:
+       0: ldc           #1                  // class com/reign/gcld/tech/service/TechService
+       2: invokestatic  #50                 // Method com/reign/gcld/common/log/CommonLog.getLog:(Ljava/lang/Class;)Lcom/reign/gcld/common/log/Logger;
+       5: putstatic     #56                 // Field errorLogger:Lcom/reign/gcld/common/log/Logger;
+       8: return
+
+  public com.reign.gcld.tech.service.TechService();
+    Code:
+       0: aload_0
+       1: invokespecial #61                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public byte[] getTechInfo(com.reign.gcld.player.dto.PlayerDto, int);
+    Code:
+       0: aload_1
+       1: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+       4: istore_3
+       5: aload_0
+       6: getfield      #73                 // Field playerAttributeDao:Lcom/reign/gcld/player/dao/IPlayerAttributeDao;
+       9: iload_3
+      10: invokeinterface #75,  2           // InterfaceMethod com/reign/gcld/player/dao/IPlayerAttributeDao.read:(I)Lcom/reign/gcld/player/domain/PlayerAttribute;
+      15: astore        4
+      17: aload         4
+      19: invokevirtual #81                 // Method com/reign/gcld/player/domain/PlayerAttribute.getFunctionId:()Ljava/lang/String;
+      22: invokevirtual #87                 // Method java/lang/String.toCharArray:()[C
+      25: astore        5
+      27: aload         5
+      29: bipush        19
+      31: caload
+      32: bipush        49
+      34: if_icmpeq     47
+      37: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      40: getstatic     #99                 // Field com/reign/gcld/common/LocalMessages.T_COMM_10020:Ljava/lang/String;
+      43: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      46: areturn
+      47: iload_2
+      48: ifgt          53
+      51: iconst_1
+      52: istore_2
+      53: aload_0
+      54: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+      57: iload_3
+      58: iload_2
+      59: iconst_1
+      60: isub
+      61: bipush        8
+      63: imul
+      64: bipush        8
+      66: invokeinterface #113,  4          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getTechListByLimit:(III)Ljava/util/List;
+      71: astore        6
+      73: new           #119                // class com/reign/framework/json/JsonDocument
+      76: dup
+      77: invokespecial #121                // Method com/reign/framework/json/JsonDocument."<init>":()V
+      80: astore        7
+      82: aload         7
+      84: invokevirtual #122                // Method com/reign/framework/json/JsonDocument.startObject:()V
+      87: aconst_null
+      88: astore        8
+      90: iconst_0
+      91: istore        9
+      93: iconst_0
+      94: istore        10
+      96: iconst_0
+      97: istore        11
+      99: aload         7
+     101: ldc           #125                // String techs
+     103: invokevirtual #127                // Method com/reign/framework/json/JsonDocument.startArray:(Ljava/lang/String;)V
+     106: aload         6
+     108: invokeinterface #131,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     113: astore        13
+     115: goto          628
+     118: aload         13
+     120: invokeinterface #137,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     125: checkcast     #143                // class com/reign/gcld/tech/domain/PlayerTech
+     128: astore        12
+     130: aload         7
+     132: invokevirtual #122                // Method com/reign/framework/json/JsonDocument.startObject:()V
+     135: aload         12
+     137: invokevirtual #145                // Method com/reign/gcld/tech/domain/PlayerTech.getTechId:()Ljava/lang/Integer;
+     140: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     143: istore        9
+     145: aload         7
+     147: ldc           #155                // String techId
+     149: iload         9
+     151: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     154: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     157: aload_0
+     158: getfield      #165                // Field techCache:Lcom/reign/gcld/sdata/cache/TechCache;
+     161: iload         9
+     163: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     166: invokevirtual #167                // Method com/reign/gcld/sdata/cache/TechCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     169: checkcast     #173                // class com/reign/gcld/sdata/domain/Tech
+     172: astore        8
+     174: aload         7
+     176: ldc           #175                // String pic
+     178: aload         8
+     180: invokevirtual #177                // Method com/reign/gcld/sdata/domain/Tech.getPic:()Ljava/lang/String;
+     183: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     186: aload         7
+     188: ldc           #180                // String name
+     190: aload         8
+     192: invokevirtual #182                // Method com/reign/gcld/sdata/domain/Tech.getName:()Ljava/lang/String;
+     195: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     198: aload         12
+     200: invokevirtual #185                // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+     203: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     206: ifne          251
+     209: aload_0
+     210: getfield      #188                // Field armiesCache:Lcom/reign/gcld/sdata/cache/ArmiesCache;
+     213: iload         9
+     215: invokevirtual #190                // Method com/reign/gcld/sdata/cache/ArmiesCache.getTechCondition:(I)Ljava/lang/String;
+     218: astore        14
+     220: aload         14
+     222: invokestatic  #196                // Method org/apache/commons/lang/StringUtils.isBlank:(Ljava/lang/String;)Z
+     225: ifeq          239
+     228: aload_0
+     229: getfield      #202                // Field armiesRewardCache:Lcom/reign/gcld/sdata/cache/ArmiesRewardCache;
+     232: iload         9
+     234: invokevirtual #204                // Method com/reign/gcld/sdata/cache/ArmiesRewardCache.getTechCondition:(I)Ljava/lang/String;
+     237: astore        14
+     239: aload         7
+     241: ldc           #207                // String effect
+     243: aload         14
+     245: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     248: goto          263
+     251: aload         7
+     253: ldc           #207                // String effect
+     255: aload         8
+     257: invokevirtual #209                // Method com/reign/gcld/sdata/domain/Tech.getIntro:()Ljava/lang/String;
+     260: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     263: aload         7
+     265: ldc           #212                // String num
+     267: aload         12
+     269: invokevirtual #214                // Method com/reign/gcld/tech/domain/PlayerTech.getNum:()Ljava/lang/Integer;
+     272: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     275: aload         7
+     277: ldc           #217                // String total
+     279: aload         8
+     281: invokevirtual #219                // Method com/reign/gcld/sdata/domain/Tech.getResourceTimes:()Ljava/lang/Integer;
+     284: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     287: aload         12
+     289: invokevirtual #185                // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+     292: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     295: iconst_4
+     296: if_icmpne     320
+     299: aload         7
+     301: ldc           #222                // String cd
+     303: aload         12
+     305: invokevirtual #224                // Method com/reign/gcld/tech/domain/PlayerTech.getCd:()Ljava/util/Date;
+     308: invokevirtual #228                // Method java/util/Date.getTime:()J
+     311: invokestatic  #234                // Method com/reign/gcld/common/TimeUtil.now2specMs:(J)J
+     314: invokestatic  #240                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+     317: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     320: aload         7
+     322: ldc           #245                // String status
+     324: aload         12
+     326: invokevirtual #185                // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+     329: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     332: aload         12
+     334: invokevirtual #247                // Method com/reign/gcld/tech/domain/PlayerTech.getIsNew:()Ljava/lang/Integer;
+     337: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     340: istore        10
+     342: aload         7
+     344: ldc           #250                // String isNew
+     346: iload         10
+     348: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     351: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     354: aload         12
+     356: invokevirtual #252                // Method com/reign/gcld/tech/domain/PlayerTech.getFinishNew:()Ljava/lang/Integer;
+     359: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     362: istore        11
+     364: aload         7
+     366: ldc           #255                // String finish_new
+     368: iload         11
+     370: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     373: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     376: iload         10
+     378: iconst_1
+     379: if_icmpeq     388
+     382: iload         11
+     384: iconst_1
+     385: if_icmpne     408
+     388: aload_0
+     389: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     392: aload         12
+     394: invokevirtual #257                // Method com/reign/gcld/tech/domain/PlayerTech.getVId:()Ljava/lang/Integer;
+     397: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     400: iconst_0
+     401: iconst_0
+     402: invokeinterface #260,  4          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.setIsNewAndFinishNew:(III)I
+     407: pop
+     408: aload         7
+     410: ldc_w         #264                // String cdTotal
+     413: aload         8
+     415: invokevirtual #266                // Method com/reign/gcld/sdata/domain/Tech.getResearchTime:()Ljava/lang/Integer;
+     418: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     421: bipush        60
+     423: imul
+     424: sipush        1000
+     427: imul
+     428: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     431: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     434: aload         12
+     436: invokevirtual #185                // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+     439: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     442: iconst_2
+     443: if_icmpeq     458
+     446: aload         12
+     448: invokevirtual #185                // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+     451: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     454: iconst_3
+     455: if_icmpne     623
+     458: aload         7
+     460: ldc_w         #269                // String resources
+     463: invokevirtual #127                // Method com/reign/framework/json/JsonDocument.startArray:(Ljava/lang/String;)V
+     466: aload         8
+     468: invokevirtual #271                // Method com/reign/gcld/sdata/domain/Tech.getResource:()Ljava/lang/String;
+     471: invokestatic  #196                // Method org/apache/commons/lang/StringUtils.isBlank:(Ljava/lang/String;)Z
+     474: ifeq          509
+     477: getstatic     #56                 // Field errorLogger:Lcom/reign/gcld/common/log/Logger;
+     480: new           #274                // class java/lang/StringBuilder
+     483: dup
+     484: ldc_w         #276                // String tech resource error: techId :
+     487: invokespecial #278                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     490: aload         8
+     492: invokevirtual #280                // Method com/reign/gcld/sdata/domain/Tech.getId:()Ljava/lang/Integer;
+     495: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     498: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     501: invokeinterface #290,  2          // InterfaceMethod com/reign/gcld/common/log/Logger.error:(Ljava/lang/Object;)V
+     506: goto          618
+     509: invokestatic  #296                // Method com/reign/gcld/task/reward/TaskRewardFactory.getInstance:()Lcom/reign/gcld/task/reward/TaskRewardFactory;
+     512: aload         8
+     514: invokevirtual #271                // Method com/reign/gcld/sdata/domain/Tech.getResource:()Ljava/lang/String;
+     517: invokevirtual #302                // Method com/reign/gcld/task/reward/TaskRewardFactory.getTaskReward:(Ljava/lang/String;)Lcom/reign/gcld/task/reward/ITaskReward;
+     520: astore        14
+     522: aload         14
+     524: aload_1
+     525: aload_0
+     526: getfield      #306                // Field dataGetter:Lcom/reign/gcld/common/IDataGetter;
+     529: aconst_null
+     530: invokeinterface #308,  4          // InterfaceMethod com/reign/gcld/task/reward/ITaskReward.getReward:(Lcom/reign/gcld/player/dto/PlayerDto;Lcom/reign/gcld/common/IDataGetter;Ljava/lang/Object;)Ljava/util/Map;
+     535: astore        15
+     537: aload         15
+     539: invokeinterface #314,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+     544: invokeinterface #320,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+     549: astore        17
+     551: goto          608
+     554: aload         17
+     556: invokeinterface #137,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     561: checkcast     #323                // class com/reign/gcld/task/reward/Reward
+     564: astore        16
+     566: aload         7
+     568: invokevirtual #122                // Method com/reign/framework/json/JsonDocument.startObject:()V
+     571: aload         7
+     573: ldc_w         #325                // String type
+     576: aload         16
+     578: invokevirtual #327                // Method com/reign/gcld/task/reward/Reward.getType:()I
+     581: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     584: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     587: aload         7
+     589: ldc_w         #330                // String value
+     592: aload         16
+     594: invokevirtual #332                // Method com/reign/gcld/task/reward/Reward.getNum:()I
+     597: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     600: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     603: aload         7
+     605: invokevirtual #334                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     608: aload         17
+     610: invokeinterface #337,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     615: ifne          554
+     618: aload         7
+     620: invokevirtual #341                // Method com/reign/framework/json/JsonDocument.endArray:()V
+     623: aload         7
+     625: invokevirtual #334                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     628: aload         13
+     630: invokeinterface #337,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     635: ifne          118
+     638: aload         7
+     640: invokevirtual #341                // Method com/reign/framework/json/JsonDocument.endArray:()V
+     643: aload         7
+     645: ldc_w         #344                // String currentPage
+     648: iload_2
+     649: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     652: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     655: aload_0
+     656: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     659: iload_3
+     660: invokeinterface #346,  2          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getSizeByPlayerId:(I)I
+     665: istore        12
+     667: aload         7
+     669: ldc_w         #350                // String totalPage
+     672: iload         12
+     674: bipush        8
+     676: irem
+     677: ifne          688
+     680: iload         12
+     682: bipush        8
+     684: idiv
+     685: goto          695
+     688: iload         12
+     690: bipush        8
+     692: idiv
+     693: iconst_1
+     694: iadd
+     695: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     698: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     701: aload_0
+     702: getfield      #352                // Field chargeitemCache:Lcom/reign/gcld/sdata/cache/ChargeitemCache;
+     705: bipush        11
+     707: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     710: invokevirtual #354                // Method com/reign/gcld/sdata/cache/ChargeitemCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     713: checkcast     #357                // class com/reign/gcld/sdata/domain/Chargeitem
+     716: astore        13
+     718: aload         7
+     720: ldc_w         #359                // String vipLimit
+     723: aload         13
+     725: invokevirtual #361                // Method com/reign/gcld/sdata/domain/Chargeitem.getLv:()Ljava/lang/Integer;
+     728: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     731: aload         7
+     733: invokevirtual #334                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     736: aload         4
+     738: invokevirtual #364                // Method com/reign/gcld/player/domain/PlayerAttribute.getTechOpen:()Ljava/lang/Integer;
+     741: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     744: iconst_1
+     745: if_icmpeq     760
+     748: aload         4
+     750: invokevirtual #367                // Method com/reign/gcld/player/domain/PlayerAttribute.getTechResearch:()Ljava/lang/Integer;
+     753: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     756: iconst_1
+     757: if_icmpne     773
+     760: aload_0
+     761: getfield      #73                 // Field playerAttributeDao:Lcom/reign/gcld/player/dao/IPlayerAttributeDao;
+     764: iload_3
+     765: iconst_0
+     766: iconst_0
+     767: invokeinterface #370,  4          // InterfaceMethod com/reign/gcld/player/dao/IPlayerAttributeDao.setTechOpenAndTechResearch:(III)I
+     772: pop
+     773: getstatic     #373                // Field com/reign/framework/json/State.SUCCESS:Lcom/reign/framework/json/State;
+     776: aload         7
+     778: invokevirtual #376                // Method com/reign/framework/json/JsonDocument.toByte:()[B
+     781: invokestatic  #380                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;[B)[B
+     784: areturn
+
+  public byte[] capitalInject(com.reign.gcld.player.dto.PlayerDto, int);
+    Code:
+       0: iload_2
+       1: ifgt          14
+       4: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+       7: getstatic     #416                // Field com/reign/gcld/common/LocalMessages.T_COMM_10011:Ljava/lang/String;
+      10: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      13: areturn
+      14: aload_1
+      15: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+      18: istore_3
+      19: aload_0
+      20: getfield      #73                 // Field playerAttributeDao:Lcom/reign/gcld/player/dao/IPlayerAttributeDao;
+      23: iload_3
+      24: invokeinterface #419,  2          // InterfaceMethod com/reign/gcld/player/dao/IPlayerAttributeDao.getFunctionId:(I)Ljava/lang/String;
+      29: invokevirtual #87                 // Method java/lang/String.toCharArray:()[C
+      32: astore        4
+      34: aload         4
+      36: bipush        19
+      38: caload
+      39: bipush        49
+      41: if_icmpeq     54
+      44: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      47: getstatic     #99                 // Field com/reign/gcld/common/LocalMessages.T_COMM_10020:Ljava/lang/String;
+      50: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      53: areturn
+      54: aload_0
+      55: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+      58: iload_3
+      59: iload_2
+      60: invokeinterface #421,  3          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getPlayerTech:(II)Lcom/reign/gcld/tech/domain/PlayerTech;
+      65: astore        5
+      67: aload         5
+      69: ifnonnull     82
+      72: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      75: getstatic     #425                // Field com/reign/gcld/common/LocalMessages.T_NO_SUCH_TECH:Ljava/lang/String;
+      78: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      81: areturn
+      82: aload         5
+      84: invokevirtual #185                // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+      87: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+      90: iconst_2
+      91: if_icmpeq     116
+      94: aload         5
+      96: invokevirtual #185                // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+      99: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     102: iconst_3
+     103: if_icmpeq     116
+     106: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+     109: getstatic     #428                // Field com/reign/gcld/common/LocalMessages.T_TECH_NO_CAPITAL_INJECT:Ljava/lang/String;
+     112: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     115: areturn
+     116: aload_0
+     117: getfield      #165                // Field techCache:Lcom/reign/gcld/sdata/cache/TechCache;
+     120: aload         5
+     122: invokevirtual #145                // Method com/reign/gcld/tech/domain/PlayerTech.getTechId:()Ljava/lang/Integer;
+     125: invokevirtual #167                // Method com/reign/gcld/sdata/cache/TechCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     128: checkcast     #173                // class com/reign/gcld/sdata/domain/Tech
+     131: astore        6
+     133: aload         6
+     135: invokevirtual #271                // Method com/reign/gcld/sdata/domain/Tech.getResource:()Ljava/lang/String;
+     138: invokestatic  #196                // Method org/apache/commons/lang/StringUtils.isBlank:(Ljava/lang/String;)Z
+     141: ifeq          176
+     144: getstatic     #56                 // Field errorLogger:Lcom/reign/gcld/common/log/Logger;
+     147: new           #274                // class java/lang/StringBuilder
+     150: dup
+     151: ldc_w         #276                // String tech resource error: techId :
+     154: invokespecial #278                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     157: aload         6
+     159: invokevirtual #280                // Method com/reign/gcld/sdata/domain/Tech.getId:()Ljava/lang/Integer;
+     162: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     165: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     168: invokeinterface #290,  2          // InterfaceMethod com/reign/gcld/common/log/Logger.error:(Ljava/lang/Object;)V
+     173: goto          473
+     176: invokestatic  #296                // Method com/reign/gcld/task/reward/TaskRewardFactory.getInstance:()Lcom/reign/gcld/task/reward/TaskRewardFactory;
+     179: aload         6
+     181: invokevirtual #271                // Method com/reign/gcld/sdata/domain/Tech.getResource:()Ljava/lang/String;
+     184: invokevirtual #302                // Method com/reign/gcld/task/reward/TaskRewardFactory.getTaskReward:(Ljava/lang/String;)Lcom/reign/gcld/task/reward/ITaskReward;
+     187: astore        7
+     189: aload         7
+     191: aload_1
+     192: aload_0
+     193: getfield      #306                // Field dataGetter:Lcom/reign/gcld/common/IDataGetter;
+     196: aconst_null
+     197: invokeinterface #308,  4          // InterfaceMethod com/reign/gcld/task/reward/ITaskReward.getReward:(Lcom/reign/gcld/player/dto/PlayerDto;Lcom/reign/gcld/common/IDataGetter;Ljava/lang/Object;)Ljava/util/Map;
+     202: astore        8
+     204: aload         8
+     206: invokeinterface #431,  1          // InterfaceMethod java/util/Map.size:()I
+     211: istore        9
+     213: iload         9
+     215: iconst_1
+     216: if_icmpne     421
+     219: aload         8
+     221: invokeinterface #314,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+     226: invokeinterface #320,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+     231: astore        11
+     233: goto          408
+     236: aload         11
+     238: invokeinterface #137,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     243: checkcast     #323                // class com/reign/gcld/task/reward/Reward
+     246: astore        10
+     248: aload         10
+     250: invokevirtual #327                // Method com/reign/gcld/task/reward/Reward.getType:()I
+     253: iconst_1
+     254: if_icmpne     288
+     257: aload_0
+     258: getfield      #433                // Field playerResourceDao:Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+     261: iload_3
+     262: aload         10
+     264: invokevirtual #332                // Method com/reign/gcld/task/reward/Reward.getNum:()I
+     267: ldc_w         #435                // String ????????
+     270: invokeinterface #437,  4          // InterfaceMethod com/reign/gcld/player/dao/IPlayerResourceDao.consumeCopper:(IILjava/lang/Object;)Z
+     275: ifne          408
+     278: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+     281: getstatic     #443                // Field com/reign/gcld/common/LocalMessages.T_COMM_10001:Ljava/lang/String;
+     284: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     287: areturn
+     288: aload         10
+     290: invokevirtual #327                // Method com/reign/gcld/task/reward/Reward.getType:()I
+     293: iconst_2
+     294: if_icmpne     328
+     297: aload_0
+     298: getfield      #433                // Field playerResourceDao:Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+     301: iload_3
+     302: aload         10
+     304: invokevirtual #332                // Method com/reign/gcld/task/reward/Reward.getNum:()I
+     307: ldc_w         #446                // String ????????
+     310: invokeinterface #448,  4          // InterfaceMethod com/reign/gcld/player/dao/IPlayerResourceDao.consumeWood:(IILjava/lang/Object;)Z
+     315: ifne          408
+     318: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+     321: getstatic     #451                // Field com/reign/gcld/common/LocalMessages.T_COMM_10008:Ljava/lang/String;
+     324: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     327: areturn
+     328: aload         10
+     330: invokevirtual #327                // Method com/reign/gcld/task/reward/Reward.getType:()I
+     333: iconst_3
+     334: if_icmpne     368
+     337: aload_0
+     338: getfield      #433                // Field playerResourceDao:Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+     341: iload_3
+     342: aload         10
+     344: invokevirtual #332                // Method com/reign/gcld/task/reward/Reward.getNum:()I
+     347: ldc_w         #454                // String ????????
+     350: invokeinterface #456,  4          // InterfaceMethod com/reign/gcld/player/dao/IPlayerResourceDao.consumeFood:(IILjava/lang/Object;)Z
+     355: ifne          408
+     358: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+     361: getstatic     #459                // Field com/reign/gcld/common/LocalMessages.T_COMM_10027:Ljava/lang/String;
+     364: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     367: areturn
+     368: aload         10
+     370: invokevirtual #327                // Method com/reign/gcld/task/reward/Reward.getType:()I
+     373: iconst_4
+     374: if_icmpne     408
+     377: aload_0
+     378: getfield      #433                // Field playerResourceDao:Lcom/reign/gcld/player/dao/IPlayerResourceDao;
+     381: iload_3
+     382: aload         10
+     384: invokevirtual #332                // Method com/reign/gcld/task/reward/Reward.getNum:()I
+     387: ldc_w         #462                // String ????????
+     390: invokeinterface #464,  4          // InterfaceMethod com/reign/gcld/player/dao/IPlayerResourceDao.consumeIron:(IILjava/lang/Object;)Z
+     395: ifne          408
+     398: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+     401: getstatic     #467                // Field com/reign/gcld/common/LocalMessages.T_COMM_10026:Ljava/lang/String;
+     404: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     407: areturn
+     408: aload         11
+     410: invokeinterface #337,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     415: ifne          236
+     418: goto          473
+     421: iload         9
+     423: iconst_1
+     424: if_icmple     473
+     427: aload_0
+     428: getfield      #470                // Field consumeResource:Lcom/reign/gcld/common/ConsumeResource;
+     431: iload_3
+     432: aload         8
+     434: invokeinterface #314,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+     439: invokevirtual #472                // Method com/reign/gcld/common/ConsumeResource.consumeBase:(ILjava/util/Collection;)Lcom/reign/util/Tuple;
+     442: astore        10
+     444: aload         10
+     446: getfield      #478                // Field com/reign/util/Tuple.left:Ljava/lang/Object;
+     449: checkcast     #484                // class java/lang/Boolean
+     452: invokevirtual #486                // Method java/lang/Boolean.booleanValue:()Z
+     455: ifne          473
+     458: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+     461: aload         10
+     463: getfield      #489                // Field com/reign/util/Tuple.right:Ljava/lang/Object;
+     466: checkcast     #88                 // class java/lang/String
+     469: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     472: areturn
+     473: aload         5
+     475: invokevirtual #214                // Method com/reign/gcld/tech/domain/PlayerTech.getNum:()Ljava/lang/Integer;
+     478: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     481: istore        7
+     483: aload         6
+     485: invokevirtual #219                // Method com/reign/gcld/sdata/domain/Tech.getResourceTimes:()Ljava/lang/Integer;
+     488: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     491: istore        8
+     493: iload         7
+     495: iconst_1
+     496: iadd
+     497: iload         8
+     499: if_icmpne     526
+     502: aload_0
+     503: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     506: aload         5
+     508: invokevirtual #257                // Method com/reign/gcld/tech/domain/PlayerTech.getVId:()Ljava/lang/Integer;
+     511: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     514: iload         8
+     516: iconst_1
+     517: invokeinterface #492,  4          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.setNumAndStatus:(III)I
+     522: pop
+     523: goto          576
+     526: iload         7
+     528: ifne          554
+     531: aload_0
+     532: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     535: aload         5
+     537: invokevirtual #257                // Method com/reign/gcld/tech/domain/PlayerTech.getVId:()Ljava/lang/Integer;
+     540: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     543: iconst_1
+     544: iconst_3
+     545: invokeinterface #492,  4          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.setNumAndStatus:(III)I
+     550: pop
+     551: goto          576
+     554: aload_0
+     555: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     558: aload         5
+     560: invokevirtual #257                // Method com/reign/gcld/tech/domain/PlayerTech.getVId:()Ljava/lang/Integer;
+     563: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     566: iload         7
+     568: iconst_1
+     569: iadd
+     570: invokeinterface #495,  3          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.setNum:(II)I
+     575: pop
+     576: iload_3
+     577: iload_2
+     578: invokestatic  #499                // Method com/reign/gcld/task/message/TaskMessageHelper.sendTechInjectTaskMessage:(II)V
+     581: new           #119                // class com/reign/framework/json/JsonDocument
+     584: dup
+     585: invokespecial #121                // Method com/reign/framework/json/JsonDocument."<init>":()V
+     588: astore        9
+     590: aload         9
+     592: invokevirtual #122                // Method com/reign/framework/json/JsonDocument.startObject:()V
+     595: aload         9
+     597: ldc           #155                // String techId
+     599: aload         5
+     601: invokevirtual #145                // Method com/reign/gcld/tech/domain/PlayerTech.getTechId:()Ljava/lang/Integer;
+     604: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     607: aload         9
+     609: ldc           #212                // String num
+     611: iload         7
+     613: iconst_1
+     614: iadd
+     615: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     618: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     621: aload         9
+     623: ldc           #217                // String total
+     625: iload         8
+     627: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     630: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     633: aload         9
+     635: invokevirtual #334                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     638: getstatic     #373                // Field com/reign/framework/json/State.SUCCESS:Lcom/reign/framework/json/State;
+     641: aload         9
+     643: invokevirtual #376                // Method com/reign/framework/json/JsonDocument.toByte:()[B
+     646: invokestatic  #380                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;[B)[B
+     649: areturn
+
+  public byte[] research(com.reign.gcld.player.dto.PlayerDto, int);
+    Code:
+       0: iload_2
+       1: ifgt          14
+       4: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+       7: getstatic     #416                // Field com/reign/gcld/common/LocalMessages.T_COMM_10011:Ljava/lang/String;
+      10: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      13: areturn
+      14: aload_1
+      15: getfield      #67                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+      18: istore_3
+      19: aload_0
+      20: getfield      #73                 // Field playerAttributeDao:Lcom/reign/gcld/player/dao/IPlayerAttributeDao;
+      23: iload_3
+      24: invokeinterface #419,  2          // InterfaceMethod com/reign/gcld/player/dao/IPlayerAttributeDao.getFunctionId:(I)Ljava/lang/String;
+      29: invokevirtual #87                 // Method java/lang/String.toCharArray:()[C
+      32: astore        4
+      34: aload         4
+      36: bipush        19
+      38: caload
+      39: bipush        49
+      41: if_icmpeq     54
+      44: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      47: getstatic     #99                 // Field com/reign/gcld/common/LocalMessages.T_COMM_10020:Ljava/lang/String;
+      50: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      53: areturn
+      54: aload_0
+      55: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+      58: iload_3
+      59: iload_2
+      60: invokeinterface #421,  3          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getPlayerTech:(II)Lcom/reign/gcld/tech/domain/PlayerTech;
+      65: astore        5
+      67: aload         5
+      69: ifnonnull     82
+      72: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      75: getstatic     #425                // Field com/reign/gcld/common/LocalMessages.T_NO_SUCH_TECH:Ljava/lang/String;
+      78: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      81: areturn
+      82: aload         5
+      84: invokevirtual #185                // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+      87: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+      90: iconst_1
+      91: if_icmpeq     104
+      94: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      97: getstatic     #509                // Field com/reign/gcld/common/LocalMessages.T_TECH_CAN_NOT_RESEARCH:Ljava/lang/String;
+     100: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     103: areturn
+     104: aload_0
+     105: getfield      #165                // Field techCache:Lcom/reign/gcld/sdata/cache/TechCache;
+     108: iload_2
+     109: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     112: invokevirtual #167                // Method com/reign/gcld/sdata/cache/TechCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     115: checkcast     #173                // class com/reign/gcld/sdata/domain/Tech
+     118: astore        6
+     120: aload         6
+     122: invokevirtual #266                // Method com/reign/gcld/sdata/domain/Tech.getResearchTime:()Ljava/lang/Integer;
+     125: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     128: istore        7
+     130: iload         7
+     132: invokestatic  #512                // Method com/reign/gcld/common/TimeUtil.nowAddMinutes:(I)Ljava/util/Date;
+     135: astore        8
+     137: aload_0
+     138: getfield      #516                // Field jobService:Lcom/reign/gcld/job/service/IJobService;
+     141: ldc_w         #518                // String techService
+     144: ldc_w         #520                // String finishResearch
+     147: aload         5
+     149: invokevirtual #257                // Method com/reign/gcld/tech/domain/PlayerTech.getVId:()Ljava/lang/Integer;
+     152: invokevirtual #522                // Method java/lang/Integer.toString:()Ljava/lang/String;
+     155: aload         8
+     157: invokevirtual #228                // Method java/util/Date.getTime:()J
+     160: invokeinterface #523,  6          // InterfaceMethod com/reign/gcld/job/service/IJobService.addJob:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)I
+     165: istore        9
+     167: aload_0
+     168: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     171: aload         5
+     173: invokevirtual #257                // Method com/reign/gcld/tech/domain/PlayerTech.getVId:()Ljava/lang/Integer;
+     176: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     179: aload         8
+     181: iconst_4
+     182: iload         9
+     184: invokeinterface #529,  5          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.setCd:(ILjava/util/Date;II)I
+     189: pop
+     190: iload_3
+     191: invokestatic  #533                // Method com/reign/gcld/task/message/TaskMessageHelper.sendTechResearchTaskMessage:(I)V
+     194: iload_3
+     195: iload_2
+     196: invokestatic  #537                // Method com/reign/gcld/task/message/TaskMessageHelper.sendTechResearchBeginTaskMessage:(II)V
+     199: aload_0
+     200: getfield      #306                // Field dataGetter:Lcom/reign/gcld/common/IDataGetter;
+     203: invokeinterface #540,  1          // InterfaceMethod com/reign/gcld/common/IDataGetter.getCourtesyService:()Lcom/reign/gcld/courtesy/service/ICourtesyService;
+     208: iload_3
+     209: iconst_2
+     210: iconst_0
+     211: invokeinterface #546,  4          // InterfaceMethod com/reign/gcld/courtesy/service/ICourtesyService.addPlayerEvent:(III)V
+     216: aload_0
+     217: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     220: iload_3
+     221: invokeinterface #552,  2          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getNumDisPlayButton:(I)I
+     226: istore        10
+     228: iload         10
+     230: ifgt          250
+     233: iload_3
+     234: getstatic     #555                // Field com/reign/gcld/common/PushCommand.PUSH_UPDATE:Lcom/reign/gcld/common/PushCommand;
+     237: ldc_w         #561                // String displayTech
+     240: iconst_0
+     241: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     244: invokestatic  #563                // Method com/reign/framework/json/JsonBuilder.getSimpleJson:(Ljava/lang/String;Ljava/lang/Object;)[B
+     247: invokestatic  #567                // Method com/reign/gcld/common/Players.push:(ILcom/reign/gcld/common/PushCommand;[B)V
+     250: getstatic     #373                // Field com/reign/framework/json/State.SUCCESS:Lcom/reign/framework/json/State;
+     253: ldc_w         #573                // String
+     256: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     259: areturn
+
+  public byte[] cdRecover(int, int);
+    Code:
+       0: iload_2
+       1: ifgt          14
+       4: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+       7: getstatic     #416                // Field com/reign/gcld/common/LocalMessages.T_COMM_10011:Ljava/lang/String;
+      10: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      13: areturn
+      14: aload_0
+      15: getfield      #73                 // Field playerAttributeDao:Lcom/reign/gcld/player/dao/IPlayerAttributeDao;
+      18: iload_1
+      19: invokeinterface #419,  2          // InterfaceMethod com/reign/gcld/player/dao/IPlayerAttributeDao.getFunctionId:(I)Ljava/lang/String;
+      24: invokevirtual #87                 // Method java/lang/String.toCharArray:()[C
+      27: astore_3
+      28: aload_3
+      29: bipush        19
+      31: caload
+      32: bipush        49
+      34: if_icmpeq     47
+      37: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      40: getstatic     #99                 // Field com/reign/gcld/common/LocalMessages.T_COMM_10020:Ljava/lang/String;
+      43: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      46: areturn
+      47: aload_0
+      48: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+      51: iload_1
+      52: iload_2
+      53: invokeinterface #421,  3          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getPlayerTech:(II)Lcom/reign/gcld/tech/domain/PlayerTech;
+      58: astore        4
+      60: aload         4
+      62: ifnonnull     75
+      65: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      68: getstatic     #425                // Field com/reign/gcld/common/LocalMessages.T_NO_SUCH_TECH:Ljava/lang/String;
+      71: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      74: areturn
+      75: aload         4
+      77: invokevirtual #185                // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+      80: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+      83: iconst_4
+      84: if_icmpeq     97
+      87: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      90: getstatic     #581                // Field com/reign/gcld/common/LocalMessages.T_TECH_NOT_IN_RESEARCH:Ljava/lang/String;
+      93: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      96: areturn
+      97: aload_0
+      98: getfield      #352                // Field chargeitemCache:Lcom/reign/gcld/sdata/cache/ChargeitemCache;
+     101: bipush        11
+     103: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     106: invokevirtual #354                // Method com/reign/gcld/sdata/cache/ChargeitemCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     109: checkcast     #357                // class com/reign/gcld/sdata/domain/Chargeitem
+     112: astore        5
+     114: aload_0
+     115: getfield      #584                // Field playerDao:Lcom/reign/gcld/player/dao/IPlayerDao;
+     118: iload_1
+     119: invokeinterface #586,  2          // InterfaceMethod com/reign/gcld/player/dao/IPlayerDao.getConsumeLv:(I)I
+     124: aload         5
+     126: invokevirtual #361                // Method com/reign/gcld/sdata/domain/Chargeitem.getLv:()Ljava/lang/Integer;
+     129: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     132: if_icmpge     145
+     135: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+     138: getstatic     #591                // Field com/reign/gcld/common/LocalMessages.T_COMM_10002:Ljava/lang/String;
+     141: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     144: areturn
+     145: aload         4
+     147: invokevirtual #224                // Method com/reign/gcld/tech/domain/PlayerTech.getCd:()Ljava/util/Date;
+     150: invokevirtual #228                // Method java/util/Date.getTime:()J
+     153: invokestatic  #234                // Method com/reign/gcld/common/TimeUtil.now2specMs:(J)J
+     156: lstore        6
+     158: lload         6
+     160: l2d
+     161: aload         5
+     163: invokevirtual #594                // Method com/reign/gcld/sdata/domain/Chargeitem.getParam:()Ljava/lang/Double;
+     166: invokevirtual #598                // Method java/lang/Double.doubleValue:()D
+     169: ldc2_w        #604                // double 60000.0d
+     172: dmul
+     173: ddiv
+     174: invokestatic  #606                // Method java/lang/Math.ceil:(D)D
+     177: d2i
+     178: aload         5
+     180: invokevirtual #612                // Method com/reign/gcld/sdata/domain/Chargeitem.getCost:()Ljava/lang/Integer;
+     183: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     186: imul
+     187: istore        8
+     189: getstatic     #373                // Field com/reign/framework/json/State.SUCCESS:Lcom/reign/framework/json/State;
+     192: ldc_w         #615                // String gold
+     195: iload         8
+     197: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     200: invokestatic  #617                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;Ljava/lang/Object;)[B
+     203: areturn
+
+  public byte[] cdRecoverConfirm(int, int);
+    Code:
+       0: iload_2
+       1: ifgt          14
+       4: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+       7: getstatic     #416                // Field com/reign/gcld/common/LocalMessages.T_COMM_10011:Ljava/lang/String;
+      10: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      13: areturn
+      14: aload_0
+      15: getfield      #73                 // Field playerAttributeDao:Lcom/reign/gcld/player/dao/IPlayerAttributeDao;
+      18: iload_1
+      19: invokeinterface #419,  2          // InterfaceMethod com/reign/gcld/player/dao/IPlayerAttributeDao.getFunctionId:(I)Ljava/lang/String;
+      24: invokevirtual #87                 // Method java/lang/String.toCharArray:()[C
+      27: astore_3
+      28: aload_3
+      29: bipush        19
+      31: caload
+      32: bipush        49
+      34: if_icmpeq     47
+      37: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      40: getstatic     #99                 // Field com/reign/gcld/common/LocalMessages.T_COMM_10020:Ljava/lang/String;
+      43: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      46: areturn
+      47: aload_0
+      48: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+      51: iload_1
+      52: iload_2
+      53: invokeinterface #421,  3          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getPlayerTech:(II)Lcom/reign/gcld/tech/domain/PlayerTech;
+      58: astore        4
+      60: aload         4
+      62: ifnonnull     75
+      65: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      68: getstatic     #425                // Field com/reign/gcld/common/LocalMessages.T_NO_SUCH_TECH:Ljava/lang/String;
+      71: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      74: areturn
+      75: aload         4
+      77: invokevirtual #185                // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+      80: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+      83: iconst_4
+      84: if_icmpeq     97
+      87: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+      90: getstatic     #581                // Field com/reign/gcld/common/LocalMessages.T_TECH_NOT_IN_RESEARCH:Ljava/lang/String;
+      93: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+      96: areturn
+      97: aload_0
+      98: getfield      #352                // Field chargeitemCache:Lcom/reign/gcld/sdata/cache/ChargeitemCache;
+     101: bipush        11
+     103: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     106: invokevirtual #354                // Method com/reign/gcld/sdata/cache/ChargeitemCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     109: checkcast     #357                // class com/reign/gcld/sdata/domain/Chargeitem
+     112: astore        5
+     114: aload_0
+     115: getfield      #584                // Field playerDao:Lcom/reign/gcld/player/dao/IPlayerDao;
+     118: iload_1
+     119: invokeinterface #622,  2          // InterfaceMethod com/reign/gcld/player/dao/IPlayerDao.read:(I)Lcom/reign/gcld/player/domain/Player;
+     124: astore        6
+     126: aload         6
+     128: invokevirtual #625                // Method com/reign/gcld/player/domain/Player.getConsumeLv:()Ljava/lang/Integer;
+     131: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     134: aload         5
+     136: invokevirtual #361                // Method com/reign/gcld/sdata/domain/Chargeitem.getLv:()Ljava/lang/Integer;
+     139: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     142: if_icmpge     155
+     145: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+     148: getstatic     #591                // Field com/reign/gcld/common/LocalMessages.T_COMM_10002:Ljava/lang/String;
+     151: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     154: areturn
+     155: aload         4
+     157: invokevirtual #224                // Method com/reign/gcld/tech/domain/PlayerTech.getCd:()Ljava/util/Date;
+     160: invokevirtual #228                // Method java/util/Date.getTime:()J
+     163: invokestatic  #234                // Method com/reign/gcld/common/TimeUtil.now2specMs:(J)J
+     166: lstore        7
+     168: lload         7
+     170: l2d
+     171: aload         5
+     173: invokevirtual #594                // Method com/reign/gcld/sdata/domain/Chargeitem.getParam:()Ljava/lang/Double;
+     176: invokevirtual #598                // Method java/lang/Double.doubleValue:()D
+     179: ldc2_w        #604                // double 60000.0d
+     182: dmul
+     183: ddiv
+     184: invokestatic  #606                // Method java/lang/Math.ceil:(D)D
+     187: d2i
+     188: aload         5
+     190: invokevirtual #612                // Method com/reign/gcld/sdata/domain/Chargeitem.getCost:()Ljava/lang/Integer;
+     193: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     196: imul
+     197: istore        9
+     199: aload_0
+     200: getfield      #629                // Field playerJobDao:Lcom/reign/gcld/timer/dao/IPlayerJobDao;
+     203: aload         4
+     205: invokevirtual #631                // Method com/reign/gcld/tech/domain/PlayerTech.getJobId:()Ljava/lang/Integer;
+     208: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     211: invokeinterface #634,  2          // InterfaceMethod com/reign/gcld/timer/dao/IPlayerJobDao.read:(I)Lcom/reign/gcld/timer/domain/PlayerJob;
+     216: astore        10
+     218: aload_0
+     219: getfield      #584                // Field playerDao:Lcom/reign/gcld/player/dao/IPlayerDao;
+     222: aload         6
+     224: iload         9
+     226: invokeinterface #639,  3          // InterfaceMethod com/reign/gcld/player/dao/IPlayerDao.canConsumeMoney:(Lcom/reign/gcld/player/domain/Player;I)Z
+     231: ifne          244
+     234: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+     237: getstatic     #643                // Field com/reign/gcld/common/LocalMessages.T_COMM_10003:Ljava/lang/String;
+     240: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     243: areturn
+     244: aload         10
+     246: ifnull        318
+     249: aload_0
+     250: getfield      #516                // Field jobService:Lcom/reign/gcld/job/service/IJobService;
+     253: aload         4
+     255: invokevirtual #631                // Method com/reign/gcld/tech/domain/PlayerTech.getJobId:()Ljava/lang/Integer;
+     258: iconst_1
+     259: invokeinterface #646,  3          // InterfaceMethod com/reign/gcld/job/service/IJobService.cancelJob:(Ljava/lang/Integer;Z)Z
+     264: ifeq          318
+     267: aload_0
+     268: getfield      #584                // Field playerDao:Lcom/reign/gcld/player/dao/IPlayerDao;
+     271: aload         6
+     273: iload         9
+     275: aload         5
+     277: invokevirtual #650                // Method com/reign/gcld/sdata/domain/Chargeitem.getName:()Ljava/lang/String;
+     280: invokeinterface #651,  4          // InterfaceMethod com/reign/gcld/player/dao/IPlayerDao.consumeGold:(Lcom/reign/gcld/player/domain/Player;ILjava/lang/Object;)Z
+     285: pop
+     286: aload_0
+     287: new           #274                // class java/lang/StringBuilder
+     290: dup
+     291: invokespecial #655                // Method java/lang/StringBuilder."<init>":()V
+     294: aload         4
+     296: invokevirtual #257                // Method com/reign/gcld/tech/domain/PlayerTech.getVId:()Ljava/lang/Integer;
+     299: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     302: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     305: invokevirtual #656                // Method finishResearch:(Ljava/lang/String;)V
+     308: getstatic     #373                // Field com/reign/framework/json/State.SUCCESS:Lcom/reign/framework/json/State;
+     311: ldc_w         #573                // String
+     314: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     317: areturn
+     318: getstatic     #93                 // Field com/reign/framework/json/State.FAIL:Lcom/reign/framework/json/State;
+     321: getstatic     #658                // Field com/reign/gcld/common/LocalMessages.T_TECH_FINISH_RESEARCH:Ljava/lang/String;
+     324: invokestatic  #105                // Method com/reign/framework/json/JsonBuilder.getJson:(Lcom/reign/framework/json/State;Ljava/lang/String;)[B
+     327: areturn
+
+  public void finishResearch(java.lang.String);
+    Code:
+       0: aload_1
+       1: invokestatic  #667                // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+       4: istore_2
+       5: aload_0
+       6: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+       9: iload_2
+      10: invokeinterface #671,  2          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.read:(I)Lcom/reign/gcld/tech/domain/PlayerTech;
+      15: astore_3
+      16: aload_3
+      17: ifnonnull     21
+      20: return
+      21: aload_0
+      22: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+      25: iload_2
+      26: new           #229                // class java/util/Date
+      29: dup
+      30: invokespecial #674                // Method java/util/Date."<init>":()V
+      33: iconst_5
+      34: iconst_0
+      35: invokeinterface #529,  5          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.setCd:(ILjava/util/Date;II)I
+      40: pop
+      41: aload_0
+      42: getfield      #165                // Field techCache:Lcom/reign/gcld/sdata/cache/TechCache;
+      45: aload_3
+      46: invokevirtual #145                // Method com/reign/gcld/tech/domain/PlayerTech.getTechId:()Ljava/lang/Integer;
+      49: invokevirtual #167                // Method com/reign/gcld/sdata/cache/TechCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      52: checkcast     #173                // class com/reign/gcld/sdata/domain/Tech
+      55: astore        4
+      57: aload_3
+      58: invokevirtual #675                // Method com/reign/gcld/tech/domain/PlayerTech.getPlayerId:()Ljava/lang/Integer;
+      61: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+      64: istore        5
+      66: aload_0
+      67: getfield      #584                // Field playerDao:Lcom/reign/gcld/player/dao/IPlayerDao;
+      70: iload         5
+      72: invokeinterface #622,  2          // InterfaceMethod com/reign/gcld/player/dao/IPlayerDao.read:(I)Lcom/reign/gcld/player/domain/Player;
+      77: astore        6
+      79: aload_0
+      80: getfield      #678                // Field techEffectCache:Lcom/reign/gcld/tech/service/TechEffectCache;
+      83: iload         5
+      85: aload         4
+      87: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+      90: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+      93: invokevirtual #683                // Method com/reign/gcld/tech/service/TechEffectCache.refreshTechEffect:(II)V
+      96: aload         4
+      98: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     101: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     104: bipush        6
+     106: if_icmpne     149
+     109: aload_0
+     110: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     113: iload         5
+     115: iconst_3
+     116: invokevirtual #690                // Method com/reign/gcld/building/service/BuildingOutputCache.clearTech:(II)V
+     119: iload         5
+     121: getstatic     #555                // Field com/reign/gcld/common/PushCommand.PUSH_UPDATE:Lcom/reign/gcld/common/PushCommand;
+     124: ldc_w         #695                // String foodOutput
+     127: aload_0
+     128: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     131: iload         5
+     133: iconst_3
+     134: invokevirtual #697                // Method com/reign/gcld/building/service/BuildingOutputCache.getBuildingsOutput:(II)I
+     137: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     140: invokestatic  #563                // Method com/reign/framework/json/JsonBuilder.getSimpleJson:(Ljava/lang/String;Ljava/lang/Object;)[B
+     143: invokestatic  #567                // Method com/reign/gcld/common/Players.push:(ILcom/reign/gcld/common/PushCommand;[B)V
+     146: goto          1042
+     149: aload         4
+     151: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     154: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     157: bipush        8
+     159: if_icmpne     205
+     162: aload_0
+     163: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     166: iload         5
+     168: iconst_5
+     169: invokevirtual #690                // Method com/reign/gcld/building/service/BuildingOutputCache.clearTech:(II)V
+     172: iload         5
+     174: getstatic     #555                // Field com/reign/gcld/common/PushCommand.PUSH_UPDATE:Lcom/reign/gcld/common/PushCommand;
+     177: ldc_w         #700                // String forceOutput
+     180: aload_0
+     181: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     184: iload         5
+     186: iconst_5
+     187: invokevirtual #697                // Method com/reign/gcld/building/service/BuildingOutputCache.getBuildingsOutput:(II)I
+     190: bipush        60
+     192: idiv
+     193: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     196: invokestatic  #563                // Method com/reign/framework/json/JsonBuilder.getSimpleJson:(Ljava/lang/String;Ljava/lang/Object;)[B
+     199: invokestatic  #567                // Method com/reign/gcld/common/Players.push:(ILcom/reign/gcld/common/PushCommand;[B)V
+     202: goto          1042
+     205: aload         4
+     207: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     210: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     213: bipush        20
+     215: if_icmpne     350
+     218: aload_0
+     219: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     222: iload         5
+     224: invokevirtual #702                // Method com/reign/gcld/building/service/BuildingOutputCache.clearLimit:(I)V
+     227: new           #119                // class com/reign/framework/json/JsonDocument
+     230: dup
+     231: invokespecial #121                // Method com/reign/framework/json/JsonDocument."<init>":()V
+     234: astore        7
+     236: aload         7
+     238: invokevirtual #122                // Method com/reign/framework/json/JsonDocument.startObject:()V
+     241: aload         7
+     243: ldc_w         #705                // String copperMax
+     246: aload_0
+     247: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     250: iload         5
+     252: bipush        16
+     254: invokevirtual #707                // Method com/reign/gcld/building/service/BuildingOutputCache.getBuildingOutput:(II)I
+     257: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     260: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     263: aload         7
+     265: ldc_w         #710                // String woodMax
+     268: aload_0
+     269: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     272: iload         5
+     274: bipush        32
+     276: invokevirtual #707                // Method com/reign/gcld/building/service/BuildingOutputCache.getBuildingOutput:(II)I
+     279: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     282: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     285: aload         7
+     287: ldc_w         #712                // String foodMax
+     290: aload_0
+     291: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     294: iload         5
+     296: bipush        48
+     298: invokevirtual #707                // Method com/reign/gcld/building/service/BuildingOutputCache.getBuildingOutput:(II)I
+     301: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     304: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     307: aload         7
+     309: ldc_w         #714                // String ironMax
+     312: aload_0
+     313: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     316: iload         5
+     318: bipush        64
+     320: invokevirtual #707                // Method com/reign/gcld/building/service/BuildingOutputCache.getBuildingOutput:(II)I
+     323: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     326: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     329: aload         7
+     331: invokevirtual #334                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     334: iload         5
+     336: getstatic     #555                // Field com/reign/gcld/common/PushCommand.PUSH_UPDATE:Lcom/reign/gcld/common/PushCommand;
+     339: aload         7
+     341: invokevirtual #376                // Method com/reign/framework/json/JsonDocument.toByte:()[B
+     344: invokestatic  #567                // Method com/reign/gcld/common/Players.push:(ILcom/reign/gcld/common/PushCommand;[B)V
+     347: goto          1042
+     350: aload         4
+     352: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     355: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     358: bipush        27
+     360: if_icmpne     386
+     363: aload_0
+     364: getfield      #716                // Field generalService:Lcom/reign/gcld/general/service/IGeneralService;
+     367: iload         5
+     369: aload         6
+     371: invokevirtual #718                // Method com/reign/gcld/player/domain/Player.getPlayerLv:()Ljava/lang/Integer;
+     374: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     377: iconst_2
+     378: invokeinterface #721,  4          // InterfaceMethod com/reign/gcld/general/service/IGeneralService.sendGeneralMaxSizeInfo:(III)V
+     383: goto          1042
+     386: aload         4
+     388: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     391: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     394: iconst_4
+     395: if_icmpne     412
+     398: aload_0
+     399: getfield      #716                // Field generalService:Lcom/reign/gcld/general/service/IGeneralService;
+     402: iload         5
+     404: invokeinterface #726,  2          // InterfaceMethod com/reign/gcld/general/service/IGeneralService.sendGeneralMilitaryList:(I)V
+     409: goto          1042
+     412: aload         4
+     414: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     417: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     420: bipush        22
+     422: if_icmpne     437
+     425: aload_0
+     426: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     429: iload         5
+     431: invokevirtual #729                // Method com/reign/gcld/building/service/BuildingOutputCache.clearTechGaoGuan:(I)V
+     434: goto          1042
+     437: aload         4
+     439: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     442: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     445: bipush        28
+     447: if_icmpne     462
+     450: aload_0
+     451: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     454: iload         5
+     456: invokevirtual #732                // Method com/reign/gcld/building/service/BuildingOutputCache.clearTechBinZhong:(I)V
+     459: goto          1042
+     462: aload         4
+     464: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     467: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     470: bipush        35
+     472: if_icmpne     487
+     475: aload_0
+     476: getfield      #688                // Field buildingOutputCache:Lcom/reign/gcld/building/service/BuildingOutputCache;
+     479: iload         5
+     481: invokevirtual #735                // Method com/reign/gcld/building/service/BuildingOutputCache.clearOfficer:(I)V
+     484: goto          1042
+     487: aload         4
+     489: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     492: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     495: bipush        41
+     497: if_icmpne     562
+     500: new           #738                // class com/reign/gcld/task/reward/TaskRewardNewFunction
+     503: dup
+     504: bipush        59
+     506: invokespecial #740                // Method com/reign/gcld/task/reward/TaskRewardNewFunction."<init>":(I)V
+     509: astore        7
+     511: aload         7
+     513: new           #68                 // class com/reign/gcld/player/dto/PlayerDto
+     516: dup
+     517: iload         5
+     519: invokespecial #742                // Method com/reign/gcld/player/dto/PlayerDto."<init>":(I)V
+     522: aload_0
+     523: getfield      #306                // Field dataGetter:Lcom/reign/gcld/common/IDataGetter;
+     526: ldc_w         #743                // String ??????????????
+     529: aconst_null
+     530: invokevirtual #745                // Method com/reign/gcld/task/reward/TaskRewardNewFunction.rewardPlayer:(Lcom/reign/gcld/player/dto/PlayerDto;Lcom/reign/gcld/common/IDataGetter;Ljava/lang/String;Ljava/lang/Object;)Ljava/util/Map;
+     533: pop
+     534: aload         6
+     536: invokevirtual #749                // Method com/reign/gcld/player/domain/Player.getForceId:()Ljava/lang/Integer;
+     539: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     542: invokestatic  #752                // Method com/reign/gcld/team/service/TeamManager.leagueOpen:(I)Z
+     545: ifne          1042
+     548: aload         6
+     550: invokevirtual #749                // Method com/reign/gcld/player/domain/Player.getForceId:()Ljava/lang/Integer;
+     553: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     556: invokestatic  #758                // Method com/reign/gcld/team/service/TeamManager.setLeagueOpen:(I)V
+     559: goto          1042
+     562: aload         4
+     564: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     567: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     570: bipush        45
+     572: if_icmpne     589
+     575: aload_0
+     576: getfield      #761                // Field quenchingService:Lcom/reign/gcld/store/service/IQuenchingService;
+     579: iload         5
+     581: invokeinterface #763,  2          // InterfaceMethod com/reign/gcld/store/service/IQuenchingService.checkSpecialSkill:(I)V
+     586: goto          1042
+     589: aload         4
+     591: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     594: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     597: bipush        46
+     599: if_icmpne     853
+     602: invokestatic  #768                // Method com/reign/gcld/world/common/CityEventManager.getInstance:()Lcom/reign/gcld/world/common/CityEventManager;
+     605: aload         6
+     607: invokevirtual #773                // Method com/reign/gcld/player/domain/Player.getPlayerId:()Ljava/lang/Integer;
+     610: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     613: iconst_1
+     614: invokevirtual #774                // Method com/reign/gcld/world/common/CityEventManager.addPlayerEvent:(II)Z
+     617: pop
+     618: invokestatic  #768                // Method com/reign/gcld/world/common/CityEventManager.getInstance:()Lcom/reign/gcld/world/common/CityEventManager;
+     621: iload         5
+     623: iconst_1
+     624: invokevirtual #777                // Method com/reign/gcld/world/common/CityEventManager.bobaoOnePlayerEvent:(II)V
+     627: getstatic     #780                // Field com/reign/gcld/common/Constants.locks:[Ljava/util/concurrent/locks/ReentrantLock;
+     630: iload         5
+     632: getstatic     #786                // Field com/reign/gcld/common/Constants.LOCKS_LEN:I
+     635: irem
+     636: aaload
+     637: invokevirtual #789                // Method java/util/concurrent/locks/ReentrantLock.lock:()V
+     640: aload_0
+     641: getfield      #678                // Field techEffectCache:Lcom/reign/gcld/tech/service/TechEffectCache;
+     644: iload         5
+     646: bipush        46
+     648: invokevirtual #794                // Method com/reign/gcld/tech/service/TechEffectCache.getTechEffect:(II)I
+     651: bipush        8
+     653: if_icmple     668
+     656: aload_0
+     657: getfield      #797                // Field incenseService:Lcom/reign/gcld/incense/service/IIncenseService;
+     660: iload         5
+     662: iconst_5
+     663: invokeinterface #799,  3          // InterfaceMethod com/reign/gcld/incense/service/IIncenseService.addIncenseGod:(II)V
+     668: invokestatic  #296                // Method com/reign/gcld/task/reward/TaskRewardFactory.getInstance:()Lcom/reign/gcld/task/reward/TaskRewardFactory;
+     671: ldc_w         #804                // String functionId,28
+     674: invokevirtual #302                // Method com/reign/gcld/task/reward/TaskRewardFactory.getTaskReward:(Ljava/lang/String;)Lcom/reign/gcld/task/reward/ITaskReward;
+     677: astore        7
+     679: new           #68                 // class com/reign/gcld/player/dto/PlayerDto
+     682: dup
+     683: iload         5
+     685: invokespecial #742                // Method com/reign/gcld/player/dto/PlayerDto."<init>":(I)V
+     688: astore        8
+     690: aload         8
+     692: aload         6
+     694: invokevirtual #625                // Method com/reign/gcld/player/domain/Player.getConsumeLv:()Ljava/lang/Integer;
+     697: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     700: putfield      #806                // Field com/reign/gcld/player/dto/PlayerDto.consumeLv:I
+     703: aload         8
+     705: aload         6
+     707: invokevirtual #749                // Method com/reign/gcld/player/domain/Player.getForceId:()Ljava/lang/Integer;
+     710: invokevirtual #522                // Method java/lang/Integer.toString:()Ljava/lang/String;
+     713: invokevirtual #87                 // Method java/lang/String.toCharArray:()[C
+     716: putfield      #809                // Field com/reign/gcld/player/dto/PlayerDto.cs:[C
+     719: aload         8
+     721: aload         6
+     723: invokevirtual #749                // Method com/reign/gcld/player/domain/Player.getForceId:()Ljava/lang/Integer;
+     726: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     729: putfield      #811                // Field com/reign/gcld/player/dto/PlayerDto.forceId:I
+     732: aload         8
+     734: aload         6
+     736: invokevirtual #814                // Method com/reign/gcld/player/domain/Player.getLoginTime:()Ljava/util/Date;
+     739: invokevirtual #228                // Method java/util/Date.getTime:()J
+     742: putfield      #817                // Field com/reign/gcld/player/dto/PlayerDto.loginTime:J
+     745: aload         8
+     747: aload         6
+     749: invokevirtual #718                // Method com/reign/gcld/player/domain/Player.getPlayerLv:()Ljava/lang/Integer;
+     752: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     755: putfield      #820                // Field com/reign/gcld/player/dto/PlayerDto.playerLv:I
+     758: aload         8
+     760: aload         6
+     762: invokevirtual #823                // Method com/reign/gcld/player/domain/Player.getPlayerName:()Ljava/lang/String;
+     765: putfield      #826                // Field com/reign/gcld/player/dto/PlayerDto.playerName:Ljava/lang/String;
+     768: aload         8
+     770: aload         6
+     772: invokevirtual #829                // Method com/reign/gcld/player/domain/Player.getUserId:()Ljava/lang/String;
+     775: putfield      #832                // Field com/reign/gcld/player/dto/PlayerDto.userId:Ljava/lang/String;
+     778: aload         8
+     780: aload         6
+     782: invokevirtual #835                // Method com/reign/gcld/player/domain/Player.getYx:()Ljava/lang/String;
+     785: putfield      #838                // Field com/reign/gcld/player/dto/PlayerDto.yx:Ljava/lang/String;
+     788: aload         8
+     790: aload         6
+     792: invokevirtual #841                // Method com/reign/gcld/player/domain/Player.getYxSource:()Ljava/lang/String;
+     795: putfield      #844                // Field com/reign/gcld/player/dto/PlayerDto.yxSource:Ljava/lang/String;
+     798: aload         7
+     800: aload         8
+     802: aload_0
+     803: getfield      #306                // Field dataGetter:Lcom/reign/gcld/common/IDataGetter;
+     806: ldc_w         #847                // String ????????????
+     809: aconst_null
+     810: invokeinterface #849,  5          // InterfaceMethod com/reign/gcld/task/reward/ITaskReward.rewardPlayer:(Lcom/reign/gcld/player/dto/PlayerDto;Lcom/reign/gcld/common/IDataGetter;Ljava/lang/String;Ljava/lang/Object;)Ljava/util/Map;
+     815: pop
+     816: goto          837
+     819: astore        9
+     821: getstatic     #780                // Field com/reign/gcld/common/Constants.locks:[Ljava/util/concurrent/locks/ReentrantLock;
+     824: iload         5
+     826: getstatic     #786                // Field com/reign/gcld/common/Constants.LOCKS_LEN:I
+     829: irem
+     830: aaload
+     831: invokevirtual #850                // Method java/util/concurrent/locks/ReentrantLock.unlock:()V
+     834: aload         9
+     836: athrow
+     837: getstatic     #780                // Field com/reign/gcld/common/Constants.locks:[Ljava/util/concurrent/locks/ReentrantLock;
+     840: iload         5
+     842: getstatic     #786                // Field com/reign/gcld/common/Constants.LOCKS_LEN:I
+     845: irem
+     846: aaload
+     847: invokevirtual #850                // Method java/util/concurrent/locks/ReentrantLock.unlock:()V
+     850: goto          1042
+     853: aload         4
+     855: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     858: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     861: bipush        47
+     863: if_icmpne     894
+     866: invokestatic  #768                // Method com/reign/gcld/world/common/CityEventManager.getInstance:()Lcom/reign/gcld/world/common/CityEventManager;
+     869: aload         6
+     871: invokevirtual #773                // Method com/reign/gcld/player/domain/Player.getPlayerId:()Ljava/lang/Integer;
+     874: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     877: iconst_2
+     878: invokevirtual #774                // Method com/reign/gcld/world/common/CityEventManager.addPlayerEvent:(II)Z
+     881: pop
+     882: invokestatic  #768                // Method com/reign/gcld/world/common/CityEventManager.getInstance:()Lcom/reign/gcld/world/common/CityEventManager;
+     885: iload         5
+     887: iconst_2
+     888: invokevirtual #777                // Method com/reign/gcld/world/common/CityEventManager.bobaoOnePlayerEvent:(II)V
+     891: goto          1042
+     894: aload         4
+     896: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     899: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     902: bipush        59
+     904: if_icmpne     954
+     907: new           #119                // class com/reign/framework/json/JsonDocument
+     910: dup
+     911: invokespecial #121                // Method com/reign/framework/json/JsonDocument."<init>":()V
+     914: astore        7
+     916: aload         7
+     918: invokevirtual #122                // Method com/reign/framework/json/JsonDocument.startObject:()V
+     921: aload         7
+     923: ldc_w         #853                // String autoBattleTechGain
+     926: iconst_1
+     927: invokestatic  #855                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     930: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     933: aload         7
+     935: invokevirtual #334                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     938: iload         5
+     940: getstatic     #858                // Field com/reign/gcld/common/PushCommand.PUSH_AUTO_BATTLE:Lcom/reign/gcld/common/PushCommand;
+     943: aload         7
+     945: invokevirtual #376                // Method com/reign/framework/json/JsonDocument.toByte:()[B
+     948: invokestatic  #567                // Method com/reign/gcld/common/Players.push:(ILcom/reign/gcld/common/PushCommand;[B)V
+     951: goto          1042
+     954: aload_0
+     955: getfield      #306                // Field dataGetter:Lcom/reign/gcld/common/IDataGetter;
+     958: invokeinterface #861,  1          // InterfaceMethod com/reign/gcld/common/IDataGetter.getWdSjpDramaCache:()Lcom/reign/gcld/sdata/cache/WdSjpDramaCache;
+     963: invokevirtual #865                // Method com/reign/gcld/sdata/cache/WdSjpDramaCache.getDramaOpenList:()Ljava/util/List;
+     966: aload         4
+     968: invokevirtual #280                // Method com/reign/gcld/sdata/domain/Tech.getId:()Ljava/lang/Integer;
+     971: invokeinterface #871,  2          // InterfaceMethod java/util/List.contains:(Ljava/lang/Object;)Z
+     976: ifeq          1042
+     979: invokestatic  #768                // Method com/reign/gcld/world/common/CityEventManager.getInstance:()Lcom/reign/gcld/world/common/CityEventManager;
+     982: iload         5
+     984: invokevirtual #875                // Method com/reign/gcld/world/common/CityEventManager.alreadyHasWorldDramaEvent:(I)Z
+     987: istore        7
+     989: aload_0
+     990: getfield      #306                // Field dataGetter:Lcom/reign/gcld/common/IDataGetter;
+     993: invokeinterface #878,  1          // InterfaceMethod com/reign/gcld/common/IDataGetter.getJuBenService:()Lcom/reign/gcld/juben/service/IJuBenService;
+     998: iload         5
+    1000: invokeinterface #882,  2          // InterfaceMethod com/reign/gcld/juben/service/IJuBenService.isInWorldDrama:(I)Z
+    1005: istore        8
+    1007: iload         7
+    1009: ifne          1042
+    1012: iload         8
+    1014: ifne          1042
+    1017: invokestatic  #768                // Method com/reign/gcld/world/common/CityEventManager.getInstance:()Lcom/reign/gcld/world/common/CityEventManager;
+    1020: iload         5
+    1022: iconst_5
+    1023: invokevirtual #774                // Method com/reign/gcld/world/common/CityEventManager.addPlayerEvent:(II)Z
+    1026: istore        9
+    1028: iload         9
+    1030: ifeq          1042
+    1033: invokestatic  #768                // Method com/reign/gcld/world/common/CityEventManager.getInstance:()Lcom/reign/gcld/world/common/CityEventManager;
+    1036: iload         5
+    1038: iconst_5
+    1039: invokevirtual #777                // Method com/reign/gcld/world/common/CityEventManager.bobaoOnePlayerEvent:(II)V
+    1042: iload         5
+    1044: aload_3
+    1045: invokevirtual #145                // Method com/reign/gcld/tech/domain/PlayerTech.getTechId:()Ljava/lang/Integer;
+    1048: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+    1051: invokestatic  #887                // Method com/reign/gcld/task/message/TaskMessageHelper.sendTechResearchDoneTaskMessage:(II)V
+    1054: aload_0
+    1055: getfield      #73                 // Field playerAttributeDao:Lcom/reign/gcld/player/dao/IPlayerAttributeDao;
+    1058: iload         5
+    1060: iconst_1
+    1061: invokeinterface #890,  3          // InterfaceMethod com/reign/gcld/player/dao/IPlayerAttributeDao.setTechResearch:(II)I
+    1066: pop
+    1067: new           #119                // class com/reign/framework/json/JsonDocument
+    1070: dup
+    1071: invokespecial #121                // Method com/reign/framework/json/JsonDocument."<init>":()V
+    1074: astore        7
+    1076: aload         7
+    1078: invokevirtual #122                // Method com/reign/framework/json/JsonDocument.startObject:()V
+    1081: aload         7
+    1083: ldc_w         #893                // String techResearch
+    1086: iconst_1
+    1087: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+    1090: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+    1093: aload         7
+    1095: invokevirtual #334                // Method com/reign/framework/json/JsonDocument.endObject:()V
+    1098: iload         5
+    1100: getstatic     #555                // Field com/reign/gcld/common/PushCommand.PUSH_UPDATE:Lcom/reign/gcld/common/PushCommand;
+    1103: aload         7
+    1105: invokevirtual #376                // Method com/reign/framework/json/JsonDocument.toByte:()[B
+    1108: invokestatic  #567                // Method com/reign/gcld/common/Players.push:(ILcom/reign/gcld/common/PushCommand;[B)V
+    1111: return
+    Exception table:
+       from    to  target type
+         627   819   819   any
+
+  public void dropTech(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+       4: iload_1
+       5: invokeinterface #346,  2          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getSizeByPlayerId:(I)I
+      10: istore_3
+      11: iload_3
+      12: iconst_2
+      13: if_icmpge     21
+      16: aload_0
+      17: iload_1
+      18: invokevirtual #905                // Method openTechFunction:(I)V
+      21: aload_0
+      22: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+      25: iload_1
+      26: iload_2
+      27: invokeinterface #421,  3          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getPlayerTech:(II)Lcom/reign/gcld/tech/domain/PlayerTech;
+      32: astore        4
+      34: aconst_null
+      35: astore        5
+      37: aload         4
+      39: ifnull        133
+      42: aload         4
+      44: invokevirtual #185                // Method com/reign/gcld/tech/domain/PlayerTech.getStatus:()Ljava/lang/Integer;
+      47: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+      50: ifne          132
+      53: aload_0
+      54: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+      57: iload_1
+      58: iload_2
+      59: iconst_2
+      60: iconst_1
+      61: invokeinterface #908,  5          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.setStatusAndIsNew:(IIII)I
+      66: istore        6
+      68: iload         6
+      70: iconst_1
+      71: if_icmplt     310
+      74: aload_0
+      75: getfield      #73                 // Field playerAttributeDao:Lcom/reign/gcld/player/dao/IPlayerAttributeDao;
+      78: iload_1
+      79: iconst_1
+      80: invokeinterface #912,  3          // InterfaceMethod com/reign/gcld/player/dao/IPlayerAttributeDao.setTechOpen:(II)I
+      85: pop
+      86: new           #119                // class com/reign/framework/json/JsonDocument
+      89: dup
+      90: invokespecial #121                // Method com/reign/framework/json/JsonDocument."<init>":()V
+      93: astore        7
+      95: aload         7
+      97: invokevirtual #122                // Method com/reign/framework/json/JsonDocument.startObject:()V
+     100: aload         7
+     102: ldc_w         #561                // String displayTech
+     105: iconst_1
+     106: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     109: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     112: aload         7
+     114: invokevirtual #334                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     117: iload_1
+     118: getstatic     #555                // Field com/reign/gcld/common/PushCommand.PUSH_UPDATE:Lcom/reign/gcld/common/PushCommand;
+     121: aload         7
+     123: invokevirtual #376                // Method com/reign/framework/json/JsonDocument.toByte:()[B
+     126: invokestatic  #567                // Method com/reign/gcld/common/Players.push:(ILcom/reign/gcld/common/PushCommand;[B)V
+     129: goto          310
+     132: return
+     133: aload_0
+     134: getfield      #165                // Field techCache:Lcom/reign/gcld/sdata/cache/TechCache;
+     137: iload_2
+     138: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     141: invokevirtual #167                // Method com/reign/gcld/sdata/cache/TechCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     144: checkcast     #173                // class com/reign/gcld/sdata/domain/Tech
+     147: astore        5
+     149: new           #143                // class com/reign/gcld/tech/domain/PlayerTech
+     152: dup
+     153: invokespecial #915                // Method com/reign/gcld/tech/domain/PlayerTech."<init>":()V
+     156: astore        4
+     158: aload         4
+     160: new           #229                // class java/util/Date
+     163: dup
+     164: invokespecial #674                // Method java/util/Date."<init>":()V
+     167: invokevirtual #916                // Method com/reign/gcld/tech/domain/PlayerTech.setCd:(Ljava/util/Date;)V
+     170: aload         4
+     172: iconst_0
+     173: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     176: invokevirtual #919                // Method com/reign/gcld/tech/domain/PlayerTech.setFinishNew:(Ljava/lang/Integer;)V
+     179: aload         4
+     181: iconst_1
+     182: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     185: invokevirtual #923                // Method com/reign/gcld/tech/domain/PlayerTech.setIsNew:(Ljava/lang/Integer;)V
+     188: aload         4
+     190: iconst_0
+     191: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     194: invokevirtual #926                // Method com/reign/gcld/tech/domain/PlayerTech.setJobId:(Ljava/lang/Integer;)V
+     197: aload         4
+     199: aload         5
+     201: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     204: invokevirtual #929                // Method com/reign/gcld/tech/domain/PlayerTech.setKeyId:(Ljava/lang/Integer;)V
+     207: aload         4
+     209: iconst_0
+     210: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     213: invokevirtual #932                // Method com/reign/gcld/tech/domain/PlayerTech.setNum:(Ljava/lang/Integer;)V
+     216: aload         4
+     218: iload_1
+     219: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     222: invokevirtual #934                // Method com/reign/gcld/tech/domain/PlayerTech.setPlayerId:(Ljava/lang/Integer;)V
+     225: aload         4
+     227: iconst_2
+     228: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     231: invokevirtual #937                // Method com/reign/gcld/tech/domain/PlayerTech.setStatus:(Ljava/lang/Integer;)V
+     234: aload         4
+     236: iload_2
+     237: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     240: invokevirtual #940                // Method com/reign/gcld/tech/domain/PlayerTech.setTechId:(Ljava/lang/Integer;)V
+     243: aload_0
+     244: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     247: aload         4
+     249: invokeinterface #943,  2          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.create:(Lcom/reign/gcld/tech/domain/PlayerTech;)I
+     254: pop
+     255: aload_0
+     256: getfield      #73                 // Field playerAttributeDao:Lcom/reign/gcld/player/dao/IPlayerAttributeDao;
+     259: iload_1
+     260: iconst_1
+     261: invokeinterface #912,  3          // InterfaceMethod com/reign/gcld/player/dao/IPlayerAttributeDao.setTechOpen:(II)I
+     266: pop
+     267: new           #119                // class com/reign/framework/json/JsonDocument
+     270: dup
+     271: invokespecial #121                // Method com/reign/framework/json/JsonDocument."<init>":()V
+     274: astore        6
+     276: aload         6
+     278: invokevirtual #122                // Method com/reign/framework/json/JsonDocument.startObject:()V
+     281: aload         6
+     283: ldc_w         #561                // String displayTech
+     286: iconst_1
+     287: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     290: invokevirtual #161                // Method com/reign/framework/json/JsonDocument.createElement:(Ljava/lang/String;Ljava/lang/Object;)V
+     293: aload         6
+     295: invokevirtual #334                // Method com/reign/framework/json/JsonDocument.endObject:()V
+     298: iload_1
+     299: getstatic     #555                // Field com/reign/gcld/common/PushCommand.PUSH_UPDATE:Lcom/reign/gcld/common/PushCommand;
+     302: aload         6
+     304: invokevirtual #376                // Method com/reign/framework/json/JsonDocument.toByte:()[B
+     307: invokestatic  #567                // Method com/reign/gcld/common/Players.push:(ILcom/reign/gcld/common/PushCommand;[B)V
+     310: aload_0
+     311: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     314: iload_1
+     315: invokeinterface #346,  2          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getSizeByPlayerId:(I)I
+     320: istore_3
+     321: aload_0
+     322: getfield      #165                // Field techCache:Lcom/reign/gcld/sdata/cache/TechCache;
+     325: iload_3
+     326: invokevirtual #947                // Method com/reign/gcld/sdata/cache/TechCache.getDropTechByDropIndex:(I)Lcom/reign/gcld/sdata/domain/Tech;
+     329: astore        5
+     331: aload         5
+     333: ifnull        465
+     336: aload_0
+     337: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     340: iload_1
+     341: aload         5
+     343: invokevirtual #280                // Method com/reign/gcld/sdata/domain/Tech.getId:()Ljava/lang/Integer;
+     346: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+     349: invokeinterface #421,  3          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getPlayerTech:(II)Lcom/reign/gcld/tech/domain/PlayerTech;
+     354: ifnull        358
+     357: return
+     358: new           #143                // class com/reign/gcld/tech/domain/PlayerTech
+     361: dup
+     362: invokespecial #915                // Method com/reign/gcld/tech/domain/PlayerTech."<init>":()V
+     365: astore        4
+     367: aload         4
+     369: new           #229                // class java/util/Date
+     372: dup
+     373: invokespecial #674                // Method java/util/Date."<init>":()V
+     376: invokevirtual #916                // Method com/reign/gcld/tech/domain/PlayerTech.setCd:(Ljava/util/Date;)V
+     379: aload         4
+     381: iconst_0
+     382: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     385: invokevirtual #919                // Method com/reign/gcld/tech/domain/PlayerTech.setFinishNew:(Ljava/lang/Integer;)V
+     388: aload         4
+     390: iconst_0
+     391: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     394: invokevirtual #923                // Method com/reign/gcld/tech/domain/PlayerTech.setIsNew:(Ljava/lang/Integer;)V
+     397: aload         4
+     399: iconst_0
+     400: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     403: invokevirtual #926                // Method com/reign/gcld/tech/domain/PlayerTech.setJobId:(Ljava/lang/Integer;)V
+     406: aload         4
+     408: aload         5
+     410: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+     413: invokevirtual #929                // Method com/reign/gcld/tech/domain/PlayerTech.setKeyId:(Ljava/lang/Integer;)V
+     416: aload         4
+     418: iconst_0
+     419: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     422: invokevirtual #932                // Method com/reign/gcld/tech/domain/PlayerTech.setNum:(Ljava/lang/Integer;)V
+     425: aload         4
+     427: iload_1
+     428: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     431: invokevirtual #934                // Method com/reign/gcld/tech/domain/PlayerTech.setPlayerId:(Ljava/lang/Integer;)V
+     434: aload         4
+     436: iconst_0
+     437: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     440: invokevirtual #937                // Method com/reign/gcld/tech/domain/PlayerTech.setStatus:(Ljava/lang/Integer;)V
+     443: aload         4
+     445: aload         5
+     447: invokevirtual #280                // Method com/reign/gcld/sdata/domain/Tech.getId:()Ljava/lang/Integer;
+     450: invokevirtual #940                // Method com/reign/gcld/tech/domain/PlayerTech.setTechId:(Ljava/lang/Integer;)V
+     453: aload_0
+     454: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     457: aload         4
+     459: invokeinterface #943,  2          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.create:(Lcom/reign/gcld/tech/domain/PlayerTech;)I
+     464: pop
+     465: return
+
+  public int getTechEffect(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+       4: iload_1
+       5: iload_2
+       6: invokeinterface #952,  3          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getByTechKey1:(II)Ljava/util/List;
+      11: astore_3
+      12: aload_3
+      13: ifnonnull     18
+      16: iconst_0
+      17: ireturn
+      18: iconst_0
+      19: istore        4
+      21: aload_3
+      22: invokeinterface #131,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      27: astore        6
+      29: goto          70
+      32: aload         6
+      34: invokeinterface #137,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      39: checkcast     #143                // class com/reign/gcld/tech/domain/PlayerTech
+      42: astore        5
+      44: iload         4
+      46: aload_0
+      47: getfield      #165                // Field techCache:Lcom/reign/gcld/sdata/cache/TechCache;
+      50: aload         5
+      52: invokevirtual #145                // Method com/reign/gcld/tech/domain/PlayerTech.getTechId:()Ljava/lang/Integer;
+      55: invokevirtual #167                // Method com/reign/gcld/sdata/cache/TechCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      58: checkcast     #173                // class com/reign/gcld/sdata/domain/Tech
+      61: invokevirtual #956                // Method com/reign/gcld/sdata/domain/Tech.getPar1:()Ljava/lang/Integer;
+      64: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+      67: iadd
+      68: istore        4
+      70: aload         6
+      72: invokeinterface #337,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      77: ifne          32
+      80: iload         4
+      82: ireturn
+
+  public int getTechEffect2(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+       4: iload_1
+       5: iload_2
+       6: invokeinterface #952,  3          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getByTechKey1:(II)Ljava/util/List;
+      11: astore_3
+      12: aload_3
+      13: ifnonnull     18
+      16: iconst_0
+      17: ireturn
+      18: iconst_0
+      19: istore        4
+      21: aload_3
+      22: invokeinterface #131,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      27: astore        6
+      29: goto          70
+      32: aload         6
+      34: invokeinterface #137,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      39: checkcast     #143                // class com/reign/gcld/tech/domain/PlayerTech
+      42: astore        5
+      44: iload         4
+      46: aload_0
+      47: getfield      #165                // Field techCache:Lcom/reign/gcld/sdata/cache/TechCache;
+      50: aload         5
+      52: invokevirtual #145                // Method com/reign/gcld/tech/domain/PlayerTech.getTechId:()Ljava/lang/Integer;
+      55: invokevirtual #167                // Method com/reign/gcld/sdata/cache/TechCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      58: checkcast     #173                // class com/reign/gcld/sdata/domain/Tech
+      61: invokevirtual #961                // Method com/reign/gcld/sdata/domain/Tech.getPar2:()Ljava/lang/Integer;
+      64: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+      67: iadd
+      68: istore        4
+      70: aload         6
+      72: invokeinterface #337,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      77: ifne          32
+      80: iload         4
+      82: ireturn
+
+  public double getTechEffect3(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+       4: iload_1
+       5: iload_2
+       6: invokeinterface #952,  3          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getByTechKey1:(II)Ljava/util/List;
+      11: astore_3
+      12: aload_3
+      13: ifnonnull     18
+      16: dconst_0
+      17: dreturn
+      18: dconst_0
+      19: dstore        4
+      21: aload_3
+      22: invokeinterface #131,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      27: astore        7
+      29: goto          70
+      32: aload         7
+      34: invokeinterface #137,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      39: checkcast     #143                // class com/reign/gcld/tech/domain/PlayerTech
+      42: astore        6
+      44: dload         4
+      46: aload_0
+      47: getfield      #165                // Field techCache:Lcom/reign/gcld/sdata/cache/TechCache;
+      50: aload         6
+      52: invokevirtual #145                // Method com/reign/gcld/tech/domain/PlayerTech.getTechId:()Ljava/lang/Integer;
+      55: invokevirtual #167                // Method com/reign/gcld/sdata/cache/TechCache.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      58: checkcast     #173                // class com/reign/gcld/sdata/domain/Tech
+      61: invokevirtual #966                // Method com/reign/gcld/sdata/domain/Tech.getPar3:()Ljava/lang/Double;
+      64: invokevirtual #598                // Method java/lang/Double.doubleValue:()D
+      67: dadd
+      68: dstore        4
+      70: aload         7
+      72: invokeinterface #337,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      77: ifne          32
+      80: dload         4
+      82: dreturn
+
+  public void afterPropertiesSet() throws java.lang.Exception;
+    Code:
+       0: return
+
+  public void openTechFunction(int);
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: goto          149
+       5: aload_0
+       6: getfield      #165                // Field techCache:Lcom/reign/gcld/sdata/cache/TechCache;
+       9: iload_2
+      10: invokevirtual #947                // Method com/reign/gcld/sdata/cache/TechCache.getDropTechByDropIndex:(I)Lcom/reign/gcld/sdata/domain/Tech;
+      13: astore_3
+      14: aload_3
+      15: ifnull        146
+      18: aload_0
+      19: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+      22: iload_1
+      23: aload_3
+      24: invokevirtual #280                // Method com/reign/gcld/sdata/domain/Tech.getId:()Ljava/lang/Integer;
+      27: invokevirtual #149                // Method java/lang/Integer.intValue:()I
+      30: invokeinterface #421,  3          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.getPlayerTech:(II)Lcom/reign/gcld/tech/domain/PlayerTech;
+      35: ifnull        41
+      38: goto          146
+      41: new           #143                // class com/reign/gcld/tech/domain/PlayerTech
+      44: dup
+      45: invokespecial #915                // Method com/reign/gcld/tech/domain/PlayerTech."<init>":()V
+      48: astore        4
+      50: aload         4
+      52: new           #229                // class java/util/Date
+      55: dup
+      56: invokespecial #674                // Method java/util/Date."<init>":()V
+      59: invokevirtual #916                // Method com/reign/gcld/tech/domain/PlayerTech.setCd:(Ljava/util/Date;)V
+      62: aload         4
+      64: iconst_0
+      65: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      68: invokevirtual #919                // Method com/reign/gcld/tech/domain/PlayerTech.setFinishNew:(Ljava/lang/Integer;)V
+      71: aload         4
+      73: iconst_0
+      74: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      77: invokevirtual #923                // Method com/reign/gcld/tech/domain/PlayerTech.setIsNew:(Ljava/lang/Integer;)V
+      80: aload         4
+      82: iconst_0
+      83: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      86: invokevirtual #926                // Method com/reign/gcld/tech/domain/PlayerTech.setJobId:(Ljava/lang/Integer;)V
+      89: aload         4
+      91: aload_3
+      92: invokevirtual #680                // Method com/reign/gcld/sdata/domain/Tech.getKey:()Ljava/lang/Integer;
+      95: invokevirtual #929                // Method com/reign/gcld/tech/domain/PlayerTech.setKeyId:(Ljava/lang/Integer;)V
+      98: aload         4
+     100: iconst_0
+     101: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     104: invokevirtual #932                // Method com/reign/gcld/tech/domain/PlayerTech.setNum:(Ljava/lang/Integer;)V
+     107: aload         4
+     109: iload_1
+     110: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     113: invokevirtual #934                // Method com/reign/gcld/tech/domain/PlayerTech.setPlayerId:(Ljava/lang/Integer;)V
+     116: aload         4
+     118: iconst_0
+     119: invokestatic  #157                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     122: invokevirtual #937                // Method com/reign/gcld/tech/domain/PlayerTech.setStatus:(Ljava/lang/Integer;)V
+     125: aload         4
+     127: aload_3
+     128: invokevirtual #280                // Method com/reign/gcld/sdata/domain/Tech.getId:()Ljava/lang/Integer;
+     131: invokevirtual #940                // Method com/reign/gcld/tech/domain/PlayerTech.setTechId:(Ljava/lang/Integer;)V
+     134: aload_0
+     135: getfield      #111                // Field playerTechDao:Lcom/reign/gcld/tech/dao/IPlayerTechDao;
+     138: aload         4
+     140: invokeinterface #943,  2          // InterfaceMethod com/reign/gcld/tech/dao/IPlayerTechDao.create:(Lcom/reign/gcld/tech/domain/PlayerTech;)I
+     145: pop
+     146: iinc          2, 1
+     149: iload_2
+     150: iconst_2
+     151: if_icmplt     5
+     154: return
+}

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--角色场景配置文件-->
+<config autoAlign='{"width":1280,"height":768}'>
+	<displayObject definition="role.select.bgMC" properties='{"x":0, "y":0}'/>
+	<displayObject parent="uiModule" definition="role.topDi" properties='{"x":0, "y":0}' autoAlign='{"width":1280,"cancelV":true}'/>
+	<displayObject parent="uiModule" definition="role.downDi" properties='{"x":0, "y":0}'autoAlign='{"width":1280,"height":81,"paddingBottom":0}'/>
+	<!--选择角色界面-->
+	<container name="selectRoleView" properties='{"x":140, "y":85}'>
+	
+		
+		<displayObject name="bg" definition="role.select.bg" properties='{"x":427, "y":86}'/>
+		
+		<baseButton name="enterBtn" properties='{"x":407, "y":439, "skin":"role.select.enterBtn", "buttonMode":true, "music":true}' />
+		<button name="createBtn" properties='{"x":385, "y":400, "styleName":"button8", "labelID":"1430205"}' />
+		<button name="deleteBtn" properties='{"x":564, "y":400, "styleName":"button8", "labelID":"233005"}' />
+		
+		<list name="roleList" properties='{"x":375, "y":130, "columnCount":1, "rowCount":3}'/>
+	
+		<page name="page" properties='{"x":500, "y":400,
+						"prevBtnProp":{"skin":"skin.role.PrevBtn", "x":-40},
+						"nextBtnProp":{"skin":"skin.role.NextBtn", "x":30},
+						"pageTextProp":{"color":"0xFFFFFF","align":"center","x":-5}
+						}' />
+							
+	</container>
+	
+	<!-- 现有角色列表呈示器 -->
+	<SelectRoleRenderer properties='{"itemWidth":228, "itemHeight":90}'>
+		<displayObject name="background" definition="role.selectRenderer" properties='{"x":0, "y":0, "doubleClickEnabled":true}'/>	
+		<imageLoader name="roleFeature" properties='{"pathFormatName":"rolePic72", "x":6, "y":5, "mouseEnabled":false}' />			
+		<displayObject name="vipIcon" definition="role.vipIcon" properties='{"x":43, "y":59, "mouseEnabled":false}'/>
+		<displayObject name="payIcon" definition="role.selectedRole.payIcon" properties='{"x":5, "y":5,"visible":false,"mouseEnabled":false}'/>
+		
+		<label name="roleName" properties='{"x":104, "y":9,"width":125, "height":22, "size":"14", "color":"0xFED593", "stroke":"0x302010", "autoSize":"none", "align":"left","bold":true, "mouseEnabled":false}' />				
+		<label name="level" properties='{"x":104, "y":34, "width":80, "height":20,"border":false, "color":"0xE7E3BD", "stroke":"0x302010", "autoSize":"none", "align":"left","mouseEnabled":false}' />
+		<checkBox name="cheBox" properties='{"styleName":"checkBox3", "enabled":true, "x":104, "y":55,"labelID":"1461010"}'/>
+		
+		<displayObject name="deleting" definition="role.deleteMask" properties='{"x":0, "y":0, "visible":false,"mouseEnabled":false}'/>
+		<label name="deleteStatus" properties='{"x":16, "y":28, "width":196, "height":22, "color":"0xE32936", "size":14,"visible":false, "autoSize":"none", "align":"center", "textID":"030409","mouseEnabled":false}' />
+		<label name="deleteCountDown" properties='{"x":16, "y":58, "width":196, "height":20, "color":"0xE7E3BD", "stroke":"0x302010","visible":false, "autoSize":"none", "align":"center","mouseEnabled":false}' />
+		
+		<button name="setDefBtn" properties='{"x":191, "y":8, "styleName":"button5", "labelID":"030415", "autoSize":true, "visible":false}' />
+		<button name="changeNameBtn" properties='{"x":217, "y":38, "styleName":"button5", "labelID":"030412", "autoSize":true, "visible":false}' />
+		<button name="cancelDelete" properties='{"x":189, "y":62, "styleName":"button8","visible":false, "buttonMode":true,"labelID":"1430204"}' />
+		<displayObject name="forceIcon" definition="role.force.id" properties='{"x":-8, "y":-5,"mouseEnabled":false}'/>
+	</SelectRoleRenderer>
+	
+</config>

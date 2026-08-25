@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config><!--【预加载数据】-->
+	<preloads>		
+		 <scene><!--【选择角色】-->
+			<sceneID>2</sceneID>
+			<module2><!--5个资源场景-->
+				<swf>areaSWF</swf>
+				<id>1</id>
+			</module2>	
+			<module1>guildConfig</module1>
+			<module1>joinmode</module1>
+			<module1>gameUIConfig,gameUIView</module1> 
+			<module1>chatConfig,chatView</module1> 
+			<module1>quickGeneralConfig,quickGeneralView</module1> 
+			<module1>mainCityConfig,mainCityView,mainCityRegional</module1>					
+		</scene>
+		
+		 <scene><!--【主城】-->
+			<sceneID>3</sceneID>				
+			<module2><!--5个资源场景-->
+				<swf>areaSWF</swf>
+				<id>2,3,4,5</id>
+			</module2>	
+			<module3>warModule,warConfig,warView,skillxml,skill01,skill02,skill03,skill04,skill05,skill06,skill07,skill80,skill81,skill09,skill10,skill11,skill13,skill14,skill15,skill16,skill17,skill18,skill19,skill20,teactics,strategy,warResult,warvs,warleave,flag</module3><!--战斗-->		
+			<mp3>effect,battle_dasheng,battle_fangshou,battle_gongji,battle_jiaofeng,battle_pingju,battle_shibai,battle_tuji,battle_wujiang_didang,battle_wujiang_skill,battle_xiaosheng</mp3>
+		</scene>	
+		
+		<scene><!--【选择势力】-->			
+			<sceneID>6</sceneID>
+			<module2><!--5个资源场景-->
+				<swf>areaSWF</swf>
+				<id>1</id>
+			</module2>	
+			<module1>guildConfig</module1>
+			<module1>joinmode</module1>
+			<module1>gameUIConfig,gameUIView</module1> 
+			<module1>chatConfig,chatView</module1> 
+			<module1>quickGeneralConfig,quickGeneralView</module1> 
+			<module1>mainCityConfig,mainCityView,mainCityRegional</module1> 					
+		</scene>
+		
+		<!-- <scene>【副本】-->
+			<!--<sceneID>7</sceneID>			
+			<module1>equipModule,equipView,equipConfig</module1>装备-->
+			<!--<module1>tavernModule,tavernView,tavernConfig</module1>	<!--武将-->
+			<!--<module1>politicsInfo</module1>	处理政务-->
+			<!--<module1>techModule,techView,techConfig</module1>	科技
+		</scene>-->
+				
+		 <scene><!--【官场】-->
+			<sceneID>8</sceneID>			
+			<module1>killListModule,killListView,killListConfig</module1><!--俸禄-->
+		</scene>		
+		
+		 <level><!--【等级】-->
+			<image>
+				<lv>1</lv>
+				<pathFormatName>generalPicMax</pathFormatName>	<!--新手教程头像-->
+				<pic>xiaoqian,kidnapper</pic>
+			</image>		
+			<image>
+				<lv>2</lv>
+				<pathFormatName>rolePic72</pathFormatName>	<!--人物头像-->
+				<pic>1,2,3,4,5,6,10</pic>
+			</image>
+			
+			<image>
+				<lv>2</lv>
+				<pathFormatName>roleBigPic</pathFormatName>	<!--人物大图-->
+				<pic>1,2,3,4,5,6</pic>
+			</image>		
+			
+			<module1>2,createRoleInfo</module1>	<!--创建角色-->
+			
+			<image>
+				<lv>2</lv>
+				<pathFormatName>generalPic</pathFormatName>	<!--武将头像-->
+				<pic>zhangjiao,cunmin,shanzei</pic>
+			</image>
+			
+			<soldiers>2,att1,def1</soldiers> <!--兵种的加载-->
+			
+			<image>
+				<lv>2</lv>
+				<pathFormatName>warTitle</pathFormatName>	<!--战斗标题-->
+				<pic>mjjf,mcjf</pic>
+			</image>
+			
+			<image>
+				<lv>2</lv>
+				<pathFormatName>warBG</pathFormatName>	<!--战斗背景-->
+				<pic>1</pic>
+			</image>
+			
+			<mp3>2,effect,battle_jiaofeng</mp3> <!--战斗音乐-->
+			
+			<module1>19,warModule,warConfig,warView,teactics,strategy,warResult,warvs,warleave,skillxml,flag</module1><!--战斗-->			
+			
+			<module2><!--5个资源场景-->
+				<lv>4</lv>
+				<swf>areaSWF</swf>
+				<id>2</id>
+			</module2>
+			
+			<module1>7,incenseModule,incenseView,incenseConfig</module1>
+			
+			<image>
+				<lv>7</lv>
+				<pathFormatName>incensePic</pathFormatName>	<!--祭祀图片-->
+				<pic>1,2,3</pic>
+			</image>
+			
+			<soldiers>7,att11,def11</soldiers> <!--兵种的加载-->
+			<mp3>7,effect,battle_dasheng,battle_fangshou,battle_gongji,battle_jiaofeng,battle_pingju,battle_shibai,battle_tuji,battle_wujiang_didang,battle_wujiang_skill,battle_xiaosheng</mp3> <!--战斗音乐-->
+			<module2><!--5个资源场景-->
+				<lv>3</lv>
+				<swf>areaSWF</swf>
+				<id>2</id>
+			</module2>
+			<module1>8,specialLevelView</module1><!--升级-->
+			<expeditionSWF>9</expeditionSWF>
+			<module1>9,expeditonModule,expeditonView,expeditonConfig</module1>	<!--副本-->
+			<module1>9,interactiveModule,interactiveView,interactiveConfig</module1> <!--官职场景-->
+			<image>
+				<lv>9</lv>
+				<pathFormatName>generalPicMax</pathFormatName>	<!--新手教程头像-->
+				<pic>zhangliang</pic>
+			</image>
+			
+			<image>
+				<lv>9</lv>
+				<pathFormatName>generalPic</pathFormatName>	<!--武将头像-->
+				<pic>zhangliang,lisu,guosi,zhangji</pic>
+			</image>	
+			
+			<image>
+				<lv>9</lv>
+				<pathFormatName>warTitle</pathFormatName>	<!--战斗标签-->
+				<pic>wt0</pic>
+			</image>
+			
+			<image>
+				<lv>11</lv>
+				<pathFormatName>item</pathFormatName>	<!--装备图片-->
+				<pic>wuqi1,fangju1,bingfu1</pic>				
+			</image>	
+			<image>
+				<lv>11</lv>
+				<pathFormatName>smallItem</pathFormatName>	<!--装备图片-->
+				<pic>wuqi1,fangju1,bingfu1</pic>
+			</image>		
+			<module1>11,equipModule,equipView,equipConfig</module1><!--装备-->
+			<module1>11,tavernModule,tavernView,tavernConfig</module1>	<!--武将-->
+			
+			<module2><!--5个资源场景-->
+				<lv>12</lv>
+				<swf>areaSWF</swf>
+				<id>3</id>
+			</module2>
+			<image>
+				<lv>12</lv>
+				<pathFormatName>generalPic</pathFormatName>	<!--武将头像-->
+				<pic>xurong</pic>
+			</image>
+			<image>
+				<lv>12</lv>
+				<pathFormatName>warBG</pathFormatName>
+				<pic>3,2</pic>
+			</image>	
+			<soldiers>12,def6,def16,def17</soldiers>			
+			<image>
+				<lv>13</lv>
+				<pathFormatName>item</pathFormatName>	<!--装备图片-->
+				<pic>zhanma1,pifeng1,junqi1</pic>				
+			</image>	
+			<image>
+				<lv>13</lv>
+				<pathFormatName>smallItem</pathFormatName>	<!--装备图片-->
+				<pic>zhanma1,pifeng1,junqi1</pic>
+			</image>
+			<image>
+				<lv>13</lv>
+				<pathFormatName>generalPic</pathFormatName>	<!--武将头像-->
+				<pic>yiji</pic>
+			</image>
+			
+			<image>
+				<lv>14</lv>
+				<pathFormatName>generalPic</pathFormatName>	<!--武将头像-->
+				<pic>liru</pic>
+			</image>
+			<module2><!--5个资源场景-->
+				<lv>14</lv>
+				<swf>areaSWF</swf>
+				<id>5</id>
+			</module2>
+			<soldiers>14,att17</soldiers>
+			<image>
+				<lv>15</lv>
+				<pathFormatName>generalPicMax</pathFormatName>	<!--武将头像-->
+				<pic>huaxiong</pic>
+			</image>
+			<soldiers>15,def8,def21</soldiers>
+			<soldiers>16,att3</soldiers>
+			<image>
+				<lv>16</lv>
+				<pathFormatName>market</pathFormatName>	<!--武将头像-->
+				<pic>food,lumber,recruit_token</pic>
+			</image>
+			<image>
+				<lv>16</lv>
+				<pathFormatName>generalPic</pathFormatName>	<!--武将头像-->
+				<pic>fanchou,dongzhuo</pic>
+			</image>
+			<image>
+				<lv>16</lv>
+				<pathFormatName>tacticalGeneralPicMax</pathFormatName>	<!--战法武将头像-->
+				<pic>dongzhuo</pic>
+			</image>
+			<image>
+				<lv>16</lv>
+				<pathFormatName>warBG</pathFormatName>
+				<pic>6,5</pic>
+			</image>
+			
+			<image>
+				<lv>19</lv>
+				<pathFormatName>politicsPic</pathFormatName>	<!--政务-->
+				<pic>minju3,muchang4,nongtian3</pic>
+			</image>
+			<module1>19,politicsInfo</module1>	<!--处理政务-->
+			<image>
+				<lv>19</lv>
+				<pathFormatName>item</pathFormatName>	<!--装备-->
+				<pic>wuqi2</pic>
+			</image>
+			<image>
+				<lv>19</lv>
+				<pathFormatName>smallItem</pathFormatName>	<!--装备-->
+				<pic>wuqi2</pic>
+			</image>
+			
+			<module1>19,officerSceneModule,officerSceneView,officerSceneConfig,head</module1> <!--官职场景-->
+			<module1>25,world2Module,world2Config,cityBelong,cityInfo,worldFog,worldBox,worldNPCDialog,road,world2View,worldCommonModule,worldCommonView,flag,newGameUIView</module1>	<!--世界-->		
+		</level>
+		
+	</preloads>		
+</config>

@@ -1,0 +1,106 @@
+[
+    {
+        "name":  "Đế Vương ",
+        "pic":  "-",
+        "world_output_e1":  "0.1",
+        "name_short":  "Hoàng Thượng ",
+        "output":  "100000",
+        "id":  "1"
+    },
+    {
+        "name":  "1 Phẩm Quan Viên ",
+        "pic":  "-",
+        "world_output_e1":  "0.09",
+        "name_short":  "1 Phẩm ",
+        "output":  "80000",
+        "id":  "2"
+    },
+    {
+        "name":  "2 Phẩm Quan Viên ",
+        "pic":  "-",
+        "world_output_e1":  "0.08",
+        "name_short":  "2 Phẩm ",
+        "output":  "60000",
+        "id":  "3"
+    },
+    {
+        "name":  "3 Phẩm Quan Viên ",
+        "pic":  "-",
+        "world_output_e1":  "0.07",
+        "name_short":  "3 Phẩm ",
+        "output":  "50000",
+        "id":  "4"
+    },
+    {
+        "name":  "4 Phẩm Quan Viên ",
+        "pic":  "-",
+        "world_output_e1":  "0.06",
+        "name_short":  "4 Phẩm ",
+        "output":  "40000",
+        "id":  "5"
+    },
+    {
+        "name":  "Ngũ Phẩm Tiểu Lại ",
+        "pic":  "-",
+        "world_output_e1":  "0.05",
+        "name_short":  "Ngũ Phẩm ",
+        "output":  "30000",
+        "id":  "6"
+    },
+    {
+        "name":  "Lục Phẩm Tiểu Lại ",
+        "pic":  "-",
+        "world_output_e1":  "0.04",
+        "name_short":  "Lục Phẩm ",
+        "output":  "25000",
+        "id":  "7"
+    },
+    {
+        "name":  "Thất Phẩm Tiểu Lại ",
+        "pic":  "-",
+        "world_output_e1":  "0.035",
+        "name_short":  "Thất Phẩm ",
+        "output":  "20000",
+        "id":  "8"
+    },
+    {
+        "name":  "Bát Phẩm Tiểu Lại ",
+        "pic":  "-",
+        "world_output_e1":  "0.03",
+        "name_short":  "Bát Phẩm ",
+        "output":  "18000",
+        "id":  "9"
+    },
+    {
+        "name":  "Cửu Phẩm Tiểu Lại ",
+        "pic":  "-",
+        "world_output_e1":  "0.025",
+        "name_short":  "Cửu Phẩm ",
+        "output":  "15000",
+        "id":  "10"
+    },
+    {
+        "name":  "Tăng Bổ ",
+        "pic":  "-",
+        "world_output_e1":  "0.02",
+        "name_short":  "Tăng Bổ ",
+        "output":  "12000",
+        "id":  "11"
+    },
+    {
+        "name":  "Hậu Bổ ",
+        "pic":  "-",
+        "world_output_e1":  "0.015",
+        "name_short":  "Hậu Bổ ",
+        "output":  "10000",
+        "id":  "12"
+    },
+    {
+        "name":  "Bình Dân ",
+        "pic":  "-",
+        "world_output_e1":  "0.01",
+        "name_short":  "Bình Dân ",
+        "output":  "5000",
+        "id":  "13"
+    }
+]

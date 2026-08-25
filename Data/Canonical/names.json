@@ -1,0 +1,2532 @@
+{
+  "male": [
+    {
+      "word": "辰",
+      "intonation": 2
+    },
+    {
+      "word": "逸",
+      "intonation": 4
+    },
+    {
+      "word": "浩",
+      "intonation": 4
+    },
+    {
+      "word": "帅",
+      "intonation": 4
+    },
+    {
+      "word": "宇",
+      "intonation": 3
+    },
+    {
+      "word": "瑾",
+      "intonation": 3
+    },
+    {
+      "word": "瑜",
+      "intonation": 2
+    },
+    {
+      "word": "皓",
+      "intonation": 4
+    },
+    {
+      "word": "轩",
+      "intonation": 1
+    },
+    {
+      "word": "擎",
+      "intonation": 2
+    },
+    {
+      "word": "苍",
+      "intonation": 1
+    },
+    {
+      "word": "志",
+      "intonation": 4
+    },
+    {
+      "word": "玉",
+      "intonation": 4
+    },
+    {
+      "word": "远",
+      "intonation": 3
+    },
+    {
+      "word": "烨",
+      "intonation": 4
+    },
+    {
+      "word": "晔",
+      "intonation": 4
+    },
+    {
+      "word": "磊",
+      "intonation": 3
+    },
+    {
+      "word": "渊",
+      "intonation": 1
+    },
+    {
+      "word": "缘",
+      "intonation": 2
+    },
+    {
+      "word": "愿",
+      "intonation": 4
+    },
+    {
+      "word": "生",
+      "intonation": 1
+    },
+    {
+      "word": "源",
+      "intonation": 2
+    },
+    {
+      "word": "召",
+      "intonation": 1
+    },
+    {
+      "word": "睿",
+      "intonation": 4
+    },
+    {
+      "word": "正",
+      "intonation": 4
+    },
+    {
+      "word": "田",
+      "intonation": 2
+    },
+    {
+      "word": "立",
+      "intonation": 4
+    },
+    {
+      "word": "文",
+      "intonation": 2
+    },
+    {
+      "word": "博",
+      "intonation": 2
+    },
+    {
+      "word": "伏",
+      "intonation": 2
+    },
+    {
+      "word": "台",
+      "intonation": 2
+    },
+    {
+      "word": "天",
+      "intonation": 1
+    },
+    {
+      "word": "外",
+      "intonation": 4
+    },
+    {
+      "word": "永",
+      "intonation": 3
+    },
+    {
+      "word": "修",
+      "intonation": 1
+    },
+    {
+      "word": "梨",
+      "intonation": 2
+    },
+    {
+      "word": "鑫",
+      "intonation": 1
+    },
+    {
+      "word": "仙",
+      "intonation": 1
+    },
+    {
+      "word": "旭",
+      "intonation": 4
+    },
+    {
+      "word": "虚",
+      "intonation": 1
+    },
+    {
+      "word": "尧",
+      "intonation": 2
+    },
+    {
+      "word": "史",
+      "intonation": 3
+    },
+    {
+      "word": "圣",
+      "intonation": 4
+    },
+    {
+      "word": "世",
+      "intonation": 4
+    },
+    {
+      "word": "杰",
+      "intonation": 2
+    },
+    {
+      "word": "俊",
+      "intonation": 4
+    },
+    {
+      "word": "鸿",
+      "intonation": 2
+    },
+    {
+      "word": "虹",
+      "intonation": 2
+    },
+    {
+      "word": "宏",
+      "intonation": 2
+    },
+    {
+      "word": "越",
+      "intonation": 4
+    },
+    {
+      "word": "泽",
+      "intonation": 2
+    },
+    {
+      "word": "豪",
+      "intonation": 2
+    },
+    {
+      "word": "淑",
+      "intonation": 1
+    },
+    {
+      "word": "石",
+      "intonation": 2
+    },
+    {
+      "word": "哲",
+      "intonation": 2
+    },
+    {
+      "word": "剑",
+      "intonation": 4
+    },
+    {
+      "word": "平",
+      "intonation": 1
+    },
+    {
+      "word": "虎",
+      "intonation": 3
+    },
+    {
+      "word": "北",
+      "intonation": 3
+    },
+    {
+      "word": "丕",
+      "intonation": 1
+    },
+    {
+      "word": "布",
+      "intonation": 4
+    },
+    {
+      "word": "飞",
+      "intonation": 1
+    },
+    {
+      "word": "异",
+      "intonation": 4
+    },
+    {
+      "word": "翼",
+      "intonation": 4
+    },
+    {
+      "word": "德",
+      "intonation": 2
+    },
+    {
+      "word": "云",
+      "intonation": 2
+    },
+    {
+      "word": "长",
+      "intonation": 2
+    },
+    {
+      "word": "龙",
+      "intonation": 2
+    },
+    {
+      "word": "汉",
+      "intonation": 4
+    },
+    {
+      "word": "民",
+      "intonation": 2
+    },
+    {
+      "word": "冰",
+      "intonation": 1
+    },
+    {
+      "word": "白",
+      "intonation": 2
+    },
+    {
+      "word": "淼",
+      "intonation": 3
+    },
+    {
+      "word": "光",
+      "intonation": 1
+    },
+    {
+      "word": "共",
+      "intonation": 4
+    },
+    {
+      "word": "康",
+      "intonation": 1
+    },
+    {
+      "word": "曲",
+      "intonation": 3
+    },
+    {
+      "word": "达",
+      "intonation": 2
+    },
+    {
+      "word": "兆",
+      "intonation": 4
+    },
+    {
+      "word": "帝",
+      "intonation": 4
+    },
+    {
+      "word": "汀",
+      "intonation": 1
+    },
+    {
+      "word": "己",
+      "intonation": 3
+    },
+    {
+      "word": "灸",
+      "intonation": 3
+    },
+    {
+      "word": "登",
+      "intonation": 1
+    },
+    {
+      "word": "著",
+      "intonation": 4
+    },
+    {
+      "word": "老",
+      "intonation": 3
+    },
+    {
+      "word": "舟",
+      "intonation": 1
+    },
+    {
+      "word": "籍",
+      "intonation": 2
+    },
+    {
+      "word": "狄",
+      "intonation": 2
+    },
+    {
+      "word": "傲",
+      "intonation": 4
+    },
+    {
+      "word": "苞",
+      "intonation": 1
+    },
+    {
+      "word": "盗",
+      "intonation": 4
+    },
+    {
+      "word": "伊",
+      "intonation": 1
+    },
+    {
+      "word": "孔",
+      "intonation": 3
+    },
+    {
+      "word": "安",
+      "intonation": 1
+    },
+    {
+      "word": "宁",
+      "intonation": 2
+    },
+    {
+      "word": "冲",
+      "intonation": 1
+    },
+    {
+      "word": "夙",
+      "intonation": 4
+    },
+    {
+      "word": "如",
+      "intonation": 2
+    },
+    {
+      "word": "神",
+      "intonation": 2
+    },
+    {
+      "word": "守",
+      "intonation": 3
+    },
+    {
+      "word": "统",
+      "intonation": 3
+    },
+    {
+      "word": "武",
+      "intonation": 3
+    },
+    {
+      "word": "广",
+      "intonation": 3
+    },
+    {
+      "word": "心",
+      "intonation": 1
+    },
+    {
+      "word": "勇",
+      "intonation": 3
+    },
+    {
+      "word": "真",
+      "intonation": 1
+    },
+    {
+      "word": "柳",
+      "intonation": 3
+    },
+    {
+      "word": "泉",
+      "intonation": 2
+    },
+    {
+      "word": "备",
+      "intonation": 4
+    },
+    {
+      "word": "系",
+      "intonation": 4
+    },
+    {
+      "word": "致",
+      "intonation": 4
+    },
+    {
+      "word": "臣",
+      "intonation": 2
+    },
+    {
+      "word": "熙",
+      "intonation": 1
+    },
+    {
+      "word": "血",
+      "intonation": 3
+    },
+    {
+      "word": "行",
+      "intonation": 3
+    },
+    {
+      "word": "凯",
+      "intonation": 3
+    },
+    {
+      "word": "蛟",
+      "intonation": 3
+    },
+    {
+      "word": "姜",
+      "intonation": 1
+    },
+    {
+      "word": "坚",
+      "intonation": 1
+    },
+    {
+      "word": "策",
+      "intonation": 4
+    },
+    {
+      "word": "权",
+      "intonation": 2
+    },
+    {
+      "word": "谋",
+      "intonation": 2
+    },
+    {
+      "word": "孟",
+      "intonation": 4
+    },
+    {
+      "word": "名",
+      "intonation": 2
+    },
+    {
+      "word": "回",
+      "intonation": 2
+    },
+    {
+      "word": "好",
+      "intonation": 3
+    },
+    {
+      "word": "凡",
+      "intonation": 2
+    },
+    {
+      "word": "扈",
+      "intonation": 4
+    },
+    {
+      "word": "法",
+      "intonation": 3
+    },
+    {
+      "word": "向",
+      "intonation": 4
+    },
+    {
+      "word": "羽",
+      "intonation": 3
+    },
+    {
+      "word": "翔",
+      "intonation": 2
+    },
+    {
+      "word": "画剑",
+      "intonation": 44
+    },
+    {
+      "word": "季伦",
+      "intonation": 42
+    },
+    {
+      "word": "望之",
+      "intonation": 41
+    },
+    {
+      "word": "卷诗",
+      "intonation": 31
+    },
+    {
+      "word": "吟诗",
+      "intonation": 31
+    },
+    {
+      "word": "小诗",
+      "intonation": 31
+    },
+    {
+      "word": "铺棉",
+      "intonation": 12
+    },
+    {
+      "word": "若棉",
+      "intonation": 42
+    },
+    {
+      "word": "摇花",
+      "intonation": 21
+    },
+    {
+      "word": "文度",
+      "intonation": 24
+    },
+    {
+      "word": "葬花",
+      "intonation": 41
+    },
+    {
+      "word": "瑶华",
+      "intonation": 22
+    },
+    {
+      "word": "摘星",
+      "intonation": 11
+    },
+    {
+      "word": "文舒",
+      "intonation": 21
+    },
+    {
+      "word": "揽月",
+      "intonation": 34
+    },
+    {
+      "word": "季明",
+      "intonation": 42
+    },
+    {
+      "word": "追月",
+      "intonation": 14
+    },
+    {
+      "word": "处明",
+      "intonation": 32
+    },
+    {
+      "word": "传恨",
+      "intonation": 24
+    },
+    {
+      "word": "龙愁",
+      "intonation": 22
+    },
+    {
+      "word": "玄冲",
+      "intonation": 22
+    },
+    {
+      "word": "平子",
+      "intonation": 13
+    },
+    {
+      "word": "流沙",
+      "intonation": 21
+    },
+    {
+      "word": "藏锋",
+      "intonation": 21
+    },
+    {
+      "word": "逸少",
+      "intonation": 44
+    },
+    {
+      "word": "奈何",
+      "intonation": 42
+    },
+    {
+      "word": "留歌",
+      "intonation": 21
+    },
+    {
+      "word": "万眠",
+      "intonation": 42
+    },
+    {
+      "word": "道林",
+      "intonation": 42
+    },
+    {
+      "word": "雅远",
+      "intonation": 33
+    },
+    {
+      "word": "君平",
+      "intonation": 12
+    },
+    {
+      "word": "万剑",
+      "intonation": 44
+    },
+    {
+      "word": "万恨",
+      "intonation": 44
+    },
+    {
+      "word": "万情",
+      "intonation": 42
+    },
+    {
+      "word": "千秋",
+      "intonation": 11
+    },
+    {
+      "word": "降龙",
+      "intonation": 22
+    },
+    {
+      "word": "子上",
+      "intonation": 34
+    },
+    {
+      "word": "安宇",
+      "intonation": 13
+    },
+    {
+      "word": "景文",
+      "intonation": 32
+    },
+    {
+      "word": "伏虎",
+      "intonation": 23
+    },
+    {
+      "word": "道畿",
+      "intonation": 41
+    },
+    {
+      "word": "延龄",
+      "intonation": 22
+    },
+    {
+      "word": "道万",
+      "intonation": 44
+    },
+    {
+      "word": "睡梦",
+      "intonation": 44
+    },
+    {
+      "word": "难约",
+      "intonation": 21
+    },
+    {
+      "word": "笑狮",
+      "intonation": 41
+    },
+    {
+      "word": "天霸",
+      "intonation": 14
+    },
+    {
+      "word": "傲天",
+      "intonation": 41
+    },
+    {
+      "word": "道升",
+      "intonation": 41
+    },
+    {
+      "word": "思玄",
+      "intonation": 12
+    },
+    {
+      "word": "相思",
+      "intonation": 11
+    },
+    {
+      "word": "欢喜",
+      "intonation": 13
+    },
+    {
+      "word": "普贤",
+      "intonation": 32
+    },
+    {
+      "word": "文歌",
+      "intonation": 21
+    },
+    {
+      "word": "七星",
+      "intonation": 11
+    },
+    {
+      "word": "圣子",
+      "intonation": 43
+    },
+    {
+      "word": "云飞",
+      "intonation": 23
+    },
+    {
+      "word": "蔓玉",
+      "intonation": 44
+    },
+    {
+      "word": "万象",
+      "intonation": 44
+    },
+    {
+      "word": "鸿门",
+      "intonation": 22
+    },
+    {
+      "word": "长翎",
+      "intonation": 22
+    },
+    {
+      "word": "无忧",
+      "intonation": 21
+    },
+    {
+      "word": "知心",
+      "intonation": 11
+    },
+    {
+      "word": "文若",
+      "intonation": 24
+    },
+    {
+      "word": "生悲",
+      "intonation": 11
+    },
+    {
+      "word": "成灰",
+      "intonation": 21
+    },
+    {
+      "word": "以沫",
+      "intonation": 31
+    },
+    {
+      "word": "葬花",
+      "intonation": 41
+    },
+    {
+      "word": "苍生",
+      "intonation": 11
+    },
+    {
+      "word": "鬼神",
+      "intonation": 32
+    },
+    {
+      "word": "太康",
+      "intonation": 41
+    },
+    {
+      "word": "天汉",
+      "intonation": 14
+    },
+    {
+      "word": "元康",
+      "intonation": 21
+    },
+    {
+      "word": "甘露",
+      "intonation": 14
+    },
+    {
+      "word": "黄龙",
+      "intonation": 22
+    },
+    {
+      "word": "地皇",
+      "intonation": 42
+    },
+    {
+      "word": "章武",
+      "intonation": 13
+    },
+    {
+      "word": "本初",
+      "intonation": 31
+    },
+    {
+      "word": "元嘉",
+      "intonation": 21
+    },
+    {
+      "word": "青龙",
+      "intonation": 12
+    },
+    {
+      "word": "景耀",
+      "intonation": 34
+    },
+    {
+      "word": "嘉禾",
+      "intonation": 12
+    },
+    {
+      "word": "神凤",
+      "intonation": 24
+    },
+    {
+      "word": "宝鼎",
+      "intonation": 33
+    },
+    {
+      "word": "河瑞",
+      "intonation": 24
+    },
+    {
+      "word": "玉衡",
+      "intonation": 42
+    },
+    {
+      "word": "太清",
+      "intonation": 41
+    },
+    {
+      "word": "白雀",
+      "intonation": 24
+    },
+    {
+      "word": "龙飞",
+      "intonation": 22
+    }
+  ],
+  "female": [
+    {
+      "word": "媛",
+      "intonation": 2
+    },
+    {
+      "word": "奴",
+      "intonation": 2
+    },
+    {
+      "word": "旦",
+      "intonation": 4
+    },
+    {
+      "word": "洁",
+      "intonation": 2
+    },
+    {
+      "word": "莉",
+      "intonation": 4
+    },
+    {
+      "word": "妲",
+      "intonation": 2
+    },
+    {
+      "word": "汀",
+      "intonation": 1
+    },
+    {
+      "word": "貂",
+      "intonation": 1
+    },
+    {
+      "word": "璇",
+      "intonation": 2
+    },
+    {
+      "word": "妍",
+      "intonation": 2
+    },
+    {
+      "word": "娇",
+      "intonation": 1
+    },
+    {
+      "word": "雨",
+      "intonation": 3
+    },
+    {
+      "word": "妃",
+      "intonation": 1
+    },
+    {
+      "word": "萌",
+      "intonation": 2
+    },
+    {
+      "word": "盼兰",
+      "intonation": 42
+    },
+    {
+      "word": "小夏",
+      "intonation": 34
+    },
+    {
+      "word": "安容",
+      "intonation": 12
+    },
+    {
+      "word": "青曼",
+      "intonation": 14
+    },
+    {
+      "word": "千儿",
+      "intonation": 22
+    },
+    {
+      "word": "寻双",
+      "intonation": 22
+    },
+    {
+      "word": "涵瑶",
+      "intonation": 22
+    },
+    {
+      "word": "冷梅",
+      "intonation": 32
+    },
+    {
+      "word": "秋柔",
+      "intonation": 22
+    },
+    {
+      "word": "思菱",
+      "intonation": 12
+    },
+    {
+      "word": "醉波",
+      "intonation": 41
+    },
+    {
+      "word": "醉柳",
+      "intonation": 43
+    },
+    {
+      "word": "以寒",
+      "intonation": 32
+    },
+    {
+      "word": "迎夏",
+      "intonation": 23
+    },
+    {
+      "word": "向雪",
+      "intonation": 43
+    },
+    {
+      "word": "以丹",
+      "intonation": 31
+    },
+    {
+      "word": "依凝",
+      "intonation": 12
+    },
+    {
+      "word": "如柏",
+      "intonation": 12
+    },
+    {
+      "word": "雁菱",
+      "intonation": 42
+    },
+    {
+      "word": "凝竹",
+      "intonation": 22
+    },
+    {
+      "word": "宛白",
+      "intonation": 32
+    },
+    {
+      "word": "初柔",
+      "intonation": 12
+    },
+    {
+      "word": "南蕾",
+      "intonation": 22
+    },
+    {
+      "word": "书萱",
+      "intonation": 11
+    },
+    {
+      "word": "梦槐",
+      "intonation": 42
+    },
+    {
+      "word": "南琴",
+      "intonation": 22
+    },
+    {
+      "word": "绿海",
+      "intonation": 43
+    },
+    {
+      "word": "沛儿",
+      "intonation": 42
+    },
+    {
+      "word": "晓瑶",
+      "intonation": 32
+    },
+    {
+      "word": "凝蝶",
+      "intonation": 22
+    },
+    {
+      "word": "紫雪",
+      "intonation": 33
+    },
+    {
+      "word": "念双",
+      "intonation": 42
+    },
+    {
+      "word": "念真",
+      "intonation": 41
+    },
+    {
+      "word": "曼寒",
+      "intonation": 42
+    },
+    {
+      "word": "凡霜",
+      "intonation": 21
+    },
+    {
+      "word": "飞雪",
+      "intonation": 13
+    },
+    {
+      "word": "雪兰",
+      "intonation": 22
+    },
+    {
+      "word": "雅霜",
+      "intonation": 31
+    },
+    {
+      "word": "从蓉",
+      "intonation": 22
+    },
+    {
+      "word": "冷雪",
+      "intonation": 33
+    },
+    {
+      "word": "靖巧",
+      "intonation": 43
+    },
+    {
+      "word": "翠丝",
+      "intonation": 41
+    },
+    {
+      "word": "觅翠",
+      "intonation": 44
+    },
+    {
+      "word": "凡白",
+      "intonation": 22
+    },
+    {
+      "word": "乐蓉",
+      "intonation": 42
+    },
+    {
+      "word": "迎波",
+      "intonation": 21
+    },
+    {
+      "word": "丹烟",
+      "intonation": 11
+    },
+    {
+      "word": "梦旋",
+      "intonation": 42
+    },
+    {
+      "word": "书双",
+      "intonation": 11
+    },
+    {
+      "word": "念桃",
+      "intonation": 42
+    },
+    {
+      "word": "夜天",
+      "intonation": 41
+    },
+    {
+      "word": "安筠",
+      "intonation": 12
+    },
+    {
+      "word": "觅柔",
+      "intonation": 42
+    },
+    {
+      "word": "初南",
+      "intonation": 12
+    },
+    {
+      "word": "秋蝶",
+      "intonation": 12
+    },
+    {
+      "word": "千易",
+      "intonation": 14
+    },
+    {
+      "word": "安露",
+      "intonation": 14
+    },
+    {
+      "word": "诗蕊",
+      "intonation": 13
+    },
+    {
+      "word": "山雁",
+      "intonation": 14
+    },
+    {
+      "word": "友菱",
+      "intonation": 32
+    },
+    {
+      "word": "千山",
+      "intonation": 11
+    },
+    {
+      "word": "雨安",
+      "intonation": 31
+    },
+    {
+      "word": "水风",
+      "intonation": 31
+    },
+    {
+      "word": "寄柔",
+      "intonation": 42
+    },
+    {
+      "word": "幼枫",
+      "intonation": 41
+    },
+    {
+      "word": "凡桃",
+      "intonation": 22
+    },
+    {
+      "word": "新儿",
+      "intonation": 12
+    },
+    {
+      "word": "夏波",
+      "intonation": 41
+    },
+    {
+      "word": "雨琴",
+      "intonation": 32
+    },
+    {
+      "word": "静槐",
+      "intonation": 42
+    },
+    {
+      "word": "元槐",
+      "intonation": 22
+    },
+    {
+      "word": "映阳",
+      "intonation": 42
+    },
+    {
+      "word": "飞薇",
+      "intonation": 11
+    },
+    {
+      "word": "小凝",
+      "intonation": 32
+    },
+    {
+      "word": "映寒",
+      "intonation": 42
+    },
+    {
+      "word": "傲菡",
+      "intonation": 42
+    },
+    {
+      "word": "谷蕊",
+      "intonation": 33
+    },
+    {
+      "word": "笑槐",
+      "intonation": 42
+    },
+    {
+      "word": "飞兰",
+      "intonation": 12
+    },
+    {
+      "word": "笑卉",
+      "intonation": 44
+    },
+    {
+      "word": "迎荷",
+      "intonation": 22
+    },
+    {
+      "word": "元冬",
+      "intonation": 11
+    },
+    {
+      "word": "书竹",
+      "intonation": 12
+    },
+    {
+      "word": "半烟",
+      "intonation": 41
+    },
+    {
+      "word": "小之",
+      "intonation": 31
+    },
+    {
+      "word": "觅露",
+      "intonation": 44
+    },
+    {
+      "word": "夜雪",
+      "intonation": 43
+    },
+    {
+      "word": "寒梦",
+      "intonation": 24
+    },
+    {
+      "word": "尔风",
+      "intonation": 31
+    },
+    {
+      "word": "白梅",
+      "intonation": 22
+    },
+    {
+      "word": "雨旋",
+      "intonation": 32
+    },
+    {
+      "word": "芷珊",
+      "intonation": 31
+    },
+    {
+      "word": "山彤",
+      "intonation": 12
+    },
+    {
+      "word": "尔柳",
+      "intonation": 33
+    },
+    {
+      "word": "沛柔",
+      "intonation": 42
+    },
+    {
+      "word": "灵萱",
+      "intonation": 21
+    },
+    {
+      "word": "沛凝",
+      "intonation": 42
+    },
+    {
+      "word": "白容",
+      "intonation": 22
+    },
+    {
+      "word": "乐蓉",
+      "intonation": 42
+    },
+    {
+      "word": "映安",
+      "intonation": 41
+    },
+    {
+      "word": "依云",
+      "intonation": 12
+    },
+    {
+      "word": "映冬",
+      "intonation": 41
+    },
+    {
+      "word": "凡雁",
+      "intonation": 24
+    },
+    {
+      "word": "梦秋",
+      "intonation": 42
+    },
+    {
+      "word": "醉柳",
+      "intonation": 43
+    },
+    {
+      "word": "梦凡",
+      "intonation": 42
+    },
+    {
+      "word": "若云",
+      "intonation": 42
+    },
+    {
+      "word": "元容",
+      "intonation": 22
+    },
+    {
+      "word": "怀蕾",
+      "intonation": 22
+    },
+    {
+      "word": "灵寒",
+      "intonation": 22
+    },
+    {
+      "word": "天薇",
+      "intonation": 11
+    },
+    {
+      "word": "白风",
+      "intonation": 21
+    },
+    {
+      "word": "访波",
+      "intonation": 31
+    },
+    {
+      "word": "亦凝",
+      "intonation": 41
+    },
+    {
+      "word": "易绿",
+      "intonation": 44
+    },
+    {
+      "word": "夜南",
+      "intonation": 42
+    },
+    {
+      "word": "曼凡",
+      "intonation": 42
+    },
+    {
+      "word": "亦巧",
+      "intonation": 43
+    },
+    {
+      "word": "青易",
+      "intonation": 14
+    },
+    {
+      "word": "冰真",
+      "intonation": 11
+    },
+    {
+      "word": "白萱",
+      "intonation": 21
+    },
+    {
+      "word": "友安",
+      "intonation": 31
+    },
+    {
+      "word": "诗翠",
+      "intonation": 14
+    },
+    {
+      "word": "雪珍",
+      "intonation": 31
+    },
+    {
+      "word": "海之",
+      "intonation": 31
+    },
+    {
+      "word": "小蕊",
+      "intonation": 31
+    },
+    {
+      "word": "又琴",
+      "intonation": 42
+    },
+    {
+      "word": "香彤",
+      "intonation": 12
+    },
+    {
+      "word": "语梦",
+      "intonation": 34
+    },
+    {
+      "word": "惜蕊",
+      "intonation": 14
+    },
+    {
+      "word": "迎彤",
+      "intonation": 22
+    },
+    {
+      "word": "沛白",
+      "intonation": 42
+    },
+    {
+      "word": "雁山",
+      "intonation": 41
+    },
+    {
+      "word": "易蓉",
+      "intonation": 42
+    },
+    {
+      "word": "雪晴",
+      "intonation": 32
+    },
+    {
+      "word": "诗珊",
+      "intonation": 11
+    },
+    {
+      "word": "冰绿",
+      "intonation": 14
+    },
+    {
+      "word": "半梅",
+      "intonation": 42
+    },
+    {
+      "word": "笑容",
+      "intonation": 42
+    },
+    {
+      "word": "念瑶",
+      "intonation": 42
+    },
+    {
+      "word": "如冬",
+      "intonation": 21
+    },
+    {
+      "word": "向真",
+      "intonation": 41
+    },
+    {
+      "word": "从蓉",
+      "intonation": 22
+    },
+    {
+      "word": "亦云",
+      "intonation": 42
+    },
+    {
+      "word": "向雁",
+      "intonation": 44
+    },
+    {
+      "word": "尔蝶",
+      "intonation": 32
+    },
+    {
+      "word": "冬易",
+      "intonation": 24
+    },
+    {
+      "word": "丹亦",
+      "intonation": 14
+    },
+    {
+      "word": "夏山",
+      "intonation": 41
+    },
+    {
+      "word": "醉香",
+      "intonation": 41
+    },
+    {
+      "word": "盼夏",
+      "intonation": 44
+    },
+    {
+      "word": "孤菱",
+      "intonation": 12
+    },
+    {
+      "word": "安莲",
+      "intonation": 12
+    },
+    {
+      "word": "问凝",
+      "intonation": 42
+    },
+    {
+      "word": "冬萱",
+      "intonation": 11
+    },
+    {
+      "word": "晓山",
+      "intonation": 31
+    },
+    {
+      "word": "雁蓉",
+      "intonation": 42
+    },
+    {
+      "word": "梦蕊",
+      "intonation": 43
+    },
+    {
+      "word": "山菡",
+      "intonation": 32
+    },
+    {
+      "word": "南莲",
+      "intonation": 22
+    },
+    {
+      "word": "飞双",
+      "intonation": 11
+    },
+    {
+      "word": "凝丝",
+      "intonation": 21
+    },
+    {
+      "word": "思萱",
+      "intonation": 11
+    },
+    {
+      "word": "怀梦",
+      "intonation": 24
+    },
+    {
+      "word": "雨梅",
+      "intonation": 32
+    },
+    {
+      "word": "冷霜",
+      "intonation": 31
+    },
+    {
+      "word": "向松",
+      "intonation": 41
+    },
+    {
+      "word": "迎丝",
+      "intonation": 21
+    },
+    {
+      "word": "迎梅",
+      "intonation": 22
+    },
+    {
+      "word": "听双",
+      "intonation": 11
+    },
+    {
+      "word": "山蝶",
+      "intonation": 12
+    },
+    {
+      "word": "夜梅",
+      "intonation": 42
+    },
+    {
+      "word": "醉冬",
+      "intonation": 41
+    },
+    {
+      "word": "雨筠",
+      "intonation": 34
+    },
+    {
+      "word": "平文",
+      "intonation": 22
+    },
+    {
+      "word": "青文",
+      "intonation": 12
+    },
+    {
+      "word": "半蕾",
+      "intonation": 43
+    },
+    {
+      "word": "幼菱",
+      "intonation": 42
+    },
+    {
+      "word": "寻梅",
+      "intonation": 22
+    },
+    {
+      "word": "含之",
+      "intonation": 21
+    },
+    {
+      "word": "香之",
+      "intonation": 11
+    },
+    {
+      "word": "含蕊",
+      "intonation": 23
+    },
+    {
+      "word": "亦玉",
+      "intonation": 44
+    }
+  ],
+  "last": [
+    {
+      "word": "叶隐",
+      "intonation": 43
+    },
+    {
+      "word": "和歌",
+      "intonation": 21
+    },
+    {
+      "word": "静安",
+      "intonation": 41
+    },
+    {
+      "word": "琼瑶",
+      "intonation": 22
+    },
+    {
+      "word": "应龙",
+      "intonation": 42
+    },
+    {
+      "word": "风回",
+      "intonation": 22
+    },
+    {
+      "word": "金枝",
+      "intonation": 11
+    },
+    {
+      "word": "纳兰",
+      "intonation": 42
+    },
+    {
+      "word": "三魂",
+      "intonation": 12
+    },
+    {
+      "word": "蔓语",
+      "intonation": 43
+    },
+    {
+      "word": "穆寒",
+      "intonation": 42
+    },
+    {
+      "word": "五罗",
+      "intonation": 32
+    },
+    {
+      "word": "孔雀",
+      "intonation": 34
+    },
+    {
+      "word": "般若",
+      "intonation": 14
+    },
+    {
+      "word": "龙象",
+      "intonation": 24
+    },
+    {
+      "word": "阿房",
+      "intonation": 12
+    },
+    {
+      "word": "左鹿",
+      "intonation": 34
+    },
+    {
+      "word": "九花",
+      "intonation": 31
+    },
+    {
+      "word": "九龙",
+      "intonation": 32
+    },
+    {
+      "word": "相思",
+      "intonation": 11
+    },
+    {
+      "word": "文殊",
+      "intonation": 21
+    },
+    {
+      "word": "观音",
+      "intonation": 11
+    },
+    {
+      "word": "如来",
+      "intonation": 22
+    },
+    {
+      "word": "玉皇",
+      "intonation": 42
+    },
+    {
+      "word": "菩萨",
+      "intonation": 24
+    },
+    {
+      "word": "地藏",
+      "intonation": 44
+    },
+    {
+      "word": "河图",
+      "intonation": 22
+    },
+    {
+      "word": "左丘",
+      "intonation": 31
+    },
+    {
+      "word": "翼",
+      "intonation": 4
+    },
+    {
+      "word": "龙门",
+      "intonation": 22
+    },
+    {
+      "word": "司马",
+      "intonation": 13
+    },
+    {
+      "word": "上官",
+      "intonation": 41
+    },
+    {
+      "word": "欧阳",
+      "intonation": 12
+    },
+    {
+      "word": "端木",
+      "intonation": 14
+    },
+    {
+      "word": "子车",
+      "intonation": 31
+    },
+    {
+      "word": "夏侯",
+      "intonation": 42
+    },
+    {
+      "word": "诸葛",
+      "intonation": 13
+    },
+    {
+      "word": "东方",
+      "intonation": 11
+    },
+    {
+      "word": "拓拔",
+      "intonation": 42
+    },
+    {
+      "word": "太叔",
+      "intonation": 41
+    },
+    {
+      "word": "皇甫",
+      "intonation": 23
+    },
+    {
+      "word": "尉迟",
+      "intonation": 42
+    },
+    {
+      "word": "赫连",
+      "intonation": 42
+    },
+    {
+      "word": "呼延",
+      "intonation": 12
+    },
+    {
+      "word": "梁丘",
+      "intonation": 21
+    },
+    {
+      "word": "公孙",
+      "intonation": 11
+    },
+    {
+      "word": "轩辕",
+      "intonation": 12
+    },
+    {
+      "word": "令狐",
+      "intonation": 42
+    },
+    {
+      "word": "淳于",
+      "intonation": 22
+    },
+    {
+      "word": "单于",
+      "intonation": 22
+    },
+    {
+      "word": "钟离",
+      "intonation": 12
+    },
+    {
+      "word": "宇文",
+      "intonation": 32
+    },
+    {
+      "word": "长孙",
+      "intonation": 31
+    },
+    {
+      "word": "慕容",
+      "intonation": 42
+    },
+    {
+      "word": "西门",
+      "intonation": 12
+    },
+    {
+      "word": "司徒",
+      "intonation": 12
+    },
+    {
+      "word": "司空",
+      "intonation": 11
+    },
+    {
+      "word": "南宫",
+      "intonation": 21
+    },
+    {
+      "word": "左丘",
+      "intonation": 31
+    },
+    {
+      "word": "百里",
+      "intonation": 33
+    },
+    {
+      "word": "帝",
+      "intonation": 4
+    },
+    {
+      "word": "愁",
+      "intonation": 2
+    },
+    {
+      "word": "将",
+      "intonation": 4
+    },
+    {
+      "word": "云",
+      "intonation": 2
+    },
+    {
+      "word": "苏",
+      "intonation": 1
+    },
+    {
+      "word": "七",
+      "intonation": 1
+    },
+    {
+      "word": "葛",
+      "intonation": 3
+    },
+    {
+      "word": "龙",
+      "intonation": 2
+    },
+    {
+      "word": "风",
+      "intonation": 1
+    },
+    {
+      "word": "阿",
+      "intonation": 1
+    },
+    {
+      "word": "言",
+      "intonation": 2
+    },
+    {
+      "word": "宴",
+      "intonation": 4
+    },
+    {
+      "word": "歌",
+      "intonation": 1
+    },
+    {
+      "word": "姬",
+      "intonation": 1
+    },
+    {
+      "word": "妾",
+      "intonation": 4
+    },
+    {
+      "word": "雨",
+      "intonation": 2
+    },
+    {
+      "word": "凤",
+      "intonation": 4
+    },
+    {
+      "word": "花",
+      "intonation": 1
+    },
+    {
+      "word": "方",
+      "intonation": 1
+    },
+    {
+      "word": "雪",
+      "intonation": 3
+    },
+    {
+      "word": "灵",
+      "intonation": 2
+    },
+    {
+      "word": "音",
+      "intonation": 1
+    },
+    {
+      "word": "柳",
+      "intonation": 3
+    },
+    {
+      "word": "隐",
+      "intonation": 3
+    },
+    {
+      "word": "寺",
+      "intonation": 4
+    },
+    {
+      "word": "唐",
+      "intonation": 2
+    },
+    {
+      "word": "海",
+      "intonation": 3
+    },
+    {
+      "word": "妆",
+      "intonation": 1
+    },
+    {
+      "word": "月",
+      "intonation": 4
+    },
+    {
+      "word": "雷",
+      "intonation": 2
+    },
+    {
+      "word": "星",
+      "intonation": 1
+    },
+    {
+      "word": "魂",
+      "intonation": 2
+    },
+    {
+      "word": "萍",
+      "intonation": 2
+    },
+    {
+      "word": "余",
+      "intonation": 2
+    },
+    {
+      "word": "孟",
+      "intonation": 3
+    },
+    {
+      "word": "尹",
+      "intonation": 1
+    },
+    {
+      "word": "游",
+      "intonation": 2
+    },
+    {
+      "word": "路",
+      "intonation": 4
+    },
+    {
+      "word": "舞",
+      "intonation": 3
+    },
+    {
+      "word": "戴",
+      "intonation": 4
+    },
+    {
+      "word": "项",
+      "intonation": 4
+    },
+    {
+      "word": "祝",
+      "intonation": 4
+    },
+    {
+      "word": "苦",
+      "intonation": 3
+    },
+    {
+      "word": "梁",
+      "intonation": 2
+    },
+    {
+      "word": "杜",
+      "intonation": 4
+    },
+    {
+      "word": "阮",
+      "intonation": 3
+    },
+    {
+      "word": "枯",
+      "intonation": 1
+    },
+    {
+      "word": "钟",
+      "intonation": 1
+    },
+    {
+      "word": "徐",
+      "intonation": 2
+    },
+    {
+      "word": "夏",
+      "intonation": 4
+    },
+    {
+      "word": "蔡",
+      "intonation": 4
+    },
+    {
+      "word": "胡",
+      "intonation": 2
+    },
+    {
+      "word": "凌",
+      "intonation": 2
+    },
+    {
+      "word": "洪",
+      "intonation": 2
+    },
+    {
+      "word": "包",
+      "intonation": 1
+    },
+    {
+      "word": "崔",
+      "intonation": 1
+    },
+    {
+      "word": "龚",
+      "intonation": 1
+    },
+    {
+      "word": "程",
+      "intonation": 2
+    },
+    {
+      "word": "邢",
+      "intonation": 2
+    },
+    {
+      "word": "甄",
+      "intonation": 1
+    },
+    {
+      "word": "糜",
+      "intonation": 2
+    },
+    {
+      "word": "段",
+      "intonation": 4
+    },
+    {
+      "word": "伊",
+      "intonation": 1
+    },
+    {
+      "word": "宁",
+      "intonation": 4
+    },
+    {
+      "word": "仇",
+      "intonation": 2
+    },
+    {
+      "word": "武",
+      "intonation": 3
+    },
+    {
+      "word": "刘",
+      "intonation": 2
+    },
+    {
+      "word": "叶",
+      "intonation": 4
+    },
+    {
+      "word": "乔",
+      "intonation": 2
+    },
+    {
+      "word": "牛",
+      "intonation": 2
+    },
+    {
+      "word": "燕",
+      "intonation": 1
+    },
+    {
+      "word": "尚",
+      "intonation": 4
+    },
+    {
+      "word": "柴",
+      "intonation": 2
+    },
+    {
+      "word": "瞿",
+      "intonation": 2
+    },
+    {
+      "word": "慕",
+      "intonation": 4
+    },
+    {
+      "word": "廖",
+      "intonation": 4
+    },
+    {
+      "word": "耿",
+      "intonation": 2
+    },
+    {
+      "word": "文",
+      "intonation": 2
+    },
+    {
+      "word": "聂",
+      "intonation": 4
+    },
+    {
+      "word": "晁",
+      "intonation": 2
+    },
+    {
+      "word": "冷",
+      "intonation": 3
+    },
+    {
+      "word": "辛",
+      "intonation": 1
+    },
+    {
+      "word": "曾",
+      "intonation": 1
+    },
+    {
+      "word": "沙",
+      "intonation": 1
+    },
+    {
+      "word": "关",
+      "intonation": 1
+    }
+  ],
+  "uncommonLast": [
+    "伽蓝‘",
+    "罗刹‘",
+    "阿修罗‘",
+    "夜叉‘",
+    "傲世★",
+    "皇朝★",
+    "冷月丄",
+    "﹦缔造﹦",
+    "神游゛",
+    "『神话』",
+    "Ice゛",
+    "「镰仓」",
+    "CCB丶",
+    "BOC丶",
+    "王者“",
+    "佣兵メ",
+    "天下゜",
+    "英雄゜",
+    "十字军А",
+    "TOP丶",
+    "丿时光丶",
+    "丿龙族丶",
+    "丿星辰丶",
+    "丿法家丶",
+    "丿鬼谷灬",
+    "丿杀神灬",
+    "丿无极灬",
+    "灬九州灬",
+    "乱世メ",
+    "丿北宫丶",
+    "南宫メ",
+    "丿玄武灬",
+    "丿朱雀丶",
+    "逍遥游“",
+    "布拉格“",
+    "烟雨楼メ",
+    "NEW゛",
+    "Hero゛",
+    "「轮回」",
+    "丿超越゛",
+    "永恒゛",
+    "Song゛",
+    "﹦凯旋﹦",
+    "丿众神丶",
+    "灬梦幻灬",
+    "史记》",
+    "春秋》",
+    "天问》",
+    "九歌》",
+    "『盛世」",
+    "『唐朝」",
+    "﹦零度﹦",
+    "WOW≠",
+    "EVE≠",
+    "『战魂』",
+    "丿幻世灬",
+    "灬毁灭灬",
+    "﹦北府﹦",
+    "霸者つ",
+    "灬江南灬",
+    "灬破军灬",
+    "罗马メ",
+    "凯撒メ",
+    "贵霜メ",
+    "大秦メ",
+    "战国メ",
+    "天竺メ",
+    "『楼兰』",
+    "『西域』",
+    "『玛雅』",
+    "西风丶",
+    "狂诗丶",
+    "紫罗兰丶",
+    "曼陀罗丶",
+    "血玫瑰丶",
+    "虞美人丶"
+  ],
+  "samples": [
+    {
+      "word": "赵文胜",
+      "intonation": 424
+    },
+    {
+      "word": "钱学礼",
+      "intonation": 223
+    },
+    {
+      "word": "李宗泽",
+      "intonation": 312
+    },
+    {
+      "word": "孙延宗",
+      "intonation": 121
+    },
+    {
+      "word": "周济",
+      "intonation": 14
+    },
+    {
+      "word": "吴成刚",
+      "intonation": 221
+    },
+    {
+      "word": "郑绍信",
+      "intonation": 444
+    },
+    {
+      "word": "韦孝宽",
+      "intonation": 341
+    },
+    {
+      "word": "李元霸",
+      "intonation": 324
+    },
+    {
+      "word": "李世民",
+      "intonation": 342
+    },
+    {
+      "word": "高武成",
+      "intonation": 132
+    },
+    {
+      "word": "王百年",
+      "intonation": 232
+    },
+    {
+      "word": "冯彦康",
+      "intonation": 221
+    },
+    {
+      "word": "韩仁俭",
+      "intonation": 223
+    },
+    {
+      "word": "杨绰",
+      "intonation": 22
+    },
+    {
+      "word": "苏俨",
+      "intonation": 12
+    },
+    {
+      "word": "孔任光",
+      "intonation": 341
+    },
+    {
+      "word": "赵云",
+      "intonation": 42
+    },
+    {
+      "word": "张飞",
+      "intonation": 11
+    },
+    {
+      "word": "魏延",
+      "intonation": 42
+    },
+    {
+      "word": "关羽",
+      "intonation": 13
+    },
+    {
+      "word": "诸葛亮",
+      "intonation": 134
+    },
+    {
+      "word": "赵琳",
+      "intonation": 42
+    },
+    {
+      "word": "华雄",
+      "intonation": 22
+    },
+    {
+      "word": "李儒",
+      "intonation": 31
+    },
+    {
+      "word": "鲁肃",
+      "intonation": 34
+    },
+    {
+      "word": "黄盖",
+      "intonation": 24
+    },
+    {
+      "word": "乐进",
+      "intonation": 44
+    },
+    {
+      "word": "徐盛",
+      "intonation": 24
+    },
+    {
+      "word": "徐晃",
+      "intonation": 23
+    },
+    {
+      "word": "张辽",
+      "intonation": 12
+    },
+    {
+      "word": "陈群",
+      "intonation": 22
+    },
+    {
+      "word": "李典",
+      "intonation": 23
+    },
+    {
+      "word": "糜竺",
+      "intonation": 22
+    },
+    {
+      "word": "夏侯惇",
+      "intonation": 421
+    },
+    {
+      "word": "荀攸",
+      "intonation": 24
+    },
+    {
+      "word": "太史慈",
+      "intonation": 431
+    },
+    {
+      "word": "周泰",
+      "intonation": 14
+    },
+    {
+      "word": "吕蒙",
+      "intonation": 33
+    },
+    {
+      "word": "曹仁",
+      "intonation": 22
+    },
+    {
+      "word": "华歆",
+      "intonation": 21
+    },
+    {
+      "word": "宇文化及",
+      "intonation": 3242
+    },
+    {
+      "word": "年羹尧",
+      "intonation": 212
+    },
+    {
+      "word": "曾国藩",
+      "intonation": 121
+    },
+    {
+      "word": "左宗棠",
+      "intonation": 312
+    },
+    {
+      "word": "曾格林沁",
+      "intonation": 1224
+    },
+    {
+      "word": "努尔哈赤",
+      "intonation": 2314
+    }
+  ]
+}

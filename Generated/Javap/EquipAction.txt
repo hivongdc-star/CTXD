@@ -1,0 +1,653 @@
+Compiled from "EquipAction.java"
+public class com.reign.gcld.store.action.EquipAction extends com.reign.gcld.common.web.BaseAction {
+  private static final long serialVersionUID;
+
+  private com.reign.gcld.store.service.IEquipService equipService;
+
+  public com.reign.gcld.store.action.EquipAction();
+    Code:
+       0: aload_0
+       1: invokespecial #17                 // Method com/reign/gcld/common/web/BaseAction."<init>":()V
+       4: return
+
+  public com.reign.framework.netty.mvc.result.ByteResult getEquipInfo(com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_1
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: aload_0
+      19: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      22: aload_2
+      23: invokeinterface #38,  2           // InterfaceMethod com/reign/gcld/store/service/IEquipService.getEquipInfo:(Lcom/reign/gcld/player/dto/PlayerDto;)[B
+      28: aload_1
+      29: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      32: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult updateEquip(int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_2
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: aload_0
+      19: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      22: aload_3
+      23: iload_1
+      24: invokeinterface #59,  3           // InterfaceMethod com/reign/gcld/store/service/IEquipService.updateEquip:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      29: aload_2
+      30: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      33: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult updateEquipTen(int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_2
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: aload_0
+      19: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      22: aload_3
+      23: iload_1
+      24: invokeinterface #65,  3           // InterfaceMethod com/reign/gcld/store/service/IEquipService.updateEquipTen:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      29: aload_2
+      30: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      33: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult openStoreHouse(com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_1
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      21: aload_2
+      22: invokeinterface #69,  2           // InterfaceMethod com/reign/gcld/store/service/IEquipService.beforeOpenStoreHouse:(Lcom/reign/gcld/player/dto/PlayerDto;)Ljava/util/List;
+      27: astore_3
+      28: aload_0
+      29: aload_0
+      30: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      33: aload_2
+      34: aload_3
+      35: invokeinterface #73,  3           // InterfaceMethod com/reign/gcld/store/service/IEquipService.openStoreHouse:(Lcom/reign/gcld/player/dto/PlayerDto;Ljava/util/List;)[B
+      40: aload_1
+      41: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      44: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult buySTSize(com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_1
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: aload_0
+      19: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      22: aload_2
+      23: getfield      #82                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+      26: invokeinterface #85,  2           // InterfaceMethod com/reign/gcld/store/service/IEquipService.buySTSize:(I)[B
+      31: aload_1
+      32: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      35: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult sellGoods(int, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_3
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore        4
+      12: aload         4
+      14: ifnonnull     19
+      17: aconst_null
+      18: areturn
+      19: aload_0
+      20: aload_0
+      21: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      24: aload         4
+      26: iload_1
+      27: iload_2
+      28: invokeinterface #92,  4           // InterfaceMethod com/reign/gcld/store/service/IEquipService.sellGoods:(Lcom/reign/gcld/player/dto/PlayerDto;II)[B
+      33: aload_3
+      34: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      37: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult openSTBack(com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_1
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: aload_0
+      19: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      22: aload_2
+      23: invokeinterface #97,  2           // InterfaceMethod com/reign/gcld/store/service/IEquipService.openSTBack:(Lcom/reign/gcld/player/dto/PlayerDto;)[B
+      28: aload_1
+      29: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      32: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult buyBackGoods(int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_2
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: aload_0
+      19: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      22: aload_3
+      23: iload_1
+      24: invokeinterface #101,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.buyBackGoods:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      29: aload_2
+      30: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      33: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult getWearEquip(int, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_3
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore        4
+      12: aload         4
+      14: ifnonnull     19
+      17: aconst_null
+      18: areturn
+      19: aload_0
+      20: aload_0
+      21: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      24: aload         4
+      26: iload_1
+      27: iload_2
+      28: invokeinterface #107,  4          // InterfaceMethod com/reign/gcld/store/service/IEquipService.getWearEquip:(Lcom/reign/gcld/player/dto/PlayerDto;II)[B
+      33: aload_3
+      34: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      37: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult changeEquip(int, int, int, boolean, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload         5
+       5: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       8: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      11: astore        6
+      13: aload         6
+      15: ifnonnull     20
+      18: aconst_null
+      19: areturn
+      20: aload_0
+      21: aload_0
+      22: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      25: aload         6
+      27: iload_1
+      28: iload_3
+      29: iload_2
+      30: iload         4
+      32: invokeinterface #113,  6          // InterfaceMethod com/reign/gcld/store/service/IEquipService.changeEquip:(Lcom/reign/gcld/player/dto/PlayerDto;IIIZ)[B
+      37: aload         5
+      39: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      42: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult unLoadEquip(int, int, int, boolean, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload         5
+       5: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       8: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      11: astore        6
+      13: aload         6
+      15: ifnonnull     20
+      18: aconst_null
+      19: areturn
+      20: aload_0
+      21: aload_0
+      22: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      25: aload         6
+      27: iload_1
+      28: iload_3
+      29: iload_2
+      30: iload         4
+      32: invokeinterface #119,  6          // InterfaceMethod com/reign/gcld/store/service/IEquipService.unloadEquip:(Lcom/reign/gcld/player/dto/PlayerDto;IIIZ)[B
+      37: aload         5
+      39: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      42: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult preMakeGem(int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_2
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: aload_0
+      19: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      22: aload_3
+      23: iload_1
+      24: invokeinterface #125,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.preMakeGem:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      29: aload_2
+      30: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      33: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult makeGem(int, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_3
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore        4
+      12: aload         4
+      14: ifnonnull     19
+      17: aconst_null
+      18: areturn
+      19: aload_0
+      20: aload_0
+      21: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      24: aload         4
+      26: iload_1
+      27: iload_2
+      28: invokeinterface #129,  4          // InterfaceMethod com/reign/gcld/store/service/IEquipService.makeGem:(Lcom/reign/gcld/player/dto/PlayerDto;II)[B
+      33: aload_3
+      34: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      37: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult unMakeGem(int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_2
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: aload_0
+      19: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      22: aload_3
+      23: iload_1
+      24: invokeinterface #133,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.unMakeGem:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      29: aload_2
+      30: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      33: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult getCanUseGeneral(int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_2
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: aload_0
+      19: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      22: aload_3
+      23: iload_1
+      24: invokeinterface #137,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.getCanUseGeneral:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      29: aload_2
+      30: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      33: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult useOnGeneral(int, int, com.reign.framework.netty.servlet.Request, int);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_3
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore        5
+      12: aload         5
+      14: ifnonnull     19
+      17: aconst_null
+      18: areturn
+      19: aload_0
+      20: aload_0
+      21: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      24: aload         5
+      26: iload_1
+      27: iload_2
+      28: iload         4
+      30: invokeinterface #143,  5          // InterfaceMethod com/reign/gcld/store/service/IEquipService.useOnGeneral:(Lcom/reign/gcld/player/dto/PlayerDto;III)[B
+      35: aload_3
+      36: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      39: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult useIronRewardToken(int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_2
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: aload_0
+      19: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      22: aload_3
+      23: iload_1
+      24: invokeinterface #148,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.useIronRewardToken:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      29: aload_2
+      30: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      33: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult useXiLianToken(int, int, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload         4
+       5: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       8: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      11: astore        5
+      13: aload         5
+      15: ifnonnull     20
+      18: aconst_null
+      19: areturn
+      20: aload_0
+      21: aload_0
+      22: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      25: aload         5
+      27: getfield      #82                 // Field com/reign/gcld/player/dto/PlayerDto.playerId:I
+      30: iload_1
+      31: iload_2
+      32: iload_3
+      33: invokeinterface #156,  5          // InterfaceMethod com/reign/gcld/store/service/IEquipService.useXiLianToken:(IIII)[B
+      38: aload         4
+      40: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      43: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult useCreateBuilding(int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_0
+       1: ldc           #28                 // String PLAYER
+       3: aload_2
+       4: invokevirtual #30                 // Method getFromSession:(Ljava/lang/String;Lcom/reign/framework/netty/servlet/Request;)Ljava/lang/Object;
+       7: checkcast     #34                 // class com/reign/gcld/player/dto/PlayerDto
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_0
+      18: aload_0
+      19: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      22: aload_3
+      23: iload_1
+      24: invokeinterface #161,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.useCreateBuilding:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      29: aload_2
+      30: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      33: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult compoundSuit(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #167,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.compoundSuit:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult doCompoundSuit(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #171,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.doCompoundSuit:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult demountSuit(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #175,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.demountSuit:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult demountSuitGold(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #179,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.demountSuitGold:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult compoundProset(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #183,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.compoundProset:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult doCompoundProset(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #187,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.doCompoundProset:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult demoutProsetGold(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #191,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.demoutProsetGold:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult doDemoutProset(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #195,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.doDemoutProset:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult useResourceToken(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #199,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.useResourceToken:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult bindEquip(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #203,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.bindEquip:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult unbindEquip(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #207,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.unbindEquip:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult cancelUnbindEquip(com.reign.gcld.player.dto.PlayerDto, int, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: aload_1
+      12: iload_2
+      13: invokeinterface #211,  3          // InterfaceMethod com/reign/gcld/store/service/IEquipService.cancelUnbindEquip:(Lcom/reign/gcld/player/dto/PlayerDto;I)[B
+      18: aload_3
+      19: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      22: areturn
+
+  public com.reign.framework.netty.mvc.result.ByteResult getEquipSkillInfo(com.reign.gcld.player.dto.PlayerDto, com.reign.framework.netty.servlet.Request);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: aload_0
+       8: getfield      #36                 // Field equipService:Lcom/reign/gcld/store/service/IEquipService;
+      11: invokeinterface #216,  1          // InterfaceMethod com/reign/gcld/store/service/IEquipService.getEquipSkillInfo:()[B
+      16: aload_2
+      17: invokevirtual #43                 // Method getResult:([BLcom/reign/framework/netty/servlet/Request;)Lcom/reign/framework/netty/mvc/result/ByteResult;
+      20: areturn
+}

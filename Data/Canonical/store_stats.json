@@ -1,0 +1,247 @@
+[
+  {
+    "preState": 1,
+    "nextState": 1,
+    "probability": 0.05
+  },
+  {
+    "preState": 1,
+    "nextState": 2,
+    "probability": 0.4
+  },
+  {
+    "preState": 1,
+    "nextState": 3,
+    "probability": 0.2
+  },
+  {
+    "preState": 1,
+    "nextState": 4,
+    "probability": 0.2
+  },
+  {
+    "preState": 1,
+    "nextState": 5,
+    "probability": 0.1
+  },
+  {
+    "preState": 1,
+    "nextState": 6,
+    "probability": 0.05
+  },
+  {
+    "preState": 1,
+    "nextState": 7,
+    "probability": 0.0
+  },
+  {
+    "preState": 2,
+    "nextState": 1,
+    "probability": 0.05
+  },
+  {
+    "preState": 2,
+    "nextState": 2,
+    "probability": 0.05
+  },
+  {
+    "preState": 2,
+    "nextState": 3,
+    "probability": 0.4
+  },
+  {
+    "preState": 2,
+    "nextState": 4,
+    "probability": 0.2
+  },
+  {
+    "preState": 2,
+    "nextState": 5,
+    "probability": 0.2
+  },
+  {
+    "preState": 2,
+    "nextState": 6,
+    "probability": 0.1
+  },
+  {
+    "preState": 2,
+    "nextState": 7,
+    "probability": 0.0
+  },
+  {
+    "preState": 3,
+    "nextState": 1,
+    "probability": 0.1
+  },
+  {
+    "preState": 3,
+    "nextState": 2,
+    "probability": 0.05
+  },
+  {
+    "preState": 3,
+    "nextState": 3,
+    "probability": 0.05
+  },
+  {
+    "preState": 3,
+    "nextState": 4,
+    "probability": 0.4
+  },
+  {
+    "preState": 3,
+    "nextState": 5,
+    "probability": 0.2
+  },
+  {
+    "preState": 3,
+    "nextState": 6,
+    "probability": 0.2
+  },
+  {
+    "preState": 3,
+    "nextState": 7,
+    "probability": 0.0
+  },
+  {
+    "preState": 4,
+    "nextState": 1,
+    "probability": 0.2
+  },
+  {
+    "preState": 4,
+    "nextState": 2,
+    "probability": 0.1
+  },
+  {
+    "preState": 4,
+    "nextState": 3,
+    "probability": 0.05
+  },
+  {
+    "preState": 4,
+    "nextState": 4,
+    "probability": 0.05
+  },
+  {
+    "preState": 4,
+    "nextState": 5,
+    "probability": 0.4
+  },
+  {
+    "preState": 4,
+    "nextState": 6,
+    "probability": 0.2
+  },
+  {
+    "preState": 4,
+    "nextState": 7,
+    "probability": 0.0
+  },
+  {
+    "preState": 5,
+    "nextState": 1,
+    "probability": 0.2
+  },
+  {
+    "preState": 5,
+    "nextState": 2,
+    "probability": 0.2
+  },
+  {
+    "preState": 5,
+    "nextState": 3,
+    "probability": 0.1
+  },
+  {
+    "preState": 5,
+    "nextState": 4,
+    "probability": 0.05
+  },
+  {
+    "preState": 5,
+    "nextState": 5,
+    "probability": 0.05
+  },
+  {
+    "preState": 5,
+    "nextState": 6,
+    "probability": 0.4
+  },
+  {
+    "preState": 5,
+    "nextState": 7,
+    "probability": 0.0
+  },
+  {
+    "preState": 6,
+    "nextState": 1,
+    "probability": 0.4
+  },
+  {
+    "preState": 6,
+    "nextState": 2,
+    "probability": 0.2
+  },
+  {
+    "preState": 6,
+    "nextState": 3,
+    "probability": 0.2
+  },
+  {
+    "preState": 6,
+    "nextState": 4,
+    "probability": 0.1
+  },
+  {
+    "preState": 6,
+    "nextState": 5,
+    "probability": 0.05
+  },
+  {
+    "preState": 6,
+    "nextState": 6,
+    "probability": 0.03
+  },
+  {
+    "preState": 6,
+    "nextState": 7,
+    "probability": 0.02
+  },
+  {
+    "preState": 7,
+    "nextState": 1,
+    "probability": 1.0
+  },
+  {
+    "preState": 7,
+    "nextState": 2,
+    "probability": 0.0
+  },
+  {
+    "preState": 7,
+    "nextState": 3,
+    "probability": 0.0
+  },
+  {
+    "preState": 7,
+    "nextState": 4,
+    "probability": 0.0
+  },
+  {
+    "preState": 7,
+    "nextState": 5,
+    "probability": 0.0
+  },
+  {
+    "preState": 7,
+    "nextState": 6,
+    "probability": 0.0
+  },
+  {
+    "preState": 7,
+    "nextState": 7,
+    "probability": 0.0
+  }
+]

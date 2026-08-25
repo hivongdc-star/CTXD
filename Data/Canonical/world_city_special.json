@@ -1,0 +1,98 @@
+[
+    {
+        "par_1":  "100",
+        "par_2":  "0",
+        "name":  "Chợ ",
+        "city_id":  "60",
+        "par_2_intro":  "Không có hiệu quả",
+        "pic":  "city1",
+        "par_1_intro":  "Mỗi lần chợ giao dịch lượng gia tăng  tỉ lệ phần trăm ，số nguyên làm số bách phân ，100tỏ vẻ gia tăng 100%，cùng tiêu hao cùng sản xuất cùng(quân) gia tăng gấp hai ",
+        "key_str":  "market",
+        "intro":  "Chiếm lĩnh nên thành trì sau chợ giao dịch lượng gia tăng 1 định tỉ lệ phần trăm （tiêu hao cùng sản xuất cùng(quân) gia tăng nên tỉ lệ phần trăm ，đối 100thủ chỉnh ），đặc biệt chú ý ，thép ròng không ngã lần ！！！！",
+        "key":  "1"
+    },
+    {
+        "par_1":  "50",
+        "par_2":  "0",
+        "name":  "Thế Giới Tấn Thiết ",
+        "city_id":  "105",
+        "par_2_intro":  "Không có hiệu quả",
+        "pic":  "city4",
+        "par_1_intro":  "Chiếm lĩnh nên thành trì sau ，mỗi giờ  quân tư trung có thể lĩnh  thép ròng số lượng ",
+        "key_str":  "wcoutput",
+        "intro":  "Chiếm lĩnh nên thành trì sau ，mỗi ngày có thêm vào  thép ròng thưởng cho ",
+        "key":  "4"
+    },
+    {
+        "par_1":  "2",
+        "par_2":  "10",
+        "name":  "Hắc Thị ",
+        "city_id":  "132",
+        "par_2_intro":  "Chợ đêm thêm vào đạt được địa lương thực phần trăm ( chịu khoa học kỹ thuật gia tăng thành )",
+        "pic":  "city2",
+        "par_1_intro":  "Chiếm lĩnh nên thành trì sau hắc thị  giao dịch CD，lấy phút nhớ ",
+        "key_str":  "bmarket",
+        "intro":  "Chiếm lĩnh nên thành trì sau hắc thị giao dịch CDgiảm bớt ",
+        "key":  "2"
+    },
+    {
+        "par_1":  "1",
+        "par_2":  "1500",
+        "name":  "Thương Điếm ",
+        "city_id":  "193",
+        "par_2_intro":  "Huấn luyện thêm vào đạt được địa kinh nghiệm(Không thêm vào tiêu hao mộc tài)",
+        "pic":  "city3",
+        "par_1_intro":  "Chiếm lĩnh nên thành trì sau ，cửa hàng  nảy sinh cái mới CD，lấy phút nhớ ",
+        "key_str":  "store",
+        "intro":  "Chiếm lĩnh nên thành trì sau cửa hàng nảy sinh cái mới CDgiảm bớt ",
+        "key":  "3"
+    },
+    {
+        "par_1":  "100",
+        "par_2":  "0",
+        "name":  "Chợ ",
+        "city_id":  "1001",
+        "par_2_intro":  "Không có hiệu quả",
+        "pic":  "city1",
+        "par_1_intro":  "Mỗi lần chợ giao dịch lượng gia tăng  tỉ lệ phần trăm ，số nguyên làm số bách phân ，100tỏ vẻ gia tăng 100%，cùng tiêu hao cùng sản xuất cùng(quân) gia tăng gấp hai ",
+        "key_str":  "market",
+        "intro":  "Chiếm lĩnh nên thành trì sau chợ giao dịch lượng gia tăng 1 định tỉ lệ phần trăm （tiêu hao cùng sản xuất cùng(quân) gia tăng nên tỉ lệ phần trăm ，đối 100thủ chỉnh ），đặc biệt chú ý ，thép ròng không ngã lần ！！！！",
+        "key":  "1"
+    },
+    {
+        "par_1":  "10",
+        "par_2":  "10",
+        "name":  "Hắc Thị ",
+        "city_id":  "1002",
+        "par_2_intro":  "Chợ đêm thêm vào đạt được địa lương thực phần trăm ( chịu khoa học kỹ thuật gia tăng thành )",
+        "pic":  "city2",
+        "par_1_intro":  "Chiếm lĩnh nên thành trì sau hắc thị nảy sinh cái mới trụ cột CD giảm chút ít ，lấy phút nhớ ",
+        "key_str":  "bmarket",
+        "intro":  "Chiếm lĩnh nên thành trì sau hắc thị giao dịch CDgiảm bớt ",
+        "key":  "2"
+    },
+    {
+        "par_1":  "1.5",
+        "par_2":  "100",
+        "name":  "Thương Điếm ",
+        "city_id":  "1003",
+        "par_2_intro":  "Huấn luyện thêm vào đạt được địa kinh nghiệm phần trăm(Không thêm vào tiêu hao mộc tài)",
+        "pic":  "city3",
+        "par_1_intro":  "Chiếm lĩnh nên thành trì sau ，cửa hàng nảy sinh cái mới CD giảm chút ít ，lấy phút nhớ ,khả năng tồn tại số nhỏ ，1.5phút hẳn là vì 1phút 30giây ",
+        "key_str":  "store",
+        "intro":  "Chiếm lĩnh nên thành trì sau cửa hàng nảy sinh cái mới CDgiảm bớt ",
+        "key":  "3"
+    },
+    {
+        "par_1":  "50",
+        "par_2":  "0",
+        "name":  "Thế Giới Tấn Thiết ",
+        "city_id":  "1004",
+        "par_2_intro":  "Không có hiệu quả",
+        "pic":  "city4",
+        "par_1_intro":  "Chiếm lĩnh nên thành trì sau ，mỗi giờ  quân tư trung có thể lĩnh  thép ròng số lượng ",
+        "key_str":  "wcoutput",
+        "intro":  "Chiếm lĩnh nên thành trì sau ，mỗi ngày có thêm vào  thép ròng thưởng cho ",
+        "key":  "4"
+    }
+]

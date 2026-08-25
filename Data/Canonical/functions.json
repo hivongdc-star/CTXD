@@ -1,0 +1,278 @@
+[
+  {
+    "id": 1,
+    "intro": "Quan văn Mở ra (cận Mở ra quan văn ）"
+  },
+  {
+    "id": 2,
+    "intro": "Võ quan Mở ra"
+  },
+  {
+    "id": 3,
+    "intro": "Bắn ra tuyển giác mặt biên"
+  },
+  {
+    "id": 4,
+    "intro": "Đạt được chủ thành"
+  },
+  {
+    "id": 5,
+    "intro": "Đạt được bó củi khu"
+  },
+  {
+    "id": 6,
+    "intro": "Đạt được lương thực khu"
+  },
+  {
+    "id": 7,
+    "intro": "Đạt được thép ròng khu"
+  },
+  {
+    "id": 8,
+    "intro": "Đạt được binh nơi đóng quân"
+  },
+  {
+    "id": 9,
+    "intro": "Phó bản"
+  },
+  {
+    "id": 10,
+    "intro": "Thế giới (Mở ra thế giới mặt biên ）"
+  },
+  {
+    "id": 11,
+    "intro": "Kho hàng ，hồi cấu"
+  },
+  {
+    "id": 12,
+    "intro": "Cường hóa"
+  },
+  {
+    "id": 13,
+    "intro": "Quân đoàn ，sáng tạo ，xin"
+  },
+  {
+    "id": 14,
+    "intro": "Chức quan"
+  },
+  {
+    "id": 15,
+    "intro": "Nói chuyện phiếm khuông Mở ra"
+  },
+  {
+    "id": 16,
+    "intro": "Hiến tế Mở ra"
+  },
+  {
+    "id": 17,
+    "intro": "Cửa hàng ，quan văn trang bị"
+  },
+  {
+    "id": 18,
+    "intro": "Cửa hàng ，võ quan trang bị"
+  },
+  {
+    "id": 19,
+    "intro": "Mở ra khoa học kỹ thuật mặt bản"
+  },
+  {
+    "id": 20,
+    "intro": "Mở ra bảo vật công năng"
+  },
+  {
+    "id": 21,
+    "intro": "Mở ra tự động thăng cấp kiến trúc"
+  },
+  {
+    "id": 22,
+    "intro": "Mở ra chính vụ hệ thống"
+  },
+  {
+    "id": 23,
+    "intro": "Mở ra thẩm tra theo"
+  },
+  {
+    "id": 24,
+    "intro": "Mở ra di động cùng chiến đấu"
+  },
+  {
+    "id": 25,
+    "intro": "Mở ra võ tướng bên trái lan"
+  },
+  {
+    "id": 26,
+    "intro": "Mở ra quan văn bên phải lan"
+  },
+  {
+    "id": 27,
+    "intro": "Mở ra chợ"
+  },
+  {
+    "id": 28,
+    "intro": "Mở ra bảo thạch hệ thống"
+  },
+  {
+    "id": 29,
+    "intro": "Mở ra binh khí hệ thống"
+  },
+  {
+    "id": 30,
+    "intro": "Mỗi ngày phó bản nhiệm vụ"
+  },
+  {
+    "id": 31,
+    "intro": "Mỗi ngày giết địch bảng （có thể thấy được ）"
+  },
+  {
+    "id": 32,
+    "intro": "Mỗi ngày giết địch bảng （khả thượng bảng ）"
+  },
+  {
+    "id": 33,
+    "intro": "Máy rời yến hội"
+  },
+  {
+    "id": 34,
+    "intro": "Thế giới quặng sắt （cùng loại chinh chiến quặng sắt ）"
+  },
+  {
+    "id": 35,
+    "intro": "Quốc gia đứng hàng thứ bảng"
+  },
+  {
+    "id": 36,
+    "intro": "Thông thương"
+  },
+  {
+    "id": 37,
+    "intro": "Võ tướng bảo vật hệ thống"
+  },
+  {
+    "id": 38,
+    "intro": "Mở ra mỗi ngày đổ bộ thưởng cho"
+  },
+  {
+    "id": 39,
+    "intro": "Mở ra chỉnh điểm ở tuyến thưởng cho"
+  },
+  {
+    "id": 40,
+    "intro": "Thế giới bảo thạch quặng"
+  },
+  {
+    "id": 41,
+    "intro": "Mở ra tài nguyên gấp bội công năng"
+  },
+  {
+    "id": 42,
+    "intro": "Mở ra bưu kiện hệ thống"
+  },
+  {
+    "id": 43,
+    "intro": "Mở ra hắc thị"
+  },
+  {
+    "id": 44,
+    "intro": "Mở ra tửu quán quan văn"
+  },
+  {
+    "id": 45,
+    "intro": "Mở ra tửu quán võ quan"
+  },
+  {
+    "id": 46,
+    "intro": "Mở ra sắp xếp vị tái"
+  },
+  {
+    "id": 47,
+    "intro": "Mở ra khóa phục bán đấu giá"
+  },
+  {
+    "id": 48,
+    "intro": "Mở ra quan văn nội chính hệ thống"
+  },
+  {
+    "id": 49,
+    "intro": "Mở ra quan văn trang bị hệ thống"
+  },
+  {
+    "id": 50,
+    "intro": "Mở ra quan văn kế sách hệ thống"
+  },
+  {
+    "id": 51,
+    "intro": "Mở ra trang bị mạch lạc"
+  },
+  {
+    "id": 52,
+    "intro": "Mở ra ngục giam hệ thống"
+  },
+  {
+    "id": 53,
+    "intro": "Mở ra thế giới hệ thống vật tư thưởng cho"
+  },
+  {
+    "id": 54,
+    "intro": "Mở ra võ đấu hội"
+  },
+  {
+    "id": 55,
+    "intro": "Mở ra tửu quán nảy sinh cái mới"
+  },
+  {
+    "id": 56,
+    "intro": "Mở ra hoàng kim kiến trúc đội công năng"
+  },
+  {
+    "id": 57,
+    "intro": "Mở ra huấn luyện"
+  },
+  {
+    "id": 58,
+    "intro": "Mở ra quốc gia nhiệm vụ"
+  },
+  {
+    "id": 59,
+    "intro": "Mở ra tập đoàn quân sáng tạo"
+  },
+  {
+    "id": 60,
+    "intro": "Mở ra 1 kiện đổi trang"
+  },
+  {
+    "id": 61,
+    "intro": "Mở ra thế giới thành trì sự kiện"
+  },
+  {
+    "id": 62,
+    "intro": "Mở ra kịch bản cửa vào"
+  },
+  {
+    "id": 63,
+    "intro": "Mở ra mỗi ngày chiếm thành bảng"
+  },
+  {
+    "id": 64,
+    "intro": "Mở ra thuật sĩ xưởng"
+  },
+  {
+    "id": 65,
+    "intro": "Mở ra công thành bí tịch"
+  },
+  {
+    "id": 66,
+    "intro": "Mở ra thợ rèn phô"
+  },
+  {
+    "id": 67,
+    "intro": "Mở ra lễ thượng vãng lai"
+  },
+  {
+    "id": 68,
+    "intro": "Mở ra bảo thạch thương hội"
+  },
+  {
+    "id": 69,
+    "intro": "Tự động quốc chiến (đã trở thành phế thãi ）"
+  }
+]

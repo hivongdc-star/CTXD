@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--模块配置文件-->
+<config>
+  <version>01.17.13.45.19_Ben</version>
+  <!--游戏当前版本号-->
+  <language url="assets/{resVersion}/xml/core/Language.xml" type="xml" version="1" />
+  <!--语言包-->
+  <style url="assets/{resVersion}/xml/core/Style.xml" type="xml" nameID="020108" version="1" />
+  <!--组件样式配置文件-->
+  <uiConfig url="assets/{resVersion}/xml/core/UIConfig.xml" type="xml" nameID="020109" version="1" />
+  <!--用户界面配置文件-->
+  <soundConfig url="assets/{resVersion}/xml/core/SoundConfig.xml" type="xml" version="1" />
+  <!--音频配置文件-->
+  <loadingMovie url="assets/{resVersion}/swf/core/Loading.swf" type="swf" version="1" />
+  <!--Loading动画-->
+  <preload url="assets/{resVersion}/xml/core/Preload.xml" type="xml" nameID="020110" version="1" />
+  <!--预加载配置包-->
+  <component url="assets/{resVersion}/swf/core/Component.swf" type="class" nameID="020101" version="1" />
+  <!--组件皮肤-->
+  <game url="Game.swf" type="swf" nameID="020102" version="1" />
+  <!--游戏核心-->
+  <mainUIConfig url="assets/{resVersion}/xml/core/MainUI.xml" type="xml" nameID="020103" version="1" />
+  <!--核心UI配置-->
+  <mainUIView url="assets/{resVersion}/swf/core/MainUI.swf" type="class" nameID="020104" version="1" />
+  <!--核心UI界面-->
+  <enterMovie url="assets/{resVersion}/swf/core/EnterMovie.swf" type="swf" nameID="020105" version="1" />
+  <!--进场动画（开发商信息）-->
+  <!-- 懒资源 -->
+  <lazyItemInfo url="assets/{resVersion}/swf/lazy/ItemInfo.swf" type="class" nameID="020500" version="1" />
+  <joinmodeInfo url="assets/{resVersion}/swf/lazy/Joinmode.swf" type="class" nameID="020501" version="1" />
+  <politicsInfo url="assets/{resVersion}/swf/lazy/politic.swf" type="class" nameID="020502" version="1" />
+  <zeroOnlineInfo url="assets/{resVersion}/swf/lazy/zeroOnlineInfo.swf" type="class" nameID="020503" version="1" />
+  <selectWarInfo url="assets/{resVersion}/swf/lazy/selectWarInfo.swf" type="class" nameID="020509" version="1" />
+  <!--秘籍洗炼-->
+  <freeRefresh url="assets/{resVersion}/swf/lazy/freeRefresh.swf" type="class" nameID="020517" version="1" />
+  <!--势力相关-->
+  <flag url="assets/{resVersion}/swf/force/Flag.swf" type="class" nameID="023107" version="1" />
+  <!--腾讯版相关-->
+  <qqCore url="assets/{resVersion}/swf/qq/QQCore.swf" type="class" nameID="020305" version="1" />
+  <qqVipConfig url="assets/{resVersion}/xml/module/QQVip.xml" type="xml" nameID="qqvip1" version="1" />
+  <qqVipView url="assets/{resVersion}/swf/qq/QQVip.swf" type="class" nameID="qqvip2" version="1" />
+  <qqVipModule url="game/module/qqvip/view/QQVip.swf" type="class" nameID="qqvip3" version="1" />
+  <qqPay url="assets/{resVersion}/swf/qq/QQPay.swf" type="class" nameID="0204101" version="1" />
+  <!--创建角色-->
+  <createRoleInfo url="assets/{resVersion}/swf/lazy/CreateRole.swf" type="class" nameID="020504" version="1" />
+  <!--每日登录-->
+  <landRewardInfo url="assets/{resVersion}/swf/lazy/landRewardInfo.swf" type="class" nameID="020506" version="1" />
+  <!--官员令-->
+  <OfficialerInfo url="assets/{resVersion}/swf/lazy/Officialer.swf" type="class" nameID="020507" version="1" />
+  <!--集团军出阵动画资源-->
+  <warlegionAttackInfo url="assets/{resVersion}/swf/lazy/warlegionAttack.swf" type="class" nameID="020508" version="1" />
+  <battleLetterInfo url="assets/{resVersion}/swf/lazy/battleLetterInfo.swf" type="class" nameID="020510" version="1" />
+  <joinWarViewInfo url="assets/{resVersion}/swf/lazy/joinWarViewInfo.swf" type="class" nameID="020511" version="1" />
+  <ironFeteBuff url="assets/{resVersion}/swf/lazy/IronFeteBuff.swf" type="class" nameID="020512" version="1" />
+  <specialCityChange url="assets/{resVersion}/swf/lazy/SpecialCityChange.swf" type="class" nameID="020513" version="1" />
+  <specialLevelView url="assets/{resVersion}/swf/lazy/SpecialLevelView.swf" type="class" nameID="020514" version="1" />
+  <set url="assets/{resVersion}/swf/lazy/Set.swf" type="class" nameID="020515" version="1" />
+  <head url="assets/{resVersion}/swf/lazy/Head.swf" type="class" nameID="020518" version="1" />
+  <!--登录场景-->
+  <loginSceneConfig url="assets/{resVersion}/xml/module/LoginScene.xml" type="xml" nameID="020204" version="1" />
+  <loginSceneView url="assets/{resVersion}/swf/module/LoginScene.swf" type="class" nameID="020205" version="1" />
+  <loginSceneModule url="game/module/loginScene/view/LoginScene.swf" type="class" nameID="020206" version="1" />
+  <!--聊天模块-->
+  <chatConfig url="assets/{resVersion}/xml/module/Chat.xml" type="xml" nameID="020301" version="1" />
+  <chatView url="assets/{resVersion}/swf/module/Chat.swf" type="class" nameID="020302" version="1" />
+  <chatModule url="game/module/chat/view/Chat.swf" type="class" nameID="020303" version="1" />
+  <!--主界面模块-->
+  <gameUIConfig url="assets/{resVersion}/xml/module/GameUI.xml" type="xml" nameID="020304" version="1" />
+  <gameUIView url="assets/{resVersion}/swf/module/GameUI.swf" type="class" nameID="020305" version="1" />
+  <newGameUIView url="assets/{resVersion}/swf/module/NewGameUI.swf" type="class" nameID="020516" version="1" />
+  <gameUIModule url="game/module/gameUI/view/GameUI.swf" type="class" nameID="020306" version="1" />
+  <!--任务引导-->
+  <guildConfig url="assets/{resVersion}/xml/module/Guild.xml" type="xml" nameID="020505" version="1" />
+  <!--任务模块-->
+  <!-- <taskContentConfig url="assets/{resVersion}/xml/module/TaskContent.xml" version="1" />
+	<taskContentView url="assets/{resVersion}/swf/module/TaskContent.swf" version="1" />
+	<taskContentModule url="game/module/taskcontent/view/TaskContent.swf" version="1" /> -->
+  <!--主城场景-->
+  <mainCityConfig url="assets/{resVersion}/xml/module/MainCity.xml" type="xml" nameID="020207" version="1" />
+  <mainCityView url="assets/{resVersion}/swf/module/MainCity.swf" type="class" nameID="020208" version="1" />
+  <mainCityRegional url="assets/{resVersion}/swf/module/MainCityRegional.swf" type="class" nameID="020240" version="1" />
+  <mainCityModule url="game/module/mainCity/view/MainCity.swf" type="class" nameID="020209" version="1" />
+  <!--角色场景-->
+  <roleSceneConfig url="assets/{resVersion}/xml/module/RoleScene.xml" type="xml" nameID="020210" version="1" />
+  <roleSceneView url="assets/{resVersion}/swf/module/RoleScene.swf" type="class" nameID="020211" version="1" />
+  <roleSceneModule url="game/module/roleScene/view/RoleScene.swf" type="class" nameID="020212" version="1" />
+  <nameData url="assets/{resVersion}/xml/module/NameData.xml" type="xml" nameID="020106" version="1" />
+  <joinmode url="assets/{resVersion}/xml/module/Joinmode.xml" type="xml" nameID="020107" version="1" />
+  <!--战争场景-->
+  <warConfig url="assets/{resVersion}/xml/module/War.xml" type="xml" nameID="020213" version="1" />
+  <warView url="assets/{resVersion}/swf/module/War.swf" type="class" nameID="020214" version="1" />
+  <warModule url="game/module/war/view/War.swf" type="class" nameID="020215" version="1" />
+  <skill01 url="assets/{resVersion}/swf/skill/1.swf" type="class" nameID="021402" version="1" />
+  <skill02 url="assets/{resVersion}/swf/skill/2.swf" type="class" nameID="021403" version="1" />
+  <skill03 url="assets/{resVersion}/swf/skill/3.swf" type="class" nameID="021404" version="1" />
+  <skill04 url="assets/{resVersion}/swf/skill/4.swf" type="class" nameID="021405" version="1" />
+  <skill05 url="assets/{resVersion}/swf/skill/5.swf" type="class" nameID="021406" version="1" />
+  <skill06 url="assets/{resVersion}/swf/skill/6.swf" type="class" nameID="021407" version="1" />
+  <skill07 url="assets/{resVersion}/swf/skill/7.swf" type="class" nameID="021408" version="1" />
+  <skill80 url="assets/{resVersion}/swf/skill/80.swf" type="class" nameID="021409" version="1" />
+  <skill81 url="assets/{resVersion}/swf/skill/81.swf" type="class" nameID="021410" version="1" />
+  <skill09 url="assets/{resVersion}/swf/skill/9.swf" type="class" nameID="021411" version="1" />
+  <skill10 url="assets/{resVersion}/swf/skill/10.swf" type="class" nameID="021412" version="1" />
+  <skill11 url="assets/{resVersion}/swf/skill/11.swf" type="class" nameID="021420" version="1" />
+  <skill13 url="assets/{resVersion}/swf/skill/13.swf" type="class" nameID="021421" version="1" />
+  <skill14 url="assets/{resVersion}/swf/skill/14.swf" type="class" nameID="021422" version="1" />
+  <skill15 url="assets/{resVersion}/swf/skill/15.swf" type="class" nameID="021423" version="1" />
+  <skill16 url="assets/{resVersion}/swf/skill/16.swf" type="class" nameID="021424" version="1" />
+  <skill17 url="assets/{resVersion}/swf/skill/17.swf" type="class" nameID="021425" version="1" />
+  <skill18 url="assets/{resVersion}/swf/skill/18.swf" type="class" nameID="021426" version="1" />
+  <skill19 url="assets/{resVersion}/swf/skill/19.swf" type="class" nameID="021427" version="1" />
+  <skill20 url="assets/{resVersion}/swf/skill/20.swf" type="class" nameID="021428" version="1" />
+  <teactics url="assets/{resVersion}/swf/skill/Teactics.swf" type="class" nameID="021415" version="1" />
+  <strategy url="assets/{resVersion}/swf/skill/Strategy.swf" type="class" nameID="021416" version="1" />
+  <warResult url="assets/{resVersion}/swf/skill/WarResult.swf" type="class" nameID="021417" version="1" />
+  <warvs url="assets/{resVersion}/swf/skill/Warvs.swf" type="class" nameID="021418" version="1" />
+  <warleave url="assets/{resVersion}/swf/skill/Warleave.swf" type="class" nameID="021419" version="1" />
+  <skillxml url="assets/{resVersion}/xml/module/Skill.xml" type="xml" nameID="021401" version="1" />
+  <!--世界场景-->
+  <world2Config url="assets/{resVersion}/xml/module/World2.xml" type="xml" nameID="020216" version="1" />
+  <world2View url="assets/{resVersion}/swf/module/World2.swf" type="class" nameID="020217" version="1" />
+  <cityBelong url="assets/{resVersion}/xml/world/CityBelong.xml" type="xml" nameID="020400" version="1" />
+  <cityInfo url="assets/{resVersion}/xml/world/CityInfo.xml" type="xml" nameID="020401" version="1" />
+  <worldFog url="assets/{resVersion}/xml/world/WorldFog.xml" type="xml" nameID="020413" version="1" />
+  <worldBox url="assets/{resVersion}/xml/world/WorldBox.xml" type="xml" nameID="020414" version="1" />
+  <worldNPCDialog url="assets/{resVersion}/xml/world/WorldNPCDialog.xml" type="xml" nameID="020415" version="1" />
+  <road url="assets/{resVersion}/xml/world/Road.xml" type="xml" nameID="020416" version="1" />
+  <world2Module url="game/module/world2/view/World2.swf" type="class" nameID="020218" version="1" />
+  <!--征战场景-->
+  <expeditonConfig url="assets/{resVersion}/xml/module/Expedition.xml" type="xml" nameID="020222" version="1" />
+  <expeditonView url="assets/{resVersion}/swf/module/Expedition.swf" type="class" nameID="020223" version="1" />
+  <expeditonModule url="game/module/expedition/view/Expedition.swf" type="class" nameID="020224" version="1" />
+  <!--选择势力-->
+  <forcesSceneView url="assets/{resVersion}/swf/module/ForcesScene.swf" type="swf" nameID="020220" version="1" />
+  <!--官职场景-->
+  <officerSceneConfig url="assets/{resVersion}/xml/module/Officer.xml" type="xml" nameID="020228" version="1" />
+  <officerSceneView url="assets/{resVersion}/swf/module/Officer.swf" type="class" nameID="020229" version="1" />
+  <officerSceneModule url="game/module/officer/view/Officer.swf" type="class" nameID="020230" version="1" />
+  <!--排位赛场景-->
+  <qualifyingSceneConfig url="assets/{resVersion}/xml/module/Qualifying.xml" type="xml" nameID="020234" version="1" />
+  <qualifyingSceneView url="assets/{resVersion}/swf/module/Qualifying.swf" type="class" nameID="020235" version="1" />
+  <qualifyingSceneModule url="game/module/qualifying/view/Qualifying.swf" type="class" nameID="020236" version="1" />
+  <!--测试场景-->
+  <testSceneConfig url="assets/{resVersion}/xml/module/TestScene.xml" type="xml" nameID="020201" version="1" />
+  <testSceneView url="assets/{resVersion}/swf/module/TestScene.swf" type="class" nameID="020202" version="1" />
+  <testSceneModule url="game/module/testScene/view/TestScene.swf" type="class" nameID="020203" version="1" />
+  <!--酒馆模块-->
+  <tavernConfig url="assets/{resVersion}/xml/module/Tavern.xml" type="xml" nameID="020310" version="1" />
+  <tavernView url="assets/{resVersion}/swf/module/Tavern.swf" type="class" nameID="020311" version="1" />
+  <tavernModule url="game/module/tavern/view/Tavern.swf" type="class" nameID="020312" version="1" />
+  <!--装备模块-->
+  <equipConfig url="assets/{resVersion}/xml/module/Equip.xml" type="xml" nameID="020316" version="1" />
+  <equipView url="assets/{resVersion}/swf/module/Equip.swf" type="class" nameID="020317" version="1" />
+  <equipModule url="game/module/equip/view/Equip.swf" type="class" nameID="020318" version="1" />
+  <!--武将快捷模块-->
+  <quickGeneralConfig url="assets/{resVersion}/xml/module/QuickGeneral.xml" type="xml" nameID="020225" version="1" />
+  <quickGeneralView url="assets/{resVersion}/swf/module/QuickGeneral.swf" type="class" nameID="020226" version="1" />
+  <quickGeneralModule url="game/module/quickGeneral/view/QuickGeneral.swf" type="class" nameID="020227" version="1" />
+  <!--祭祀模块-->
+  <incenseConfig url="assets/{resVersion}/xml/module/Incense.xml" type="xml" nameID="020319" version="1" />
+  <incenseView url="assets/{resVersion}/swf/module/Incense.swf" type="class" nameID="020320" version="1" />
+  <incenseModule url="game/module/incense/view/Incense.swf" type="class" nameID="020321" version="1" />
+  <!--消费模块-->
+  <spendConfig url="assets/{resVersion}/xml/module/Spend.xml" type="xml" nameID="0204100" version="1" />
+  <spendView url="assets/{resVersion}/swf/module/Spend.swf" type="class" nameID="0204101" version="1" />
+  <spendModule url="game/module/spend/view/Spend.swf" type="class" nameID="0204102" version="1" />
+  <!--科技模块-->
+  <techConfig url="assets/{resVersion}/xml/module/Tech.xml" type="xml" nameID="020325" version="1" />
+  <techView url="assets/{resVersion}/swf/module/Tech.swf" type="class" nameID="020326" version="1" />
+  <techModule url="game/module/tech/view/tech/Tech.swf" type="class" nameID="020327" version="1" />
+  <!--新手活动模块-->
+  <newerConfig url="assets/{resVersion}/xml/module/Newer.xml" type="xml" nameID="020334" version="1" />
+  <newerView url="assets/{resVersion}/swf/module/Newer.swf" type="class" nameID="020335" version="1" />
+  <newerModule url="game/module/newer/view/Newer.swf" type="class" nameID="020336" version="1" />
+  <!--兵器模块-->
+  <weaponryConfig url="assets/{resVersion}/xml/module/Weaponry.xml" type="xml" nameID="020328" version="1" />
+  <weaponryView url="assets/{resVersion}/swf/module/Weaponry.swf" type="class" nameID="020329" version="1" />
+  <weaponryModule url="game/module/weaponry/view/Weaponry.swf" type="class" nameID="020330" version="1" />
+  <!--内政模块-->
+  <!-- <internalAffairsConfig url="assets/{resVersion}/xml/module/InternalAffairs.xml" version="1" />
+	<internalAffairsView url="assets/{resVersion}/swf/module/InternalAffairs.swf" version="1" />
+	<internalAffairsModule url="game/module/internalAffairs/view/InternalAffairs.swf" version="1" /> -->
+  <!--每日击杀榜模块-->
+  <killListConfig url="assets/{resVersion}/xml/module/KillList.xml" type="xml" nameID="020801" version="1" />
+  <killListView url="assets/{resVersion}/swf/module/KillList.swf" type="class" nameID="020802" version="1" />
+  <killListModule url="game/module/killList/view/KillList.swf" type="class" nameID="020803" version="1" />
+  <!--铁矿 宝石-->
+  <ironGemOreSceneConfig url="assets/{resVersion}/xml/module/IronGemOre.xml" type="xml" nameID="020231" version="1" />
+  <ironGemOreSceneView url="assets/{resVersion}/swf/module/IronGemOre.swf" type="class" nameID="020232" version="1" />
+  <ironGemOreSceneModule url="game/module/ironGemOre/view/IronGemOre.swf" type="class" nameID="020233" version="1" />
+  <!--邮件-->
+  <mailConfig url="assets/{resVersion}/xml/module/Mail.xml" type="xml" nameID="020901" version="1" />
+  <mailView url="assets/{resVersion}/swf/module/Mail.swf" type="class" nameID="020902" version="1" />
+  <mailModule url="game/module/mail/view/Mail.swf" type="class" nameID="020903" version="1" />
+  <!--跨服御宝拍卖-->
+  <auctionConfig url="assets/{resVersion}/xml/module/AuctionBank.xml" type="xml" nameID="021001" version="1" />
+  <auctionView url="assets/{resVersion}/swf/module/AuctionBank.swf" type="class" nameID="021002" version="1" />
+  <auctionModule url="game/module/auctionbank/view/AuctionBank.swf" type="class" nameID="021003" version="1" />
+  <!--国家模块-->
+  <nationConfig url="assets/{resVersion}/xml/module/Nation.xml" type="xml" nameID="022201" version="1" />
+  <nationView url="assets/{resVersion}/swf/module/Nation.swf" type="class" nameID="022202" version="1" />
+  <nationModule url="game/module/nation/view/Nation.swf" type="class" nameID="022203" version="1" />
+  <!--集团军模块-->
+  <warLegionConfig url="assets/{resVersion}/xml/module/WarLegion.xml" type="xml" nameID="020331" version="1" />
+  <warLegionView url="assets/{resVersion}/swf/module/WarLegion.swf" type="class" nameID="020332" version="1" />
+  <warLegionModule url="game/module/warLegion/view/WarLegion.swf" type="class" nameID="020333" version="1" />
+  <!--武斗会窗口-->
+  <wuDouWindowConfig url="assets/{resVersion}/xml/module/WuDouWindow.xml" type="xml" nameID="022301" version="1" />
+  <wuDouWindowView url="assets/{resVersion}/swf/module/WuDouWindow.swf" type="class" nameID="022302" version="1" />
+  <wuDouWindowModule url="game/module/wuDouWindow/view/WuDouWindow.swf" type="class" nameID="022303" version="1" />
+  <!--武斗会战斗信息-->
+  <wuDouWarConfig url="assets/{resVersion}/xml/module/WudouWar.xml" type="xml" nameID="022401" version="1" />
+  <wuDouWarView url="assets/{resVersion}/swf/module/WudouWar.swf" type="class" nameID="022402" version="1" />
+  <wuDouWarModule url="game/module/wuDouWar/view/WuDouWar.swf" type="class" nameID="022403" version="1" />
+  <!--跨服世界-->
+  <kfWorldConfig url="assets/{resVersion}/xml/module/KfWorld.xml" type="xml" nameID="020337" version="1" />
+  <kfWorldView url="assets/{resVersion}/swf/module/KfWorld.swf" type="class" nameID="020338" version="1" />
+  <kfWorldModule url="game/module/kfworld/view/KfWorld.swf" type="class" nameID="020339" version="1" />
+  <!--跨服世界城市配置-->
+  <kfCityInfo1 url="assets/{resVersion}/xml/kfworld/1/city.xml" type="xml" nameID="020340" version="1" />
+  <kfCityInfo2 url="assets/{resVersion}/xml/kfworld/2/city.xml" type="xml" nameID="020340" version="1" />
+  <!--剧本世界-->
+  <jbWorldConfig url="assets/{resVersion}/xml/module/JbWorld.xml" type="xml" nameID="020600" version="1" />
+  <jbWorldView url="assets/{resVersion}/swf/module/JbWorld.swf" type="class" nameID="020601" version="1" />
+  <jbWorldModule url="game/module/jbworld/view/JbWorld.swf" type="class" nameID="020602" version="1" />
+  <!--剧本世界城市配置-->
+  <jbCityInfo1 url="assets/{resVersion}/xml/jbworld/1/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo2 url="assets/{resVersion}/xml/jbworld/2/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo3 url="assets/{resVersion}/xml/jbworld/3/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo4 url="assets/{resVersion}/xml/jbworld/4/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo5 url="assets/{resVersion}/xml/jbworld/5/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo6 url="assets/{resVersion}/xml/jbworld/6/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo7 url="assets/{resVersion}/xml/jbworld/7/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo8 url="assets/{resVersion}/xml/jbworld/8/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo9 url="assets/{resVersion}/xml/jbworld/9/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo10 url="assets/{resVersion}/xml/jbworld/10/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo11 url="assets/{resVersion}/xml/jbworld/11/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo10001 url="assets/{resVersion}/xml/jbworld/10001/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo10002 url="assets/{resVersion}/xml/jbworld/10002/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo10003 url="assets/{resVersion}/xml/jbworld/10003/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo10004 url="assets/{resVersion}/xml/jbworld/10004/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo10005 url="assets/{resVersion}/xml/jbworld/10005/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo10006 url="assets/{resVersion}/xml/jbworld/10006/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo10007 url="assets/{resVersion}/xml/jbworld/10007/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo10008 url="assets/{resVersion}/xml/jbworld/10008/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo10009 url="assets/{resVersion}/xml/jbworld/10009/city.xml" type="xml" nameID="020603" version="1" />
+  <jbCityInfo10010 url="assets/{resVersion}/xml/jbworld/10010/city.xml" type="xml" nameID="020603" version="1" />
+  <!--剧本世界对话配置-->
+  <jbChatInfo1 url="assets/{resVersion}/xml/jbworld/1/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo2 url="assets/{resVersion}/xml/jbworld/2/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo3 url="assets/{resVersion}/xml/jbworld/3/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo4 url="assets/{resVersion}/xml/jbworld/4/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo5 url="assets/{resVersion}/xml/jbworld/5/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo6 url="assets/{resVersion}/xml/jbworld/6/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo7 url="assets/{resVersion}/xml/jbworld/7/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo8 url="assets/{resVersion}/xml/jbworld/8/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo9 url="assets/{resVersion}/xml/jbworld/9/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo10 url="assets/{resVersion}/xml/jbworld/10/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo11 url="assets/{resVersion}/xml/jbworld/11/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo10001 url="assets/{resVersion}/xml/jbworld/10001/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo10002 url="assets/{resVersion}/xml/jbworld/10002/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo10003 url="assets/{resVersion}/xml/jbworld/10003/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo10004 url="assets/{resVersion}/xml/jbworld/10004/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo10005 url="assets/{resVersion}/xml/jbworld/10005/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo10006 url="assets/{resVersion}/xml/jbworld/10006/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo10007 url="assets/{resVersion}/xml/jbworld/10007/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo10008 url="assets/{resVersion}/xml/jbworld/10008/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo10009 url="assets/{resVersion}/xml/jbworld/10009/chat.xml" type="xml" nameID="020607" version="1" />
+  <jbChatInfo10010 url="assets/{resVersion}/xml/jbworld/10010/chat.xml" type="xml" nameID="020607" version="1" />
+  <!--蛮族运粮队出现动画资源-->
+  <barbarianFoodAttackInfo url="assets/{resVersion}/swf/lazy/barbarianFoodAttack.swf" type="class" nameID="020600" version="1" />
+  <!--张角出现动画资源-->
+  <nationSuppressInfo url="assets/{resVersion}/swf/lazy/nationSuppress.swf" type="class" nameID="020600" version="1" />
+  <!--跨服国战各种窗口-->
+  <kfWorldWarWindowConfig url="assets/{resVersion}/xml/module/KfWorldWarWindow.xml" type="xml" nameID="022501" version="1" />
+  <kfWorldWarWindowView url="assets/{resVersion}/swf/module/KfWorldWarWindow.swf" type="class" nameID="022502" version="1" />
+  <kfWorldWarWindowModule url="game/module/kfWorldWarWindow/view/KfWorldWarWindow.swf" type="class" nameID="022503" version="1" />
+  <!--个人剧本-->
+  <personalScriptConfig url="assets/{resVersion}/xml/module/PersonalScript.xml" type="xml" nameID="020604" version="1" />
+  <personalScriptView url="assets/{resVersion}/swf/module/PersonalScript.swf" type="class" nameID="020605" version="1" />
+  <personalScriptModule url="game/module/script/view/PersonalScript.swf" type="class" nameID="020606" version="1" />
+  <!--活动-->
+  <activityConfig url="assets/{resVersion}/xml/module/Activity.xml" type="xml" nameID="021101" version="1" />
+  <activityView url="assets/{resVersion}/swf/module/Activity.swf" type="class" nameID="021102" version="1" />
+  <activityModule url="game/module/activity/view/Activity.swf" type="class" nameID="021103" version="1" />
+  <!--庆功-->
+  <kfWorldFeteConfig url="assets/{resVersion}/xml/module/KfWorldFete.xml" type="xml" nameID="021601" version="1" />
+  <kfWorldFeteView url="assets/{resVersion}/swf/module/KfWorldFete.swf" type="class" nameID="021602" version="1" />
+  <kfWorldFeteModule url="game/module/kfWorldFete/view/KfWorldFete.swf" type="class" nameID="021603" version="1" />
+  <!--礼尚往来-->
+  <interactiveConfig url="assets/{resVersion}/xml/module/Interactive.xml" type="xml" nameID="024101" version="1" />
+  <interactiveView url="assets/{resVersion}/swf/module/Interactive.swf" type="class" nameID="024102" version="1" />
+  <interactiveModule url="game/module/interactive/view/Interactive.swf" type="class" nameID="024103" version="1" />
+  <!--攻城秘籍模块-->
+  <expeditionGuildConfig url="assets/{resVersion}/xml/module/ExpeditionGuild.xml" type="xml" nameID="020322" version="1" />
+  <expeditionGuildView url="assets/{resVersion}/swf/module/ExpeditionGuild.swf" type="class" nameID="020323" version="1" />
+  <expeditionGuildModule url="game/module/expeditionGuild/view/ExpeditionGuild.swf" type="class" nameID="020324" version="1" />
+  <!--世界公共模块-->
+  <worldCommonConfig url="assets/{resVersion}/xml/module/WorldCommon.xml" type="xml" nameID="023104" version="1" />
+  <worldCommonView url="assets/{resVersion}/swf/module/WorldCommon.swf" type="class" nameID="023105" version="1" />
+  <worldCommonModule url="game/module/worldCommon/view/WorldCommon.swf" type="class" nameID="023106" version="1" />
+  <!--跨服争霸报名窗口-->
+  <kfZbWarWindowConfig url="assets/{resVersion}/xml/module/KfZbWarWindow.xml" type="xml" nameID="1500000" version="1" />
+  <kfZbWarWindowView url="assets/{resVersion}/swf/module/KfZbWarWindow.swf" type="class" nameID="1500001" version="1" />
+  <kfZbWarWindowModule url="game/module/kfZbWarWindow/view/KfZbWarWindow.swf" type="class" nameID="1500002" version="1" />
+  <!--跨服争霸对阵场景-->
+  <kfZbWarVSConfig url="assets/{resVersion}/xml/module/KfZbWarVS.xml" type="xml" nameID="1500100" version="1" />
+  <kfZbWarVSView url="assets/{resVersion}/swf/module/KfZbWarVS.swf" type="class" nameID="1500101" version="1" />
+  <kfZbWarVSModule url="game/module/kfZbWarVS/view/KfZbWarVS.swf" type="class" nameID="1500102" version="1" />
+  <!--跨服争霸战斗信息模块-->
+  <kfZbWarConfig url="assets/{resVersion}/xml/module/KfZbWar.xml" type="xml" nameID="1501000" version="1" />
+  <kfZbWarView url="assets/{resVersion}/swf/module/KfZbWar.swf" type="class" nameID="1501001" version="1" />
+  <kfZbWarModule url="game/module/kfZbWar/view/KfZbWar.swf" type="class" nameID="1501002" version="1" />
+  <!--屯田区模块-->
+  <farmConfig url="assets/{resVersion}/xml/module/Farm.xml" type="xml" nameID="024105" version="1" />
+  <farmView url="assets/{resVersion}/swf/module/Farm.swf" type="class" nameID="024106" version="1" />
+  <farmModule url="game/module/farm/view/Farm.swf" type="class" nameID="024107" version="1" />
+  <!--盛宴模块-->
+  <banquetSceneConfig url="assets/{resVersion}/xml/module/BanquetScene.xml" type="xml" nameID="020241" version="1" />
+  <banquetSceneView url="assets/{resVersion}/swf/module/BanquetScene.swf" type="class" nameID="020242" version="1" />
+  <banquetSceneModule url="game/module/banquet/view/BanquetScene.swf" type="class" nameID="020243" version="1" />
+</config>

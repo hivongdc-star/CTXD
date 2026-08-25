@@ -1,0 +1,1037 @@
+Compiled from "TaskMessageHelper.java"
+public class com.reign.gcld.task.message.TaskMessageHelper {
+  public com.reign.gcld.task.message.TaskMessageHelper();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void sendChoseSideTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #24                 // class com/reign/gcld/task/message/TaskMessageChoseSide
+       8: dup
+       9: iload_0
+      10: invokespecial #26                 // Method com/reign/gcld/task/message/TaskMessageChoseSide."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendBuildingTaskMessage(int, int, int);
+    descriptor: (III)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #38                 // class com/reign/gcld/task/message/TaskMessageBuilding
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: iload_2
+      12: invokespecial #40                 // Method com/reign/gcld/task/message/TaskMessageBuilding."<init>":(III)V
+      15: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      20: return
+
+  public static void sendResourceTaskMessage(int, int, int);
+    descriptor: (III)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #45                 // class com/reign/gcld/task/message/TaskMessageResource
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: iload_2
+      12: invokespecial #47                 // Method com/reign/gcld/task/message/TaskMessageResource."<init>":(III)V
+      15: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      20: return
+
+  public static void sendVisitAreaTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #52                 // class com/reign/gcld/task/message/TaskMessageVisitArea
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #54                 // Method com/reign/gcld/task/message/TaskMessageVisitArea."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendTavernRefreshTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #58                 // class com/reign/gcld/task/message/TaskMessageTavernRefresh
+       8: dup
+       9: iload_0
+      10: invokespecial #60                 // Method com/reign/gcld/task/message/TaskMessageTavernRefresh."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendOfficerTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #62                 // class com/reign/gcld/task/message/TaskMessageOfficer
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #64                 // Method com/reign/gcld/task/message/TaskMessageOfficer."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendGeneralTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #66                 // class com/reign/gcld/task/message/TaskMessageGeneral
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #68                 // Method com/reign/gcld/task/message/TaskMessageGeneral."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendApplyLegionTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #70                 // class com/reign/gcld/task/message/TaskMessageApplyLegion
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #72                 // Method com/reign/gcld/task/message/TaskMessageApplyLegion."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendBattleWinTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #74                 // class com/reign/gcld/task/message/TaskMessageBattleWin
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #76                 // Method com/reign/gcld/task/message/TaskMessageBattleWin."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendGetPowerTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #79                 // class com/reign/gcld/task/message/TaskMessageGetPower
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #81                 // Method com/reign/gcld/task/message/TaskMessageGetPower."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendIncenseTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #84                 // class com/reign/gcld/task/message/TaskMessageIncense
+       8: dup
+       9: iload_0
+      10: invokespecial #86                 // Method com/reign/gcld/task/message/TaskMessageIncense."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendRecruitForcesTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #88                 // class com/reign/gcld/task/message/TaskMessageRecruitForces
+       8: dup
+       9: iload_0
+      10: invokespecial #90                 // Method com/reign/gcld/task/message/TaskMessageRecruitForces."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendStoreBuyTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #92                 // class com/reign/gcld/task/message/TaskMessageStoreBuy
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #94                 // Method com/reign/gcld/task/message/TaskMessageStoreBuy."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendStoreRefreshTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #96                 // class com/reign/gcld/task/message/TaskMessageStoreRefresh
+       8: dup
+       9: iload_0
+      10: invokespecial #98                 // Method com/reign/gcld/task/message/TaskMessageStoreRefresh."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendUpdateEquipTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #100                // class com/reign/gcld/task/message/TaskMessageUpdateEquip
+       8: dup
+       9: iload_0
+      10: invokespecial #102                // Method com/reign/gcld/task/message/TaskMessageUpdateEquip."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendWearEquipTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #104                // class com/reign/gcld/task/message/TaskMessageWearEquip
+       8: dup
+       9: iload_0
+      10: invokespecial #106                // Method com/reign/gcld/task/message/TaskMessageWearEquip."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendHallsFightTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #108                // class com/reign/gcld/task/message/TaskMessageHallsFight
+       8: dup
+       9: iload_0
+      10: invokespecial #110                // Method com/reign/gcld/task/message/TaskMessageHallsFight."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendHallsPositionTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #112                // class com/reign/gcld/task/message/TaskMessageHallsPosition
+       8: dup
+       9: iload_0
+      10: invokespecial #114                // Method com/reign/gcld/task/message/TaskMessageHallsPosition."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendGeneralLvTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #116                // class com/reign/gcld/task/message/TaskMessageGeneralLv
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #118                // Method com/reign/gcld/task/message/TaskMessageGeneralLv."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendGetExploitTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #120                // class com/reign/gcld/task/message/TaskMessageGetExploit
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #122                // Method com/reign/gcld/task/message/TaskMessageGetExploit."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendChiefLvTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #125                // class com/reign/gcld/task/message/TaskMessageChiefLv
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #127                // Method com/reign/gcld/task/message/TaskMessageChiefLv."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendWorldMoveTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #129                // class com/reign/gcld/task/message/TaskMessageMove
+       8: dup
+       9: iload_0
+      10: invokespecial #131                // Method com/reign/gcld/task/message/TaskMessageMove."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendWorldSearchTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #133                // class com/reign/gcld/task/message/TaskMessageSearch
+       8: dup
+       9: iload_0
+      10: invokespecial #135                // Method com/reign/gcld/task/message/TaskMessageSearch."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendWorldPvpTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #137                // class com/reign/gcld/task/message/TaskMessageWorldPvp
+       8: dup
+       9: iload_0
+      10: invokespecial #139                // Method com/reign/gcld/task/message/TaskMessageWorldPvp."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendAttTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #141                // class com/reign/gcld/task/message/TaskMessageAtt
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #143                // Method com/reign/gcld/task/message/TaskMessageAtt."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendDefTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #145                // class com/reign/gcld/task/message/TaskMessageDef
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #147                // Method com/reign/gcld/task/message/TaskMessageDef."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendBloodTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #149                // class com/reign/gcld/task/message/TaskMessageBlood
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #151                // Method com/reign/gcld/task/message/TaskMessageBlood."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendBattleWinTimesTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #153                // class com/reign/gcld/task/message/TaskMessageBattleWinTimes
+       8: dup
+       9: iload_0
+      10: invokespecial #155                // Method com/reign/gcld/task/message/TaskMessageBattleWinTimes."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendFullBloodTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #157                // class com/reign/gcld/task/message/TaskMessageFullBlood
+       8: dup
+       9: iload_0
+      10: invokespecial #159                // Method com/reign/gcld/task/message/TaskMessageFullBlood."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendSearchTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #161                // class com/reign/gcld/task/message/TaskMessageSearchExhaust
+       8: dup
+       9: iload_0
+      10: invokespecial #163                // Method com/reign/gcld/task/message/TaskMessageSearchExhaust."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendEquipTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #165                // class com/reign/gcld/task/message/TaskMessageEquip
+       8: dup
+       9: iload_0
+      10: invokespecial #167                // Method com/reign/gcld/task/message/TaskMessageEquip."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendStoreBuySTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #169                // class com/reign/gcld/task/message/TaskMessageStoreBuyS
+       8: dup
+       9: iload_0
+      10: invokespecial #171                // Method com/reign/gcld/task/message/TaskMessageStoreBuyS."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendEventDailyMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #173                // class com/reign/gcld/task/message/TaskMessageEventDaily
+       8: dup
+       9: iload_0
+      10: invokespecial #175                // Method com/reign/gcld/task/message/TaskMessageEventDaily."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendHallsVisitMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #177                // class com/reign/gcld/task/message/TaskMessageHallsVisit
+       8: dup
+       9: iload_0
+      10: invokespecial #179                // Method com/reign/gcld/task/message/TaskMessageHallsVisit."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendTreasureMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #181                // class com/reign/gcld/task/message/TaskMessageTreasure
+       8: dup
+       9: iload_0
+      10: invokespecial #183                // Method com/reign/gcld/task/message/TaskMessageTreasure."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendEquipOnTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #185                // class com/reign/gcld/task/message/TaskMessageEquipOn
+       8: dup
+       9: iload_0
+      10: invokespecial #187                // Method com/reign/gcld/task/message/TaskMessageEquipOn."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendArmyAdviserTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #189                // class com/reign/gcld/task/message/TaskMessageArmyAdviser
+       8: dup
+       9: iload_0
+      10: invokespecial #191                // Method com/reign/gcld/task/message/TaskMessageArmyAdviser."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendCheckDailyKillTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #193                // class com/reign/gcld/task/message/TaskMessageCheckDailyKill
+       8: dup
+       9: iload_0
+      10: invokespecial #195                // Method com/reign/gcld/task/message/TaskMessageCheckDailyKill."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendOfficerAffairTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #197                // class com/reign/gcld/task/message/TaskMessageOfficerAffair
+       8: dup
+       9: iload_0
+      10: invokespecial #199                // Method com/reign/gcld/task/message/TaskMessageOfficerAffair."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendOfficerHarvestTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #201                // class com/reign/gcld/task/message/TaskMessageOfficerHarvest
+       8: dup
+       9: iload_0
+      10: invokespecial #203                // Method com/reign/gcld/task/message/TaskMessageOfficerHarvest."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendMarketBuyTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #205                // class com/reign/gcld/task/message/TaskMessageMarketBuy
+       8: dup
+       9: iload_0
+      10: invokespecial #207                // Method com/reign/gcld/task/message/TaskMessageMarketBuy."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendWorldMineIronOwnTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #209                // class com/reign/gcld/task/message/TaskMessageWorldMineIronOwn
+       8: dup
+       9: iload_0
+      10: invokespecial #211                // Method com/reign/gcld/task/message/TaskMessageWorldMineIronOwn."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendCheckCountryListTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #213                // class com/reign/gcld/task/message/TaskMessageCheckCountryList
+       8: dup
+       9: iload_0
+      10: invokespecial #215                // Method com/reign/gcld/task/message/TaskMessageCheckCountryList."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendTradeTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #217                // class com/reign/gcld/task/message/TaskMessageTrade
+       8: dup
+       9: iload_0
+      10: invokespecial #219                // Method com/reign/gcld/task/message/TaskMessageTrade."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendWorldMineJadeOwnTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #205                // class com/reign/gcld/task/message/TaskMessageMarketBuy
+       8: dup
+       9: iload_0
+      10: invokespecial #207                // Method com/reign/gcld/task/message/TaskMessageMarketBuy."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendTreasureVisitMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #222                // class com/reign/gcld/task/message/TaskMessageTreasureVisit
+       8: dup
+       9: iload_0
+      10: invokespecial #224                // Method com/reign/gcld/task/message/TaskMessageTreasureVisit."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendDinnerMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #226                // class com/reign/gcld/task/message/TaskMessageDinner
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #228                // Method com/reign/gcld/task/message/TaskMessageDinner."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendArmsWeaponOnMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #231                // class com/reign/gcld/task/message/TaskMessageArmsWeaponOn
+       8: dup
+       9: iload_0
+      10: invokespecial #233                // Method com/reign/gcld/task/message/TaskMessageArmsWeaponOn."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendWorldMineIronVisitMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #235                // class com/reign/gcld/task/message/TaskMessageWorldMineIronVisit
+       8: dup
+       9: iload_0
+      10: invokespecial #237                // Method com/reign/gcld/task/message/TaskMessageWorldMineIronVisit."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendWorldMineJadeVisitMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #239                // class com/reign/gcld/task/message/TaskMessageWorldMineJadeVisit
+       8: dup
+       9: iload_0
+      10: invokespecial #241                // Method com/reign/gcld/task/message/TaskMessageWorldMineJadeVisit."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendBlackMarketBuyMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #243                // class com/reign/gcld/task/message/TaskMessageBlackMarketBuy
+       8: dup
+       9: iload_0
+      10: invokespecial #245                // Method com/reign/gcld/task/message/TaskMessageBlackMarketBuy."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendFireGeneralMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #247                // class com/reign/gcld/task/message/TaskMessageFireGeneral
+       8: dup
+       9: iload_0
+      10: invokespecial #249                // Method com/reign/gcld/task/message/TaskMessageFireGeneral."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendGetSalaryMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #251                // class com/reign/gcld/task/message/TaskMessageGetSalary
+       8: dup
+       9: iload_0
+      10: invokespecial #253                // Method com/reign/gcld/task/message/TaskMessageGetSalary."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendOfficialMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #255                // class com/reign/gcld/task/message/TaskMessageOfficial
+       8: dup
+       9: iload_0
+      10: invokespecial #257                // Method com/reign/gcld/task/message/TaskMessageOfficial."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendChangeNameMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #259                // class com/reign/gcld/task/message/TaskMessageChangeName
+       8: dup
+       9: iload_0
+      10: invokespecial #261                // Method com/reign/gcld/task/message/TaskMessageChangeName."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendAutoBattleMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #263                // class com/reign/gcld/task/message/TaskMessageOneAutoArmies
+       8: dup
+       9: iload_0
+      10: invokespecial #265                // Method com/reign/gcld/task/message/TaskMessageOneAutoArmies."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendNationalRankBattleMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #267                // class com/reign/gcld/task/message/TaskMessageOneNationalRankBattle
+       8: dup
+       9: iload_0
+      10: invokespecial #269                // Method com/reign/gcld/task/message/TaskMessageOneNationalRankBattle."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendNationalRankBattleWinMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #271                // class com/reign/gcld/task/message/TaskMessageOneNationalRankBattleWin
+       8: dup
+       9: iload_0
+      10: invokespecial #273                // Method com/reign/gcld/task/message/TaskMessageOneNationalRankBattleWin."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendBonusBattleWinMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #275                // class com/reign/gcld/task/message/TaskMessageBonusBattle
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #277                // Method com/reign/gcld/task/message/TaskMessageBonusBattle."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendUseIncenseTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #280                // class com/reign/gcld/task/message/TaskMessageUseIncense
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #282                // Method com/reign/gcld/task/message/TaskMessageUseIncense."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendSellEquipTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #285                // class com/reign/gcld/task/message/TaskMessageSellEquip
+       8: dup
+       9: iload_0
+      10: invokespecial #287                // Method com/reign/gcld/task/message/TaskMessageSellEquip."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendResourceTotalTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #289                // class com/reign/gcld/task/message/TaskMessageResourceTotal
+       8: dup
+       9: iload_0
+      10: invokespecial #291                // Method com/reign/gcld/task/message/TaskMessageResourceTotal."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendTechInjectTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #293                // class com/reign/gcld/task/message/TaskMessageTechInject
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #295                // Method com/reign/gcld/task/message/TaskMessageTechInject."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendTechResearchTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #298                // class com/reign/gcld/task/message/TaskMessageTechResearch
+       8: dup
+       9: iload_0
+      10: invokespecial #300                // Method com/reign/gcld/task/message/TaskMessageTechResearch."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendTechResearchBeginTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #302                // class com/reign/gcld/task/message/TaskMessageTechResearchBegin
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #304                // Method com/reign/gcld/task/message/TaskMessageTechResearchBegin."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendTechResearchDoneTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #306                // class com/reign/gcld/task/message/TaskMessageTechResearchDone
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #308                // Method com/reign/gcld/task/message/TaskMessageTechResearchDone."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendItemCollectTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #310                // class com/reign/gcld/task/message/TaskMessageCollect
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #312                // Method com/reign/gcld/task/message/TaskMessageCollect."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendWorldMistWinTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #315                // class com/reign/gcld/task/message/TaskMessageWorldMistWin
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #317                // Method com/reign/gcld/task/message/TaskMessageWorldMistWin."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendChooseGeneralTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #320                // class com/reign/gcld/task/message/TaskMessageChooseGeneral
+       8: dup
+       9: iload_0
+      10: invokespecial #322                // Method com/reign/gcld/task/message/TaskMessageChooseGeneral."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendWorldTreasureGetTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #324                // class com/reign/gcld/task/message/TaskMessageWorldTreasure
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #326                // Method com/reign/gcld/task/message/TaskMessageWorldTreasure."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendWorldTreasureByTypeGetTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #329                // class com/reign/gcld/task/message/TaskMessageWorldTreasureByType
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #331                // Method com/reign/gcld/task/message/TaskMessageWorldTreasureByType."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendUseFreeConsTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #333                // class com/reign/gcld/task/message/TaskMessageUseFreeCons
+       8: dup
+       9: iload_0
+      10: invokespecial #335                // Method com/reign/gcld/task/message/TaskMessageUseFreeCons."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendQuenchingTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #337                // class com/reign/gcld/store/service/TaskQuenchingMessage
+       8: dup
+       9: iload_0
+      10: invokespecial #339                // Method com/reign/gcld/store/service/TaskQuenchingMessage."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendOpenWeaponTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #341                // class com/reign/gcld/task/message/TaskMessageArmesWeapon
+       8: dup
+       9: iload_0
+      10: invokespecial #343                // Method com/reign/gcld/task/message/TaskMessageArmesWeapon."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendBlackMarketVisitTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #345                // class com/reign/gcld/task/message/TaskMessageBlackMarketVisit
+       8: dup
+       9: iload_0
+      10: invokespecial #347                // Method com/reign/gcld/task/message/TaskMessageBlackMarketVisit."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendKillBanditTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #349                // class com/reign/gcld/task/message/TaskMessageKillBandit
+       8: dup
+       9: iload_0
+      10: invokespecial #351                // Method com/reign/gcld/task/message/TaskMessageKillBandit."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendKillKidnapperTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #353                // class com/reign/gcld/task/message/TaskMessageKillKidnapper
+       8: dup
+       9: iload_0
+      10: invokespecial #355                // Method com/reign/gcld/task/message/TaskMessageKillKidnapper."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendOpenBluePrintTaskMessage(int, int);
+    descriptor: (II)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #357                // class com/reign/gcld/task/message/TaskMessageOpenBluePrint
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: invokespecial #359                // Method com/reign/gcld/task/message/TaskMessageOpenBluePrint."<init>":(II)V
+      14: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      19: return
+
+  public static void sendKillNumMessage(int, int, int);
+    descriptor: (III)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #361                // class com/reign/gcld/task/message/TaskMessageKillNum
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: iload_2
+      12: invokespecial #363                // Method com/reign/gcld/task/message/TaskMessageKillNum."<init>":(III)V
+      15: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      20: return
+
+  public static void sendWeaponMakeDoneTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #367                // class com/reign/gcld/task/message/TaskMessageWeaponMakeDone
+       8: dup
+       9: iload_0
+      10: invokespecial #369                // Method com/reign/gcld/task/message/TaskMessageWeaponMakeDone."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendTimesUpTaskMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #371                // class com/reign/gcld/task/message/TaskMessageTimesUp
+       8: dup
+       9: iload_0
+      10: invokespecial #373                // Method com/reign/gcld/task/message/TaskMessageTimesUp."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+
+  public static void sendRecuitGeneralMessage(int, int, int);
+    descriptor: (III)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #375                // class com/reign/gcld/task/message/TaskMessageRecuitGeneral
+       8: dup
+       9: iload_0
+      10: iload_1
+      11: iload_2
+      12: invokespecial #377                // Method com/reign/gcld/task/message/TaskMessageRecuitGeneral."<init>":(III)V
+      15: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      20: return
+
+  public static void sendBuildedLimboMessage(int);
+    descriptor: (I)V
+    Code:
+       0: ldc           #16                 // class com/reign/gcld/task/message/TaskMessage
+       2: invokestatic  #18                 // Method com/reign/gcld/common/message/HandlerManager.getHandler:(Ljava/lang/Class;)Lcom/reign/gcld/common/message/Handler;
+       5: new           #381                // class com/reign/gcld/task/message/TaskMessageBuildedLimbo
+       8: dup
+       9: iload_0
+      10: invokespecial #383                // Method com/reign/gcld/task/message/TaskMessageBuildedLimbo."<init>":(I)V
+      13: invokeinterface #28,  2           // InterfaceMethod com/reign/gcld/common/message/Handler.handler:(Lcom/reign/gcld/common/message/Message;)V
+      18: return
+}

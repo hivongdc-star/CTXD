@@ -1,0 +1,3 @@
+BEGIN;
+ALTER TABLE nation_scheduled_tasks ADD COLUMN IF NOT EXISTS balance_before SMALLINT NOT NULL DEFAULT 0;
+COMMIT;

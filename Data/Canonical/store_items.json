@@ -1,0 +1,866 @@
+[
+  {
+    "id": 1,
+    "itemId": 1010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 2,
+    "itemId": 1020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 3,
+    "itemId": 1030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 4,
+    "itemId": 1040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 5,
+    "itemId": 1041,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 6,
+    "itemId": 1050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 7,
+    "itemId": 1051,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 8,
+    "itemId": 1052,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 9,
+    "itemId": 1060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 10,
+    "itemId": 1061,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 11,
+    "itemId": 1062,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 12,
+    "itemId": 1063,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 13,
+    "itemId": 2010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 14,
+    "itemId": 2020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 15,
+    "itemId": 2030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 16,
+    "itemId": 2040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 17,
+    "itemId": 2041,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 18,
+    "itemId": 2050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 19,
+    "itemId": 2051,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 20,
+    "itemId": 2052,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 21,
+    "itemId": 2060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 22,
+    "itemId": 2061,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 23,
+    "itemId": 2062,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 24,
+    "itemId": 2063,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 25,
+    "itemId": 3010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 26,
+    "itemId": 3020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 27,
+    "itemId": 3030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 28,
+    "itemId": 3040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 29,
+    "itemId": 3041,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 30,
+    "itemId": 3050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 31,
+    "itemId": 3051,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 32,
+    "itemId": 3052,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 33,
+    "itemId": 3060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 34,
+    "itemId": 3061,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 35,
+    "itemId": 3062,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 36,
+    "itemId": 3063,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 37,
+    "itemId": 4010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 38,
+    "itemId": 4020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 39,
+    "itemId": 4030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 40,
+    "itemId": 4040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 41,
+    "itemId": 4041,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 42,
+    "itemId": 4050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 43,
+    "itemId": 4051,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 44,
+    "itemId": 4052,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 45,
+    "itemId": 4060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 46,
+    "itemId": 4061,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 47,
+    "itemId": 4062,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 48,
+    "itemId": 4063,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 49,
+    "itemId": 5010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 50,
+    "itemId": 5020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 51,
+    "itemId": 5030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 52,
+    "itemId": 5040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 53,
+    "itemId": 5041,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 54,
+    "itemId": 5050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 55,
+    "itemId": 5051,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 56,
+    "itemId": 5052,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 57,
+    "itemId": 5060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 58,
+    "itemId": 5061,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 59,
+    "itemId": 5062,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 60,
+    "itemId": 5063,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 61,
+    "itemId": 6010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 62,
+    "itemId": 6020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 63,
+    "itemId": 6030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 64,
+    "itemId": 6040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 65,
+    "itemId": 6041,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 66,
+    "itemId": 6050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 67,
+    "itemId": 6051,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 68,
+    "itemId": 6052,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 69,
+    "itemId": 6060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 70,
+    "itemId": 6061,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 71,
+    "itemId": 6062,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 72,
+    "itemId": 6063,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 73,
+    "itemId": 7010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 74,
+    "itemId": 7020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 75,
+    "itemId": 7030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 76,
+    "itemId": 7040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 77,
+    "itemId": 7050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 78,
+    "itemId": 7060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 80,
+    "itemId": 8010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 81,
+    "itemId": 8020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 82,
+    "itemId": 8030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 83,
+    "itemId": 8040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 84,
+    "itemId": 8050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 85,
+    "itemId": 8060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 87,
+    "itemId": 9010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 88,
+    "itemId": 9020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 89,
+    "itemId": 9030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 90,
+    "itemId": 9040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 91,
+    "itemId": 9050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 92,
+    "itemId": 9060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 94,
+    "itemId": 10010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 95,
+    "itemId": 10020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 96,
+    "itemId": 10030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 97,
+    "itemId": 10040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 98,
+    "itemId": 10050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 99,
+    "itemId": 10060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 101,
+    "itemId": 11010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 102,
+    "itemId": 11020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 103,
+    "itemId": 11030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 104,
+    "itemId": 11040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 105,
+    "itemId": 11050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 106,
+    "itemId": 11060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 108,
+    "itemId": 12010,
+    "copper": 1500,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 109,
+    "itemId": 12020,
+    "copper": 2000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 110,
+    "itemId": 12030,
+    "copper": 3000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 111,
+    "itemId": 12040,
+    "copper": 5000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 112,
+    "itemId": 12050,
+    "copper": 10000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  },
+  {
+    "id": 113,
+    "itemId": 12060,
+    "copper": 20000,
+    "gold": 99999,
+    "goldProbability": 0.0,
+    "minRefreshTime": 0
+  }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "iron_prob":  "0",
+        "q_list":  "5,4,4,3,2,2",
+        "max_lv":  "70",
+        "degree":  "1",
+        "min_lv":  "0"
+    },
+    {
+        "iron_prob":  "0.2",
+        "q_list":  "5,4,4,3,2,2",
+        "max_lv":  "100",
+        "degree":  "2",
+        "min_lv":  "71"
+    },
+    {
+        "iron_prob":  "0.2",
+        "q_list":  "5,4,4,3,2,2",
+        "max_lv":  "200",
+        "degree":  "3",
+        "min_lv":  "101"
+    },
+    {
+        "iron_prob":  "0.2",
+        "q_list":  "5,4,4,3,2,2",
+        "max_lv":  "300",
+        "degree":  "4",
+        "min_lv":  "201"
+    }
+]

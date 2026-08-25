@@ -1,0 +1,95 @@
+# =========================
+# .NET / Visual Studio
+# =========================
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# =========================
+# Unity generated folders
+# =========================
+Client/Unity/Library/
+Client/Unity/Temp/
+Client/Unity/Logs/
+Client/Unity/UserSettings/
+Client/Unity/obj/
+Client/Unity/Build/
+Client/Unity/Builds/
+Client/Unity/MemoryCaptures/
+Client/Unity/Recordings/
+
+# Unity crash / generated
+Client/Unity/sysinfo.txt
+
+# IMPORTANT:
+# Do NOT ignore *.meta
+# Unity .meta files must be committed.
+
+# =========================
+# IDE
+# =========================
+.idea/
+.vscode/
+*.code-workspace
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Logs / temp
+# =========================
+*.log
+*.tmp
+*.temp
+*.cache
+
+# =========================
+# Local secrets / env
+# =========================
+.env
+.env.*
+!.env.example
+appsettings.Local.json
+appsettings.*.local.json
+
+# =========================
+# Runtime databases / dumps
+# =========================
+*.bak
+*.dump
+*.sql.gz
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+# Archives / handoff packages
+# =========================
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+
+# =========================
+# Node/npm if any tooling uses it
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Misc generated
+# =========================
+TestResults/
+coverage/
+artifacts/

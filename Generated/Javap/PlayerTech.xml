@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reign.gcld.tech.domain.PlayerTech"> 
+<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+<!-- ##generate by template begin## -->  
+    <resultMap id="PlayerTechResultMap" type="PlayerTech">
+        <id column="V_ID" property="vId" />
+        <result column="PLAYER_ID" property="playerId" />
+        <result column="TECH_ID" property="techId" />
+        <result column="NUM" property="num" />
+        <result column="CD" property="cd" />
+        <result column="STATUS" property="status" />
+        <result column="JOB_ID" property="jobId" />
+        <result column="IS_NEW" property="isNew" />
+        <result column="KEY_ID" property="keyId" />
+        <result column="FINISH_NEW" property="finishNew" />  
+    </resultMap>
+    
+    <select id="read" parameterType="int" resultMap="PlayerTechResultMap">
+        SELECT * FROM PLAYER_TECH WHERE V_ID = #{id}
+    </select>
+    
+    <select id="readForUpdate" parameterType="int" resultMap="PlayerTechResultMap">
+        SELECT * FROM PLAYER_TECH WHERE V_ID = #{id} FOR UPDATE
+    </select>
+    
+    <select id="getModels" resultMap="PlayerTechResultMap">
+        SELECT * FROM PLAYER_TECH
+    </select>
+    
+    <select id="getModelSize" resultType="int">
+        SELECT COUNT(1) FROM PLAYER_TECH
+    </select>
+    
+    <insert id="create" parameterType="PlayerTech" flushCache="true">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="vId">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        INSERT INTO PLAYER_TECH(
+           V_ID,
+           PLAYER_ID,
+           TECH_ID,
+           NUM,
+           CD,
+           STATUS,
+           JOB_ID,
+           IS_NEW,
+           KEY_ID,
+           FINISH_NEW
+        ) VALUES (
+           #{ vId },
+           #{ playerId },
+           #{ techId },
+           #{ num },
+           #{ cd },
+           #{ status },
+           #{ jobId },
+           #{ isNew },
+           #{ keyId },
+           #{ finishNew }
+        )
+    </insert>
+    
+    <delete id="deleteById" parameterType="int" flushCache="true">
+        DELETE FROM PLAYER_TECH WHERE V_ID = #{id}
+    </delete>
+<!-- ##generate by template end## --> 
+
+	<resultMap id="PlayerIdResultMap" type="int">
+        <id column="PLAYER_ID" property="playerId" />
+    </resultMap>
+    
+	<select id="getPlayerTechList" parameterType="int" resultMap="PlayerTechResultMap">
+		<![CDATA[ 
+			SELECT * FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId}
+		]]>
+	</select> 
+	
+	<select id="getPlayerTech" resultMap="PlayerTechResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND TECH_ID = #{techId}
+		]]>	
+	</select>
+	
+	<select id="getTechListByLimit" resultMap="PlayerTechResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} ORDER BY V_ID DESC LIMIT #{offset}, #{num}
+		]]>	
+	</select>
+	
+	<update id="setNumAndStatus" flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_TECH SET NUM = #{num}, STATUS = #{status} WHERE V_ID = #{vId}
+		]]>	
+	</update>
+	
+	<update id="setNum" flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_TECH SET NUM = #{num} WHERE V_ID = #{vId}
+		]]>	
+	</update>
+	
+	<update id="setCd" flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_TECH SET CD = #{cd}, STATUS = #{status}, JOB_ID = #{jobId} WHERE V_ID = #{vId}
+		]]>	
+	</update>
+	
+	<select id="getSizeByPlayerId" resultType="int">
+		<![CDATA[
+			SELECT COUNT(1) FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId}
+		]]>	
+	</select>
+	
+	<select id="getByPlayerIdAndKey" resultMap="PlayerTechResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND KEY_ID = #{techKey}
+		]]>	
+	</select>
+	
+	<select id="getTechIdByVId" resultType="int">
+		<![CDATA[
+			SELECT TECH_ID FROM PLAYER_TECH WHERE V_ID = #{vId}
+		]]>	
+	</select>
+	
+	<select id="getListByTechKey" resultMap="PlayerTechResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_TECH WHERE KEY_ID = #{techKey}
+		]]>	
+	</select>
+	
+	<select id="getByTechKeys" resultMap="PlayerTechResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND KEY_ID IN (#{techKey1}, #{techKey2}, #{techKey3}) AND STATUS = #{status}
+		]]>	
+	</select>
+	
+	<select id="getByTechKeys2" resultMap="PlayerTechResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND KEY_ID IN (#{techKey1}, #{techKey2}) AND STATUS = #{status}
+		]]>	
+	</select>
+	
+	<select id="getByTechKey1" resultMap="PlayerTechResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND KEY_ID = #{techKey} AND STATUS = #{status}
+		]]>	
+	</select>
+	
+	<select id="getByTechKeyList" resultMap="PlayerTechResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND KEY_ID IN (#{keyList})
+		]]>	
+	</select>
+	
+	<update id="setStatusAndIsNew" flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_TECH SET STATUS = #{status}, IS_NEW = #{isNew} WHERE PLAYER_ID = #{playerId} AND TECH_ID = #{techId} AND STATUS = 0
+		]]>	
+	</update>
+	
+	<update id="setIsNewAndFinishNew" flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_TECH SET IS_NEW = #{isNew}, FINISH_NEW = #{finishNew} WHERE V_ID = #{vId}
+		]]>	
+	</update>
+	
+	<delete id="deleteByPlayerIdAndKey" flushCache="true">
+        DELETE FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND KEY_ID = #{key} AND STATUS = #{status}
+    </delete>
+    
+    <update id="setStatus" flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_TECH SET STATUS = #{status} WHERE V_ID = #{vId}
+		]]>	
+	</update>
+	
+	<select id="getListByPlayerIdAndStatus" resultMap="PlayerTechResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND STATUS = #{status}
+		]]>	
+	</select>
+	
+	<delete id="deleteByPlayerIdAndStatus" flushCache="true">
+        DELETE FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND STATUS = #{status}
+    </delete>
+	
+	<select id="getNumDisPlayButton" parameterType="int" resultType="int">
+		<![CDATA[
+			SELECT COUNT(1) FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND STATUS IN (1, 2, 3)
+		]]>	
+	</select>
+	
+	<update id="techAll" flushCache="true">
+		<![CDATA[
+			UPDATE PLAYER_TECH SET STATUS = 5 WHERE PLAYER_ID = #{playerId}
+		]]>	
+	</update>
+	
+	<select id="getAllTechByKey" resultMap="PlayerTechResultMap">
+		<![CDATA[
+			SELECT * FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND KEY_ID = #{techKey}
+		]]>	
+	</select>
+	
+	<select id="getPlayerIdListByKey" parameterType="int" resultMap="PlayerIdResultMap">
+		<![CDATA[
+			SELECT PLAYER_ID FROM PLAYER_TECH WHERE  KEY_ID = #{techKey} AND STATUS = 5
+		]]>	
+	</select>
+	
+	<select id="getEffectSizeByTechKey" resultType="int">
+	<![CDATA[
+		SELECT COUNT(1) FROM PLAYER_TECH WHERE PLAYER_ID = #{playerId} AND KEY_ID = #{techKey} AND STATUS = 5
+	]]>	
+	</select>
+	
+	<select id="getPlayerIdListByFirstWorldDramaKey" parameterType="int" resultMap="PlayerIdResultMap">
+		SELECT DISTINCT PLAYER_ID FROM PLAYER_TECH WHERE STATUS = 5 AND TECH_ID IN
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	
+</mapper>

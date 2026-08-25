@@ -1,0 +1,12 @@
+BEGIN;
+CREATE TABLE IF NOT EXISTS player_online_gifts(
+ player_id BIGINT PRIMARY KEY REFERENCES players(id) ON DELETE CASCADE,
+ remaining SMALLINT NOT NULL DEFAULT 8,available SMALLINT NOT NULL DEFAULT 1,
+ accrued_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE TABLE IF NOT EXISTS player_online_gift_claims(
+ player_id BIGINT NOT NULL REFERENCES players(id) ON DELETE CASCADE,request_key TEXT NOT NULL,
+ reward_id INTEGER NOT NULL,food INTEGER NOT NULL,claimed_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+ PRIMARY KEY(player_id,request_key)
+);
+COMMIT;

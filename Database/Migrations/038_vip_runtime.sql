@@ -1,0 +1,4 @@
+BEGIN;
+CREATE TABLE IF NOT EXISTS player_vip_runtime(player_id BIGINT PRIMARY KEY REFERENCES players(id) ON DELETE CASCADE,vip_status TEXT NOT NULL DEFAULT '1#00#00#10#00#00#0#0#0#0#0',remaining_times TEXT NOT NULL DEFAULT '',updated_at TIMESTAMPTZ NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS player_vip_claims(player_id BIGINT NOT NULL REFERENCES players(id) ON DELETE CASCADE,vip_level INTEGER NOT NULL,sequence INTEGER NOT NULL,reward_key TEXT NOT NULL,created_at TIMESTAMPTZ NOT NULL DEFAULT now(),PRIMARY KEY(player_id,vip_level,sequence));
+COMMIT;

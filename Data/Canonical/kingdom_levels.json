@@ -1,0 +1,79 @@
+[
+    {
+        "reward_iron":  "0",
+        "exp_per_task":  "1",
+        "barbarain_lv":  "1",
+        "exp_upgrade":  "10",
+        "lv":  "1",
+        "reward_mbl":  "0",
+        "reward_chief_exp":  "4000",
+        "reward":  "",
+        "ef_lv":  "1"
+    },
+    {
+        "reward_iron":  "0",
+        "exp_per_task":  "1",
+        "barbarain_lv":  "2",
+        "exp_upgrade":  "20",
+        "lv":  "2",
+        "reward_mbl":  "0",
+        "reward_chief_exp":  "8000",
+        "reward":  "",
+        "ef_lv":  "2"
+    },
+    {
+        "reward_iron":  "0",
+        "exp_per_task":  "1",
+        "barbarain_lv":  "3",
+        "exp_upgrade":  "50",
+        "lv":  "3",
+        "reward_mbl":  "0",
+        "reward_chief_exp":  "12000",
+        "reward":  "",
+        "ef_lv":  "3"
+    },
+    {
+        "reward_iron":  "4000",
+        "exp_per_task":  "1",
+        "barbarain_lv":  "4",
+        "exp_upgrade":  "200",
+        "lv":  "4",
+        "reward_mbl":  "0",
+        "reward_chief_exp":  "16000",
+        "reward":  "",
+        "ef_lv":  "4"
+    },
+    {
+        "reward_iron":  "5000",
+        "exp_per_task":  "1",
+        "barbarain_lv":  "5",
+        "exp_upgrade":  "400",
+        "lv":  "5",
+        "reward_mbl":  "0",
+        "reward_chief_exp":  "20000",
+        "reward":  "",
+        "ef_lv":  "5"
+    },
+    {
+        "reward_iron":  "6000",
+        "exp_per_task":  "1",
+        "barbarain_lv":  "6",
+        "exp_upgrade":  "800",
+        "lv":  "6",
+        "reward_mbl":  "0",
+        "reward_chief_exp":  "40000",
+        "reward":  "",
+        "ef_lv":  "6"
+    },
+    {
+        "reward_iron":  "8000",
+        "exp_per_task":  "1",
+        "barbarain_lv":  "7",
+        "exp_upgrade":  "0",
+        "lv":  "7",
+        "reward_mbl":  "0",
+        "reward_chief_exp":  "60000",
+        "reward":  "",
+        "ef_lv":  "7"
+    }
+]

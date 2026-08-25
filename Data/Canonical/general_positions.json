@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "type": 1,
+    "openLevel": 38,
+    "openTips": "Sau đó Mở ra",
+    "openIntro": "Chưa Mở ra"
+  },
+  {
+    "id": 2,
+    "type": 1,
+    "openLevel": 99999,
+    "openTips": "16 cấp Mở ra",
+    "openIntro": "Chưa Mở ra"
+  },
+  {
+    "id": 3,
+    "type": 1,
+    "openLevel": 99999,
+    "openTips": "Khoa học kỹ thuật trung Mở ra",
+    "openIntro": "Chưa Mở ra"
+  },
+  {
+    "id": 4,
+    "type": 1,
+    "openLevel": 99999,
+    "openTips": "Khoa học kỹ thuật trung Mở ra",
+    "openIntro": "Chưa Mở ra"
+  },
+  {
+    "id": 5,
+    "type": 1,
+    "openLevel": 99999,
+    "openTips": "Khoa học kỹ thuật trung Mở ra",
+    "openIntro": "Chưa Mở ra"
+  },
+  {
+    "id": 6,
+    "type": 2,
+    "openLevel": 10,
+    "openTips": "Sau đó Mở ra",
+    "openIntro": "Chưa Mở ra"
+  },
+  {
+    "id": 7,
+    "type": 2,
+    "openLevel": 16,
+    "openTips": "16 cấp Đánh bại Hoa Hùng, Mở ra",
+    "openIntro": "Chưa Mở ra"
+  },
+  {
+    "id": 8,
+    "type": 2,
+    "openLevel": 99999,
+    "openTips": "Hoàn thành khoa học kỹ thuật: Thống soái lực 1, Mở ra",
+    "openIntro": "Chưa Mở ra"
+  },
+  {
+    "id": 9,
+    "type": 2,
+    "openLevel": 99999,
+    "openTips": "Hoàn thành khoa học kỹ thuật: Thống soái lực 2, Mở ra",
+    "openIntro": "Chưa Mở ra"
+  },
+  {
+    "id": 10,
+    "type": 2,
+    "openLevel": 99999,
+    "openTips": "Hoàn thành khoa học kỹ thuật: Thống soái lực 3, Mở ra",
+    "openIntro": "Chưa Mở ra"
+  }
+]

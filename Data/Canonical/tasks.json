@@ -1,0 +1,8749 @@
+[
+  {
+    "id": 1,
+    "name": "Hoan Nghênh",
+    "nextTaskId": 2,
+    "area": 1,
+    "target": {
+      "kind": "chose_side",
+      "args": [],
+      "raw": "chose_side"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          1
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          25
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          25
+        ]
+      }
+    ],
+    "introLong": "Hoan nghênh lai đáo công thành lược",
+    "introShort": "hoan nghênh đón đến <br>công thành chiếm đất",
+    "plot": "20"
+  },
+  {
+    "id": 2,
+    "name": "An Cư Nhạc Nghiệp 1",
+    "nextTaskId": 3,
+    "area": 1,
+    "target": {
+      "kind": "building",
+      "args": [
+        1,
+        2
+      ],
+      "raw": "building,1,2"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          30
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          250
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          250
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp dân cư 1 đẳng cấp đạt đáo 2cấp",
+    "introShort": "thăng cấp dân cư 1 <br>cấp bậc đạt tới 2cấp",
+    "plot": ""
+  },
+  {
+    "id": 3,
+    "name": "An Cư Nhạc Nghiệp 2",
+    "nextTaskId": 4,
+    "area": 1,
+    "target": {
+      "kind": "building",
+      "args": [
+        1,
+        3
+      ],
+      "raw": "building,1,3"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          10
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          53
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          30
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          250
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          250
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp dân cư 1 đẳng cấp đạt đáo 3cấp",
+    "introShort": "thăng cấp dân cư 1 <br>cấp bậc đạt tới 3cấp",
+    "plot": ""
+  },
+  {
+    "id": 4,
+    "name": "An Cư Nhạc Nghiệp 3",
+    "nextTaskId": 8,
+    "area": 1,
+    "target": {
+      "kind": "building",
+      "args": [
+        2,
+        2
+      ],
+      "raw": "building,2,2"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          30
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp dân cư 2 đẳng cấp đạt đáo 2cấp",
+    "introShort": "thăng cấp <font color=\"#00ff00\"><a href=\"event:1\"><u>dân cư 2 </u></a></font><br>cấp bậc đạt tới 2cấp",
+    "plot": ""
+  },
+  {
+    "id": 5,
+    "name": "Cứu Xuất Tiểu Thiến",
+    "nextTaskId": 7,
+    "area": 1,
+    "target": {
+      "kind": "kill_kidnapper",
+      "args": [],
+      "raw": "kill_kidnapper"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          21
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          56
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          30
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          750
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          750
+        ]
+      }
+    ],
+    "introLong": "Đánh bại mã tặc cứu xuất tiểu thiến",
+    "introShort": "Đánh bại mã tặc <br>cứu ra tiểu thiến",
+    "plot": ""
+  },
+  {
+    "id": 7,
+    "name": "An Cư Nhạc Nghiệp 4",
+    "nextTaskId": 11,
+    "area": 1,
+    "target": {
+      "kind": "building",
+      "args": [
+        9,
+        3
+      ],
+      "raw": "building,9,3"
+    },
+    "reward": [
+      {
+        "kind": "new_construction",
+        "args": []
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          10
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          4
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          5
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          16
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          100
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          100
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp khách sạn 2 đẳng cấp đạt đáo 3cấp",
+    "introShort": "thăng cấp <font color=\"#00ff00\"><a href=\"event:1\"><u>khách sạn 2 </u></a></font><br>cấp bậc đạt tới 3cấp",
+    "plot": ""
+  },
+  {
+    "id": 8,
+    "name": "Tôn Tính Đại Danh",
+    "nextTaskId": 5,
+    "area": 1,
+    "target": {
+      "kind": "change_name",
+      "args": [],
+      "raw": "change_name"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          15
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          42
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          8
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          9
+        ]
+      },
+      {
+        "kind": "auto_construction_stop",
+        "args": []
+      },
+      {
+        "kind": "construction_complete",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          6
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          1000
+        ]
+      }
+    ],
+    "introLong": "Lưu hạ đại danh sang kiến giác sắc",
+    "introShort": "lưu lại đại danh <br>sáng tạo nhân vật",
+    "plot": "1100"
+  },
+  {
+    "id": 11,
+    "name": "Kinh Tế Phát Triển",
+    "nextTaskId": 12,
+    "area": 1,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        1,
+        600
+      ],
+      "raw": "building_output,1,600"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          4
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          5
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          17
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          18
+        ]
+      },
+      {
+        "kind": "auto_construction_stop",
+        "args": []
+      },
+      {
+        "kind": "construction_complete",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          6
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          250
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          250
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp dân cư kiến trúc ngân tệ sản lượng đạt 600",
+    "introShort": "thăng cấp dân cư kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>tiền bạc sản lượng </u></a></font>đạt 600",
+    "plot": ""
+  },
+  {
+    "id": 12,
+    "name": "Tiêu Diệt Thổ Phỉ",
+    "nextTaskId": 13,
+    "area": 0,
+    "target": {
+      "kind": "kill_bandit",
+      "args": [],
+      "raw": "kill_bandit"
+    },
+    "reward": [
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Đánh bại bàn cứ mộc tràng đích thổ phỉ",
+    "introShort": "Đánh bại chiếm cứ mộc tràng <br> thổ phỉ",
+    "plot": ""
+  },
+  {
+    "id": 13,
+    "name": "Phạt Mộc Tạo Lâm 1",
+    "nextTaskId": 14,
+    "area": 2,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        2,
+        60
+      ],
+      "raw": "building_output,2,60"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          24
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          25
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          12
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          200
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp mộc tràng kiến trúc mộc tài sản lượng đạt 60",
+    "introShort": "thăng cấp mộc tràng kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>bó củi sản lượng </u></a></font>đạt 60",
+    "plot": ""
+  },
+  {
+    "id": 14,
+    "name": "Phạt Mộc Tạo Lâm 2",
+    "nextTaskId": 15,
+    "area": 2,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        2,
+        260
+      ],
+      "raw": "building_output,2,260"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          16
+        ]
+      },
+      {
+        "kind": "new_incense",
+        "args": [
+          1
+        ]
+      },
+      {
+        "kind": "new_incense",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          12
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          300
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          300
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          300
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp mộc tràng kiến trúc mộc tài sản lượng đạt 260",
+    "introShort": "thăng cấp mộc tràng kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>bó củi sản lượng </u></a></font>đạt 260",
+    "plot": ""
+  },
+  {
+    "id": 15,
+    "name": "Mộc Tài Tế Tự",
+    "nextTaskId": 16,
+    "area": 0,
+    "target": {
+      "kind": "use_incense",
+      "args": [
+        2,
+        2
+      ],
+      "raw": "use_incense,2,2"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          19
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          12
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          300
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          300
+        ]
+      }
+    ],
+    "introLong": "Tiến hành mộc tài tế tự lưỡng thứ",
+    "introShort": "tiến hành hai lần <br><font color=\"#00ff00\"><a href=\"event:1\"><u>bó củi hiến tế </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 16,
+    "name": "Phạt Mộc Tạo Lâm 3",
+    "nextTaskId": 17,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        2,
+        400
+      ],
+      "raw": "building_output,2,400"
+    },
+    "reward": [
+      {
+        "kind": "new_construction",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          12
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          300
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          400
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          400
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp mộc tràng kiến trúc mộc tài sản lượng đạt 400",
+    "introShort": "thăng cấp mộc tràng kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>bó củi sản lượng </u></a></font>đạt 400",
+    "plot": ""
+  },
+  {
+    "id": 17,
+    "name": "Phạt Mộc Tạo Lâm 4",
+    "nextTaskId": 18,
+    "area": 2,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        2,
+        600
+      ],
+      "raw": "building_output,2,600"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          21
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          26
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          32
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          12
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          400
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          200
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp mộc tràng kiến trúc mộc tài sản lượng đạt 600",
+    "introShort": "thăng cấp mộc tràng kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>bó củi sản lượng </u></a></font>đạt 600",
+    "plot": ""
+  },
+  {
+    "id": 18,
+    "name": "Phạt Mộc Tạo Lâm 5",
+    "nextTaskId": 19,
+    "area": 2,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        2,
+        950
+      ],
+      "raw": "building_output,2,950"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          9
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          25
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp mộc tràng kiến trúc mộc tài sản lượng đạt 950",
+    "introShort": "thăng cấp mộc tràng kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>bó củi sản lượng </u></a></font>đạt 950",
+    "plot": ""
+  },
+  {
+    "id": 19,
+    "name": "Hổ Lao Quan",
+    "nextTaskId": 20,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        1
+      ],
+      "raw": "get_power,1"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          65
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          1000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập phó bản hổ lao quan chi chiến",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>phó bản </u></a></font><br>hổ lao quan chi chiến",
+    "plot": ""
+  },
+  {
+    "id": 20,
+    "name": "Đánh bại Lý Túc",
+    "nextTaskId": 21,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        1
+      ],
+      "raw": "battle_win,1"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          67
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          1000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lý túc",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>lý túc </u></a></font><br>(Yêu cầu cấp bậc 10)",
+    "plot": "620"
+  },
+  {
+    "id": 21,
+    "name": "Đánh bại Quách Tỷ",
+    "nextTaskId": 22,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        2
+      ],
+      "raw": "battle_win,2"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          11
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          18
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          1200
+        ]
+      }
+    ],
+    "introLong": "Đánh bại quách tỷ",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>quách tỷ </u></a></font><br>(Yêu cầu cấp bậc 11)",
+    "plot": ""
+  },
+  {
+    "id": 22,
+    "name": "Ngân Tệ Tế Tự",
+    "nextTaskId": 23,
+    "area": 0,
+    "target": {
+      "kind": "use_incense",
+      "args": [
+        1,
+        2
+      ],
+      "raw": "use_incense,1,2"
+    },
+    "reward": [
+      {
+        "kind": "refresh_store_equip",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          1000
+        ]
+      }
+    ],
+    "introLong": "Tiến hành lưỡng thứ ngân tệ tế tự",
+    "introShort": "tiến hành hai lần <br><font color=\"#00ff00\"><a href=\"event:1\"><u>tiền bạc hiến tế </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 23,
+    "name": "Trang Bị Cấu Mãi",
+    "nextTaskId": 24,
+    "area": 0,
+    "target": {
+      "kind": "and",
+      "args": [
+        "0;equip",
+        1,
+        1,
+        0,
+        "1;equip",
+        3,
+        1,
+        0,
+        "1;equip",
+        5,
+        1,
+        0,
+        1
+      ],
+      "raw": "and,0;equip,1,1,0,1;equip,3,1,0,1;equip,5,1,0,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập thương điếm cấu mãi vũ khí ,khải giáp ,binh phù",
+    "introShort": "Tiến vào cửa hàng mua <br><font color=\"#00ff00\"><a href=\"event:1\"><u>vũ khí ,áo giáp ,binh phù </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 24,
+    "name": "Xuyên Thượng Trang Bị",
+    "nextTaskId": 26,
+    "area": 0,
+    "target": {
+      "kind": "and",
+      "args": [
+        "0;equip_on",
+        1,
+        1,
+        0,
+        "1;equip_on",
+        3,
+        1,
+        0,
+        "1;equip_on",
+        5,
+        1,
+        0,
+        1
+      ],
+      "raw": "and,0;equip_on,1,1,0,1;equip_on,3,1,0,1;equip_on,5,1,0,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Võ Tướng trang bị vũ khí ,khải giáp ,binh phù",
+    "introShort": "võ tướng <font color=\"#00ff00\"><a href=\"event:1\"><u>trang bị </u></a></font><br>vũ khí ,áo giáp ,binh phù",
+    "plot": ""
+  },
+  {
+    "id": 25,
+    "name": "Võ Tướng Chinh Binh",
+    "nextTaskId": 26,
+    "area": 0,
+    "target": {
+      "kind": "or",
+      "args": [
+        "0;recruit_forces;full_blood"
+      ],
+      "raw": "or,0;recruit_forces;full_blood"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập Võ Tướng giới diện tiến hành mộ binh",
+    "introShort": "Tiến vào võ tướng mặt biên <br>tiến hành <font color=\"#00ff00\"><a href=\"event:1\"><u>mộ binh </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 26,
+    "name": "Chinh Mộ Tráng Đinh",
+    "nextTaskId": 27,
+    "area": 0,
+    "target": {
+      "kind": "or",
+      "args": [
+        "0;full_blood;battle_win",
+        3
+      ],
+      "raw": "or,0;full_blood;battle_win,3"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Chiêu mộ sĩ binh tịnh bổ mãn kiến nghị sử dụng mộ binh lệnh",
+    "introShort": "Chiêu mộ binh lính cũng bổ mãn <br>đề nghị sử dụng <font color=\"#00ff00\"><a href=\"event:1\"><u>Mộ Binh Lệnh </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 27,
+    "name": "Đánh bại Trương Tế",
+    "nextTaskId": 28,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        3
+      ],
+      "raw": "battle_win,3"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          6
+        ]
+      },
+      {
+        "kind": "auto_construction_stop",
+        "args": []
+      },
+      {
+        "kind": "construction_complete",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      },
+      {
+        "kind": "lumber",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trương tế",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trương tế </u></a></font><br>(Yêu cầu cấp bậc 12)",
+    "plot": ""
+  },
+  {
+    "id": 28,
+    "name": "Thị Sát Nông Nghiệp",
+    "nextTaskId": 29,
+    "area": 0,
+    "target": {
+      "kind": "visit",
+      "args": [
+        3
+      ],
+      "raw": "visit,3"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          33
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          34
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          40
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          41
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          800
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập nông điền",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>đồng ruộng </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 29,
+    "name": "Ngũ Cốc Phong Đăng 2",
+    "nextTaskId": 30,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        3,
+        300
+      ],
+      "raw": "building_output,3,300"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          35
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          36
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          42
+        ]
+      },
+      {
+        "kind": "free_Construction",
+        "args": [
+          5
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          100
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          1000
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp nông điền kiến trúc lương thực sản lượng đạt 300",
+    "introShort": "thăng cấp đồng ruộng kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>lương thực sản lượng </u></a></font>đạt 300",
+    "plot": ""
+  },
+  {
+    "id": 30,
+    "name": "Ngũ Cốc Phong Đăng 4",
+    "nextTaskId": 31,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        3,
+        600
+      ],
+      "raw": "building_output,3,600"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          48
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          37
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          1200
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp nông điền kiến trúc lương thực sản lượng đạt 600",
+    "introShort": "thăng cấp đồng ruộng kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>lương thực sản lượng </u></a></font>đạt 600",
+    "plot": ""
+  },
+  {
+    "id": 31,
+    "name": "Ngũ Cốc Phong Đăng 5",
+    "nextTaskId": 32,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        3,
+        900
+      ],
+      "raw": "building_output,3,900"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          101
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          1500
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp nông điền kiến trúc lương thực sản lượng đạt 900",
+    "introShort": "thăng cấp đồng ruộng kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>lương thực sản lượng </u></a></font>đạt 900",
+    "plot": ""
+  },
+  {
+    "id": 32,
+    "name": "Đánh bại Từ Vinh",
+    "nextTaskId": 33,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        4
+      ],
+      "raw": "battle_win,4"
+    },
+    "reward": [
+      {
+        "kind": "refresh_store_equip",
+        "args": []
+      },
+      {
+        "kind": "new_incense",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại từ vinh tiểu thí thân thủ",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>từ vinh </u></a></font><br>tiểu thí thân thủ <br>(Yêu cầu cấp bậc 13)",
+    "plot": ""
+  },
+  {
+    "id": 33,
+    "name": "Trang Bị Cấu Mãi",
+    "nextTaskId": 34,
+    "area": 0,
+    "target": {
+      "kind": "and",
+      "args": [
+        "0;equip",
+        2,
+        1,
+        0,
+        "1;equip",
+        4,
+        1,
+        0,
+        "1;equip",
+        6,
+        1,
+        0,
+        1
+      ],
+      "raw": "and,0;equip,2,1,0,1;equip,4,1,0,1;equip,6,1,0,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập thương điếm cấu mãi chiến mã ,phi phong ,quân kỳ",
+    "introShort": "Tiến vào cửa hàng mua <br><font color=\"#00ff00\"><a href=\"event:1\"><u>chiến mã ,áo choàng ,quân kỳ </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 34,
+    "name": "Xuyên Thượng Trang Bị",
+    "nextTaskId": 35,
+    "area": 0,
+    "target": {
+      "kind": "and",
+      "args": [
+        "0;equip_on",
+        2,
+        1,
+        0,
+        "1;equip_on",
+        4,
+        1,
+        0,
+        "1;equip_on",
+        6,
+        1,
+        0,
+        1
+      ],
+      "raw": "and,0;equip_on,2,1,0,1;equip_on,4,1,0,1;equip_on,6,1,0,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Võ Tướng trang bị chiến mã ，phi phong hòa quân kỳ",
+    "introShort": "võ tướng <font color=\"#00ff00\"><a href=\"event:1\"><u>trang bị </u></a></font><br>chiến mã ,áo choàng ,quân kỳ",
+    "plot": ""
+  },
+  {
+    "id": 35,
+    "name": "Chinh Mộ Tráng Đinh",
+    "nextTaskId": 36,
+    "area": 0,
+    "target": {
+      "kind": "or",
+      "args": [
+        "0;full_blood;battle_win",
+        5
+      ],
+      "raw": "or,0;full_blood;battle_win,5"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Chiêu mộ sĩ binh tịnh bổ mãn kiến nghị sử dụng mộ binh lệnh",
+    "introShort": "Chiêu mộ binh lính cũng bổ mãn <br>đề nghị sử dụng <font color=\"#00ff00\"><a href=\"event:1\"><u>Mộ Binh Lệnh </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 36,
+    "name": "Đánh bại Dương Phụng",
+    "nextTaskId": 37,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        5
+      ],
+      "raw": "battle_win,5"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại dương phụng",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>dương phụng </u></a></font><br>(Yêu cầu cấp bậc 14)",
+    "plot": ""
+  },
+  {
+    "id": 37,
+    "name": "Chinh Mộ Tráng Đinh",
+    "nextTaskId": 38,
+    "area": 0,
+    "target": {
+      "kind": "or",
+      "args": [
+        "0;full_blood;battle_win",
+        6
+      ],
+      "raw": "or,0;full_blood;battle_win,6"
+    },
+    "reward": [
+      {
+        "kind": "auto_construction_stop",
+        "args": []
+      },
+      {
+        "kind": "construction_complete",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Chiêu mộ sĩ binh tịnh bổ mãn kiến nghị sử dụng mộ binh lệnh",
+    "introShort": "Chiêu mộ binh lính cũng bổ mãn <br>đề nghị sử dụng <font color=\"#00ff00\"><a href=\"event:1\"><u>Mộ Binh Lệnh </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 38,
+    "name": "Đánh bại Lý Nho",
+    "nextTaskId": 39,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        6
+      ],
+      "raw": "battle_win,6"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          8
+        ]
+      },
+      {
+        "kind": "auto_construction_stop",
+        "args": []
+      },
+      {
+        "kind": "construction_complete",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lý nho",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>lý nho </u></a></font><br>(Yêu cầu cấp bậc 15)",
+    "plot": ""
+  },
+  {
+    "id": 39,
+    "name": "Tiến Nhập Binh Doanh",
+    "nextTaskId": 40,
+    "area": 0,
+    "target": {
+      "kind": "visit",
+      "args": [
+        5
+      ],
+      "raw": "visit,5"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          65
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          73
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          69
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          30
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập binh doanh",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>binh doanh </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 40,
+    "name": "Chiêu Binh Mãi Mã",
+    "nextTaskId": 41,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        5,
+        42000
+      ],
+      "raw": "building_output,5,42000"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          66
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          74
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          70
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          30
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Đề cao mộ binh tốc độ đạt đáo 700",
+    "introShort": "đề cao <font color=\"#00ff00\"><a href=\"event:1\"><u>mộ binh tốc độ </u></a></font><br>đạt tới 700",
+    "plot": ""
+  },
+  {
+    "id": 41,
+    "name": "Chiêu Binh Mãi Mã",
+    "nextTaskId": 42,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        5,
+        46000
+      ],
+      "raw": "building_output,5,46000"
+    },
+    "reward": [
+      {
+        "kind": "new_construction",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          40
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Đề cao mộ binh tốc độ đạt đáo 766",
+    "introShort": "đề cao <font color=\"#00ff00\"><a href=\"event:1\"><u>mộ binh tốc độ </u></a></font><br>đạt tới 766",
+    "plot": ""
+  },
+  {
+    "id": 42,
+    "name": "Chiêu Binh Mãi Mã",
+    "nextTaskId": 43,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        5,
+        50000
+      ],
+      "raw": "building_output,5,50000"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          67
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          75
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          71
+        ]
+      },
+      {
+        "kind": "free_Construction",
+        "args": [
+          10
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          40
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Đề cao mộ binh tốc độ đạt đáo 833",
+    "introShort": "đề cao <font color=\"#00ff00\"><a href=\"event:1\"><u>mộ binh tốc độ </u></a></font><br>đạt tới 833",
+    "plot": ""
+  },
+  {
+    "id": 43,
+    "name": "Chiêu Binh Mãi Mã",
+    "nextTaskId": 44,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        5,
+        54000
+      ],
+      "raw": "building_output,5,54000"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          68
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          76
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          72
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Đề cao mộ binh tốc độ đạt đáo 900",
+    "introShort": "đề cao <font color=\"#00ff00\"><a href=\"event:1\"><u>mộ binh tốc độ </u></a></font><br>đạt tới 900",
+    "plot": ""
+  },
+  {
+    "id": 44,
+    "name": "Chiêu Binh Mãi Mã",
+    "nextTaskId": 45,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        5,
+        58500
+      ],
+      "raw": "building_output,5,58500"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          102
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Đề cao mộ binh tốc độ đạt đáo 975",
+    "introShort": "đề cao <font color=\"#00ff00\"><a href=\"event:1\"><u>mộ binh tốc độ </u></a></font><br>đạt tới 975",
+    "plot": ""
+  },
+  {
+    "id": 45,
+    "name": "Đánh bại Hoa Hùng",
+    "nextTaskId": 46,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        7
+      ],
+      "raw": "battle_win,7"
+    },
+    "reward": [
+      {
+        "kind": "refresh_store_equip",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          280
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hoa hùng",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hoa hùng </u></a></font><br>(Yêu cầu cấp bậc 16)",
+    "plot": "330"
+  },
+  {
+    "id": 46,
+    "name": "Trang Bị Cấu Mãi",
+    "nextTaskId": 47,
+    "area": 0,
+    "target": {
+      "kind": "and",
+      "args": [
+        "0;equip",
+        1,
+        1,
+        0,
+        "2;equip",
+        2,
+        1,
+        0,
+        "2;equip",
+        3,
+        1,
+        0,
+        "2;equip",
+        4,
+        1,
+        0,
+        "2;equip",
+        5,
+        1,
+        0,
+        "2;equip",
+        6,
+        1,
+        0,
+        2
+      ],
+      "raw": "and,0;equip,1,1,0,2;equip,2,1,0,2;equip,3,1,0,2;equip,4,1,0,2;equip,5,1,0,2;equip,6,1,0,2"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Thương điếm cấu mãi 1 sáo trang bị",
+    "introShort": "cửa hàng mua <br>một bộ <font color=\"#00ff00\"><a href=\"event:1\"><u>trang bị </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 47,
+    "name": "Xuyên Thượng Trang Bị",
+    "nextTaskId": 48,
+    "area": 0,
+    "target": {
+      "kind": "and",
+      "args": [
+        "0;equip_on",
+        1,
+        1,
+        0,
+        "2;equip_on",
+        2,
+        1,
+        0,
+        "2;equip_on",
+        3,
+        1,
+        0,
+        "2;equip_on",
+        4,
+        1,
+        0,
+        "2;equip_on",
+        5,
+        1,
+        0,
+        "2;equip_on",
+        6,
+        1,
+        0,
+        2
+      ],
+      "raw": "and,0;equip_on,1,1,0,2;equip_on,2,1,0,2;equip_on,3,1,0,2;equip_on,4,1,0,2;equip_on,5,1,0,2;equip_on,6,1,0,2"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          27
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Võ Tướng xuyên thượng trang bị cương tài cấu mãi đích 1 sáo",
+    "introShort": "võ tướng <font color=\"#00ff00\"><a href=\"event:1\"><u>mặc vào trang bị </u></a></font><br>vừa rồi mua  một bộ",
+    "plot": ""
+  },
+  {
+    "id": 48,
+    "name": "Thám Phóng Chợ",
+    "nextTaskId": 50,
+    "area": 0,
+    "target": {
+      "kind": "market_buy",
+      "args": [
+        2
+      ],
+      "raw": "market_buy,2"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Thám phóng Chợ cấu mãi lưỡng kiện thương phẩm",
+    "introShort": "dò hỏi <font color=\"#00ff00\"><a href=\"event:1\"><u>chợ </u></a></font><br>mua hai kiện thương phẩm",
+    "plot": ""
+  },
+  {
+    "id": 49,
+    "name": "Thăng Cấp Hoa Hùng",
+    "nextTaskId": 51,
+    "area": 0,
+    "target": {
+      "kind": "general_min_lv",
+      "args": [
+        5
+      ],
+      "raw": "general_min_lv,5"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Hoa hùng công kích phó bản thăng cấp đáo 5cấp",
+    "introShort": "hoa hùng <font color=\"#00ff00\"><a href=\"event:1\"><u>công kích phó bản </u></a></font><br>thăng cấp đến 5cấp",
+    "plot": ""
+  },
+  {
+    "id": 50,
+    "name": "Đánh bại Phiền Trù",
+    "nextTaskId": 51,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        8
+      ],
+      "raw": "battle_win,8"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          4000
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại phiền trù",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>phiền trù </u></a></font><br>(Yêu cầu cấp bậc 17)",
+    "plot": "630"
+  },
+  {
+    "id": 51,
+    "name": "Thưởng Đoạt Xích Thỏ",
+    "nextTaskId": 52,
+    "area": 0,
+    "target": {
+      "kind": "collect",
+      "args": [
+        203,
+        1
+      ],
+      "raw": "collect,203,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          1500
+        ]
+      }
+    ],
+    "introLong": "Tái thứ công đả phiền trù ，thưởng đoạt xích thỏ mã",
+    "introShort": "lại tấn công <font color=\"#00ff00\"><a href=\"event:1\"><u>phiền trù </u></a></font><br>cướp đoạt xích thỏ mã",
+    "plot": ""
+  },
+  {
+    "id": 52,
+    "name": "Đánh bại Đổng Trác",
+    "nextTaskId": 53,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        9
+      ],
+      "raw": "battle_win,9"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          103
+        ]
+      },
+      {
+        "kind": "recruit_token",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          300
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          6000
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại đổng trác",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>đổng trác </u></a></font><br>(Yêu cầu cấp bậc 18)",
+    "plot": ""
+  },
+  {
+    "id": 53,
+    "name": "Thu Tập Tuyến Tác",
+    "nextTaskId": 54,
+    "area": 0,
+    "target": {
+      "kind": "collect",
+      "args": [
+        201,
+        3
+      ],
+      "raw": "collect,201,3"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          41
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          105
+        ]
+      },
+      {
+        "kind": "recruit_token",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          300
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          1000
+        ]
+      }
+    ],
+    "introLong": "Công kích đổng trác sưu tập lữ bố đích tuyến tác",
+    "introShort": "công kích đổng trác thu thập <br><font color=\"#00ff00\"><a href=\"event:1\"><u>lữ bố  manh mối </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 54,
+    "name": "1 Lãm Chủ Thành",
+    "nextTaskId": 55,
+    "area": 0,
+    "target": {
+      "kind": "visit",
+      "args": [
+        0
+      ],
+      "raw": "visit,0"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          22
+        ]
+      },
+      {
+        "kind": "new_event",
+        "args": [
+          1
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập chủ thành",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>chủ thành </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 55,
+    "name": "Xử Lý Chính Vụ",
+    "nextTaskId": 56,
+    "area": 0,
+    "target": {
+      "kind": "event_daily",
+      "args": [],
+      "raw": "event_daily"
+    },
+    "reward": [
+      {
+        "kind": "new_event",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiền vãng dân cư xử lý chính vụ",
+    "introShort": "đi trước <font color=\"#00ff00\"><a href=\"event:1\"><u>dân cư </u></a></font><br>xử lý chính vụ",
+    "plot": ""
+  },
+  {
+    "id": 56,
+    "name": "Xử Lý Chính Vụ",
+    "nextTaskId": 57,
+    "area": 0,
+    "target": {
+      "kind": "event_daily",
+      "args": [],
+      "raw": "event_daily"
+    },
+    "reward": [
+      {
+        "kind": "new_event",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiền vãng mộc tràng xử lý chính vụ",
+    "introShort": "đi trước <font color=\"#00ff00\"><a href=\"event:1\"><u>mộc tràng </u></a></font><br>xử lý chính vụ",
+    "plot": ""
+  },
+  {
+    "id": 57,
+    "name": "Xử Lý Chính Vụ",
+    "nextTaskId": 58,
+    "area": 0,
+    "target": {
+      "kind": "event_daily",
+      "args": [],
+      "raw": "event_daily"
+    },
+    "reward": [
+      {
+        "kind": "store_lock_on",
+        "args": [
+          1020
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiền vãng nông điền xử lý chính vụ",
+    "introShort": "đi trước <font color=\"#00ff00\"><a href=\"event:1\"><u>đồng ruộng </u></a></font><br>xử lý chính vụ",
+    "plot": ""
+  },
+  {
+    "id": 58,
+    "name": "Trang Bị Xoát Tân",
+    "nextTaskId": 59,
+    "area": 0,
+    "target": {
+      "kind": "or",
+      "args": [
+        "0;store_refresh;equip",
+        1,
+        2,
+        0,
+        1
+      ],
+      "raw": "or,0;store_refresh;equip,1,2,0,1"
+    },
+    "reward": [
+      {
+        "kind": "refresh_store",
+        "args": []
+      },
+      {
+        "kind": "store_lock_off",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập thương điếm xoát tân",
+    "introShort": "Tiến vào cửa hàng <font color=\"#00ff00\"><a href=\"event:1\"><u>nảy sinh cái mới </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 59,
+    "name": "Trang Bị Cấu Mãi",
+    "nextTaskId": 60,
+    "area": 0,
+    "target": {
+      "kind": "and",
+      "args": [
+        "0;equip",
+        1,
+        2,
+        0,
+        1
+      ],
+      "raw": "and,0;equip,1,2,0,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Cấu mãi 1 bả lam sắc vũ khí",
+    "introShort": "mua một phen <br><font color=\"#00ff00\"><a href=\"event:1\"><u>màu lam vũ khí </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 60,
+    "name": "Xuyên Thượng Trang Bị",
+    "nextTaskId": 61,
+    "area": 0,
+    "target": {
+      "kind": "and",
+      "args": [
+        "0;equip_on",
+        1,
+        2,
+        0,
+        1
+      ],
+      "raw": "and,0;equip_on,1,2,0,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Hoa hùng xuyên thượng lam sắc vũ khí",
+    "introShort": "<font color=\"#00ff00\"><a href=\"event:1\"><u>hoa hùng </u></a></font>mặc vào <br>màu lam vũ khí",
+    "plot": ""
+  },
+  {
+    "id": 61,
+    "name": "Mại Xuất Trang Bị",
+    "nextTaskId": 62,
+    "area": 0,
+    "target": {
+      "kind": "sell_equip",
+      "args": [],
+      "raw": "sell_equip"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tra khán thương khố mại xuất 1 kiện trang bị",
+    "introShort": "xem xét kho hàng <br><font color=\"#00ff00\"><a href=\"event:1\"><u>bán ra </u></a></font>1 kiện trang bị",
+    "plot": ""
+  },
+  {
+    "id": 62,
+    "name": "Hạ Bi Chi Chiến",
+    "nextTaskId": 63,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        2
+      ],
+      "raw": "get_power,2"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          1000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập hạ bi",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>hạ bi </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 63,
+    "name": "Đánh bại Tống Hiến",
+    "nextTaskId": 64,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        11
+      ],
+      "raw": "battle_win,11"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          19
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          201
+        ]
+      },
+      {
+        "kind": "recruit_token",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tống hiến",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tống hiến </u></a></font><br>(Yêu cầu cấp bậc 20)",
+    "plot": ""
+  },
+  {
+    "id": 64,
+    "name": "Nghiên Cứu Khoa Kỹ 1",
+    "nextTaskId": 65,
+    "area": 0,
+    "target": {
+      "kind": "tech_inject",
+      "args": [
+        201,
+        1
+      ],
+      "raw": "tech_inject,201,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Chú tư nhật lý vạn cơ",
+    "introShort": "xem xét khoa học kỹ thuật <br><font color=\"#00ff00\"><a href=\"event:1\"><u>chú tư </u></a></font>nhật lí vạn ky",
+    "plot": ""
+  },
+  {
+    "id": 65,
+    "name": "Nghiên Cứu Khoa Kỹ 2",
+    "nextTaskId": 66,
+    "area": 0,
+    "target": {
+      "kind": "tech_research_done",
+      "args": [
+        201
+      ],
+      "raw": "tech_research_done,201"
+    },
+    "reward": [
+      {
+        "kind": "new_event",
+        "args": [
+          1
+        ]
+      },
+      {
+        "kind": "new_event",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "new_event",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "new_event",
+        "args": [
+          5
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Nghiên cứu thành công nhật lý vạn cơ",
+    "introShort": "<font color=\"#00ff00\"><a href=\"event:1\"><u>nghiên cứu thành công </u></a></font>nhật lí vạn ky",
+    "plot": ""
+  },
+  {
+    "id": 66,
+    "name": "Xử Lý Chính Vụ",
+    "nextTaskId": 67,
+    "area": 0,
+    "target": {
+      "kind": "event_daily",
+      "args": [],
+      "raw": "event_daily"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiền vãng nhâm ý tư nguyên khu xử lý chính vụ",
+    "introShort": "đi trước ý tài nguyên khu <br>xử lý chính vụ",
+    "plot": ""
+  },
+  {
+    "id": 67,
+    "name": "Đánh bại Chu Thương",
+    "nextTaskId": 68,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        12
+      ],
+      "raw": "battle_win,12"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          45
+        ]
+      },
+      {
+        "kind": "tavern_lock_on",
+        "args": [
+          239
+        ]
+      },
+      {
+        "kind": "recruit_token",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại chu thương",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>chu thương </u></a></font><br>(Yêu cầu cấp bậc 21)",
+    "plot": "440"
+  },
+  {
+    "id": 68,
+    "name": "Giải Cố Trương Lương",
+    "nextTaskId": 69,
+    "area": 0,
+    "target": {
+      "kind": "fire_general",
+      "args": [],
+      "raw": "fire_general"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Giải cố trương lương",
+    "introShort": "đuổi việc <font color=\"#00ff00\"><a href=\"event:1\"><u>trương lương </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 69,
+    "name": "Chiêu mộ Chu Thương",
+    "nextTaskId": 70,
+    "area": 0,
+    "target": {
+      "kind": "recruit_general",
+      "args": [
+        2,
+        239
+      ],
+      "raw": "recruit_general,2,239"
+    },
+    "reward": [
+      {
+        "kind": "tavern_lock_off",
+        "args": []
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          202
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Chiêu mộ chu thương",
+    "introShort": "Chiêu mộ <font color=\"#00ff00\"><a href=\"event:1\"><u>chu thương </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 70,
+    "name": "Đánh bại Hầu Thành",
+    "nextTaskId": 71,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        13
+      ],
+      "raw": "battle_win,13"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          203
+        ]
+      },
+      {
+        "kind": "recruit_token",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hầu thành",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hầu thành </u></a></font><br>(Yêu cầu cấp bậc 22)",
+    "plot": ""
+  },
+  {
+    "id": 71,
+    "name": "Nghiên Cứu Khoa Kỹ 3",
+    "nextTaskId": 72,
+    "area": 0,
+    "target": {
+      "kind": "tech_inject",
+      "args": [
+        202,
+        1
+      ],
+      "raw": "tech_inject,202,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Chú tư lịch luyện 1",
+    "introShort": "xem xét khoa học kỹ thuật <br><font color=\"#00ff00\"><a href=\"event:1\"><u>chú tư </u></a></font>lịch lãm 1",
+    "plot": ""
+  },
+  {
+    "id": 72,
+    "name": "Nghiên Cứu Khoa Kỹ 4",
+    "nextTaskId": 73,
+    "area": 0,
+    "target": {
+      "kind": "tech_research_begin",
+      "args": [
+        202
+      ],
+      "raw": "tech_research_begin,202"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Đa thứ chú tư lịch luyện 1tịnh nghiên cứu",
+    "introShort": "<font color=\"#00ff00\"><a href=\"event:1\"><u>nghiên cứu </u></a></font>lịch lãm 1<br>cần nhiều lần chú tư",
+    "plot": ""
+  },
+  {
+    "id": 73,
+    "name": "Đánh bại Ngụy Tục",
+    "nextTaskId": 74,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        14
+      ],
+      "raw": "battle_win,14"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          204
+        ]
+      },
+      {
+        "kind": "recruit_token",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          3000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại ngụy tục",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>ngụy tục </u></a></font><br>(Yêu cầu cấp bậc 23)",
+    "plot": ""
+  },
+  {
+    "id": 74,
+    "name": "Nghiên Cứu Khoa Kỹ 5",
+    "nextTaskId": 75,
+    "area": 0,
+    "target": {
+      "kind": "tech_inject",
+      "args": [
+        203,
+        1
+      ],
+      "raw": "tech_inject,203,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Chú tư binh chủng thăng cấp 1",
+    "introShort": "xem xét khoa học kỹ thuật <br><font color=\"#00ff00\"><a href=\"event:1\"><u>chú tư </u></a></font>binh chủng thăng cấp 1",
+    "plot": ""
+  },
+  {
+    "id": 75,
+    "name": "Nghiên Cứu Khoa Kỹ 6",
+    "nextTaskId": 76,
+    "area": 0,
+    "target": {
+      "kind": "tech_research_begin",
+      "args": [
+        203
+      ],
+      "raw": "tech_research_begin,203"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Nghiên cứu binh chủng thăng cấp 1",
+    "introShort": "<font color=\"#00ff00\"><a href=\"event:1\"><u>nghiên cứu </u></a></font>binh chủng thăng cấp 1",
+    "plot": ""
+  },
+  {
+    "id": 76,
+    "name": "Đánh bại Lý Nho",
+    "nextTaskId": 77,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        15
+      ],
+      "raw": "battle_win,15"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          205
+        ]
+      },
+      {
+        "kind": "recruit_token",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          3000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lý nho",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>lý nho </u></a></font><br>(Yêu cầu cấp bậc 24)",
+    "plot": ""
+  },
+  {
+    "id": 77,
+    "name": "Đánh bại Cao Thuận",
+    "nextTaskId": 78,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        16
+      ],
+      "raw": "battle_win,16"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          14
+        ]
+      },
+      {
+        "kind": "recruit_token",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Đánh bại cao thuận",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>cao thuận </u></a></font><br>(Yêu cầu cấp bậc 25)",
+    "plot": ""
+  },
+  {
+    "id": 78,
+    "name": "Tiến Nhập Hoàng Thành",
+    "nextTaskId": 79,
+    "area": 0,
+    "target": {
+      "kind": "halls_visit",
+      "args": [],
+      "raw": "halls_visit"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập quan chức tràng cảnh",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>chức quan cảnh tượng </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 79,
+    "name": "Công Kích Hữu Thành",
+    "nextTaskId": 80,
+    "area": 0,
+    "target": {
+      "kind": "official",
+      "args": [
+        12
+      ],
+      "raw": "official,12"
+    },
+    "reward": [
+      {
+        "kind": "recruit_token",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Công kích hữu thành",
+    "introShort": "công kích <font color=\"#00ff00\"><a href=\"event:1\"><u>hữu thành </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 80,
+    "name": "Lĩnh Thủ Bổng Lộc",
+    "nextTaskId": 81,
+    "area": 0,
+    "target": {
+      "kind": "get_salary",
+      "args": [],
+      "raw": "get_salary"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          206
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Lĩnh thủ bổng lộc",
+    "introShort": "lĩnh <font color=\"#00ff00\"><a href=\"event:1\"><u>bổng lộc </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 81,
+    "name": "Đánh bại Trương Liêu",
+    "nextTaskId": 82,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        17
+      ],
+      "raw": "battle_win,17"
+    },
+    "reward": [
+      {
+        "kind": "tavern_lock_on",
+        "args": [
+          209
+        ]
+      },
+      {
+        "kind": "recruit_token",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trương liêu",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trương liêu </u></a></font><br>(Yêu cầu cấp bậc 26)",
+    "plot": "600"
+  },
+  {
+    "id": 82,
+    "name": "Giải Cố Hoa Hùng",
+    "nextTaskId": 83,
+    "area": 0,
+    "target": {
+      "kind": "fire_general",
+      "args": [],
+      "raw": "fire_general"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Giải cố hoa hùng",
+    "introShort": "đuổi việc <font color=\"#00ff00\"><a href=\"event:1\"><u>hoa hùng </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 83,
+    "name": "Chiêu mộ Trương Liêu",
+    "nextTaskId": 84,
+    "area": 0,
+    "target": {
+      "kind": "recruit_general",
+      "args": [
+        2,
+        209
+      ],
+      "raw": "recruit_general,2,209"
+    },
+    "reward": [
+      {
+        "kind": "tavern_lock_off",
+        "args": []
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          207
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Chiêu mộ trương liêu",
+    "introShort": "Chiêu mộ <font color=\"#00ff00\"><a href=\"event:1\"><u>trương liêu </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 84,
+    "name": "Đánh bại Tang Bá",
+    "nextTaskId": 85,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        18
+      ],
+      "raw": "battle_win,18"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          208
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          4000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tang bá",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tang bá </u></a></font><br>(Yêu cầu cấp bậc 27)",
+    "plot": ""
+  },
+  {
+    "id": 85,
+    "name": "Nghiên Cứu Khoa Kỹ",
+    "nextTaskId": 86,
+    "area": 0,
+    "target": {
+      "kind": "tech_inject",
+      "args": [
+        205
+      ],
+      "raw": "tech_inject,205"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Chú tư điểm binh",
+    "introShort": "<font color=\"#00ff00\"><a href=\"event:1\"><u>chú tư </u></a></font>điểm binh",
+    "plot": ""
+  },
+  {
+    "id": 86,
+    "name": "Đánh bại Lữ Bố",
+    "nextTaskId": 87,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        19
+      ],
+      "raw": "battle_win,19"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          209
+        ]
+      },
+      {
+        "kind": "recruit_token",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lữ bố",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>lữ bố </u></a></font><br>(Yêu cầu cấp bậc 28)",
+    "plot": ""
+  },
+  {
+    "id": 87,
+    "name": "Tâm Phục Khẩu Phục",
+    "nextTaskId": 88,
+    "area": 0,
+    "target": {
+      "kind": "collect",
+      "args": [
+        202,
+        3
+      ],
+      "raw": "collect,202,3"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          38
+        ]
+      },
+      {
+        "kind": "store_lock_on",
+        "args": [
+          1030
+        ]
+      },
+      {
+        "kind": "recruit_token",
+        "args": [
+          5
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Công kích lữ bố hoạch đắc 3căn lữ bố đầu phát",
+    "introShort": "cắt lấy 3 lần <font color=\"#00ff00\"><a href=\"event:1\"><u>lữ bố tóc </u></a></font>,làm cho hắn tâm phục khẩu phục",
+    "plot": ""
+  },
+  {
+    "id": 88,
+    "name": "Thần Binh Lợi Khí",
+    "nextTaskId": 89,
+    "area": 0,
+    "target": {
+      "kind": "equip",
+      "args": [
+        1,
+        3,
+        1,
+        1
+      ],
+      "raw": "equip,1,3,1,1"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          10
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          53
+        ]
+      },
+      {
+        "kind": "store_lock_off",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Ủng có 1 bả lục sắc vũ khí",
+    "introShort": "có được một phen <br><font color=\"#00ff00\"><a href=\"event:1\"><u>lục sắc vũ khí </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 89,
+    "name": "Phóng Vấn Thế Giới",
+    "nextTaskId": 90,
+    "area": 0,
+    "target": {
+      "kind": "visit",
+      "args": [
+        6
+      ],
+      "raw": "visit,6"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          24
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiền vãng thế giới",
+    "introShort": "đi trước <font color=\"#00ff00\"><a href=\"event:1\"><u>thế giới </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 90,
+    "name": "Yết Khai Mê Vụ 1",
+    "nextTaskId": 91,
+    "area": 0,
+    "target": {
+      "kind": "world_maskNPC_win",
+      "args": [
+        1,
+        1
+      ],
+      "raw": "world_maskNPC_win,1,1"
+    },
+    "reward": [
+      {
+        "kind": "recruit_token",
+        "args": [
+          10
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Công kích 1 cá mê vụ NPC Hoàn thành nhiệm vụ",
+    "introShort": "Công kích một cái sương mù NPCHoàn thành nhiệm vụ",
+    "plot": ""
+  },
+  {
+    "id": 91,
+    "name": "Võ Tướng Di Động",
+    "nextTaskId": 10001,
+    "area": 0,
+    "target": {
+      "kind": "world_move",
+      "args": [
+        1
+      ],
+      "raw": "world_move,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tại thế giới thượng tiến hành 1 thứ di động",
+    "introShort": "ở thế giới thượng <br>tiến hành một lần di động",
+    "plot": ""
+  },
+  {
+    "id": 92,
+    "name": "Quan Độ Chi Chiến",
+    "nextTaskId": 93,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        3
+      ],
+      "raw": "get_power,3"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập quan độ",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>quan độ </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 93,
+    "name": "Đánh bại Quách Đồ",
+    "nextTaskId": 94,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        21
+      ],
+      "raw": "battle_win,21"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          4000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại quách đồ",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>quách đồ </u></a></font><br>(Yêu cầu cấp bậc 30)",
+    "plot": ""
+  },
+  {
+    "id": 94,
+    "name": "Nghiên Cứu Khoa Kỹ 7",
+    "nextTaskId": 95,
+    "area": 0,
+    "target": {
+      "kind": "tech_inject",
+      "args": [
+        302,
+        1
+      ],
+      "raw": "tech_inject,302,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          1000
+        ]
+      }
+    ],
+    "introLong": "Chú tư thống soái lực 1",
+    "introShort": "<font color=\"#00ff00\"><a href=\"event:1\"><u>chú tư </u></a></font>thống soái lực 1",
+    "plot": ""
+  },
+  {
+    "id": 95,
+    "name": "Đánh bại Nhan Lương",
+    "nextTaskId": 96,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        22
+      ],
+      "raw": "battle_win,22"
+    },
+    "reward": [
+      {
+        "kind": "tavern_lock_on",
+        "args": [
+          223
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại nhan lương",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>nhan lương </u></a></font><br>(Yêu cầu cấp bậc 31)",
+    "plot": ""
+  },
+  {
+    "id": 96,
+    "name": "Chiêu mộ Nhan Lương",
+    "nextTaskId": 97,
+    "area": 0,
+    "target": {
+      "kind": "recruit_general",
+      "args": [
+        2,
+        223
+      ],
+      "raw": "recruit_general,2,223"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          303
+        ]
+      },
+      {
+        "kind": "tavern_lock_off",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Chiêu mộ nhan lương",
+    "introShort": "Chiêu mộ <font color=\"#00ff00\"><a href=\"event:1\"><u>nhan lương </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 97,
+    "name": "Đánh bại Thuần Vu Quỳnh",
+    "nextTaskId": 98,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        23
+      ],
+      "raw": "battle_win,23"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          304
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          305
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          43
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại thuần vu quỳnh",
+    "introShort": "Đánh bại <br>tài thần <font color=\"#00ff00\"><a href=\"event:1\"><u>Thuần Vu quỳnh </u></a></font><br>(Yêu cầu cấp bậc 32)",
+    "plot": ""
+  },
+  {
+    "id": 98,
+    "name": "Hắc Thị Thám Phóng",
+    "nextTaskId": 99,
+    "area": 0,
+    "target": {
+      "kind": "black_market_visit",
+      "args": [],
+      "raw": "black_market_visit"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          1000
+        ]
+      }
+    ],
+    "introLong": "Đả khai hắc thị",
+    "introShort": "Mở ra <font color=\"#00ff00\"><a href=\"event:1\"><u>hắc thị </u></a></font>mặt bản <br>Hoàn thành nhiệm vụ",
+    "plot": ""
+  },
+  {
+    "id": 99,
+    "name": "Đánh bại Tự Thụ",
+    "nextTaskId": 100,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        24
+      ],
+      "raw": "battle_win,24"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          306
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          307
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          308
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tự thụ",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tự thụ </u></a></font><br>(Yêu cầu cấp bậc 33)",
+    "plot": ""
+  },
+  {
+    "id": 100,
+    "name": "Nghiên Cứu Khoa Kỹ 8",
+    "nextTaskId": 101,
+    "area": 0,
+    "target": {
+      "kind": "tech_inject",
+      "args": [
+        304,
+        1
+      ],
+      "raw": "tech_inject,304,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          1000
+        ]
+      }
+    ],
+    "introLong": "Chú tư cường tráng",
+    "introShort": "<font color=\"#00ff00\"><a href=\"event:1\"><u>chú tư </u></a></font>cường tráng",
+    "plot": ""
+  },
+  {
+    "id": 101,
+    "name": "Đánh bại Trương Cáp",
+    "nextTaskId": 102,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        25
+      ],
+      "raw": "battle_win,25"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          309
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          31
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          32
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trương cáp",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trương cáp </u></a></font><br>(Yêu cầu cấp bậc 34)",
+    "plot": ""
+  },
+  {
+    "id": 102,
+    "name": "Thế Giới Sát Địch",
+    "nextTaskId": 103,
+    "area": 0,
+    "target": {
+      "kind": "check_daily_kill",
+      "args": [],
+      "raw": "check_daily_kill"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          37
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Tra khán công huân bảng",
+    "introShort": "xem xét <font color=\"#00ff00\"><a href=\"event:1\"><u>công huân bảng </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 103,
+    "name": "Đánh bại Điền Phong",
+    "nextTaskId": 104,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        26
+      ],
+      "raw": "battle_win,26"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          310
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          311
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          312
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          6000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại điền phong",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>điền phong </u></a></font><br>(Yêu cầu cấp bậc 35)",
+    "plot": ""
+  },
+  {
+    "id": 104,
+    "name": "Đánh bại Hứa Du",
+    "nextTaskId": 105,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        27
+      ],
+      "raw": "battle_win,27"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          313
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          314
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          315
+        ]
+      },
+      {
+        "kind": "store_lock_on",
+        "args": [
+          1041
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          6000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hứa du",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hứa du </u></a></font><br>(Yêu cầu cấp bậc 36)",
+    "plot": ""
+  },
+  {
+    "id": 105,
+    "name": "Trang Bị Xoát Tân",
+    "nextTaskId": 106,
+    "area": 0,
+    "target": {
+      "kind": "or",
+      "args": [
+        "0;store_refresh"
+      ],
+      "raw": "or,0;store_refresh"
+    },
+    "reward": [
+      {
+        "kind": "refresh_store",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          20
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập thương điếm xoát tân",
+    "introShort": "Tiến vào cửa hàng <font color=\"#00ff00\"><a href=\"event:1\"><u>nảy sinh cái mới </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 106,
+    "name": "Thần Binh Lợi Khí",
+    "nextTaskId": 107,
+    "area": 0,
+    "target": {
+      "kind": "equip",
+      "args": [
+        1,
+        4,
+        1,
+        1
+      ],
+      "raw": "equip,1,4,1,1"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          51
+        ]
+      },
+      {
+        "kind": "store_lock_off",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Ủng có 1 bả hoàng sắc vũ khí",
+    "introShort": "có được một phen <br><font color=\"#00ff00\"><a href=\"event:1\"><u>màu vàng vũ khí </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 107,
+    "name": "Vũ Khí Tẩy Luyện",
+    "nextTaskId": 108,
+    "area": 0,
+    "target": {
+      "kind": "equip_skill_refresh",
+      "args": [],
+      "raw": "equip_skill_refresh"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          60
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          1000
+        ]
+      }
+    ],
+    "introLong": "Tiến hành 1 thứ vũ khí tẩy luyện",
+    "introShort": "tiến hành một lần <br><font color=\"#00ff00\"><a href=\"event:1\"><u>vũ khí mạch lạc </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 108,
+    "name": "Đánh bại Văn Sửu",
+    "nextTaskId": 109,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        28
+      ],
+      "raw": "battle_win,28"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          316
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại văn sửu",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>văn xấu </u></a></font><br>(Yêu cầu cấp bậc 37)",
+    "plot": ""
+  },
+  {
+    "id": 109,
+    "name": "Đánh bại Viên Thiệu",
+    "nextTaskId": 110,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        29
+      ],
+      "raw": "battle_win,29"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          1
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          44
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          55
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          317
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại viên thiệu",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>viên thiệu </u></a></font><br>(Yêu cầu cấp bậc 38)",
+    "plot": ""
+  },
+  {
+    "id": 110,
+    "name": "Tây Thục Đại Chiến",
+    "nextTaskId": 111,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        4
+      ],
+      "raw": "get_power,4"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập tây thục",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>tây thục </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 111,
+    "name": "Đánh bại Nghiêm Nhan",
+    "nextTaskId": 112,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        31
+      ],
+      "raw": "battle_win,31"
+    },
+    "reward": [
+      {
+        "kind": "tavern_lock_on",
+        "args": [
+          227
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại nghiêm nhan",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>nghiêm nhan </u></a></font><br>(Yêu cầu cấp bậc 40)",
+    "plot": ""
+  },
+  {
+    "id": 112,
+    "name": "Tửu Quán Thám Phóng 1",
+    "nextTaskId": 113,
+    "area": 0,
+    "target": {
+      "kind": "tavern_refresh",
+      "args": [],
+      "raw": "tavern_refresh"
+    },
+    "reward": [
+      {
+        "kind": "tavern_lock_off",
+        "args": []
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập tửu quán tiến hành xoát tân",
+    "introShort": "Tiến vào tửu quán <br>tiến hành <font color=\"#00ff00\"><a href=\"event:1\"><u>nảy sinh cái mới </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 113,
+    "name": "Nghiên Cứu Khoa Kỹ 9",
+    "nextTaskId": 114,
+    "area": 0,
+    "target": {
+      "kind": "tech_inject",
+      "args": [
+        401,
+        1
+      ],
+      "raw": "tech_inject,401,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Chú tư anh dũng",
+    "introShort": "<font color=\"#00ff00\"><a href=\"event:1\"><u>chú tư </u></a></font>anh dũng",
+    "plot": ""
+  },
+  {
+    "id": 114,
+    "name": "Khai Phát Không Bố Trang 2",
+    "nextTaskId": 115,
+    "area": 0,
+    "target": {
+      "kind": "open_blue_print",
+      "args": [
+        6
+      ],
+      "raw": "open_blue_print,6"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Khai phát không bố trang 2",
+    "introShort": "khai phá không <br><font color=\"#00ff00\"><a href=\"event:1\"><u>bố trang 2 </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 115,
+    "name": "Đánh bại Dương Tùng",
+    "nextTaskId": 116,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        32
+      ],
+      "raw": "battle_win,32"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          6000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại dương tùng",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>dương tùng </u></a></font><br>(Yêu cầu cấp bậc 41)",
+    "plot": ""
+  },
+  {
+    "id": 116,
+    "name": "Đả Tạo Kiến Trúc",
+    "nextTaskId": 117,
+    "area": 0,
+    "target": {
+      "kind": "building",
+      "args": [
+        6,
+        1
+      ],
+      "raw": "building,6,1"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          402
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập dân cư đả tạo bố trang 2",
+    "introShort": "Tiến vào dân cư <br>tạo ra <font color=\"#00ff00\"><a href=\"event:1\"><u>bố trang 2 </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 117,
+    "name": "Đánh bại Hoàng Quyền",
+    "nextTaskId": 118,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        33
+      ],
+      "raw": "battle_win,33"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          403
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          404
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          6000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hoàng quyền",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hoàng quyền </u></a></font><br>(Yêu cầu cấp bậc 42)",
+    "plot": ""
+  },
+  {
+    "id": 118,
+    "name": "Nghiên Cứu Khoa Kỹ",
+    "nextTaskId": 119,
+    "area": 0,
+    "target": {
+      "kind": "tech_inject",
+      "args": [
+        403,
+        1
+      ],
+      "raw": "tech_inject,403,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Chú tư binh chủng thăng cấp",
+    "introShort": "<font color=\"#00ff00\"><a href=\"event:1\"><u>chú tư </u></a></font>binh chủng thăng cấp",
+    "plot": ""
+  },
+  {
+    "id": 119,
+    "name": "Đánh bại Mã Đại",
+    "nextTaskId": 120,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        34
+      ],
+      "raw": "battle_win,34"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          405
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại mã đại",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>mã đại </u></a></font><br>(Yêu cầu cấp bậc 43)",
+    "plot": ""
+  },
+  {
+    "id": 120,
+    "name": "Đánh bại Pháp Chính",
+    "nextTaskId": 121,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        35
+      ],
+      "raw": "battle_win,35"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          6000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại pháp chính",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>pháp chính </u></a></font><br>(Yêu cầu cấp bậc 44)",
+    "plot": ""
+  },
+  {
+    "id": 121,
+    "name": "Đánh bại Trương Lỗ",
+    "nextTaskId": 122,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        36
+      ],
+      "raw": "battle_win,36"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          33
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          406
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          407
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          6000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trương lỗ",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trương lỗ </u></a></font><br>(Yêu cầu cấp bậc 45)",
+    "plot": ""
+  },
+  {
+    "id": 122,
+    "name": "Yến Thỉnh Võ Tướng 1",
+    "nextTaskId": 123,
+    "area": 0,
+    "target": {
+      "kind": "dinner",
+      "args": [],
+      "raw": "dinner"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Cử bạn yến hội khao lao Võ Tướng",
+    "introShort": "tổ chức <font color=\"#00ff00\"><a href=\"event:1\"><u>yến hội </u></a></font><br>khao võ tướng",
+    "plot": ""
+  },
+  {
+    "id": 123,
+    "name": "Đánh bại Bàng Đức",
+    "nextTaskId": 124,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        37
+      ],
+      "raw": "battle_win,37"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          408
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại bàng đức",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>bàng đức </u></a></font><br>(Yêu cầu cấp bậc 46)",
+    "plot": "790"
+  },
+  {
+    "id": 124,
+    "name": "Yến Thỉnh Võ Tướng 2",
+    "nextTaskId": 125,
+    "area": 0,
+    "target": {
+      "kind": "dinner",
+      "args": [],
+      "raw": "dinner"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Cử bạn yến hội khao lao Võ Tướng",
+    "introShort": "tổ chức <font color=\"#00ff00\"><a href=\"event:1\"><u>yến hội </u></a></font><br>khao võ tướng",
+    "plot": ""
+  },
+  {
+    "id": 125,
+    "name": "Nghiên Cứu Khoa Kỹ",
+    "nextTaskId": 126,
+    "area": 0,
+    "target": {
+      "kind": "tech_inject",
+      "args": [
+        407,
+        1
+      ],
+      "raw": "tech_inject,407,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Chú tư điểm binh",
+    "introShort": "<font color=\"#00ff00\"><a href=\"event:1\"><u>chú tư </u></a></font>điểm binh",
+    "plot": ""
+  },
+  {
+    "id": 126,
+    "name": "Đánh bại Mã Siêu",
+    "nextTaskId": 127,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        38
+      ],
+      "raw": "battle_win,38"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          29
+        ]
+      },
+      {
+        "kind": "arms_weapon",
+        "args": [
+          1
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại mã siêu",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>mã siêu </u></a></font><br>(Yêu cầu cấp bậc 47)",
+    "plot": "800"
+  },
+  {
+    "id": 127,
+    "name": "Tra Khán Binh Khí",
+    "nextTaskId": 128,
+    "area": 0,
+    "target": {
+      "kind": "check_arms_weapon",
+      "args": [],
+      "raw": "check_arms_weapon"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          409
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đả khai binh khí",
+    "introShort": "xem xét <font color=\"#00ff00\"><a href=\"event:1\"><u>binh khí mặt bản </u></a></font>có thể Hoàn thành nhiệm vụ",
+    "plot": ""
+  },
+  {
+    "id": 128,
+    "name": "Đánh bại Lưu Chương",
+    "nextTaskId": 129,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        39
+      ],
+      "raw": "battle_win,39"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          39
+        ]
+      },
+      {
+        "kind": "brunch",
+        "args": [
+          410
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lưu chương",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:2\"><u>lưu chương </u></a></font><br>(Yêu cầu cấp bậc 48)",
+    "plot": ""
+  },
+  {
+    "id": 129,
+    "name": "1 Lãm Chủ Thành",
+    "nextTaskId": 130,
+    "area": 0,
+    "target": {
+      "kind": "visit",
+      "args": [
+        0
+      ],
+      "raw": "visit,0"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          7
+        ]
+      },
+      {
+        "kind": "free_Construction",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập chủ thành",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>chủ thành </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 130,
+    "name": "Khai Ích Thiết Quáng",
+    "nextTaskId": 131,
+    "area": 0,
+    "target": {
+      "kind": "visit",
+      "args": [
+        4
+      ],
+      "raw": "visit,4"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          49
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          53
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          54
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      },
+      {
+        "kind": "iron",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập thiết quáng",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>quặng sắt </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 131,
+    "name": "Oạt Quật Thiết Quáng 2",
+    "nextTaskId": 132,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        4,
+        25
+      ],
+      "raw": "building_output,4,25"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          51
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          52
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          55
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      },
+      {
+        "kind": "iron",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp quáng tràng kiến trúc thiết quáng sản lượng đạt 25",
+    "introShort": "thăng cấp quặng tràng kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>quặng sắt sản lượng </u></a></font>đạt 25",
+    "plot": ""
+  },
+  {
+    "id": 132,
+    "name": "Oạt Quật Thiết Quáng 4",
+    "nextTaskId": 133,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        4,
+        70
+      ],
+      "raw": "building_output,4,70"
+    },
+    "reward": [
+      {
+        "kind": "new_building",
+        "args": [
+          57
+        ]
+      },
+      {
+        "kind": "new_building",
+        "args": [
+          64
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      },
+      {
+        "kind": "iron",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp quáng tràng kiến trúc thiết quáng sản lượng đạt 70",
+    "introShort": "thăng cấp quặng tràng kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>quặng sắt sản lượng </u></a></font>đạt 70",
+    "plot": ""
+  },
+  {
+    "id": 133,
+    "name": "Oạt Quật Thiết Quáng 5",
+    "nextTaskId": 134,
+    "area": 0,
+    "target": {
+      "kind": "building_output",
+      "args": [
+        4,
+        120
+      ],
+      "raw": "building_output,4,120"
+    },
+    "reward": [
+      {
+        "kind": "new_incense",
+        "args": [
+          4
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      },
+      {
+        "kind": "iron",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp quáng tràng kiến trúc thiết quáng sản lượng đạt 120",
+    "introShort": "thăng cấp quặng tràng kiến trúc <br><font color=\"#00ff00\"><a href=\"event:1\"><u>quặng sắt sản lượng </u></a></font>đạt 120",
+    "plot": ""
+  },
+  {
+    "id": 134,
+    "name": "Thăng Cấp Binh Khí",
+    "nextTaskId": 135,
+    "area": 0,
+    "target": {
+      "kind": "and",
+      "args": [
+        "0;arms_weapon_on",
+        1,
+        2
+      ],
+      "raw": "and,0;arms_weapon_on,1,2"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      },
+      {
+        "kind": "iron",
+        "args": [
+          100
+        ]
+      }
+    ],
+    "introLong": "Thăng cấp ô tàm tiên đáo 2cấp",
+    "introShort": "thăng cấp <font color=\"#00ff00\"><a href=\"event:1\"><u>ô tàm tiên </u></a></font><br>đến 2cấp",
+    "plot": ""
+  },
+  {
+    "id": 135,
+    "name": "Tiến Quân Trường Phản",
+    "nextTaskId": 136,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        5
+      ],
+      "raw": "get_power,5"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          501
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập trường phản",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>dài phản </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 136,
+    "name": "Đánh bại Hạ Hầu Bá",
+    "nextTaskId": 137,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        41
+      ],
+      "raw": "battle_win,41"
+    },
+    "reward": [
+      {
+        "kind": "arms_weapon",
+        "args": [
+          2
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hạ hầu bá",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hạ hầu bá </u></a></font><br>(Yêu cầu cấp bậc 50)",
+    "plot": ""
+  },
+  {
+    "id": 137,
+    "name": "Đánh bại Cổ Hủ",
+    "nextTaskId": 138,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        42
+      ],
+      "raw": "battle_win,42"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại cổ hủ",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>cổ hủ </u></a></font><br>(Yêu cầu cấp bậc 51)",
+    "plot": ""
+  },
+  {
+    "id": 138,
+    "name": "Đánh bại Hạ Hầu Uyên",
+    "nextTaskId": 139,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        43
+      ],
+      "raw": "battle_win,43"
+    },
+    "reward": [
+      {
+        "kind": "arms_weapon",
+        "args": [
+          3
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hạ hầu uyên",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hạ hầu uyên </u></a></font><br>(Yêu cầu cấp bậc 52)",
+    "plot": "1111"
+  },
+  {
+    "id": 139,
+    "name": "Đánh bại Tào Nhân",
+    "nextTaskId": 140,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        44
+      ],
+      "raw": "battle_win,44"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          502
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tào nhân",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tào nhân </u></a></font><br>(Yêu cầu cấp bậc 53)",
+    "plot": ""
+  },
+  {
+    "id": 140,
+    "name": "Thần Binh Lợi Khí",
+    "nextTaskId": 141,
+    "area": 0,
+    "target": {
+      "kind": "equip",
+      "args": [
+        1,
+        5,
+        1,
+        1
+      ],
+      "raw": "equip,1,5,1,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Ủng có 1 bả hồng sắc vũ khí",
+    "introShort": "có được một phen <br><font color=\"#00ff00\"><a href=\"event:1\"><u>màu đỏ vũ khí </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 141,
+    "name": "Đánh bại Tào Hồng",
+    "nextTaskId": 142,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        45
+      ],
+      "raw": "battle_win,45"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          503
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tào hồng",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tào hồng </u></a></font><br>(Yêu cầu cấp bậc 54)",
+    "plot": ""
+  },
+  {
+    "id": 142,
+    "name": "Đánh bại Từ Hoảng",
+    "nextTaskId": 143,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        46
+      ],
+      "raw": "battle_win,46"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          34
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại từ hoảng",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>từ hoảng </u></a></font><br>(Yêu cầu cấp bậc 55)",
+    "plot": "1112"
+  },
+  {
+    "id": 143,
+    "name": "Thế Giới Quáng Khu",
+    "nextTaskId": 144,
+    "area": 0,
+    "target": {
+      "kind": "world_mine_iron_visit",
+      "args": [],
+      "raw": "world_mine_iron_visit"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập thế giới tiền vãng quáng khu",
+    "introShort": "Tiến vào thế giới <br>đi trước khu vực khai thác mỏ",
+    "plot": ""
+  },
+  {
+    "id": 144,
+    "name": "Chiêm Lĩnh Quáng Sơn",
+    "nextTaskId": 145,
+    "area": 0,
+    "target": {
+      "kind": "world_mine_iron_own",
+      "args": [],
+      "raw": "world_mine_iron_own"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Chiêm lĩnh 1 tọa thiết quáng sơn",
+    "introShort": "chiếm lĩnh một tòa <br>quặng sắt sơn",
+    "plot": ""
+  },
+  {
+    "id": 145,
+    "name": "Đánh bại Hạ Hầu Đôn",
+    "nextTaskId": 146,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        47
+      ],
+      "raw": "battle_win,47"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hạ hầu đôn",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hạ hầu đôn </u></a></font><br>(Yêu cầu cấp bậc 56)",
+    "plot": "1113"
+  },
+  {
+    "id": 146,
+    "name": "Đánh bại Trương Cáp",
+    "nextTaskId": 147,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        48
+      ],
+      "raw": "battle_win,48"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trương cáp",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trương cáp </u></a></font><br>(Yêu cầu cấp bậc 57)",
+    "plot": ""
+  },
+  {
+    "id": 147,
+    "name": "Đánh bại Tào Ngụy Quân Đoàn",
+    "nextTaskId": 148,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        49
+      ],
+      "raw": "battle_win,49"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tào ngụy quân đoàn",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tào ngụy quân đoàn </u></a></font><br>(Yêu cầu cấp bậc 58)",
+    "plot": ""
+  },
+  {
+    "id": 148,
+    "name": "Giang Đông Chi Chiến",
+    "nextTaskId": 149,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        6
+      ],
+      "raw": "get_power,6"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          601
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          62
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập giang đông",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>Giang Đông </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 149,
+    "name": "Đánh bại Hàn Đương",
+    "nextTaskId": 150,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        50
+      ],
+      "raw": "battle_win,50"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hàn đương",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hàn làm </u></a></font><br>(Yêu cầu cấp bậc 60)",
+    "plot": ""
+  },
+  {
+    "id": 150,
+    "name": "Đánh bại Chu Thái",
+    "nextTaskId": 151,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        51
+      ],
+      "raw": "battle_win,51"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          602
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại chu thái",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>chu thái </u></a></font><br>(Yêu cầu cấp bậc 61)",
+    "plot": "1114"
+  },
+  {
+    "id": 151,
+    "name": "Đánh bại Tôn Sách",
+    "nextTaskId": 152,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        52
+      ],
+      "raw": "battle_win,52"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tôn sách",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tôn sách </u></a></font><br>(Yêu cầu cấp bậc 62)",
+    "plot": "1115"
+  },
+  {
+    "id": 152,
+    "name": "Đánh bại Trình Phổ",
+    "nextTaskId": 153,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        53
+      ],
+      "raw": "battle_win,53"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          603
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trình phổ",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trình phổ </u></a></font><br>(Yêu cầu cấp bậc 63)",
+    "plot": ""
+  },
+  {
+    "id": 153,
+    "name": "Đánh bại Tổ Mậu",
+    "nextTaskId": 154,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        54
+      ],
+      "raw": "battle_win,54"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tổ mậu",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tổ mậu </u></a></font><br>(Yêu cầu cấp bậc 64)",
+    "plot": ""
+  },
+  {
+    "id": 154,
+    "name": "Đánh bại Lăng Thống",
+    "nextTaskId": 155,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        55
+      ],
+      "raw": "battle_win,55"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          61
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lăng thống",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>lăng thống </u></a></font><br>(Yêu cầu cấp bậc 65)",
+    "plot": "1240"
+  },
+  {
+    "id": 155,
+    "name": "Đánh bại Cam Ninh",
+    "nextTaskId": 156,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        56
+      ],
+      "raw": "battle_win,56"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại cam ninh",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>cam ninh </u></a></font><br>(Yêu cầu cấp bậc 66)",
+    "plot": ""
+  },
+  {
+    "id": 156,
+    "name": "Đánh bại Tiểu Kiều",
+    "nextTaskId": 157,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        57
+      ],
+      "raw": "battle_win,57"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tiểu kiều",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tiểu kiều </u></a></font><br>(Yêu cầu cấp bậc 67)",
+    "plot": "1116"
+  },
+  {
+    "id": 157,
+    "name": "Đánh bại Chu Du",
+    "nextTaskId": 158,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        58
+      ],
+      "raw": "battle_win,58"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại chu du",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>chu du </u></a></font><br>(Yêu cầu cấp bậc 68)",
+    "plot": ""
+  },
+  {
+    "id": 158,
+    "name": "Đánh bại Đông Ngô Quân Đoàn",
+    "nextTaskId": 159,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        59
+      ],
+      "raw": "battle_win,59"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại đông ngô quân đoàn",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>đông ngô quân đoàn </u></a></font><br>(Yêu cầu cấp bậc 69)",
+    "plot": ""
+  },
+  {
+    "id": 159,
+    "name": "Man Hoang Liên Hợp Chiến",
+    "nextTaskId": 160,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        7
+      ],
+      "raw": "get_power,7"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          701
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          2000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập man hoang",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>man hoang </u></a></font>",
+    "plot": ""
+  },
+  {
+    "id": 160,
+    "name": "Đánh bại Hàn Toại",
+    "nextTaskId": 161,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        60
+      ],
+      "raw": "battle_win,60"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hàn toại",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hàn toại </u></a></font><br>(Yêu cầu cấp bậc 70)",
+    "plot": ""
+  },
+  {
+    "id": 161,
+    "name": "Đánh bại Mã Đại",
+    "nextTaskId": 162,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        61
+      ],
+      "raw": "battle_win,61"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại mã đại",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>mã đại </u></a></font><br>(Yêu cầu cấp bậc 71)",
+    "plot": ""
+  },
+  {
+    "id": 162,
+    "name": "Đánh bại Bàng Đức",
+    "nextTaskId": 163,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        62
+      ],
+      "raw": "battle_win,62"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          702
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại bàng đức",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>bàng đức </u></a></font><br>(Yêu cầu cấp bậc 72)",
+    "plot": ""
+  },
+  {
+    "id": 163,
+    "name": "Đánh bại Chúc Dung",
+    "nextTaskId": 164,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        63
+      ],
+      "raw": "battle_win,63"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại chúc dung",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>chúc dung </u></a></font><br>(Yêu cầu cấp bậc 73)",
+    "plot": "1130"
+  },
+  {
+    "id": 164,
+    "name": "Đánh bại Trần Cung",
+    "nextTaskId": 165,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        64
+      ],
+      "raw": "battle_win,64"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          703
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trần cung",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trần cung </u></a></font><br>(Yêu cầu cấp bậc 74)",
+    "plot": ""
+  },
+  {
+    "id": 165,
+    "name": "Đào Bào Đích Trần Cung",
+    "nextTaskId": 166,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        64,
+        2
+      ],
+      "raw": "battle_win,64,2"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập man hoang cầm nã đào bào đích trần cung",
+    "introShort": "Tiến vào man hoang bắt <br>chạy trốn  <font color=\"#00ff00\"><a href=\"event:1\"><u>trần cung </u></a></font>",
+    "plot": "890"
+  },
+  {
+    "id": 166,
+    "name": "Đánh bại Tuần Du",
+    "nextTaskId": 167,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        65
+      ],
+      "raw": "battle_win,65"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tuần du",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tuần du </u></a></font><br>(Yêu cầu cấp bậc 75)",
+    "plot": ""
+  },
+  {
+    "id": 167,
+    "name": "Đánh bại Mã Siêu",
+    "nextTaskId": 168,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        66
+      ],
+      "raw": "battle_win,66"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại mã siêu",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>mã siêu </u></a></font><br>(Yêu cầu cấp bậc 76)",
+    "plot": "930"
+  },
+  {
+    "id": 168,
+    "name": "Đánh bại Mã Siêu 3 lần",
+    "nextTaskId": 169,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        66,
+        4
+      ],
+      "raw": "battle_win,66,4"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại mã siêu 3 lần ，chứng minh tự kỷ đích thực lực",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>mã siêu </u></a></font>3 lần <br>chứng minh thực lực của chính mình",
+    "plot": "940"
+  },
+  {
+    "id": 169,
+    "name": "Phấn Dũng Sát Địch",
+    "nextTaskId": 170,
+    "area": 0,
+    "target": {
+      "kind": "world_kill",
+      "args": [
+        2,
+        3000000
+      ],
+      "raw": "world_kill,2,3000000"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Liên tục 2thiên quốc chiến sát địch đạt 300vạn",
+    "introShort": "liên tục 2thiên <br>quốc chiến giết địch đạt 300vạn",
+    "plot": "950"
+  },
+  {
+    "id": 170,
+    "name": "Đánh bại Mã Đằng",
+    "nextTaskId": 171,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        67
+      ],
+      "raw": "battle_win,67"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại mã đằng",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>mã đằng </u></a></font><br>(Yêu cầu cấp bậc 77)",
+    "plot": ""
+  },
+  {
+    "id": 171,
+    "name": "Đánh bại Mạnh Hoạch",
+    "nextTaskId": 172,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        68
+      ],
+      "raw": "battle_win,68"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại mạnh hoạch",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>mạnh lấy được </u></a></font><br>(Yêu cầu cấp bậc 78)",
+    "plot": ""
+  },
+  {
+    "id": 172,
+    "name": "Liên Quân Quân Đoàn",
+    "nextTaskId": 173,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        69
+      ],
+      "raw": "battle_win,69"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại liên quân quân đoàn",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>liên quân quân đoàn </u></a></font><br>(Yêu cầu cấp bậc 79)",
+    "plot": ""
+  },
+  {
+    "id": 173,
+    "name": "Xích Bích Chi Chiến",
+    "nextTaskId": 174,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        8
+      ],
+      "raw": "get_power,8"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          801
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          100
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập xích bích chi chiến",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>Xích Bích chi chiến </u></a></font>",
+    "plot": "990"
+  },
+  {
+    "id": 174,
+    "name": "Đánh bại Lý Điển",
+    "nextTaskId": 175,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        70
+      ],
+      "raw": "battle_win,70"
+    },
+    "reward": [
+      {
+        "kind": "arms_weapon",
+        "args": [
+          4
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lý điển",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>lý điển </u></a></font><br>(Yêu cầu cấp bậc 80)",
+    "plot": "1000"
+  },
+  {
+    "id": 175,
+    "name": "Đánh bại Vu Cấm",
+    "nextTaskId": 176,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        71
+      ],
+      "raw": "battle_win,71"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          804
+        ]
+      },
+      {
+        "kind": "functionId",
+        "args": [
+          52
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại vu cấm",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>cho cấm </u></a></font><br>(Yêu cầu cấp bậc 81)",
+    "plot": "1341"
+  },
+  {
+    "id": 176,
+    "name": "Đánh bại Hứa Chử",
+    "nextTaskId": 10004,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        72
+      ],
+      "raw": "battle_win,72"
+    },
+    "reward": [
+      {
+        "kind": "arms_weapon",
+        "args": [
+          5
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hứa chử",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hứa chử </u></a></font><br>(Yêu cầu cấp bậc 82)",
+    "plot": "1119"
+  },
+  {
+    "id": 177,
+    "name": "Đánh bại Tào Chương",
+    "nextTaskId": 178,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        73
+      ],
+      "raw": "battle_win,73"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tào chương",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tào chương </u></a></font><br>(Yêu cầu cấp bậc 83)",
+    "plot": "1010"
+  },
+  {
+    "id": 178,
+    "name": "Đánh bại Quách Gia",
+    "nextTaskId": 179,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        74
+      ],
+      "raw": "battle_win,74"
+    },
+    "reward": [
+      {
+        "kind": "arms_weapon",
+        "args": [
+          6
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại quách gia",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>quách gia </u></a></font><br>(Yêu cầu cấp bậc 84)",
+    "plot": "1020"
+  },
+  {
+    "id": 179,
+    "name": "Đánh bại Trình Dục",
+    "nextTaskId": 180,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        75
+      ],
+      "raw": "battle_win,75"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trình dục",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trình dục </u></a></font><br>(Yêu cầu cấp bậc 85)",
+    "plot": "1030"
+  },
+  {
+    "id": 180,
+    "name": "Binh Khí Đả Tạo",
+    "nextTaskId": 181,
+    "area": 0,
+    "target": {
+      "kind": "weapon_make_done",
+      "args": [],
+      "raw": "weapon_make_done"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          200
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đả tạo thành công sở có binh khí",
+    "introShort": "Đánh tạo thành công sở hữu binh khí",
+    "plot": "1040"
+  },
+  {
+    "id": 181,
+    "name": "Đánh bại Trương Liêu",
+    "nextTaskId": 182,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        76
+      ],
+      "raw": "battle_win,76"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trương liêu",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trương liêu </u></a></font><br>(Yêu cầu cấp bậc 86)",
+    "plot": ""
+  },
+  {
+    "id": 182,
+    "name": "Đánh bại Điển Vi",
+    "nextTaskId": 183,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        77
+      ],
+      "raw": "battle_win,77"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại điển vi",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>điển vi </u></a></font><br>(Yêu cầu cấp bậc 87)",
+    "plot": "1050"
+  },
+  {
+    "id": 183,
+    "name": "Vật Phẩm Sưu Tập",
+    "nextTaskId": 184,
+    "area": 0,
+    "target": {
+      "kind": "collect",
+      "args": [
+        208,
+        1
+      ],
+      "raw": "collect,208,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Công kích điển vi thưởng đoạt song kích",
+    "introShort": "công kích <font color=\"#00ff00\"><a href=\"event:1\"><u>điển vi </u></a></font>cướp đoạt song kích",
+    "plot": "1060"
+  },
+  {
+    "id": 184,
+    "name": "Phấn Dũng Sát Địch",
+    "nextTaskId": 185,
+    "area": 0,
+    "target": {
+      "kind": "world_kill",
+      "args": [
+        3,
+        3000000
+      ],
+      "raw": "world_kill,3,3000000"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Liên tục 3thiên quốc chiến sát địch đạt 300vạn",
+    "introShort": "liên tục 3thiên <br>quốc chiến giết địch đạt 300vạn",
+    "plot": "1070"
+  },
+  {
+    "id": 185,
+    "name": "Đánh bại Tào Tháo",
+    "nextTaskId": 186,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        78
+      ],
+      "raw": "battle_win,78"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại Tào Tháo",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Tào Tháo </u></a></font><br>(Yêu cầu cấp bậc 88)",
+    "plot": "1080"
+  },
+  {
+    "id": 186,
+    "name": "Niễn Áp Tào Tháo",
+    "nextTaskId": 187,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        78,
+        4
+      ],
+      "raw": "battle_win,78,4"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại Tào Tháo 3 lần",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Tào Tháo </u></a></font>3 lần",
+    "plot": "1090"
+  },
+  {
+    "id": 187,
+    "name": "Đánh bại Tào Tháo Quân Đoàn",
+    "nextTaskId": 188,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        79
+      ],
+      "raw": "battle_win,79"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại Tào Tháo quân đoàn",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Tào Tháo quân đoàn </u></a></font><br>(Yêu cầu cấp bậc 89)",
+    "plot": ""
+  },
+  {
+    "id": 188,
+    "name": "Hán Trung Chi Chiến",
+    "nextTaskId": 189,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        9
+      ],
+      "raw": "get_power,9"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          100
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          5000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập hán trung chi chiến",
+    "introShort": "Tiến vào <font color=\"#00ff00\"><a href=\"event:1\"><u>Hán Trung chi chiến </u></a></font>",
+    "plot": "1140"
+  },
+  {
+    "id": 189,
+    "name": "Đánh bại Quan Hưng",
+    "nextTaskId": 190,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        80
+      ],
+      "raw": "battle_win,80"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          64
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại quan hưng",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>quan hưng </u></a></font><br>(Yêu cầu cấp bậc 90)",
+    "plot": "1150"
+  },
+  {
+    "id": 190,
+    "name": "Đánh bại Liêu Hóa",
+    "nextTaskId": 191,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        81
+      ],
+      "raw": "battle_win,81"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại liêu hóa",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>liêu hóa </u></a></font><br>(Yêu cầu cấp bậc 91)",
+    "plot": "1160"
+  },
+  {
+    "id": 191,
+    "name": "Đánh bại Ngụy Diên",
+    "nextTaskId": 192,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        82
+      ],
+      "raw": "battle_win,82"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại ngụy diên",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>ngụy diên </u></a></font><br>(Yêu cầu cấp bậc 92)",
+    "plot": "1170"
+  },
+  {
+    "id": 192,
+    "name": "Giáo Huấn Ngụy Diên",
+    "nextTaskId": 193,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        82,
+        4
+      ],
+      "raw": "battle_win,82,4"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Giáo huấn ngụy diên ，Đánh bại ngụy diên 3 lần",
+    "introShort": "giáo huấn <font color=\"#00ff00\"><a href=\"event:1\"><u>ngụy diên </u></a></font><br>Đánh bại ngụy diên 3 lần",
+    "plot": "1180"
+  },
+  {
+    "id": 193,
+    "name": "Đánh bại Khương Duy",
+    "nextTaskId": 194,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        83
+      ],
+      "raw": "battle_win,83"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại khương duy",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>khương duy </u></a></font><br>(Yêu cầu cấp bậc 93)",
+    "plot": ""
+  },
+  {
+    "id": 194,
+    "name": "Đánh bại Trương Bao",
+    "nextTaskId": 195,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        84
+      ],
+      "raw": "battle_win,84"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trương bao",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trương bao </u></a></font><br>(Yêu cầu cấp bậc 94)",
+    "plot": "1200"
+  },
+  {
+    "id": 195,
+    "name": "Đánh bại Hoàng Trung",
+    "nextTaskId": 196,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        85
+      ],
+      "raw": "battle_win,85"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hoàng trung",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hoàng trung </u></a></font><br>(Yêu cầu cấp bậc 95)",
+    "plot": "1210"
+  },
+  {
+    "id": 196,
+    "name": "Đánh bại Bàng Thống",
+    "nextTaskId": 197,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        86
+      ],
+      "raw": "battle_win,86"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại bàng thống",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>bàng thống </u></a></font><br>(Yêu cầu cấp bậc 96)",
+    "plot": ""
+  },
+  {
+    "id": 197,
+    "name": "Đánh bại Chư Cát Lượng",
+    "nextTaskId": 198,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        87
+      ],
+      "raw": "battle_win,87"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại chư cát lượng",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Gia Cát lượng </u></a></font><br>(Yêu cầu cấp bậc 97)",
+    "plot": "1220"
+  },
+  {
+    "id": 198,
+    "name": "Đánh bại Lưu Bị",
+    "nextTaskId": 199,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        88
+      ],
+      "raw": "battle_win,88"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lưu bị",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Lưu Bị </u></a></font><br>(Yêu cầu cấp bậc 98)",
+    "plot": "1230"
+  },
+  {
+    "id": 199,
+    "name": "Phấn Dũng Sát Địch",
+    "nextTaskId": 200,
+    "area": 0,
+    "target": {
+      "kind": "world_kill",
+      "args": [
+        1,
+        10000000
+      ],
+      "raw": "world_kill,1,10000000"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Quốc chiến 1 thiên sát địch sổ lượng đạt đáo 1000vạn",
+    "introShort": "Anh dũng giết địch ，một ngày giết địch 1000vạn",
+    "plot": ""
+  },
+  {
+    "id": 200,
+    "name": "Đánh bại Lưu Bị Quân Đoàn",
+    "nextTaskId": 201,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        89
+      ],
+      "raw": "battle_win,89"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lưu bị quân đoàn",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Lưu Bị quân đoàn </u></a></font><br>(Yêu cầu cấp bậc 99)",
+    "plot": ""
+  },
+  {
+    "id": 201,
+    "name": "Di Lăng Chi Chiến",
+    "nextTaskId": 202,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        10
+      ],
+      "raw": "get_power,10"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          100
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          8000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập di lăng chi chiến",
+    "introShort": "Tiến vào <br><font color=\"#00ff00\"><a href=\"event:1\"><u>di lăng chi chiến </u></a></font>",
+    "plot": "1250"
+  },
+  {
+    "id": 202,
+    "name": "Đánh bại Tôn Hoàn",
+    "nextTaskId": 203,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        90
+      ],
+      "raw": "battle_win,90"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          66
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tôn hoàn",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tôn hoàn </u></a></font><br>(Yêu cầu cấp bậc 100)",
+    "plot": "1260"
+  },
+  {
+    "id": 203,
+    "name": "Đánh bại Từ Thịnh",
+    "nextTaskId": 204,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        91
+      ],
+      "raw": "battle_win,91"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại từ thịnh",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>từ thịnh </u></a></font><br>(Yêu cầu cấp bậc 101)",
+    "plot": "1270"
+  },
+  {
+    "id": 204,
+    "name": "Đánh bại Lạc Thống",
+    "nextTaskId": 205,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        92
+      ],
+      "raw": "battle_win,92"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lạc thống",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>lạc thống </u></a></font><br>(Yêu cầu cấp bậc 102)",
+    "plot": "1280"
+  },
+  {
+    "id": 205,
+    "name": "Đánh bại Thái Sử Từ",
+    "nextTaskId": 206,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        93
+      ],
+      "raw": "battle_win,93"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại thái sử từ",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>rất sử từ </u></a></font><br>(Yêu cầu cấp bậc 103)",
+    "plot": "1290"
+  },
+  {
+    "id": 206,
+    "name": "Đánh bại Tống Khiêm",
+    "nextTaskId": 207,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        94
+      ],
+      "raw": "battle_win,94"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tống khiêm",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tống khiêm </u></a></font><br>(Yêu cầu cấp bậc 104)",
+    "plot": ""
+  },
+  {
+    "id": 207,
+    "name": "Đánh bại Hàn Đương",
+    "nextTaskId": 208,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        95
+      ],
+      "raw": "battle_win,95"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại hàn đương",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hàn làm </u></a></font><br>(Yêu cầu cấp bậc 105)",
+    "plot": "1340"
+  },
+  {
+    "id": 208,
+    "name": "Đánh bại Chu Nhiên",
+    "nextTaskId": 209,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        96
+      ],
+      "raw": "battle_win,96"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại chu nhiên",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>chu nhiên </u></a></font><br>(Yêu cầu cấp bậc 106)",
+    "plot": "1310"
+  },
+  {
+    "id": 209,
+    "name": "Đánh bại Chu Thái",
+    "nextTaskId": 210,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        97
+      ],
+      "raw": "battle_win,97"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại chu thái",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>chu thái </u></a></font><br>(Yêu cầu cấp bậc 107)",
+    "plot": "1320"
+  },
+  {
+    "id": 210,
+    "name": "Đánh bại Lục Tốn",
+    "nextTaskId": 211,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        98
+      ],
+      "raw": "battle_win,98"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lục tốn",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>lục tốn </u></a></font><br>(Yêu cầu cấp bậc 108)",
+    "plot": "1330"
+  },
+  {
+    "id": 211,
+    "name": "Đánh bại Đông Ngô Quân Đoàn",
+    "nextTaskId": 212,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        99
+      ],
+      "raw": "battle_win,99"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại đông ngô quân đoàn",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:2\"><u>đông ngô quân đoàn </u></a></font><br>(Yêu cầu cấp bậc 109)",
+    "plot": ""
+  },
+  {
+    "id": 212,
+    "name": "Kỳ Sơn Chi Chiến",
+    "nextTaskId": 213,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        11
+      ],
+      "raw": "get_power,11"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập kỳ sơn chi chiến",
+    "introShort": "Tiến vào <br><font color=\"#00ff00\"><a href=\"event:1\"><u>kỳ sơn chi chiến </u></a></font>",
+    "plot": "1343"
+  },
+  {
+    "id": 213,
+    "name": "Đánh bại Liêu Hóa",
+    "nextTaskId": 214,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        100
+      ],
+      "raw": "battle_win,100"
+    },
+    "reward": [
+      {
+        "kind": "functionId",
+        "args": [
+          68
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại liêu hóa",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>liêu hóa </u></a></font><br>(Yêu cầu cấp bậc 110)",
+    "plot": ""
+  },
+  {
+    "id": 214,
+    "name": "Đánh bại Mã Tắc",
+    "nextTaskId": 215,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        101
+      ],
+      "raw": "battle_win,101"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại mã tắc",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>mã tắc </u></a></font><br>(Yêu cầu cấp bậc 111)",
+    "plot": ""
+  },
+  {
+    "id": 215,
+    "name": "Đánh bại Trương Bao",
+    "nextTaskId": 216,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        102
+      ],
+      "raw": "battle_win,102"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trương bao",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trương bao </u></a></font><br>(Yêu cầu cấp bậc 112)",
+    "plot": ""
+  },
+  {
+    "id": 216,
+    "name": "Đánh bại Trương Phi",
+    "nextTaskId": 217,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        103
+      ],
+      "raw": "battle_win,103"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trương phi",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Trương Phi </u></a></font><br>(Yêu cầu cấp bậc 113)",
+    "plot": ""
+  },
+  {
+    "id": 217,
+    "name": "Đánh bại Lý Nghiêm",
+    "nextTaskId": 218,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        104
+      ],
+      "raw": "battle_win,104"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại lý nghiêm",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>lý nghiêm </u></a></font><br>(Yêu cầu cấp bậc 114)",
+    "plot": ""
+  },
+  {
+    "id": 218,
+    "name": "Đánh bại Khương Duy",
+    "nextTaskId": 219,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        105
+      ],
+      "raw": "battle_win,105"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại khương duy",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>khương duy </u></a></font><br>(Yêu cầu cấp bậc 115)",
+    "plot": ""
+  },
+  {
+    "id": 219,
+    "name": "Đánh bại Quan Hưng",
+    "nextTaskId": 220,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        106
+      ],
+      "raw": "battle_win,106"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại quan hưng",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>quan hưng </u></a></font><br>(Yêu cầu cấp bậc 116)",
+    "plot": ""
+  },
+  {
+    "id": 220,
+    "name": "Đánh bại Quan Vũ",
+    "nextTaskId": 221,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        107
+      ],
+      "raw": "battle_win,107"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại quan vũ",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Quan Vũ </u></a></font><br>(Yêu cầu cấp bậc 117)",
+    "plot": ""
+  },
+  {
+    "id": 221,
+    "name": "Đánh bại Chư Cát Lượng",
+    "nextTaskId": 222,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        108
+      ],
+      "raw": "battle_win,108"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại chư cát lượng",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Gia Cát lượng </u></a></font><br>(Yêu cầu cấp bậc 118)",
+    "plot": ""
+  },
+  {
+    "id": 222,
+    "name": "Đánh bại Tây Thục Quân Đoàn",
+    "nextTaskId": 223,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        109
+      ],
+      "raw": "battle_win,109"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tây thục quân đoàn",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:2\"><u>tây thục quân đoàn </u></a></font><br>(Yêu cầu cấp bậc 119)",
+    "plot": ""
+  },
+  {
+    "id": 223,
+    "name": "Tiến Nhập Ngũ Trượng Nguyên",
+    "nextTaskId": 224,
+    "area": 0,
+    "target": {
+      "kind": "get_power",
+      "args": [
+        12
+      ],
+      "raw": "get_power,12"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Tiến nhập ngũ trượng nguyên",
+    "introShort": "Tiến vào <br><font color=\"#00ff00\"><a href=\"event:1\"><u>năm trượng nguyên chi chiến </u></a></font>",
+    "plot": "1345"
+  },
+  {
+    "id": 224,
+    "name": "Đánh bại Tào Chân",
+    "nextTaskId": 225,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        110
+      ],
+      "raw": "battle_win,110"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tào chân",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tào thực </u></a></font><br>(Yêu cầu cấp bậc 120)",
+    "plot": ""
+  },
+  {
+    "id": 225,
+    "name": "Đánh bại Trương Cáp",
+    "nextTaskId": 226,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        111
+      ],
+      "raw": "battle_win,111"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại trương cáp",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>trương cáp </u></a></font><br>(Yêu cầu cấp bậc 121)",
+    "plot": ""
+  },
+  {
+    "id": 226,
+    "name": "Đánh bại Tân Bì",
+    "nextTaskId": 227,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        112
+      ],
+      "raw": "battle_win,112"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại tân bì",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>tân bì </u></a></font><br>(Yêu cầu cấp bậc 122)",
+    "plot": ""
+  },
+  {
+    "id": 227,
+    "name": "Đánh bại Khương Duy",
+    "nextTaskId": 228,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        113
+      ],
+      "raw": "battle_win,113"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại khương duy",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>khương duy </u></a></font><br>(Yêu cầu cấp bậc 123)",
+    "plot": ""
+  },
+  {
+    "id": 228,
+    "name": "Chư Cát Lượng Tác Pháp",
+    "nextTaskId": 229,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        114,
+        3
+      ],
+      "raw": "battle_win,114,3"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Bồi chư cát lượng tác pháp ，giao chiến 3 lần",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Gia Cát lượng </u></a></font>3 lần <br>(Yêu cầu cấp bậc 124)",
+    "plot": "1347"
+  },
+  {
+    "id": 229,
+    "name": "Đánh bại Ngụy Diên",
+    "nextTaskId": 230,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        115
+      ],
+      "raw": "battle_win,115"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại ngụy diên",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>ngụy diên </u></a></font><br>(Yêu cầu cấp bậc 125)",
+    "plot": ""
+  },
+  {
+    "id": 230,
+    "name": "Đánh bại Quách Hoài",
+    "nextTaskId": 231,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        116
+      ],
+      "raw": "battle_win,116"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại quách hoài",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>quách hoài </u></a></font><br>(Yêu cầu cấp bậc 126)",
+    "plot": ""
+  },
+  {
+    "id": 231,
+    "name": "Đánh bại Phí Diệu",
+    "nextTaskId": 232,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        117
+      ],
+      "raw": "battle_win,117"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại phí diệu",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>phí diệu </u></a></font><br>(Yêu cầu cấp bậc 127)",
+    "plot": ""
+  },
+  {
+    "id": 232,
+    "name": "Tống Tư Mã Ý Nữ Trang",
+    "nextTaskId": 233,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        118,
+        3
+      ],
+      "raw": "battle_win,118,3"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Khiếu trận Tư Mã ý ，Đánh bại tha 3 lần",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Tư Mã ý </u></a></font>3 lần <br>(Yêu cầu cấp bậc 128)",
+    "plot": "1348"
+  },
+  {
+    "id": 233,
+    "name": "Đánh bại Tư Mã Ý",
+    "nextTaskId": 234,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        118
+      ],
+      "raw": "battle_win,118"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại Tư Mã ý",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>Tư Mã ý </u></a></font><br>",
+    "plot": ""
+  },
+  {
+    "id": 234,
+    "name": "Đánh bại Tư Mã Quân Đoàn",
+    "nextTaskId": 235,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        119
+      ],
+      "raw": "battle_win,119"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          3000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          30000
+        ]
+      }
+    ],
+    "introLong": "Đánh bại Tư Mã quân đoàn",
+    "introShort": "Đánh bại <font color=\"#00ff00\"><a href=\"event:2\"><u>Tư Mã quân đoàn </u></a></font><br>(Yêu cầu cấp bậc 129)",
+    "plot": ""
+  },
+  {
+    "id": 235,
+    "name": "Tối Chung nhiệm vụ",
+    "nextTaskId": 236,
+    "area": 0,
+    "target": {
+      "kind": "chief_lv",
+      "args": [
+        999
+      ],
+      "raw": "chief_lv,999"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1500
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Cung hỉ nâm đạt thành toàn bộ nhiệm vụ",
+    "introShort": "chúc mừng ngài <br>đạt thành toàn bộ nhiệm vụ",
+    "plot": ""
+  },
+  {
+    "id": 10001,
+    "name": "Yết Khai Mê Vụ 2",
+    "nextTaskId": 10002,
+    "area": 0,
+    "target": {
+      "kind": "world_maskNPC_win",
+      "args": [
+        1,
+        1
+      ],
+      "raw": "world_maskNPC_win,1,1"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Công kích 1 cá mê vụ NPCHoàn thành nhiệm vụ",
+    "introShort": "Công kích một cái sương mù NPCHoàn thành nhiệm vụ",
+    "plot": ""
+  },
+  {
+    "id": 10002,
+    "name": "Thiên Hàng Bảo Tương",
+    "nextTaskId": 10003,
+    "area": 0,
+    "target": {
+      "kind": "world_treasure_type",
+      "args": [
+        0
+      ],
+      "raw": "world_treasure_type,0"
+    },
+    "reward": [
+      {
+        "kind": "brunch",
+        "args": [
+          301
+        ]
+      },
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tại thế giới đồ thượng hoạch đắc 1 cá bảo tương",
+    "introShort": "ở thế giới trên bản đồ <br>đạt được một cái bảo tương",
+    "plot": ""
+  },
+  {
+    "id": 10003,
+    "name": "Thể Nghiệm Thế Giới",
+    "nextTaskId": 92,
+    "area": 0,
+    "target": {
+      "kind": "times_up",
+      "args": [
+        10
+      ],
+      "raw": "times_up,10"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          50
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          500
+        ]
+      }
+    ],
+    "introLong": "Tại thế giới đồ thượng sướng du thập phân chung",
+    "introShort": "thể nghiệm thế giới bản đồ <br>du lịch thập phần chung",
+    "plot": ""
+  },
+  {
+    "id": 10004,
+    "name": "Đại Chiến Hứa Chử",
+    "nextTaskId": 177,
+    "area": 0,
+    "target": {
+      "kind": "battle_win",
+      "args": [
+        72,
+        6
+      ],
+      "raw": "battle_win,72,6"
+    },
+    "reward": [
+      {
+        "kind": "ChiefExp",
+        "args": [
+          1000
+        ]
+      },
+      {
+        "kind": "copper",
+        "args": [
+          10000
+        ]
+      },
+      {
+        "kind": "food",
+        "args": [
+          10000
+        ]
+      }
+    ],
+    "introLong": "Đại chiến hứa chử ，Đánh bại hứa chử 5 lần",
+    "introShort": "đại chiến hứa chử <br>Đánh bại <font color=\"#00ff00\"><a href=\"event:1\"><u>hứa chử </u></a></font>5 lần",
+    "plot": "1120"
+  }
+]

@@ -1,0 +1,824 @@
+Compiled from "WorldCityCommon.java"
+public class com.reign.gcld.world.common.WorldCityCommon {
+  public static java.util.Map<java.lang.Integer, java.lang.Integer> nationMainCityIdMap;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Map<java.lang.Integer, java.lang.Integer> mainCityNationIdMap;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Map<java.lang.Integer, java.lang.Integer> specialNationIdMap;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Map<java.lang.Integer, java.lang.String> mainCityPositionMap;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Map<java.lang.Integer, java.lang.String> titleMap;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Map<java.lang.Integer, java.lang.String> nationIdNameMap;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Map<java.lang.Integer, java.lang.String> nationKingNameMap;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Map<java.lang.Integer, java.lang.String> nationIdNameMapDot;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Set<java.lang.Integer> barbarainCitySet;
+    descriptor: Ljava/util/Set;
+
+  public static java.util.Set<java.lang.Integer> barbarainForceSet;
+    descriptor: Ljava/util/Set;
+
+  public static java.util.Map<java.lang.Integer, java.lang.Integer> playerManZuForceMap;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Map<java.lang.Integer, java.lang.Integer> manZuPlayerForceMap;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Map<java.lang.Integer, java.lang.Integer> manZuForceIdManWangLingTargetMap;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Map<java.lang.Integer, java.lang.Integer> forcIdManzuCityIdMap;
+    descriptor: Ljava/util/Map;
+
+  public static java.util.Map<java.lang.Integer, java.lang.Integer> forceIdSpecialCityMap;
+    descriptor: Ljava/util/Map;
+
+  public static int MIN_MANZU_SHOUMAI_COUNTRY_LV;
+    descriptor: I
+
+  public static int MANZU_SHOUMAI_COUNT_PER_DAY;
+    descriptor: I
+
+  public static int MAX_COUNTRY_LV;
+    descriptor: I
+
+  public static java.util.concurrent.ConcurrentHashMap<java.lang.Integer, com.reign.gcld.world.common.CountryPrivilege> countryPrivilegeMap;
+    descriptor: Ljava/util/concurrent/ConcurrentHashMap;
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #36                 // class java/util/HashMap
+       3: dup
+       4: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+       7: putstatic     #41                 // Field nationMainCityIdMap:Ljava/util/Map;
+      10: getstatic     #41                 // Field nationMainCityIdMap:Ljava/util/Map;
+      13: iconst_1
+      14: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      17: bipush        123
+      19: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      22: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      27: pop
+      28: getstatic     #41                 // Field nationMainCityIdMap:Ljava/util/Map;
+      31: iconst_2
+      32: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      35: bipush        19
+      37: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      40: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      45: pop
+      46: getstatic     #41                 // Field nationMainCityIdMap:Ljava/util/Map;
+      49: iconst_3
+      50: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      53: sipush        207
+      56: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      59: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      64: pop
+      65: new           #36                 // class java/util/HashMap
+      68: dup
+      69: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+      72: putstatic     #55                 // Field mainCityNationIdMap:Ljava/util/Map;
+      75: getstatic     #55                 // Field mainCityNationIdMap:Ljava/util/Map;
+      78: bipush        123
+      80: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      83: iconst_1
+      84: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      87: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      92: pop
+      93: getstatic     #55                 // Field mainCityNationIdMap:Ljava/util/Map;
+      96: bipush        19
+      98: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     101: iconst_2
+     102: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     105: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     110: pop
+     111: getstatic     #55                 // Field mainCityNationIdMap:Ljava/util/Map;
+     114: sipush        207
+     117: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     120: iconst_3
+     121: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     124: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     129: pop
+     130: new           #36                 // class java/util/HashMap
+     133: dup
+     134: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+     137: putstatic     #57                 // Field specialNationIdMap:Ljava/util/Map;
+     140: getstatic     #57                 // Field specialNationIdMap:Ljava/util/Map;
+     143: bipush        123
+     145: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     148: iconst_1
+     149: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     152: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     157: pop
+     158: getstatic     #57                 // Field specialNationIdMap:Ljava/util/Map;
+     161: bipush        19
+     163: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     166: iconst_2
+     167: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     170: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     175: pop
+     176: getstatic     #57                 // Field specialNationIdMap:Ljava/util/Map;
+     179: sipush        207
+     182: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     185: iconst_3
+     186: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     189: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     194: pop
+     195: getstatic     #57                 // Field specialNationIdMap:Ljava/util/Map;
+     198: sipush        250
+     201: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     204: bipush        102
+     206: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     209: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     214: pop
+     215: getstatic     #57                 // Field specialNationIdMap:Ljava/util/Map;
+     218: sipush        251
+     221: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     224: bipush        101
+     226: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     229: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     234: pop
+     235: getstatic     #57                 // Field specialNationIdMap:Ljava/util/Map;
+     238: sipush        252
+     241: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     244: bipush        103
+     246: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     249: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     254: pop
+     255: new           #36                 // class java/util/HashMap
+     258: dup
+     259: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+     262: putstatic     #59                 // Field mainCityPositionMap:Ljava/util/Map;
+     265: getstatic     #59                 // Field mainCityPositionMap:Ljava/util/Map;
+     268: iconst_1
+     269: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     272: ldc           #61                 // String 2455_810
+     274: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     279: pop
+     280: getstatic     #59                 // Field mainCityPositionMap:Ljava/util/Map;
+     283: iconst_2
+     284: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     287: ldc           #63                 // String 700_1345
+     289: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     294: pop
+     295: getstatic     #59                 // Field mainCityPositionMap:Ljava/util/Map;
+     298: iconst_3
+     299: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     302: ldc           #65                 // String 2885_1590
+     304: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     309: pop
+     310: new           #36                 // class java/util/HashMap
+     313: dup
+     314: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+     317: putstatic     #67                 // Field titleMap:Ljava/util/Map;
+     320: getstatic     #67                 // Field titleMap:Ljava/util/Map;
+     323: iconst_1
+     324: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     327: getstatic     #69                 // Field com/reign/gcld/common/LocalMessages.WORLD_CITY_TITLE_1:Ljava/lang/String;
+     330: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     335: pop
+     336: getstatic     #67                 // Field titleMap:Ljava/util/Map;
+     339: iconst_2
+     340: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     343: getstatic     #75                 // Field com/reign/gcld/common/LocalMessages.WORLD_CITY_TITLE_2:Ljava/lang/String;
+     346: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     351: pop
+     352: new           #36                 // class java/util/HashMap
+     355: dup
+     356: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+     359: putstatic     #78                 // Field nationIdNameMap:Ljava/util/Map;
+     362: getstatic     #78                 // Field nationIdNameMap:Ljava/util/Map;
+     365: iconst_1
+     366: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     369: getstatic     #80                 // Field com/reign/gcld/common/LocalMessages.T_FORCE_WEI:Ljava/lang/String;
+     372: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     377: pop
+     378: getstatic     #78                 // Field nationIdNameMap:Ljava/util/Map;
+     381: iconst_2
+     382: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     385: getstatic     #83                 // Field com/reign/gcld/common/LocalMessages.T_FORCE_SHU:Ljava/lang/String;
+     388: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     393: pop
+     394: getstatic     #78                 // Field nationIdNameMap:Ljava/util/Map;
+     397: iconst_3
+     398: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     401: getstatic     #86                 // Field com/reign/gcld/common/LocalMessages.T_FORCE_WU:Ljava/lang/String;
+     404: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     409: pop
+     410: new           #36                 // class java/util/HashMap
+     413: dup
+     414: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+     417: putstatic     #89                 // Field nationKingNameMap:Ljava/util/Map;
+     420: getstatic     #89                 // Field nationKingNameMap:Ljava/util/Map;
+     423: iconst_1
+     424: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     427: getstatic     #91                 // Field com/reign/gcld/common/LocalMessages.T_FORCE_KING_WEI_DOT:Ljava/lang/String;
+     430: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     435: pop
+     436: getstatic     #89                 // Field nationKingNameMap:Ljava/util/Map;
+     439: iconst_2
+     440: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     443: getstatic     #94                 // Field com/reign/gcld/common/LocalMessages.T_FORCE_KING_SHU_DOT:Ljava/lang/String;
+     446: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     451: pop
+     452: getstatic     #89                 // Field nationKingNameMap:Ljava/util/Map;
+     455: iconst_3
+     456: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     459: getstatic     #97                 // Field com/reign/gcld/common/LocalMessages.T_FORCE_KING_WU_DOT:Ljava/lang/String;
+     462: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     467: pop
+     468: new           #36                 // class java/util/HashMap
+     471: dup
+     472: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+     475: putstatic     #100                // Field nationIdNameMapDot:Ljava/util/Map;
+     478: getstatic     #100                // Field nationIdNameMapDot:Ljava/util/Map;
+     481: iconst_1
+     482: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     485: getstatic     #102                // Field com/reign/gcld/common/LocalMessages.T_FORCE_WEI_DOT:Ljava/lang/String;
+     488: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     493: pop
+     494: getstatic     #100                // Field nationIdNameMapDot:Ljava/util/Map;
+     497: iconst_2
+     498: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     501: getstatic     #105                // Field com/reign/gcld/common/LocalMessages.T_FORCE_SHU_DOT:Ljava/lang/String;
+     504: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     509: pop
+     510: getstatic     #100                // Field nationIdNameMapDot:Ljava/util/Map;
+     513: iconst_3
+     514: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     517: getstatic     #108                // Field com/reign/gcld/common/LocalMessages.T_FORCE_WU_DOT:Ljava/lang/String;
+     520: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     525: pop
+     526: getstatic     #100                // Field nationIdNameMapDot:Ljava/util/Map;
+     529: bipush        101
+     531: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     534: getstatic     #111                // Field com/reign/gcld/common/LocalMessages.T_FORCE_BEIDI_DOT:Ljava/lang/String;
+     537: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     542: pop
+     543: getstatic     #100                // Field nationIdNameMapDot:Ljava/util/Map;
+     546: bipush        102
+     548: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     551: getstatic     #114                // Field com/reign/gcld/common/LocalMessages.T_FORCE_XIRONG_DOT:Ljava/lang/String;
+     554: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     559: pop
+     560: getstatic     #100                // Field nationIdNameMapDot:Ljava/util/Map;
+     563: bipush        103
+     565: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     568: getstatic     #117                // Field com/reign/gcld/common/LocalMessages.T_FORCE_DONGYI_DOT:Ljava/lang/String;
+     571: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     576: pop
+     577: getstatic     #100                // Field nationIdNameMapDot:Ljava/util/Map;
+     580: bipush        104
+     582: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     585: getstatic     #120                // Field com/reign/gcld/common/LocalMessages.T_FORCE_HUANGJIN_DOT:Ljava/lang/String;
+     588: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     593: pop
+     594: new           #123                // class java/util/HashSet
+     597: dup
+     598: invokespecial #125                // Method java/util/HashSet."<init>":()V
+     601: putstatic     #126                // Field barbarainCitySet:Ljava/util/Set;
+     604: getstatic     #126                // Field barbarainCitySet:Ljava/util/Set;
+     607: sipush        250
+     610: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     613: invokeinterface #128,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     618: pop
+     619: getstatic     #126                // Field barbarainCitySet:Ljava/util/Set;
+     622: sipush        251
+     625: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     628: invokeinterface #128,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     633: pop
+     634: getstatic     #126                // Field barbarainCitySet:Ljava/util/Set;
+     637: sipush        252
+     640: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     643: invokeinterface #128,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     648: pop
+     649: new           #123                // class java/util/HashSet
+     652: dup
+     653: invokespecial #125                // Method java/util/HashSet."<init>":()V
+     656: putstatic     #134                // Field barbarainForceSet:Ljava/util/Set;
+     659: getstatic     #134                // Field barbarainForceSet:Ljava/util/Set;
+     662: bipush        101
+     664: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     667: invokeinterface #128,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     672: pop
+     673: getstatic     #134                // Field barbarainForceSet:Ljava/util/Set;
+     676: bipush        102
+     678: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     681: invokeinterface #128,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     686: pop
+     687: getstatic     #134                // Field barbarainForceSet:Ljava/util/Set;
+     690: bipush        103
+     692: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     695: invokeinterface #128,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     700: pop
+     701: new           #36                 // class java/util/HashMap
+     704: dup
+     705: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+     708: putstatic     #136                // Field playerManZuForceMap:Ljava/util/Map;
+     711: getstatic     #136                // Field playerManZuForceMap:Ljava/util/Map;
+     714: iconst_1
+     715: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     718: bipush        101
+     720: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     723: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     728: pop
+     729: getstatic     #136                // Field playerManZuForceMap:Ljava/util/Map;
+     732: iconst_2
+     733: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     736: bipush        102
+     738: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     741: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     746: pop
+     747: getstatic     #136                // Field playerManZuForceMap:Ljava/util/Map;
+     750: iconst_3
+     751: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     754: bipush        103
+     756: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     759: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     764: pop
+     765: new           #36                 // class java/util/HashMap
+     768: dup
+     769: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+     772: putstatic     #138                // Field manZuPlayerForceMap:Ljava/util/Map;
+     775: getstatic     #138                // Field manZuPlayerForceMap:Ljava/util/Map;
+     778: bipush        101
+     780: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     783: iconst_1
+     784: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     787: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     792: pop
+     793: getstatic     #138                // Field manZuPlayerForceMap:Ljava/util/Map;
+     796: bipush        102
+     798: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     801: iconst_2
+     802: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     805: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     810: pop
+     811: getstatic     #138                // Field manZuPlayerForceMap:Ljava/util/Map;
+     814: bipush        103
+     816: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     819: iconst_3
+     820: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     823: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     828: pop
+     829: new           #36                 // class java/util/HashMap
+     832: dup
+     833: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+     836: putstatic     #140                // Field manZuForceIdManWangLingTargetMap:Ljava/util/Map;
+     839: getstatic     #140                // Field manZuForceIdManWangLingTargetMap:Ljava/util/Map;
+     842: bipush        101
+     844: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     847: sipush        164
+     850: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     853: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     858: pop
+     859: getstatic     #140                // Field manZuForceIdManWangLingTargetMap:Ljava/util/Map;
+     862: bipush        102
+     864: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     867: bipush        24
+     869: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     872: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     877: pop
+     878: getstatic     #140                // Field manZuForceIdManWangLingTargetMap:Ljava/util/Map;
+     881: bipush        103
+     883: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     886: sipush        246
+     889: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     892: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     897: pop
+     898: new           #36                 // class java/util/HashMap
+     901: dup
+     902: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+     905: putstatic     #142                // Field forcIdManzuCityIdMap:Ljava/util/Map;
+     908: getstatic     #142                // Field forcIdManzuCityIdMap:Ljava/util/Map;
+     911: iconst_1
+     912: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     915: sipush        251
+     918: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     921: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     926: pop
+     927: getstatic     #142                // Field forcIdManzuCityIdMap:Ljava/util/Map;
+     930: iconst_2
+     931: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     934: sipush        250
+     937: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     940: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     945: pop
+     946: getstatic     #142                // Field forcIdManzuCityIdMap:Ljava/util/Map;
+     949: iconst_3
+     950: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     953: sipush        252
+     956: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     959: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     964: pop
+     965: new           #36                 // class java/util/HashMap
+     968: dup
+     969: invokespecial #38                 // Method java/util/HashMap."<init>":()V
+     972: putstatic     #144                // Field forceIdSpecialCityMap:Ljava/util/Map;
+     975: getstatic     #144                // Field forceIdSpecialCityMap:Ljava/util/Map;
+     978: iconst_1
+     979: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     982: sipush        132
+     985: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     988: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     993: pop
+     994: getstatic     #144                // Field forceIdSpecialCityMap:Ljava/util/Map;
+     997: iconst_2
+     998: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+    1001: bipush        60
+    1003: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+    1006: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    1011: pop
+    1012: getstatic     #144                // Field forceIdSpecialCityMap:Ljava/util/Map;
+    1015: iconst_3
+    1016: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+    1019: sipush        193
+    1022: invokestatic  #43                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+    1025: invokeinterface #49,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    1030: pop
+    1031: iconst_3
+    1032: putstatic     #146                // Field MIN_MANZU_SHOUMAI_COUNTRY_LV:I
+    1035: iconst_3
+    1036: putstatic     #148                // Field MANZU_SHOUMAI_COUNT_PER_DAY:I
+    1039: iconst_1
+    1040: putstatic     #150                // Field MAX_COUNTRY_LV:I
+    1043: new           #152                // class java/util/concurrent/ConcurrentHashMap
+    1046: dup
+    1047: invokespecial #154                // Method java/util/concurrent/ConcurrentHashMap."<init>":()V
+    1050: putstatic     #155                // Field countryPrivilegeMap:Ljava/util/concurrent/ConcurrentHashMap;
+    1053: return
+
+  public com.reign.gcld.world.common.WorldCityCommon();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #159                // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static int[] getOther2ForceIds(int);
+    descriptor: (I)[I
+    Code:
+       0: aconst_null
+       1: checkcast     #164                // class "[I"
+       4: astore_1
+       5: iload_0
+       6: iconst_1
+       7: if_icmpne     25
+      10: iconst_2
+      11: newarray       int
+      13: astore_1
+      14: aload_1
+      15: iconst_0
+      16: iconst_2
+      17: iastore
+      18: aload_1
+      19: iconst_1
+      20: iconst_3
+      21: iastore
+      22: goto          62
+      25: iload_0
+      26: iconst_2
+      27: if_icmpne     45
+      30: iconst_2
+      31: newarray       int
+      33: astore_1
+      34: aload_1
+      35: iconst_0
+      36: iconst_1
+      37: iastore
+      38: aload_1
+      39: iconst_1
+      40: iconst_3
+      41: iastore
+      42: goto          62
+      45: iload_0
+      46: iconst_3
+      47: if_icmpne     62
+      50: iconst_2
+      51: newarray       int
+      53: astore_1
+      54: aload_1
+      55: iconst_0
+      56: iconst_1
+      57: iastore
+      58: aload_1
+      59: iconst_1
+      60: iconst_2
+      61: iastore
+      62: aload_1
+      63: areturn
+
+  public static long getNextMoveCd(com.reign.gcld.sdata.domain.WorldRoad, float);
+    descriptor: (Lcom/reign/gcld/sdata/domain/WorldRoad;F)J
+    Code:
+       0: aload_0
+       1: ifnonnull     6
+       4: lconst_0
+       5: lreturn
+       6: aload_0
+       7: invokevirtual #171                // Method com/reign/gcld/sdata/domain/WorldRoad.getLength:()Ljava/lang/Integer;
+      10: invokevirtual #177                // Method java/lang/Integer.intValue:()I
+      13: i2f
+      14: fload_1
+      15: fdiv
+      16: ldc           #181                // float 60000.0f
+      18: fmul
+      19: f2l
+      20: lstore_2
+      21: new           #182                // class java/util/Date
+      24: dup
+      25: invokespecial #184                // Method java/util/Date."<init>":()V
+      28: invokestatic  #185                // Method getMoveSpeedByTime:(Ljava/util/Date;)I
+      31: istore        4
+      33: lload_2
+      34: iload         4
+      36: i2l
+      37: ldiv
+      38: ldc2_w        #189                // long 4l
+      41: ldiv
+      42: lreturn
+
+  public static long getNextMoveCd(int, float);
+    descriptor: (IF)J
+    Code:
+       0: iload_0
+       1: i2f
+       2: fload_1
+       3: fdiv
+       4: ldc           #181                // float 60000.0f
+       6: fmul
+       7: f2l
+       8: lstore_2
+       9: new           #182                // class java/util/Date
+      12: dup
+      13: invokespecial #184                // Method java/util/Date."<init>":()V
+      16: invokestatic  #185                // Method getMoveSpeedByTime:(Ljava/util/Date;)I
+      19: istore        4
+      21: lload_2
+      22: iload         4
+      24: i2l
+      25: ldiv
+      26: ldc2_w        #189                // long 4l
+      29: ldiv
+      30: lreturn
+
+  public static int getMoveSpeedByTime(java.util.Date);
+    descriptor: (Ljava/util/Date;)I
+    Code:
+       0: invokestatic  #200                // Method java/util/Calendar.getInstance:()Ljava/util/Calendar;
+       3: astore_1
+       4: aload_1
+       5: bipush        11
+       7: iconst_0
+       8: invokevirtual #206                // Method java/util/Calendar.set:(II)V
+      11: aload_1
+      12: bipush        12
+      14: iconst_0
+      15: invokevirtual #206                // Method java/util/Calendar.set:(II)V
+      18: aload_1
+      19: bipush        13
+      21: iconst_0
+      22: invokevirtual #206                // Method java/util/Calendar.set:(II)V
+      25: aload_1
+      26: bipush        14
+      28: iconst_0
+      29: invokevirtual #206                // Method java/util/Calendar.set:(II)V
+      32: aload_1
+      33: bipush        11
+      35: bipush        8
+      37: invokevirtual #210                // Method java/util/Calendar.add:(II)V
+      40: aload_0
+      41: aload_1
+      42: invokevirtual #212                // Method java/util/Calendar.getTime:()Ljava/util/Date;
+      45: invokevirtual #216                // Method java/util/Date.before:(Ljava/util/Date;)Z
+      48: ifeq          53
+      51: iconst_3
+      52: ireturn
+      53: aload_1
+      54: bipush        11
+      56: bipush        8
+      58: invokevirtual #210                // Method java/util/Calendar.add:(II)V
+      61: aload_0
+      62: aload_1
+      63: invokevirtual #212                // Method java/util/Calendar.getTime:()Ljava/util/Date;
+      66: invokevirtual #216                // Method java/util/Date.before:(Ljava/util/Date;)Z
+      69: ifeq          74
+      72: iconst_2
+      73: ireturn
+      74: iconst_2
+      75: ireturn
+
+  public static java.lang.String makeTaskParam(int, int, boolean, boolean);
+    descriptor: (IIZZ)Ljava/lang/String;
+    Code:
+       0: new           #226                // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #228                // Method java/lang/StringBuilder."<init>":()V
+       7: astore        4
+       9: aload         4
+      11: iload_0
+      12: invokevirtual #229                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      15: pop
+      16: aload         4
+      18: ldc           #233                // String ;
+      20: invokevirtual #235                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      23: pop
+      24: aload         4
+      26: iload_1
+      27: invokevirtual #229                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      30: pop
+      31: aload         4
+      33: ldc           #233                // String ;
+      35: invokevirtual #235                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      38: pop
+      39: iload_2
+      40: ifeq          53
+      43: aload         4
+      45: iconst_1
+      46: invokevirtual #229                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      49: pop
+      50: goto          60
+      53: aload         4
+      55: iconst_0
+      56: invokevirtual #229                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      59: pop
+      60: aload         4
+      62: ldc           #233                // String ;
+      64: invokevirtual #235                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      67: pop
+      68: iload_3
+      69: ifeq          82
+      72: aload         4
+      74: iconst_1
+      75: invokevirtual #229                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      78: pop
+      79: goto          89
+      82: aload         4
+      84: iconst_0
+      85: invokevirtual #229                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      88: pop
+      89: aload         4
+      91: invokevirtual #238                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      94: areturn
+
+  public static java.util.Date getDateAfter23(java.util.Date);
+    descriptor: (Ljava/util/Date;)Ljava/util/Date;
+    Code:
+       0: invokestatic  #200                // Method java/util/Calendar.getInstance:()Ljava/util/Calendar;
+       3: astore_1
+       4: aload_1
+       5: bipush        11
+       7: iconst_0
+       8: invokevirtual #206                // Method java/util/Calendar.set:(II)V
+      11: aload_1
+      12: bipush        12
+      14: bipush        10
+      16: invokevirtual #206                // Method java/util/Calendar.set:(II)V
+      19: aload_1
+      20: bipush        13
+      22: iconst_0
+      23: invokevirtual #206                // Method java/util/Calendar.set:(II)V
+      26: aload_1
+      27: bipush        14
+      29: iconst_0
+      30: invokevirtual #206                // Method java/util/Calendar.set:(II)V
+      33: aload_1
+      34: bipush        11
+      36: bipush        23
+      38: invokevirtual #210                // Method java/util/Calendar.add:(II)V
+      41: aload_0
+      42: invokevirtual #251                // Method java/util/Date.getTime:()J
+      45: aload_1
+      46: invokevirtual #254                // Method java/util/Calendar.getTimeInMillis:()J
+      49: lcmp
+      50: ifle          70
+      53: invokestatic  #200                // Method java/util/Calendar.getInstance:()Ljava/util/Calendar;
+      56: astore_2
+      57: aload_2
+      58: bipush        11
+      60: bipush        24
+      62: invokevirtual #210                // Method java/util/Calendar.add:(II)V
+      65: aload_2
+      66: invokevirtual #212                // Method java/util/Calendar.getTime:()Ljava/util/Date;
+      69: areturn
+      70: aload_0
+      71: areturn
+
+  public static java.util.Date getYesterday(java.util.Date);
+    descriptor: (Ljava/util/Date;)Ljava/util/Date;
+    Code:
+       0: invokestatic  #200                // Method java/util/Calendar.getInstance:()Ljava/util/Calendar;
+       3: astore_1
+       4: aconst_null
+       5: astore_2
+       6: aload_1
+       7: aload_0
+       8: invokevirtual #259                // Method java/util/Calendar.setTime:(Ljava/util/Date;)V
+      11: aload_1
+      12: iconst_5
+      13: invokevirtual #263                // Method java/util/Calendar.get:(I)I
+      16: istore_3
+      17: aload_1
+      18: iconst_5
+      19: iload_3
+      20: iconst_1
+      21: isub
+      22: invokevirtual #206                // Method java/util/Calendar.set:(II)V
+      25: aload_1
+      26: invokevirtual #212                // Method java/util/Calendar.getTime:()Ljava/util/Date;
+      29: astore_2
+      30: aload_2
+      31: areturn
+
+  public static int getStaticIndex(int);
+    descriptor: (I)I
+    Code:
+       0: iinc          0, 1
+       3: iconst_0
+       4: istore_1
+       5: goto          15
+       8: iload_0
+       9: iconst_1
+      10: ishr
+      11: istore_0
+      12: iinc          1, 1
+      15: iload_0
+      16: iconst_1
+      17: if_icmpne     8
+      20: iload_1
+      21: ireturn
+
+  public static int getDistanceState(int);
+    descriptor: (I)I
+    Code:
+       0: iload_0
+       1: iconst_1
+       2: if_icmpgt     7
+       5: iconst_1
+       6: ireturn
+       7: iload_0
+       8: iconst_3
+       9: if_icmpgt     14
+      12: iconst_2
+      13: ireturn
+      14: iload_0
+      15: iconst_5
+      16: if_icmpgt     21
+      19: iconst_3
+      20: ireturn
+      21: iconst_0
+      22: ireturn
+
+  public static float getAddExp(int);
+    descriptor: (I)F
+    Code:
+       0: iload_0
+       1: iconst_1
+       2: if_icmpne     9
+       5: ldc_w         #277                // float 1.5f
+       8: freturn
+       9: iload_0
+      10: iconst_2
+      11: if_icmpne     18
+      14: ldc_w         #278                // float 1.3f
+      17: freturn
+      18: iload_0
+      19: iconst_3
+      20: if_icmpne     27
+      23: ldc_w         #279                // float 1.15f
+      26: freturn
+      27: fconst_1
+      28: freturn
+
+  public static float getReduceAttDef(int);
+    descriptor: (I)F
+    Code:
+       0: iload_0
+       1: iconst_1
+       2: if_icmpne     9
+       5: ldc_w         #282                // float 0.5f
+       8: freturn
+       9: iload_0
+      10: iconst_2
+      11: if_icmpne     18
+      14: ldc_w         #283                // float 0.25f
+      17: freturn
+      18: iload_0
+      19: iconst_3
+      20: if_icmpne     27
+      23: ldc_w         #284                // float 0.1f
+      26: freturn
+      27: fconst_0
+      28: freturn
+}

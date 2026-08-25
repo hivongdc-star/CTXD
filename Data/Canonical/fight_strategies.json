@@ -1,0 +1,303 @@
+[
+    {
+        "base_damage":  "0",
+        "pic":  "tuji",
+        "intro":  "Khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1000130",
+        "name":  "Đột Kích "
+    },
+    {
+        "base_damage":  "100",
+        "pic":  "pingyuantuji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1110131",
+        "name":  "Bình Nguyên Đột Kích "
+    },
+    {
+        "base_damage":  "200",
+        "pic":  "pingyuantuji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1110231",
+        "name":  "Bình Nguyên Đột Kích "
+    },
+    {
+        "base_damage":  "300",
+        "pic":  "pingyuantuji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1110331",
+        "name":  "Bình Nguyên Đột Kích "
+    },
+    {
+        "base_damage":  "400",
+        "pic":  "pingyuantuji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1110431",
+        "name":  "Bình Nguyên Đột Kích "
+    },
+    {
+        "base_damage":  "800",
+        "pic":  "pingyuantuji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1110531",
+        "name":  "Bình Nguyên Đột Kích "
+    },
+    {
+        "base_damage":  "100",
+        "pic":  "shandituji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1210133",
+        "name":  "Sơn Đột Kích "
+    },
+    {
+        "base_damage":  "200",
+        "pic":  "shandituji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1210233",
+        "name":  "Sơn Đột Kích "
+    },
+    {
+        "base_damage":  "300",
+        "pic":  "shandituji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1210333",
+        "name":  "Sơn Đột Kích "
+    },
+    {
+        "base_damage":  "400",
+        "pic":  "shandituji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1210433",
+        "name":  "Sơn Đột Kích "
+    },
+    {
+        "base_damage":  "800",
+        "pic":  "shandituji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1210533",
+        "name":  "Sơn Đột Kích "
+    },
+    {
+        "base_damage":  "100",
+        "pic":  "chengchituji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1410132",
+        "name":  "Thành Trì Đột Kích "
+    },
+    {
+        "base_damage":  "200",
+        "pic":  "chengchituji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1410232",
+        "name":  "Thành Trì Đột Kích "
+    },
+    {
+        "base_damage":  "300",
+        "pic":  "chengchituji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1410332",
+        "name":  "Thành Trì Đột Kích "
+    },
+    {
+        "base_damage":  "400",
+        "pic":  "chengchituji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1410432",
+        "name":  "Thành Trì Đột Kích "
+    },
+    {
+        "base_damage":  "800",
+        "pic":  "chengchituji",
+        "intro":  "Đột kích tăng mạnh bản ，khắc chế công kích ，bị phòng thủ khắc chế ",
+        "id":  "1410532",
+        "name":  "Thành Trì Đột Kích "
+    },
+    {
+        "base_damage":  "0",
+        "pic":  "fangshou",
+        "intro":  "Khắc chế đột kích ，bị công kích khắc chế ",
+        "id":  "2000120",
+        "name":  "Phòng Thủ "
+    },
+    {
+        "base_damage":  "100",
+        "pic":  "shandifangshou",
+        "intro":  "Phòng thủ tăng mạnh bản ，núi nội khả dùng ，khắc chế đột kích ，bị công kích khắc chế ",
+        "id":  "2210121",
+        "name":  "Sơn Phòng Thủ "
+    },
+    {
+        "base_damage":  "200",
+        "pic":  "shandifangshou",
+        "intro":  "Phòng thủ tăng mạnh bản ，núi nội khả dùng ，khắc chế đột kích ，bị công kích khắc chế ",
+        "id":  "2210221",
+        "name":  "Sơn Phòng Thủ "
+    },
+    {
+        "base_damage":  "300",
+        "pic":  "shandifangshou",
+        "intro":  "Phòng thủ tăng mạnh bản ，núi nội khả dùng ，khắc chế đột kích ，bị công kích khắc chế ",
+        "id":  "2210321",
+        "name":  "Sơn Phòng Thủ "
+    },
+    {
+        "base_damage":  "400",
+        "pic":  "shandifangshou",
+        "intro":  "Phòng thủ tăng mạnh bản ，núi nội khả dùng ，khắc chế đột kích ，bị công kích khắc chế ",
+        "id":  "2210421",
+        "name":  "Sơn Phòng Thủ "
+    },
+    {
+        "base_damage":  "800",
+        "pic":  "shandifangshou",
+        "intro":  "Phòng thủ tăng mạnh bản ，núi nội khả dùng ，khắc chế đột kích ，bị công kích khắc chế ",
+        "id":  "2210521",
+        "name":  "Sơn Phòng Thủ "
+    },
+    {
+        "base_damage":  "100",
+        "pic":  "shuiyufangshou",
+        "intro":  "Phòng thủ tăng mạnh bản ，thuỷ vực nội khả dùng ，khắc chế đột kích ，bị công kích khắc chế ",
+        "id":  "2310122",
+        "name":  "Thủy Vực Phòng Thủ "
+    },
+    {
+        "base_damage":  "200",
+        "pic":  "shuiyufangshou",
+        "intro":  "Phòng thủ tăng mạnh bản ，thuỷ vực nội khả dùng ，khắc chế đột kích ，bị công kích khắc chế ",
+        "id":  "2310222",
+        "name":  "Thủy Vực Phòng Thủ "
+    },
+    {
+        "base_damage":  "300",
+        "pic":  "shuiyufangshou",
+        "intro":  "Phòng thủ tăng mạnh bản ，thuỷ vực nội khả dùng ，khắc chế đột kích ，bị công kích khắc chế ",
+        "id":  "2310322",
+        "name":  "Thủy Vực Phòng Thủ "
+    },
+    {
+        "base_damage":  "400",
+        "pic":  "shuiyufangshou",
+        "intro":  "Phòng thủ tăng mạnh bản ，thuỷ vực nội khả dùng ，khắc chế đột kích ，bị công kích khắc chế ",
+        "id":  "2310422",
+        "name":  "Thủy Vực Phòng Thủ "
+    },
+    {
+        "base_damage":  "800",
+        "pic":  "shuiyufangshou",
+        "intro":  "Phòng thủ tăng mạnh bản ，thuỷ vực nội khả dùng ，khắc chế đột kích ，bị công kích khắc chế ",
+        "id":  "2310522",
+        "name":  "Thủy Vực Phòng Thủ "
+    },
+    {
+        "base_damage":  "0",
+        "pic":  "gongji",
+        "intro":  "Khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3000110",
+        "name":  "Công Kích "
+    },
+    {
+        "base_damage":  "100",
+        "pic":  "pingyuangongji",
+        "intro":  "Công kích tăng mạnh bản ，bình nguyên nội khả dùng ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3110113",
+        "name":  "Bình Nguyên Công Kích "
+    },
+    {
+        "base_damage":  "200",
+        "pic":  "pingyuangongji",
+        "intro":  "Công kích tăng mạnh bản ，bình nguyên nội khả dùng ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3110213",
+        "name":  "Bình Nguyên Công Kích "
+    },
+    {
+        "base_damage":  "300",
+        "pic":  "pingyuangongji",
+        "intro":  "Công kích tăng mạnh bản ，bình nguyên nội khả dùng ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3110313",
+        "name":  "Bình Nguyên Công Kích "
+    },
+    {
+        "base_damage":  "400",
+        "pic":  "pingyuangongji",
+        "intro":  "Công kích tăng mạnh bản ，bình nguyên nội khả dùng ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3110413",
+        "name":  "Bình Nguyên Công Kích "
+    },
+    {
+        "base_damage":  "800",
+        "pic":  "pingyuangongji",
+        "intro":  "Công kích tăng mạnh bản ，bình nguyên nội khả dùng ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3110513",
+        "name":  "Bình Nguyên Công Kích "
+    },
+    {
+        "base_damage":  "100",
+        "pic":  "shuiyugongji",
+        "intro":  "Công kích tăng mạnh bản ，thuỷ vực khả dùng ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3310111",
+        "name":  "Thủy Vực Công Kích "
+    },
+    {
+        "base_damage":  "200",
+        "pic":  "shuiyugongji",
+        "intro":  "Công kích tăng mạnh bản ，thuỷ vực khả dùng ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3310211",
+        "name":  "Thủy Vực Công Kích "
+    },
+    {
+        "base_damage":  "300",
+        "pic":  "shuiyugongji",
+        "intro":  "Công kích tăng mạnh bản ，thuỷ vực khả dùng ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3310311",
+        "name":  "Thủy Vực Công Kích "
+    },
+    {
+        "base_damage":  "400",
+        "pic":  "shuiyugongji",
+        "intro":  "Công kích tăng mạnh bản ，thuỷ vực khả dùng ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3310411",
+        "name":  "Thủy Vực Công Kích "
+    },
+    {
+        "base_damage":  "800",
+        "pic":  "shuiyugongji",
+        "intro":  "Công kích tăng mạnh bản ，thuỷ vực khả dùng ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3310511",
+        "name":  "Thủy Vực Công Kích "
+    },
+    {
+        "base_damage":  "100",
+        "pic":  "chengchigongji",
+        "intro":  "Công kích tăng mạnh bản ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3410112",
+        "name":  "Thành Trì Công Kích "
+    },
+    {
+        "base_damage":  "200",
+        "pic":  "chengchigongji",
+        "intro":  "Công kích tăng mạnh bản ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3410212",
+        "name":  "Thành Trì Công Kích "
+    },
+    {
+        "base_damage":  "300",
+        "pic":  "chengchigongji",
+        "intro":  "Công kích tăng mạnh bản ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3410312",
+        "name":  "Thành Trì Công Kích "
+    },
+    {
+        "base_damage":  "400",
+        "pic":  "chengchigongji",
+        "intro":  "Công kích tăng mạnh bản ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3410412",
+        "name":  "Thành Trì Công Kích "
+    },
+    {
+        "base_damage":  "800",
+        "pic":  "chengchigongji",
+        "intro":  "Công kích tăng mạnh bản ，khắc chế phòng thủ ，bị đột kích khắc chế ",
+        "id":  "3410512",
+        "name":  "Thành Trì Công Kích "
+    }
+]

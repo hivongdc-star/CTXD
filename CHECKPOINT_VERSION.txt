@@ -1,0 +1,5 @@
+CTXD Remake checkpoint
+Date: 2026-08-24
+Progress estimate: 16%
+Focus: Technology effects -> General slots + Resource production/capacity
+Next: finish current tech/gameplay integration, then World/Nation foundation

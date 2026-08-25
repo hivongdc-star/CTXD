@@ -1,0 +1,34 @@
+[
+    {
+        "name":  "Hạ Thiêm ",
+        "pic":  "",
+        "id":  "1",
+        "reward_copper":  "0",
+        "prob":  "0.6",
+        "reward_food":  "5000"
+    },
+    {
+        "name":  "Trung Thiêm ",
+        "pic":  "",
+        "id":  "2",
+        "reward_copper":  "0",
+        "prob":  "0.25",
+        "reward_food":  "10000"
+    },
+    {
+        "name":  "Thượng Thiêm ",
+        "pic":  "",
+        "id":  "3",
+        "reward_copper":  "0",
+        "prob":  "0.1",
+        "reward_food":  "20000"
+    },
+    {
+        "name":  "Thượng Thượng Thiêm ",
+        "pic":  "",
+        "id":  "4",
+        "reward_copper":  "0",
+        "prob":  "0.05",
+        "reward_food":  "100000"
+    }
+]

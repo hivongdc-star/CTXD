@@ -1,0 +1,74 @@
+[
+    {
+        "degree":  "2",
+        "prob":  "33",
+        "item_num":  "1000",
+        "cost_num":  "5000",
+        "quality":  "5",
+        "id":  "1"
+    },
+    {
+        "degree":  "2",
+        "prob":  "33",
+        "item_num":  "1200",
+        "cost_num":  "10000",
+        "quality":  "6",
+        "id":  "2"
+    },
+    {
+        "degree":  "2",
+        "prob":  "33",
+        "item_num":  "1600",
+        "cost_num":  "15000",
+        "quality":  "6",
+        "id":  "3"
+    },
+    {
+        "degree":  "3",
+        "prob":  "33",
+        "item_num":  "1000",
+        "cost_num":  "5000",
+        "quality":  "5",
+        "id":  "4"
+    },
+    {
+        "degree":  "3",
+        "prob":  "33",
+        "item_num":  "1200",
+        "cost_num":  "10000",
+        "quality":  "6",
+        "id":  "5"
+    },
+    {
+        "degree":  "3",
+        "prob":  "33",
+        "item_num":  "1600",
+        "cost_num":  "15000",
+        "quality":  "6",
+        "id":  "6"
+    },
+    {
+        "degree":  "4",
+        "prob":  "33",
+        "item_num":  "1000",
+        "cost_num":  "5000",
+        "quality":  "5",
+        "id":  "7"
+    },
+    {
+        "degree":  "4",
+        "prob":  "33",
+        "item_num":  "1200",
+        "cost_num":  "10000",
+        "quality":  "6",
+        "id":  "8"
+    },
+    {
+        "degree":  "4",
+        "prob":  "33",
+        "item_num":  "1600",
+        "cost_num":  "15000",
+        "quality":  "6",
+        "id":  "9"
+    }
+]

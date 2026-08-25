@@ -1,0 +1,220 @@
+{
+  "swf": "LegacyReference/GCLDServer/wwwroot/assets/zh_CN/swf/module/Tech.swf",
+  "bitmap_ids": [
+    1,
+    3,
+    6,
+    8,
+    10,
+    13,
+    15,
+    17,
+    20,
+    22,
+    31,
+    34,
+    37,
+    40,
+    44,
+    48,
+    53
+  ],
+  "symbols": [
+    {
+      "kind": "SymbolClass",
+      "name": "tech.CDBtn",
+      "character_id": 19,
+      "bitmap_ids": [
+        13,
+        15,
+        17
+      ],
+      "dependency_ids": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.blackBg",
+      "character_id": 25,
+      "bitmap_ids": [
+        20,
+        22
+      ],
+      "dependency_ids": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        65535
+      ]
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.effecType",
+      "character_id": 27,
+      "bitmap_ids": [],
+      "dependency_ids": []
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.item",
+      "character_id": 26,
+      "bitmap_ids": [],
+      "dependency_ids": []
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.item.imageBg",
+      "character_id": 33,
+      "bitmap_ids": [
+        31
+      ],
+      "dependency_ids": [
+        31,
+        32
+      ]
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.item.open",
+      "character_id": 29,
+      "bitmap_ids": [],
+      "dependency_ids": []
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.item.quicty",
+      "character_id": 30,
+      "bitmap_ids": [],
+      "dependency_ids": []
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.item.zhuzi",
+      "character_id": 36,
+      "bitmap_ids": [
+        34
+      ],
+      "dependency_ids": [
+        34,
+        35
+      ]
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.light",
+      "character_id": 52,
+      "bitmap_ids": [
+        8
+      ],
+      "dependency_ids": [
+        8,
+        9,
+        51
+      ]
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.list.BG",
+      "character_id": 12,
+      "bitmap_ids": [
+        6,
+        8,
+        10
+      ],
+      "dependency_ids": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.newFont",
+      "character_id": 50,
+      "bitmap_ids": [
+        48
+      ],
+      "dependency_ids": [
+        48,
+        49
+      ]
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.noOpen.problem",
+      "character_id": 55,
+      "bitmap_ids": [
+        53
+      ],
+      "dependency_ids": [
+        53,
+        54
+      ]
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.plan.study",
+      "character_id": 39,
+      "bitmap_ids": [
+        37
+      ],
+      "dependency_ids": [
+        37,
+        38
+      ]
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.start",
+      "character_id": 5,
+      "bitmap_ids": [
+        1,
+        3
+      ],
+      "dependency_ids": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.studying.progress",
+      "character_id": 47,
+      "bitmap_ids": [
+        1,
+        40,
+        44
+      ],
+      "dependency_ids": [
+        1,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ]
+    },
+    {
+      "kind": "SymbolClass",
+      "name": "tech.upgradeCost",
+      "character_id": 28,
+      "bitmap_ids": [],
+      "dependency_ids": []
+    }
+  ]
+}

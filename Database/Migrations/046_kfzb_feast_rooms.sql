@@ -1,0 +1,11 @@
+ALTER TABLE kfzb_seasons ADD COLUMN IF NOT EXISTS feast_opens_at TIMESTAMPTZ;
+ALTER TABLE kfzb_seasons ADD COLUMN IF NOT EXISTS feast_ends_at TIMESTAMPTZ;
+UPDATE kfzb_seasons SET feast_opens_at=date_trunc('day',ends_at)+interval '1 day' WHERE feast_opens_at IS NULL;
+UPDATE kfzb_seasons SET feast_ends_at=feast_opens_at+interval '1 day' WHERE feast_ends_at IS NULL;
+CREATE TABLE IF NOT EXISTS player_tickets(player_id BIGINT PRIMARY KEY REFERENCES players(id) ON DELETE CASCADE,balance BIGINT NOT NULL DEFAULT 0,updated_at TIMESTAMPTZ NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS player_ticket_grants(grant_key TEXT PRIMARY KEY,player_id BIGINT NOT NULL REFERENCES players(id) ON DELETE CASCADE,amount INTEGER NOT NULL,source TEXT NOT NULL,created_at TIMESTAMPTZ NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS kfzb_feast_organizers(season_id BIGINT NOT NULL REFERENCES kfzb_seasons(id) ON DELETE CASCADE,rank INTEGER NOT NULL CHECK(rank BETWEEN 1 AND 32),player_id BIGINT NOT NULL REFERENCES players(id) ON DELETE CASCADE,drink_used INTEGER NOT NULL DEFAULT 0,updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),PRIMARY KEY(season_id,rank),UNIQUE(season_id,player_id));
+CREATE SEQUENCE IF NOT EXISTS kfzb_feast_room_seq;
+CREATE TABLE IF NOT EXISTS kfzb_feast_rooms(id BIGINT PRIMARY KEY,season_id BIGINT NOT NULL REFERENCES kfzb_seasons(id) ON DELETE CASCADE,rank INTEGER NOT NULL CHECK(rank BETWEEN 1 AND 16),buff BOOLEAN NOT NULL DEFAULT false,state SMALLINT NOT NULL DEFAULT 1,created_at TIMESTAMPTZ NOT NULL DEFAULT now(),expires_at TIMESTAMPTZ NOT NULL,resolved_at TIMESTAMPTZ);
+CREATE INDEX IF NOT EXISTS ix_kfzb_feast_rooms_waiting ON kfzb_feast_rooms(season_id,rank,state,created_at DESC);
+CREATE TABLE IF NOT EXISTS kfzb_feast_participants(room_id BIGINT NOT NULL REFERENCES kfzb_feast_rooms(id) ON DELETE CASCADE,player_id BIGINT NOT NULL REFERENCES players(id) ON DELETE CASCADE,card_type SMALLINT NOT NULL CHECK(card_type IN(1,2)),force_id SMALLINT NOT NULL,title_id INTEGER,tickets INTEGER,joined_at TIMESTAMPTZ NOT NULL DEFAULT now(),settled_at TIMESTAMPTZ,PRIMARY KEY(room_id,player_id));

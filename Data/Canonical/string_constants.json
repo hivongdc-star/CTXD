@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "value": "1,1,1,1,1",
+    "intro": "Cửa hàng thương phẩm giá lần dẫn",
+    "param": "Store.MutiList",
+    "system": "Cửa hàng"
+  },
+  {
+    "id": 2,
+    "value": "1,0,0,0,0",
+    "intro": "Cửa hàng giá lần dẫn xuất hiện  xác suất",
+    "param": "Store.MutiProb",
+    "system": "Cửa hàng"
+  },
+  {
+    "id": 3,
+    "value": "1,1,1,1,1",
+    "intro": "Võ tướng Chiêu mộ giá lần dẫn",
+    "param": "General.MutiList",
+    "system": "Võ tướng chiêu mộ"
+  },
+  {
+    "id": 4,
+    "value": "1,0,0,0,0",
+    "intro": "Võ tướng Chiêu mộ giá xuất hiện  xác suất",
+    "param": "General.MutiProb",
+    "system": "Võ tướng chiêu mộ"
+  },
+  {
+    "id": 5,
+    "value": "80,40,20",
+    "intro": "Mở ra thứ hai 、3 、4 cấp NPCtrạng thái cần quốc gia ủng có thành trì sổ thấp hơn liệt biểu trung  số lượng",
+    "param": "World.NPCNum.OwnedCityNumList",
+    "system": "Thế giới"
+  },
+  {
+    "id": 6,
+    "value": "0.8,1.1,1.3,1.5,1",
+    "intro": "Bình nguyên ；lâm ；núi ；thuỷ vực ；thành trì",
+    "param": "World.Move.TerrainSpeedCoe",
+    "system": "Thế giới"
+  },
+  {
+    "id": 7,
+    "value": "0.4,0.2,0.2,0.1,0.05,0.03,0.02",
+    "intro": "Bạch ，lam ，lục ，hoàng ，hồng ，tử ，kim tệ phân biệt xuất hiện  xác suất 。",
+    "param": "Market.Quality.ProbList",
+    "system": "Chợ"
+  },
+  {
+    "id": 8,
+    "value": "copper_e,30;lumber_e,30;food_e,30",
+    "intro": "Dân trung mãn 100sau  phần thưởng",
+    "param": "EventDaily.MingZhong.FullReward",
+    "system": "Chính vụ"
+  },
+  {
+    "id": 9,
+    "value": "35,60,90",
+    "intro": "Võ tướng bảo vật vị Mở ra  cấp bậc ，cấp bậc trong lúc đó dùng dấu phẩy ngăn",
+    "param": "GeneralTreasure.OpenLv.List",
+    "system": "Võ tướngBảo vật"
+  },
+  {
+    "id": 10,
+    "value": "0,3,13,20",
+    "intro": "Thế giới thành trì nhân sổ trạng thái  phiệt giá trị ，dùng võ đem nhớ",
+    "param": "World.CityStates.Thresholds",
+    "system": "Thế giới"
+  }
+]

@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--主城场景配置文件-->
+<config autoAlign='{"width":1280,"height":768}'>
+	<sprite parent="uiModule" name="centerSp" autoAlign='{"width":1000, "height":600}'/>
+	<sprite parent="uiModule" name="centerXSp" autoAlign='{"width":1000, "height":600, "cancelV":true}' />
+	<sprite parent="uiModule" name="rdSp" autoAlign='{"width":1000, "height":600, "paddingRight":0, "paddingBottom":0}' />
+	<sprite parent="uiModule" name="rSp" autoAlign='{"width":1000, "height":600, "paddingRight":0, "cancelV":true}' />
+	<!-- 区域列表 -->
+	<displayObject parent="null" name="regionalList" definition="mainCity.view.RegionalList" properties='{"mouseEnabled":false}' />
+	<sprite name="buildingListC" />
+	<sprite name="upgradeEffectC" properties='{"mouseChildren":false, "mouseEnabled":false}' />
+	<sprite name="politicsMc" /><!--properties='{"mouseChildren":false, "mouseEnabled":false}' /-->
+	<sprite name="pictureSp" properties='{"mouseChildren":true, "mouseEnabled":true}'/>
+	<sprite name="progressC" properties='{"mouseChildren":true, "mouseEnabled":true}' />
+	<!--建筑详情面板-->
+	<container name="buildingInfo" properties='{}'>
+		<displayObject name="background" definition="mainCity.view.infoPopo" />
+		
+		<label name="silverReqLb" properties='{"x":-32, "y":-46, "width":210, "color":"0xFFFFCC", "stroke":"0x302010", "mouseEnabled":false}'/>
+		<label name="woodReqLb" properties='{"x":-32, "y":-30, "width":210, "color":"0xFFFFCC", "stroke":"0x302010", "mouseEnabled":false}'/>
+		<button name="upgradeBtn" properties='{"x":15, "y":-51, "skin":"mainCity.view.upgradeBtn", "labelID":"100301", 
+											"labelProp":{"color":"0xE3FBC6", "stroke":"0x302010"}}' />
+	</container>
+	
+	<!-- 建造中进度小面板 -->
+	<WorkingProgressView>
+		<displayObject name="background" definition="mainCity.view.workingView" />
+		<label name="cdTimeLb" properties='{"x":2, "y":6, "width":54, "height":17,
+		"autoSize":"none", "align":"center", "color":"0xFFFFCD", "stroke":"0x302010", "mouseEnabled":false}'/>
+		<baseButton name="killCDBtn" properties='{"x":56, "y":8, "skin":"mainCity.view.killCDBtn", "buttonMode":true}' />
+		
+		<alertList name="aList" parent="null" properties='{"x":30, "y":-30, "gap":-4, "hideDelay":1, "hideEffectDuration":1,"showEffectDuration":0, "labelProp":{"size":12,"color":"0xF8AB2B",  "bold":true}}'/>
+	</WorkingProgressView>
+	
+	<!-- 图纸 -->
+	<PictureView>
+		<baseButton name="developBtn" properties='{"x":0, "y":0, "skin":"mainCity.develop.Pic", "buttonMode":true,"visible":false}' />
+		<displayObject name="getPicMC" definition="mainCity.getPic" properties='{"visible":false}'/>
+		<displayObject name="pictrue" definition="mainCity.pictrure" properties='{"visible":false}'/>
+		<displayObject name="peopleMC" definition="mainCity.people" properties='{"visible":false}'/>
+		<displayObject name="cdMC" definition="manCity.picture.cd" properties='{"visible":false}'/>
+		<baseButton name="havePicBtn" properties='{"x":0, "y":0, "skin":"mainCity.have.Pic", "buttonMode":true,"visible":false}' />
+		<displayObject name="havePicMc" definition="mainCity.havePicMc" properties='{"visible":false}'/>	
+	</PictureView>
+	
+	<!--displayObject name="getPicMC" definition="mainCity.getPic" properties='{"visible":false}'/-->
+	<!--建造队伍界面-->
+	<container name="buildingWork"  parent="rSp" properties='{"x":946, "y":125}'>
+		<list name="list" properties='{"x":0, "y":0, "columnCount":1, "rowCount":7, "verticalGap":4}'/>
+	</container>
+	<!-- 建筑队列呈示器 -->
+	<BuildingWorkRenderer properties='{"itemWidth":41,"itemHeight":37}'>
+		<displayObject name="icon1" definition="mainCity.view.workIcon" properties='{"mouseEnabled":true,"buttonMode":true}'/>
+		<label name="tileLB" properties='{"x":-96, "y":10, "width":210, "color":"0x5be80f", "stroke":"0x302010", 
+		"mouseEnabled":false,"align":"center","visible":false,"size":14,"bold":true}'/>
+		<!--label name="infoLb" properties='{"x":25, "y":1, "color":"0xFFFFCD", "stroke":"0x302010", "mouseEnabled":false}'/>
+		<baseButton name="killCDBtn" properties='{"y":4, "skin":"mainCity.view.killCDBtn", "visible":false, "buttonMode":true}' /-->
+	</BuildingWorkRenderer>
+	
+	<!--新建筑出现动画-->
+	<container name="newBuildingMovie" parent="centerSp" properties='{"args":{
+		"modalBGAlpha1":0.4, "modalBGAlpha2":0.01,
+		"glowShowDuration":0.5, "glowHideDuration":0.6, "moveDuration":1.0, "delayedTime":0,
+		"glowShowFilter":{ "color":"0xFFFF00", "alpha":1, "blurX":30, "blurY":30 },
+		"glowHideFilter":{ "color":"0xFF0000", "alpha":1, "blurX":5, "blurY":5 }
+	}}'>
+		<modalBG name="modalBG" properties='{"alpha":0.2}' />
+		<label name="nameText" properties='{"y":200, "width":1000, "height":32, "autoSize":"none", "align":"center", "font":"黑体", "size":26, "color":"0xFFFF00", "stroke":"0xC44400"}' />
+	</container>
+	
+	<!--获得建筑队-->
+	<container name="getBuild2" parent = "null"  properties='{"x":0,"y":0,"args":{
+		"modalBGAlpha1":0.6, "modalBGAlpha2":0.01,
+		"glowShowDuration":0.5, "glowHideDuration":0.6, "moveDuration":0.8, "delayedTime":0.8,
+		"glowShowFilter":{ "color":"0xFFFF00", "alpha":1, "blurX":30, "blurY":30 },
+		"glowHideFilter":{ "color":"0xFF0000", "alpha":1, "blurX":5, "blurY":5 }
+		}}'>
+		
+		<modalBG name="modalBG" properties='{"alpha":0.2}' />
+		<displayObject name="lightBG" definition="mainCity.get.Light" properties='{"mouseEnabled":true}'/>
+		<label name="numLb" properties='{"x":0,"y":25,"width":40,"height":20,"color":"0xFFFFCC", "stroke":"0x2F271A","mouseEnabled":false,"align":"left"}'/>
+		<!--displayObject name="giftBuildIcon2" definition="mainCity.add.workIcon" properties='{"x":494, "y":300, "mouseEnabled":true}'/-->
+	</container>
+	
+	<!-- 产出信息显示小界面 -->
+	<!--container name="outPutPanel" properties='{"x":326, "y":31}'>
+	<container name="outPutPanel" properties='{"x":326, "y":480}'-->
+	<container name="outPutPanel" parent="rSp" properties='{"y":36}'>
+		<displayObject name="outPutBG" definition="mainCity.view.currentOutPutBG"/>
+		<displayObject name="bgLight" definition="mainCity.view.bgLight" properties='{"visible":false, "x":40,  "y":-4}'/>
+		<mcLabel name="fontLB" properties='{"multiColor":"gameUI.color.Test", "x":50, "y":8, "labelProp":{"font":"黑体",
+		"size":18, "bold":true}, "stroke":"0x302010"}'/> 
+		<numberDisplay name="perInputLb" properties='{"x":50, "y":10, "classPath":"mainCity.num", 
+		"staticWidth":14,"autoSize":"left", "mouseEnabled":false }'/>
+		<displayObject name="outPutPanelMC" definition="mainCity.view.outPutPanelMC" properties='{"x":50, "y":4}'/>
+		<displayObject name="uintMC" definition="mainCity.uint" properties='{"x":50, "y":6,"visible":false}'/>
+		
+		<baseButton name="addResBtn" properties='{"skin":"mainCity.add1", "visible":false,"buttonMode":true}'/>
+		<displayObject name="shanMC" definition="mainCity.add.shan" properties='{"y":-3,"visible":false,"buttonMode":true}'/>
+		<displayObject name="vipMC" definition="mainCity.pay.vipMC" properties='{"y":-3,"visible":false,"mouseEnabled":false}'/>
+		<label name="timeLabel" properties='{"width":36,"height":20,"color":"0xFFFFCC", "stroke":"0x2F271A","align":"center","autoSize":"none","visible":false}'/>	
+		<!-- 兵种区特殊显示 >
+		<container name="campShow" properties='{"x":8, "y":-30, "labelProp":{"multiColor":"gameUI.color.Test", "labelProp":{"font":"黑体",
+		"bold":true, "size":14}, "stroke":"0x302010"}}'>
+			<mcLabel name="titleMcLb" properties='{"multiColor":"gameUI.color.Test", "y":5, "labelProp":{"font":"黑体",
+			"size":20, "bold":true}, "stroke":"0x302010"}'/> 
+			<displayObject name="type5Icon" definition="mainCity.soldierIcon5" properties='{"x":6, "y":17}'/>
+			<displayObject name="type6Icon" definition="mainCity.soldierIcon6" properties='{"x":36, "y":17}'/>
+			<displayObject name="type7Icon" definition="mainCity.soldierIcon7" properties='{"x":66, "y":17}'/>
+			<displayObject name="type8Icon" definition="mainCity.soldierIcon8" properties='{"x":96, "y":17}'/>
+		</container-->
+	</container>
+	
+	<!--资源产量增益功能的选择面板-->
+	<container name="addResPanel" autoAlign='{"width":258,"height":340}' properties='{"x":390, "y":122}'>
+		<displayObject definition="mainCity.add.BG" properties='{"x":0, "y":0}'/>
+		<displayObject definition="game.ui.gold" properties='{"x":67, "y":265}'/>
+		<baseButton name="closeBtn" properties='{"x":236, "y":8, "skin":"skin.CloseButton1", "buttonMode":true}' />
+		<label properties='{"x":78, "y":7, "color":"0xFFFFCC","width":110,"height":20,"textID":"1080001","align":"center","stroke":"0x302010", "size":14}'/>
+		<label properties='{"x":22, "y":38, "color":"0xCCB986","stroke":"0x302010", "textID":"1080002", "size":12,"bold":true}'/>
+		<label properties='{"x":22, "y":136, "color":"0xCCB986","stroke":"0x302010", "textID":"1080003","size":12,"bold":true}'/>
+		<label properties='{"x":22, "y":236, "color":"0xCCB986","stroke":"0x302010", "textID":"1080004", "size":12,"bold":true}'/>
+		<label properties='{"x":32, "y":265, "color":"0xFFFFCC","stroke":"0x302010", "textID":"1080037","width":60,"height":20,"align":"left"}'/>
+		<button name="sureBtn" properties='{"x":93, "y":298, "styleName":"button23", "labelID":"030301"}' />
+		<label name="currentModeTxt" properties='{"x":156, "y":37, "width":140,"height":20,"stroke":"0x302010","color":"0xFFCC00", "size":12,"align":"right"}'/>
+		<label name="currentCDTxt" properties='{"x":132, "y":136, "width":140,"height":20,"stroke":"0x302010","color":"0xFFCC00", "size":12,"align":"right"}'/>
+		<label name="costText" properties='{"x":92, "y":265, "stroke":"0x302010",  "color":"0xFFCC00","size":12}'/>
+		<checkBox name="effectChkBox1" properties='{"styleName":"checkBox3", "enabled":true, "x":30, "y":65}' />
+		<checkBox name="effectChkBox2" properties='{"styleName":"checkBox3", "enabled":true, "x":30, "y":85}' />
+		<checkBox name="effectChkBox3" properties='{"styleName":"checkBox3", "enabled":true, "x":30, "y":105}' />
+		<checkBox name="timeChkBox1" properties='{"styleName":"checkBox3", "enabled":true, "x":30, "y":163}' />
+		<checkBox name="timeChkBox2" properties='{"styleName":"checkBox3", "enabled":true, "x":30, "y":183}' />
+		<checkBox name="timeChkBox3" properties='{"styleName":"checkBox3", "enabled":true, "x":30, "y":203}' />
+	</container>
+	
+	<!--政务系统展示-->
+	<politicsV properties='{"x":0, "y":0}'>
+		<!---<sprite name="gMc" />-->
+	</politicsV>
+	
+	 <!--政务系统事件对话框-->
+    <lazyContainer name="politicsEventView" autoAlign='{"width":756, "height":340}' properties='{"showEffectDuration":0.5}' resKey="politicsInfo" resLan="020502">
+        <modalBG name="modalBG" properties='{"alpha":0.1}' />
+        <displayObject definition="politics.view.BG" />
+        <baseButton name="closeBtn" properties='{"x":630, "y":16, "skin":"skin.CloseButton3" ,"visible":true}' />
+        <displayObject definition="politics.view.imgKuan" properties='{"x":80, "y":102,"visible":false}'/>
+		<imageLoader name="eventPic" properties='{"x":81, "y":102, "width":235, "height":185, "pathFormatName":"politicsPic"}' />
+		<displayObject definition="politics.view.descBgKuan" properties='{"x":82, "y":217}'/>   
+        
+        <label name="eventNameText" properties='{"x":88, "y":217, "width":200,"height":20,"border":false,"color":"0xFFFFCC","stroke":"0x302010", "mouseEnabled":false,"size":14,"bold":true}'/>
+        <label name="eventDiscText" properties='{"x":88, "y":243, "width":220,"height":36,"border":false,"color":"0xFFFFCC","multiline":true, "stroke":"0x302010", "mouseEnabled":false}'/>
+        <list name="politicsList" properties='{"x":340, "y":100, "columnCount":1, "rowCount":2, "isDefaultSelect":false,"verticalGap":6}' />
+    
+		<displayObject name="progess" definition="politics.view.progess" properties='{"x":565, "y":68,"mouseEnabled":false}'/>   
+		<label name="progessText" properties='{"x":565, "y":62, "width":100, "height":17, "autoSize":"none", "align":"center", "bold":false,"border":false, "color":"0xFFFFCC", "stroke":"0x302010","mouseEnabled":false}'/>	
+		<displayObject name="progesshot" definition="politics.view.progesshot" properties='{"alpha":0,"x":498, "y":60}'/>   
+		
+		<label properties='{"x":80, "y":64, "width":80, "height":20, "autoSize":"none", "align":"left", "bold":false,"border":false, "color":"0xCCB986", "stroke":"0x000000", "textID":"100406"}'/>
+		<label name="eventNumText" properties='{"x":140, "y":64, "width":80, "height":20, "autoSize":"none", "align":"left", "bold":false,"border":false, "color":"0xFFFFCC", "stroke":"0x000000"}'/>
+		<label properties='{"x":523, "y":60,"size":15, "width":50, "height":30, "autoSize":"none", "align":"left", "bold":true,"border":false, "color":"0xCCB986", "stroke":"0x2F271A", "textID":"100404","mouseEnabled":false}'/>
+		<button name="receiveBtn" properties='{"x":567, "y":53, "styleName":"button23", "labelID":"100405" , "buttonMode":true ,"visible":false}' />
+		<checkBox name="eventCheck" properties='{"x":292, "y":288,"styleName":"checkBox3","labelID":"100402" ,"enabled":true,"visible":false}'/>
+		<button name="exitBtn" properties='{"x":312, "y":312, "styleName":"button23", "labelID":"100403" , "buttonMode":true ,"visible":false}' />
+	
+	</lazyContainer>
+    
+    <!-- 政务事件答案列表呈示器 -->
+    <politicsRenderer properties='{"itemWidth":320,"itemHeight":92}'>
+        <baseButton name="bgKuanC" properties='{"x":0, "y":0, "skin":"politics.answer.Bgkuan", "buttonMode":true,"mouseEnabled":true}' />
+        <imageLoader name="answerImg" properties='{"x":10, "y":9, "width":72, "height":72, "pathFormatName":"generalPic", "mouseEnabled":false}' />
+        <label name="answerDiscText" properties='{"x":90, "y":10, "width":220,"height":36,"border":false,"color":"0xFFFFCC","multiline":true, "stroke":"0x302010", "mouseEnabled":false}'/>
+        <label name="answerAwardText" properties='{"x":90, "y":60, "width":220,"height":36,"border":false,"color":"0xFFCC00", "stroke":"0x302010", "mouseEnabled":false}'/>
+        <label name="costText" properties='{"x":250, "y":60, "width":100,"height":36,"border":false,"color":"0xFFCC00", "stroke":"0x302010", "mouseEnabled":false,"bold":true}'/>
+    </politicsRenderer>
+    
+	<!--黄金建筑-->
+	<container name="goldUpBuilding" parent="rSp" properties='{"x":880, "y":83}'>
+		<baseButton name="goldUpBtn" properties='{"x":0, "y":0, "skin":"mainCity.goldBuild", "buttonMode":true, "visible":true}' />
+		<displayObject name="goldUpMaskMC" definition="mainCity.goldBuildMaskMC" properties='{"visible":false, "x":1, "y":1}'/>
+		<label name="numLb" properties='{"x":20, "y":24, "width":40,"height":20,"border":false,"color":"0xFFFFCC", "stroke":"0x302010", "mouseEnabled":false,"align":"right"}'/>
+		<displayObject name="vipMC" definition="mainCity.pay.vipMC" properties='{"x":-3, "y":-6,"visible":false,"mouseEnabled":false}'/>
+	</container>
+	<!--功勋-->
+	<container name="tokenBuilding" parent="rSp" properties='{"x":825, "y":80}'>
+		<baseButton name="tokenBasebtn" properties='{"x":0, "y":0, "skin":"maincity.tokenBtn", "buttonMode":true}' />
+		<label name="numLb" parent="tokenBasebtn" properties='{"x":20, "y":24, "width":40,"height":20,"border":false,"color":"0xFFFFCC", "stroke":"0x302010", "mouseEnabled":false,"align":"right"}'/>
+		<displayObject name="paopaoSp" definition="mainCity.paopaoSp" properties='{"visible":false, "x":30, "y":36}'/>
+		<label parent="paopaoSp" properties='{"x":-50, "y":33, "width":100,"height":20,"border":false,"color":"0xFFFFCC", "stroke":"0x302010", "mouseEnabled":false,"align":"center","textID":"1511014"}'/>
+	</container>
+	
+	<!--土匪-->
+	<Bandit>
+		<displayObject name="generalMC" properties='{"x":-34 , "y":-27}'/>
+		<displayObject parent="generalMC" name="generalBorder" definition="maincity.dup_hide_por_mc" properties='{"x":0 , "y":0}'/>
+		<imageLoader parent="generalMC" name="generalPic" properties='{"x":1,"y":1,"width":52, "height":52,"pathFormatName":"generalPic","mouseEnabled":false}' />
+		<displayObject parent="generalMC" name="generalMask" definition="maincity.drop.mask" properties='{"x":5 , "y":5,"mouseEnabled":false}'/>
+		<displayObject name="chatBg" definition="maincity.bandit.chatBg" properties='{"x":-29 , "y":-22,"mouseEnabled":false,"rx":110, "ry":-20}'/>
+		<label parent="chatBg" name="chatText" properties='{"x":-87,"y":-62, "width":76, "height":60, "border":false, "color":"0xFFFFCC", "autoSize":"none", "align":"left", "stroke":"0x29241b","mouseEnabled":false,"multiline":true}'/>
+	</Bandit>
+	
+	<!--建筑自动升级  注释：(新加配置文件放在这个上面写 )-->
+	<container name="autoUpbuilding"  parent="rSp" properties='{"x":921, "y":80}'>	
+		<displayObject name="lightMC" definition="mainCity.view.selfShine" properties='{"x":-3, "y":-3.5, "mouseEnabled":false,"visible":false}'/>
+		<baseButton name="startBtn" properties='{"x":0, "y":0, "skin":"mainCity.view.autoStartBtn", "buttonMode":true,"visible":false}' />
+		<baseButton name="stopBtn" properties='{"x":0, "y":0, "skin":"mainCity.view.autoStopBtn", "buttonMode":true,"visible":false}'/>
+		<label name="times" properties='{"x":46, "y":24, "width":40,"height":20,"border":false,"color":"0xFFFFCC", "stroke":"0x302010", "mouseEnabled":false,"align":"right"}'/>
+		<label name="tileLB" properties='{"x":-150, "y":15, "width":210, "color":"0x5be80f", "stroke":"0x302010", "mouseEnabled":false,"align":"center","visible":false,"textID":"1363006","size":14,"bold":true}'/>
+	</container>
+	<sprite name="addLightC" parent="uiModule" properties='{"mouseChildren":false, "mouseEnabled":false}' />
+	<!--点击建造-->
+	<displayObject name="clickBuildMC" parent="uiTopModule" definition="mainCity.clickBuild" properties='{"x":780, "y":85,"visible":false,"mouseEnabled":false,"mouseChildren":false}' 
+				autoAlign='{"width":120,"height":39,"cancelH":true,"cancelV":true,"paddingRight":90}'/>
+	
+	<sprite parent="uiModule" name="tabSp" properties='{}' autoAlign='{"width":109,"height":176,"cancelH":true,"paddingRight":2,"paddingBottom":144}'/>
+	<baseButton name="gemShopBtn" parent="tabSp"  properties='{"x":0, "y":0, "skin":"mainCity.gemShopBtn", "buttonMode":true,"mouseEnabled":true}' />	
+	<baseButton name="ironShopBtn" parent="tabSp" properties='{"x":0, "y":44, "skin":"mainCity.ironShopBtn", "buttonMode":true,"mouseEnabled":true}' />	
+	<baseButton name="jianyuBtn" parent="tabSp"  properties='{"x":0, "y":88, "skin":"mainCity.jianyuBtn", "buttonMode":true,"mouseEnabled":true}' />	
+	<baseButton name="warLockBtn" parent="tabSp" properties='{"x":0, "y":132, "skin":"mainCity.warLockBtn", "buttonMode":true,"mouseEnabled":true}' />
+</config>

@@ -1,0 +1,8282 @@
+[
+    {
+        "troop_id":  "1",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "3",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "4",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "5",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "6",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "7",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "8",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "9",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "17",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "18",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "19",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "21",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "22",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "23",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "24",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "25",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "26",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "27",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "28",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "29",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "30",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "31",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "32",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "33",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "34",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "35",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "36",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "37",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "38",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "39",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "40",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "41",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "42",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "43",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "44",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "45",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "46",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "47",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "48",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "49",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "50",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "51",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "52",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "53",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "54",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "55",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "56",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "57",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "58",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "59",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "60",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "61",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "62",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "63",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "64",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "65",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "66",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "67",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "68",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "69",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "70",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "74",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "75",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "76",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "77",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "78",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "79",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "80",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "82",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "83",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "84",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "85",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "86",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "87",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "88",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "89",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "90",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "91",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "92",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "93",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "94",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "95",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "96",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "97",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "98",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "99",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "100",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "101",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "102",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "103",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "104",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "105",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "106",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "107",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "108",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "109",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "110",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "111",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "112",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "113",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "114",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "115",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "116",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "117",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "118",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "119",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "121",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "122",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "123",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "124",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "125",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "126",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "127",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "128",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "129",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "130",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "131",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "132",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "133",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "134",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "135",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "136",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "137",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "138",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "139",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "140",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "201",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "202",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "203",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "204",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "205",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "206",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "207",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "208",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "209",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "210",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "211",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "212",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "213",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "214",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "215",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "216",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "217",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "218",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "219",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "220",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "221",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "222",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "223",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "224",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "225",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "226",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "227",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "228",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "229",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "230",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "231",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "232",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "233",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "234",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "235",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "236",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "237",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "238",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "239",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "240",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "241",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "242",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "243",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "244",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "245",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "246",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "247",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "248",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "249",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "250",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "251",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "252",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "253",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "254",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "255",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "256",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "257",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "258",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "259",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "260",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "261",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "262",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "263",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "264",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "265",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "266",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "267",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "268",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "269",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "270",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "271",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "272",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "273",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "274",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "275",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "276",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "277",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "278",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "279",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "280",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "281",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "282",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "283",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "284",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "285",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "286",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "287",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "288",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "289",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "290",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "291",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "292",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "293",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "294",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "295",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "296",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "297",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "298",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "299",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "300",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "301",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "302",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "303",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "304",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "305",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "306",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "311",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "312",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "313",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "321",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "322",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "323",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "331",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "332",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "333",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "341",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "342",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "343",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "351",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "352",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "353",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "361",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "362",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "363",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "371",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "372",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "373",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "411",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "412",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "413",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "421",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "422",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "423",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "431",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "432",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "433",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "441",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "442",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "443",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "451",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "452",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "453",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "461",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "462",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "463",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "471",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "472",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "473",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "511",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "512",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "513",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "521",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "522",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "523",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "531",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "532",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "533",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "541",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "542",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "543",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "551",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "552",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "553",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "561",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "562",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "563",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "571",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "572",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "573",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "611",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "612",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "613",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "621",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "622",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "623",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "631",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "632",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "633",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "641",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "642",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "643",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "651",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "652",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "653",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "661",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "662",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "663",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "671",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "672",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "673",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "711",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "712",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "713",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "721",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "722",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "723",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "731",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "732",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "733",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "741",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "742",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "743",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "751",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "752",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "753",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "761",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "762",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "763",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "771",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "772",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "773",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "811",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "812",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "813",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "821",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "822",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "823",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "831",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "832",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "833",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "841",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "842",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "843",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "851",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "852",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "853",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "861",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "862",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "863",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "911",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "912",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "913",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "921",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "922",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "923",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "931",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "932",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "933",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "941",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "942",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "943",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "951",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "952",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "953",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1001",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1002",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1003",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1004",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1005",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1006",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1007",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1008",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1009",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1010",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1011",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1012",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1013",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1014",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1015",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1016",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1017",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1018",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1019",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "1020",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2005",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2101",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2201",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2202",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2203",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2301",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2302",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2401",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2402",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2501",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2502",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2601",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2602",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2701",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2702",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2703",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2801",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2802",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2803",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2901",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2902",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2903",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "2904",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "3001",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "3002",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "3101",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "3102",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "3201",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "3202",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10001",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10002",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10003",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10004",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10005",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10006",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10007",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10008",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10009",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10010",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10011",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10012",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10013",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10014",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10015",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10016",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10017",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10018",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10019",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10020",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10021",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10022",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10023",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10024",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10025",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10026",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10027",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10028",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10029",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10030",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10031",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10032",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10033",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10034",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10035",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10036",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10037",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10038",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10039",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10040",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10041",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10042",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10043",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10044",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10045",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10046",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10047",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10048",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10049",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10050",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10051",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10052",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10053",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10054",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10055",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10056",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10057",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10058",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10059",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10060",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10061",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10062",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10063",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10064",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10065",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10066",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10067",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10068",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10069",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10070",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10071",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10072",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10073",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10074",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10075",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10076",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10077",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10078",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10079",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10080",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10081",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10082",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10083",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10084",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10085",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10086",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10087",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10088",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10089",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10090",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10091",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10092",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10093",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10094",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10095",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10096",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10097",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10098",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10099",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "10100",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11011",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11012",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11013",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11021",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11022",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11023",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11031",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11032",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11033",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11041",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11042",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11043",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11051",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11052",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11053",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11061",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11062",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11063",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11071",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11072",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "11073",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12011",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12012",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12013",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12021",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12022",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12023",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12031",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12032",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12033",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12041",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12042",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12043",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12051",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12052",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12053",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12061",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12062",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12063",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12071",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12072",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "12073",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13011",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13012",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13013",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13021",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13022",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13023",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13031",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13032",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13033",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13041",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13042",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13043",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13051",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13052",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13053",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13061",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13062",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13063",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13071",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13072",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "13073",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14011",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14012",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14013",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14021",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14022",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14023",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14031",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14032",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14033",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14041",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14042",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14043",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14051",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14052",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14053",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14061",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14062",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14063",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14071",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14072",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "14073",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15011",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15012",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15013",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15021",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15022",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15023",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15031",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15032",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15033",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15041",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15042",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15043",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15051",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15052",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15053",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15061",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15062",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15063",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15071",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15072",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "15073",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16011",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16012",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16013",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16021",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16022",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16023",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16031",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16032",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16033",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16041",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16042",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16043",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16051",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16052",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16053",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16061",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16062",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16063",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16071",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16072",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "16073",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20001",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20002",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20003",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20004",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20005",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20101",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20102",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20103",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20104",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20105",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20201",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20202",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20203",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20204",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20205",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20301",
+        "copper":  "0",
+        "food":  "0.2",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20302",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20303",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20304",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "20305",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71001",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71002",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71003",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71004",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71005",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71011",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71012",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71013",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71014",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71015",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71021",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71022",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71023",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71024",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71025",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71031",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71032",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71033",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71034",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71035",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71041",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71042",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71043",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71044",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "71045",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72001",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72002",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72003",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72004",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72005",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72011",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72012",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72013",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72014",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72015",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72021",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72022",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72023",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72024",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72025",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72031",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72032",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72033",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72034",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72035",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72041",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72042",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72043",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72044",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "72045",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73001",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73002",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73003",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73004",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73005",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73011",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73012",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73013",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73014",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73015",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73021",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73022",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73023",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73024",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73025",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73031",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73032",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73033",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73034",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73035",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73041",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73042",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73043",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73044",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "73045",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81161",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81162",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81163",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81171",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81172",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81173",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81361",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81362",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81363",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81371",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81372",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "81373",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "82161",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "82162",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "82163",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "82171",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "82172",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "82173",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "83161",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "83162",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "83163",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "83171",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "83172",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "83173",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "102001",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "102002",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "102003",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "102004",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "102005",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "102006",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "102007",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "102008",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "102009",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "110001",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "110002",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "110003",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "110101",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "111001",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "111002",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "111003",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "111004",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "111005",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "111006",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "111007",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "111008",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "111009",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "112001",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "112002",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "112003",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "112004",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "112005",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "112006",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "112101",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "112102",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "112103",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "112104",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120011",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120012",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120013",
+        "copper":  "0",
+        "food":  "0.26",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120021",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120022",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120023",
+        "copper":  "0",
+        "food":  "0.32",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120031",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120032",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120033",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120041",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120042",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120043",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120051",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120052",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120053",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120061",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120062",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    },
+    {
+        "troop_id":  "120063",
+        "copper":  "0",
+        "food":  "0.4",
+        "input_type":  "3",
+        "output_e":  "1",
+        "request":  "0",
+        "lumber":  "0",
+        "iron":  "0"
+    }
+]

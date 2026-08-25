@@ -1,0 +1,13 @@
+{
+  "swf": "LegacyReference/GCLDServer/wwwroot/game/module/tech/view/tech/Tech.swf",
+  "bitmap_ids": [],
+  "symbols": [
+    {
+      "kind": "SymbolClass",
+      "name": "game.module.tech.view.tech.Tech",
+      "character_id": 0,
+      "bitmap_ids": [],
+      "dependency_ids": []
+    }
+  ]
+}

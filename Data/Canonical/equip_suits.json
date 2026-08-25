@@ -1,0 +1,240 @@
+[
+  {
+    "id": 1,
+    "name": "Văn Quan Bạch Sắc Trang Bị",
+    "minChiefLevel": 30,
+    "type": 2,
+    "maxIntimacyLevel": 0,
+    "equipmentIds": [
+      7010,
+      8010,
+      9010,
+      10010,
+      11010,
+      12010
+    ],
+    "quality": 1
+  },
+  {
+    "id": 2,
+    "name": "Văn Quan Lam Sắc Trang Bị",
+    "minChiefLevel": 40,
+    "type": 2,
+    "maxIntimacyLevel": 0,
+    "equipmentIds": [
+      7020,
+      8020,
+      9020,
+      10020,
+      11020,
+      12020
+    ],
+    "quality": 2
+  },
+  {
+    "id": 3,
+    "name": "Văn Quan Lục Sắc Trang Bị",
+    "minChiefLevel": 50,
+    "type": 2,
+    "maxIntimacyLevel": 0,
+    "equipmentIds": [
+      7030,
+      8030,
+      9030,
+      10030,
+      11030,
+      12030
+    ],
+    "quality": 3
+  },
+  {
+    "id": 4,
+    "name": "Văn Quan Hoàng Sắc Trang Bị",
+    "minChiefLevel": 60,
+    "type": 2,
+    "maxIntimacyLevel": 0,
+    "equipmentIds": [
+      7040,
+      8040,
+      9040,
+      10040,
+      11040,
+      12040
+    ],
+    "quality": 4
+  },
+  {
+    "id": 5,
+    "name": "Văn Quan Hồng Sắc Trang Bị",
+    "minChiefLevel": 70,
+    "type": 2,
+    "maxIntimacyLevel": 0,
+    "equipmentIds": [
+      7050,
+      8050,
+      9050,
+      10050,
+      11050,
+      12050
+    ],
+    "quality": 5
+  },
+  {
+    "id": 6,
+    "name": "Văn Quan Tử Sắc Trang Bị",
+    "minChiefLevel": 80,
+    "type": 2,
+    "maxIntimacyLevel": 0,
+    "equipmentIds": [
+      7060,
+      8060,
+      9060,
+      10060,
+      11060,
+      12060
+    ],
+    "quality": 6
+  },
+  {
+    "id": 7,
+    "name": "Võ Tướng Bạch Sắc Trang Bị",
+    "minChiefLevel": 1,
+    "type": 1,
+    "maxIntimacyLevel": 2,
+    "equipmentIds": [
+      1010,
+      3010,
+      5010
+    ],
+    "quality": 1
+  },
+  {
+    "id": 8,
+    "name": "",
+    "minChiefLevel": 13,
+    "type": 1,
+    "maxIntimacyLevel": 2,
+    "equipmentIds": [
+      2010,
+      4010,
+      6010
+    ],
+    "quality": 1
+  },
+  {
+    "id": 9,
+    "name": "Võ Tướng Lam Sắc Trang Bị",
+    "minChiefLevel": 19,
+    "type": 1,
+    "maxIntimacyLevel": 2,
+    "equipmentIds": [
+      1020,
+      3020,
+      5020,
+      2020,
+      4020,
+      6020
+    ],
+    "quality": 2
+  },
+  {
+    "id": 10,
+    "name": "Võ Tướng Lục Sắc Trang Bị",
+    "minChiefLevel": 28,
+    "type": 1,
+    "maxIntimacyLevel": 4,
+    "equipmentIds": [
+      1030,
+      3030,
+      5030,
+      2030,
+      4030,
+      6030
+    ],
+    "quality": 3
+  },
+  {
+    "id": 11,
+    "name": "Võ Tướng Hoàng Sắc Trang Bị",
+    "minChiefLevel": 36,
+    "type": 1,
+    "maxIntimacyLevel": 8,
+    "equipmentIds": [
+      1040,
+      2040,
+      3040,
+      4040,
+      5040,
+      6040,
+      1041,
+      2041,
+      3041,
+      4041,
+      5041,
+      6041
+    ],
+    "quality": 4
+  },
+  {
+    "id": 12,
+    "name": "Võ Tướng Hồng Sắc Trang Bị",
+    "minChiefLevel": 53,
+    "type": 1,
+    "maxIntimacyLevel": 14,
+    "equipmentIds": [
+      1050,
+      2050,
+      3050,
+      4050,
+      5050,
+      6050,
+      1051,
+      2051,
+      3051,
+      4051,
+      5051,
+      6051,
+      1052,
+      2052,
+      3052,
+      4052,
+      5052,
+      6052
+    ],
+    "quality": 5
+  },
+  {
+    "id": 13,
+    "name": "Võ Tướng Tử Sắc Trang Bị",
+    "minChiefLevel": 70,
+    "type": 1,
+    "maxIntimacyLevel": 20,
+    "equipmentIds": [
+      1060,
+      2060,
+      3060,
+      4060,
+      5060,
+      6060,
+      1061,
+      2061,
+      3061,
+      4061,
+      5061,
+      6061,
+      1062,
+      2062,
+      3062,
+      4062,
+      5062,
+      6062,
+      1063,
+      2063,
+      3063,
+      4063,
+      5063,
+      6063
+    ],
+    "quality": 6
+  }
+]

@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<cities>
+	<city id="1" name="Tây Lương Bắc" intro="NULL" terrain="3" chief="Phùng Kỷ" pic="NULL" cnp="10" weiDis="18" shuDis="9" wuDis="23" x="466" y="131" model="model301"/>
+	<city id="2" name="Tây Lương Tây" intro="NULL" terrain="3" chief="Hoàng Quyền" pic="NULL" cnp="10" weiDis="17" shuDis="8" wuDis="22" x="269" y="296" model="model301"/>
+	<city id="3" name="Tây Lương Đông" intro="NULL" terrain="3" chief="Lưu Ba" pic="NULL" cnp="10" weiDis="18" shuDis="10" wuDis="24" x="703" y="266" model="model301"/>
+	<city id="4" name="Tây Lương" intro="NULL" terrain="6" chief="Lưu Biểu" pic="NULL" cnp="50" weiDis="17" shuDis="9" wuDis="23" x="469" y="364" model="model605"/>
+	<city id="5" name="Thiên Thủy Bắc" intro="NULL" terrain="3" chief="Trương Giác" pic="NULL" cnp="10" weiDis="16" shuDis="7" wuDis="21" x="341" y="560" model="model301"/>
+	<city id="6" name="Tây Lương Nam" intro="NULL" terrain="3" chief="Mãn Sủng" pic="NULL" cnp="10" weiDis="16" shuDis="8" wuDis="22" x="618" y="532" model="model301"/>
+	<city id="7" name="Thiên Thủy Tây" intro="NULL" terrain="3" chief="Lưu Thiện" pic="NULL" cnp="10" weiDis="15" shuDis="6" wuDis="20" x="237" y="843" model="model301"/>
+	<city id="8" name="Thiên Thủy" intro="NULL" terrain="6" chief="Mi Trúc" pic="NULL" cnp="50" weiDis="15" shuDis="7" wuDis="21" x="446" y="784" model="model605"/>
+	<city id="9" name="Thiên Thủy Đông" intro="NULL" terrain="3" chief="Mã Tốc" pic="NULL" cnp="10" weiDis="15" shuDis="7" wuDis="21" x="655" y="710" model="model301"/>
+	<city id="10" name="Thiên Thủy Nam" intro="NULL" terrain="3" chief="Quan Hưng" pic="NULL" cnp="10" weiDis="14" shuDis="6" wuDis="20" x="628" y="952" model="model301"/>
+	<city id="11" name="Lũng Tây Bắc" intro="NULL" terrain="3" chief="Mã Đại" pic="NULL" cnp="10" weiDis="14" shuDis="5" wuDis="19" x="477" y="1147" model="model301"/>
+	<city id="12" name="Lũng Tây" intro="NULL" terrain="6" chief="Trương Bao" pic="NULL" cnp="50" weiDis="14" shuDis="5" wuDis="19" x="435" y="1373" model="model605"/>
+	<city id="13" name="Lũng Tây Đông" intro="NULL" terrain="3" chief="Hàn Toại" pic="NULL" cnp="10" weiDis="13" shuDis="6" wuDis="19" x="699" y="1450" model="model301"/>
+	<city id="14" name="Lũng Tây Nam" intro="NULL" terrain="4" chief="Trương Lương" pic="NULL" cnp="10" weiDis="15" shuDis="4" wuDis="18" x="455" y="1568" model="model401"/>
+	<city id="15" name="Vĩnh An Tây" intro="NULL" terrain="1" chief="Pháp Chính" pic="NULL" cnp="10" weiDis="16" shuDis="3" wuDis="17" x="704" y="1633" model="model101"/>
+	<city id="16" name="Thành Đô Bắc" intro="NULL" terrain="4" chief="Mạnh Hoạch" pic="NULL" cnp="10" weiDis="17" shuDis="1" wuDis="17" x="453" y="1786" model="model401"/>
+	<city id="17" name="Thành Đô Tây" intro="NULL" terrain="3" chief="Tống Hiến" pic="NULL" cnp="10" weiDis="18" shuDis="1" wuDis="18" x="265" y="1862" model="model301"/>
+	<city id="18" name="Vĩnh An Nam" intro="NULL" terrain="1" chief="Hạ Hầu Bá" pic="NULL" cnp="10" weiDis="16" shuDis="2" wuDis="16" x="817" y="1850" model="model101"/>
+	<city id="19" name="Thành Đô" intro="NULL" terrain="6" chief="Phàn Trù" pic="NULL" cnp="500" weiDis="17" shuDis="0" wuDis="17" x="369" y="1950" model="model601"/>
+	<city id="20" name="Tử Đồng" intro="NULL" terrain="6" chief="Trần Lâm" pic="NULL" cnp="50" weiDis="16" shuDis="1" wuDis="16" x="636" y="2010" model="model604"/>
+	<city id="21" name="Vũ Dương" intro="NULL" terrain="6" chief="Quách Đồ" pic="NULL" cnp="50" weiDis="17" shuDis="1" wuDis="17" x="340" y="2215" model="model604"/>
+	<city id="22" name="Giang Châu Bắc" intro="NULL" terrain="1" chief="Lạc Tiến" pic="NULL" cnp="10" weiDis="17" shuDis="2" wuDis="16" x="478" y="2398" model="model101"/>
+	<city id="23" name="Ba Quận" intro="NULL" terrain="6" chief="Đổng Chiêu" pic="NULL" cnp="50" weiDis="16" shuDis="3" wuDis="15" x="769" y="2426" model="model604"/>
+	<city id="24" name="Giang Châu" intro="NULL" terrain="6" chief="Đặng Ngải" pic="NULL" cnp="50" weiDis="18" shuDis="3" wuDis="16" x="430" y="2624" model="model604"/>
+	<city id="25" name="Giang Châu Nam" intro="NULL" terrain="3" chief="Trần Quần" pic="NULL" cnp="10" weiDis="19" shuDis="4" wuDis="17" x="354" y="2879" model="model301"/>
+	<city id="26" name="Giang Châu Đông" intro="NULL" terrain="1" chief="Bàng Đức" pic="NULL" cnp="10" weiDis="18" shuDis="4" wuDis="15" x="647" y="2788" model="model101"/>
+	<city id="27" name="Vân Nam Tây" intro="NULL" terrain="3" chief="Khổng Dung" pic="NULL" cnp="10" weiDis="20" shuDis="5" wuDis="17" x="346" y="3095" model="model301"/>
+	<city id="28" name="Vân Nam Bắc" intro="NULL" terrain="3" chief="Viên Thuật" pic="NULL" cnp="10" weiDis="19" shuDis="5" wuDis="15" x="711" y="2995" model="model301"/>
+	<city id="29" name="Vân Nam Nam" intro="NULL" terrain="3" chief="Trương Lỗ" pic="NULL" cnp="10" weiDis="20" shuDis="6" wuDis="16" x="503" y="3339" model="model301"/>
+	<city id="30" name="Vân Nam" intro="NULL" terrain="6" chief="Y Tịch" pic="NULL" cnp="50" weiDis="19" shuDis="6" wuDis="15" x="664" y="3177" model="model604"/>
+	<city id="31" name="Vũ Uy Ngoại Sơn" intro="NULL" terrain="3" chief="Dương Phụng" pic="NULL" cnp="10" weiDis="11" shuDis="10" wuDis="20" x="1039" y="93" model="model301"/>
+	<city id="32" name="Vũ Uy" intro="NULL" terrain="6" chief="Tữ Thụ" pic="NULL" cnp="100" weiDis="11" shuDis="9" wuDis="20" x="1030" y="385" model="model605"/>
+	<city id="33" name="Vũ Uy Đông" intro="NULL" terrain="3" chief="Tưởng Can" pic="NULL" cnp="10" weiDis="10" shuDis="10" wuDis="19" x="1232" y="280" model="model301"/>
+	<city id="34" name="Trường An" intro="NULL" terrain="6" chief="Thuần Vu Quỳnh" pic="NULL" cnp="200" weiDis="10" shuDis="10" wuDis="19" x="1362" y="523" model="model605"/>
+	<city id="35" name="Hàm Dương Bắc" intro="NULL" terrain="3" chief="Hoa Hùng" pic="NULL" cnp="10" weiDis="9" shuDis="12" wuDis="18" x="1591" y="140" model="model301"/>
+	<city id="36" name="Nhai Đình" intro="NULL" terrain="1" chief="Viên Thiệu" pic="NULL" cnp="10" weiDis="9" shuDis="11" wuDis="18" x="1512" y="330" model="model101"/>
+	<city id="37" name="Hàm Dương" intro="NULL" terrain="6" chief="Lý Điển" pic="NULL" cnp="100" weiDis="8" shuDis="12" wuDis="17" x="1776" y="339" model="model605"/>
+	<city id="38" name="Trường An Đông" intro="NULL" terrain="1" chief="Tang Bá" pic="NULL" cnp="10" weiDis="9" shuDis="11" wuDis="18" x="1618" y="540" model="model101"/>
+	<city id="39" name="Ngũ Trượng Nguyên" intro="NULL" terrain="3" chief="Vu Cấm" pic="NULL" cnp="10" weiDis="12" shuDis="8" wuDis="19" x="1061" y="715" model="model301"/>
+	<city id="40" name="Hán Trung Bắc" intro="NULL" terrain="1" chief="Trương Tế" pic="NULL" cnp="10" weiDis="11" shuDis="9" wuDis="20" x="1409" y="747" model="model101"/>
+	<city id="41" name="Đồng Quan" intro="NULL" terrain="5" chief="Tào Nhân" pic="NULL" cnp="10" weiDis="12" shuDis="7" wuDis="18" x="1045" y="1045" model="model501"/>
+	<city id="42" name="Hán Trung" intro="NULL" terrain="6" chief="Hàn Toại" pic="NULL" cnp="100" weiDis="11" shuDis="8" wuDis="19" x="1296" y="904" model="model605"/>
+	<city id="43" name="Kiếm Các" intro="NULL" terrain="3" chief="Trương Lương" pic="NULL" cnp="10" weiDis="10" shuDis="9" wuDis="19" x="1538" y="914" model="model301"/>
+	<city id="44" name="Hán Trung Nam" intro="NULL" terrain="3" chief="Trương Nhiệm" pic="NULL" cnp="10" weiDis="11" shuDis="9" wuDis="20" x="1416" y="1044" model="model301"/>
+	<city id="45" name="Tà Cốc" intro="NULL" terrain="3" chief="Mạnh Hoạch" pic="NULL" cnp="10" weiDis="9" shuDis="10" wuDis="18" x="1719" y="847" model="model301"/>
+	<city id="46" name="Thạch Thành Bắc" intro="NULL" terrain="3" chief="Phan Phụng" pic="NULL" cnp="10" weiDis="13" shuDis="6" wuDis="17" x="1143" y="1218" model="model301"/>
+	<city id="47" name="Vĩnh An Bắc" intro="NULL" terrain="3" chief="Quan Bình" pic="NULL" cnp="10" weiDis="16" shuDis="4" wuDis="18" x="948" y="1521" model="model301"/>
+	<city id="48" name="Vĩnh An" intro="NULL" terrain="6" chief="Mã Đại" pic="NULL" cnp="50" weiDis="16" shuDis="3" wuDis="17" x="921" y="1689" model="model604"/>
+	<city id="49" name="Thạch Thành Tây" intro="NULL" terrain="3" chief="Quách Tị" pic="NULL" cnp="10" weiDis="14" shuDis="5" wuDis="16" x="1172" y="1487" model="model301"/>
+	<city id="50" name="Vĩnh An Đông" intro="NULL" terrain="1" chief="Lý Giác" pic="NULL" cnp="10" weiDis="15" shuDis="4" wuDis="17" x="1163" y="1741" model="model101"/>
+	<city id="51" name="Thạch Thành" intro="NULL" terrain="6" chief="Ngụy Tục" pic="NULL" cnp="50" weiDis="14" shuDis="6" wuDis="16" x="1351" y="1390" model="model605"/>
+	<city id="52" name="Thạch Thành Nam" intro="NULL" terrain="1" chief="Hầu Thành" pic="NULL" cnp="10" weiDis="15" shuDis="5" wuDis="15" x="1514" y="1541" model="model101"/>
+	<city id="53" name="Bạch Đế Bắc" intro="NULL" terrain="3" chief="Mã Đằng" pic="NULL" cnp="10" weiDis="14" shuDis="4" wuDis="14" x="1741" y="1666" model="model301"/>
+	<city id="54" name="Bồi Lăng Tây" intro="NULL" terrain="3" chief="Nhan Lương" pic="NULL" cnp="10" weiDis="15" shuDis="2" wuDis="15" x="1009" y="1983" model="model301"/>
+	<city id="55" name="Bồi Lăng Nam" intro="NULL" terrain="3" chief="Trương Liêu" pic="NULL" cnp="10" weiDis="15" shuDis="3" wuDis="15" x="1062" y="2312" model="model301"/>
+	<city id="56" name="Tam Giang Khẩu" intro="NULL" terrain="1" chief="Văn Xú" pic="NULL" cnp="10" weiDis="12" shuDis="10" wuDis="7" x="3356" y="1991" model="model101"/>
+	<city id="57" name="Bồi Lăng" intro="NULL" terrain="6" chief="Lưu Chương" pic="NULL" cnp="50" weiDis="14" shuDis="3" wuDis="14" x="1235" y="2046" model="model604"/>
+	<city id="58" name="Bạch Đế Tây" intro="NULL" terrain="3" chief="Phùng Kỷ" pic="NULL" cnp="10" weiDis="14" shuDis="3" wuDis="14" x="1515" y="1825" model="model301"/>
+	<city id="59" name="Bồi Lăng Đông" intro="NULL" terrain="3" chief="Lạc Tiến" pic="NULL" cnp="10" weiDis="13" shuDis="4" wuDis="13" x="1445" y="2085" model="model301"/>
+	<city id="60" name="Bạch Đế" intro="NULL" terrain="6" chief="Chung Hội" pic="NULL" cnp="50" weiDis="13" shuDis="4" wuDis="13" x="1758" y="1864" model="model602"/>
+	<city id="61" name="Bạch Đế Nam" intro="NULL" terrain="3" chief="Điêu Thuyền" pic="NULL" cnp="10" weiDis="12" shuDis="5" wuDis="12" x="1653" y="2011" model="model301"/>
+	<city id="62" name="Kiến Ninh Tây" intro="NULL" terrain="3" chief="Trần Lâm" pic="NULL" cnp="10" weiDis="17" shuDis="4" wuDis="14" x="1025" y="2708" model="model301"/>
+	<city id="63" name="Kiến Ninh Bắc" intro="NULL" terrain="3" chief="Tào Thực" pic="NULL" cnp="10" weiDis="16" shuDis="4" wuDis="14" x="1303" y="2499" model="model301"/>
+	<city id="64" name="Kiến Ninh" intro="NULL" terrain="6" chief="Dương Tu" pic="NULL" cnp="50" weiDis="16" shuDis="5" wuDis="13" x="1321" y="2769" model="model604"/>
+	<city id="65" name="Hán Thọ Tây" intro="NULL" terrain="3" chief="Lưu Kỳ" pic="NULL" cnp="10" weiDis="14" shuDis="5" wuDis="14" x="1646" y="2371" model="model301"/>
+	<city id="66" name="Kiến Ninh Đông" intro="NULL" terrain="3" chief="Dương Tùng" pic="NULL" cnp="10" weiDis="15" shuDis="6" wuDis="12" x="1575" y="2661" model="model301"/>
+	<city id="67" name="Đáp Lang Điện Bắc" intro="NULL" terrain="3" chief="Hứa Du" pic="NULL" cnp="10" weiDis="16" shuDis="6" wuDis="12" x="1586" y="2903" model="model301"/>
+	<city id="68" name="Hán Thọ" intro="NULL" terrain="6" chief="Trần Lâm" pic="NULL" cnp="50" weiDis="13" shuDis="6" wuDis="13" x="1871" y="2355" model="model604"/>
+	<city id="69" name="Hán Thọ Nam" intro="NULL" terrain="3" chief="Khổng Dung" pic="NULL" cnp="10" weiDis="14" shuDis="7" wuDis="13" x="1723" y="2541" model="model301"/>
+	<city id="70" name="Di Lăng" intro="NULL" terrain="5" chief="Tư Mã Sư" pic="NULL" cnp="10" weiDis="16" shuDis="7" wuDis="11" x="1937" y="2806" model="model502"/>
+	<city id="71" name="Vân Nam Đông" intro="NULL" terrain="3" chief="Đổng Hòa" pic="NULL" cnp="10" weiDis="18" shuDis="6" wuDis="14" x="946" y="3208" model="model301"/>
+	<city id="72" name="Kiến Ninh Nam" intro="NULL" terrain="3" chief="Đổng Doãn" pic="NULL" cnp="10" weiDis="17" shuDis="5" wuDis="13" x="1314" y="2967" model="model301"/>
+	<city id="73" name="Đáp Lang Điện Tây" intro="NULL" terrain="3" chief="Phí Y" pic="NULL" cnp="10" weiDis="17" shuDis="6" wuDis="13" x="1371" y="3155" model="model301"/>
+	<city id="74" name="Đáp Lang Điện" intro="NULL" terrain="6" chief="Tưởng Uyển" pic="NULL" cnp="50" weiDis="17" shuDis="7" wuDis="13" x="1606" y="3132" model="model604"/>
+	<city id="75" name="Đáp Lang Điện Nam" intro="NULL" terrain="3" chief="Đổng Hòa" pic="NULL" cnp="10" weiDis="18" shuDis="7" wuDis="14" x="1533" y="3314" model="model301"/>
+	<city id="76" name="Tấn Dương Tây" intro="NULL" terrain="3" chief="Trương Tùng" pic="NULL" cnp="10" weiDis="5" shuDis="15" wuDis="19" x="2220" y="132" model="model301"/>
+	<city id="77" name="Tấn Dương Sơn Mạch" intro="NULL" terrain="3" chief="Mã Lương" pic="NULL" cnp="10" weiDis="5" shuDis="14" wuDis="18" x="2248" y="313" model="model301"/>
+	<city id="78" name="Hàm Cốc Quan" intro="NULL" terrain="5" chief="Từ Thứ" pic="NULL" cnp="10" weiDis="7" shuDis="12" wuDis="16" x="2032" y="527" model="model502"/>
+	<city id="79" name="Tấn Dương" intro="NULL" terrain="6" chief="Hàn Toại" pic="NULL" cnp="50" weiDis="4" shuDis="15" wuDis="18" x="2482" y="151" model="model605"/>
+	<city id="80" name="Tấn Dương Nam" intro="NULL" terrain="3" chief="Trương Lương" pic="NULL" cnp="10" weiDis="4" shuDis="15" wuDis="17" x="2546" y="378" model="model301"/>
+	<city id="81" name="Tấn Dương Đông" intro="NULL" terrain="3" chief="Trương Nhiệm" pic="NULL" cnp="10" weiDis="3" shuDis="16" wuDis="18" x="2763" y="138" model="model301"/>
+	<city id="82" name="Tấn Dương Thủy Vực" intro="NULL" terrain="4" chief="Mã Tốc" pic="NULL" cnp="10" weiDis="4" shuDis="17" wuDis="19" x="2850" y="246" model="model401"/>
+	<city id="83" name="Định Quân Sơn" intro="NULL" terrain="3" chief="Mạnh Hoạch" pic="NULL" cnp="10" weiDis="8" shuDis="11" wuDis="17" x="1960" y="759" model="model301"/>
+	<city id="84" name="Thượng Dung" intro="NULL" terrain="6" chief="Phan Phụng" pic="NULL" cnp="100" weiDis="9" shuDis="11" wuDis="18" x="2008" y="940" model="model605"/>
+	<city id="85" name="Thượng Dung Nam" intro="NULL" terrain="1" chief="Quan Bình" pic="NULL" cnp="10" weiDis="10" shuDis="11" wuDis="19" x="1916" y="1078" model="model101"/>
+	<city id="86" name="Hàm Cốc Thủy Vực" intro="NULL" terrain="4" chief="Mã Đại" pic="NULL" cnp="10" weiDis="6" shuDis="13" wuDis="17" x="2271" y="540" model="model401"/>
+	<city id="87" name="Bộc Dương Tây" intro="NULL" terrain="1" chief="Chu Thương" pic="NULL" cnp="10" weiDis="6" shuDis="13" wuDis="15" x="2220" y="668" model="model101"/>
+	<city id="88" name="Tấn Dương Ngoại Sơn" intro="NULL" terrain="3" chief="Trương Bao" pic="NULL" cnp="10" weiDis="5" shuDis="14" wuDis="16" x="2498" y="584" model="model301"/>
+	<city id="89" name="Bộc Dương" intro="NULL" terrain="6" chief="Tào Chương" pic="NULL" cnp="50" weiDis="5" shuDis="14" wuDis="15" x="2452" y="758" model="model605"/>
+	<city id="90" name="Bộc Dương Nam" intro="NULL" terrain="1" chief="Tào Hồng" pic="NULL" cnp="10" weiDis="5" shuDis="14" wuDis="14" x="2361" y="907" model="model101"/>
+	<city id="91" name="Bộc Dương Thủy Vực" intro="NULL" terrain="4" chief="Trương Cáp" pic="NULL" cnp="10" weiDis="4" shuDis="15" wuDis="15" x="2815" y="628" model="model401"/>
+	<city id="92" name="Bộc Dương Đông" intro="NULL" terrain="1" chief="Trương Liêu" pic="NULL" cnp="10" weiDis="4" shuDis="15" wuDis="15" x="2723" y="773" model="model101"/>
+	<city id="93" name="Nghiệp Thành Tây" intro="NULL" terrain="1" chief="Mã Lương" pic="NULL" cnp="10" weiDis="6" shuDis="13" wuDis="13" x="2501" y="1039" model="model101"/>
+	<city id="94" name="Nghiệp Thành Bắc" intro="NULL" terrain="1" chief="Khương Duy" pic="NULL" cnp="10" weiDis="7" shuDis="13" wuDis="13" x="2693" y="956" model="model101"/>
+	<city id="95" name="Nghiệp Thành" intro="NULL" terrain="6" chief="Bàng Đức" pic="NULL" cnp="50" weiDis="6" shuDis="12" wuDis="12" x="2821" y="1105" model="model605"/>
+	<city id="96" name="Nghiệp Thành Nam" intro="NULL" terrain="1" chief="Ngụy Diên" pic="NULL" cnp="10" weiDis="7" shuDis="13" wuDis="13" x="2603" y="1185" model="model101"/>
+	<city id="97" name="Phàn Thành" intro="NULL" terrain="6" chief="Nghiêm Nhan" pic="NULL" cnp="100" weiDis="9" shuDis="8" wuDis="11" x="2378" y="1588" model="model604"/>
+	<city id="98" name="Hứa Xương" intro="NULL" terrain="6" chief="Liêu Hóa" pic="NULL" cnp="100" weiDis="8" shuDis="9" wuDis="11" x="2691" y="1423" model="model604"/>
+	<city id="99" name="Bạch Đế Đông" intro="NULL" terrain="3" chief="Quách Gia" pic="NULL" cnp="10" weiDis="12" shuDis="5" wuDis="12" x="2016" y="1886" model="model301"/>
+	<city id="100" name="Hán Thọ Đông" intro="NULL" terrain="3" chief="Tang Bá" pic="NULL" cnp="10" weiDis="12" shuDis="7" wuDis="12" x="2097" y="2280" model="model301"/>
+	<city id="101" name="Mạch Thành" intro="NULL" terrain="3" chief="Trương Giác" pic="NULL" cnp="10" weiDis="10" shuDis="7" wuDis="12" x="2313" y="1887" model="model301"/>
+	<city id="102" name="Vu Hiệp Quan" intro="NULL" terrain="5" chief="Mãn Sủng" pic="NULL" cnp="10" weiDis="11" shuDis="6" wuDis="11" x="2234" y="2053" model="model503"/>
+	<city id="103" name="Giang Lăng" intro="NULL" terrain="6" chief="Lưu Kỳ" pic="NULL" cnp="200" weiDis="10" shuDis="9" wuDis="10" x="2574" y="1868" model="model604"/>
+	<city id="104" name="Trường Bản Pha" intro="NULL" terrain="3" chief="Mi Trúc" pic="NULL" cnp="10" weiDis="12" shuDis="7" wuDis="10" x="2434" y="2045" model="model301"/>
+	<city id="105" name="Tương Dương" intro="NULL" terrain="6" chief="Dương Tùng" pic="NULL" cnp="500" weiDis="10" shuDis="10" wuDis="10" x="2875" y="1762" model="model602"/>
+	<city id="106" name="Nghi Thành" intro="NULL" terrain="6" chief="Tôn Càn" pic="NULL" cnp="100" weiDis="11" shuDis="8" wuDis="9" x="2736" y="2060" model="model604"/>
+	<city id="107" name="Vũ Lăng" intro="NULL" terrain="6" chief="Từ Thứ" pic="NULL" cnp="100" weiDis="17" shuDis="8" wuDis="10" x="2124" y="2849" model="model604"/>
+	<city id="108" name="Vũ Lăng Bắc" intro="NULL" terrain="3" chief="Tư Mã Chiêu" pic="NULL" cnp="10" weiDis="18" shuDis="9" wuDis="10" x="2241" y="2707" model="model301"/>
+	<city id="109" name="Sa Thành Bắc" intro="NULL" terrain="3" chief="Đặng Ngải" pic="NULL" cnp="10" weiDis="18" shuDis="10" wuDis="8" x="2596" y="2670" model="model301"/>
+	<city id="110" name="Hành Dương Bắc" intro="NULL" terrain="1" chief="Tư Mã Ý" pic="NULL" cnp="10" weiDis="18" shuDis="9" wuDis="9" x="2423" y="2815" model="model101"/>
+	<city id="111" name="Sa Thành" intro="NULL" terrain="6" chief="Tào Tháo" pic="NULL" cnp="100" weiDis="17" shuDis="11" wuDis="7" x="2670" y="2855" model="model604"/>
+	<city id="112" name="Linh Lăng Tây" intro="NULL" terrain="3" chief="Lý Điển" pic="NULL" cnp="10" weiDis="17" shuDis="8" wuDis="10" x="1991" y="3040" model="model301"/>
+	<city id="113" name="Hành Dương" intro="NULL" terrain="6" chief="Tào Phi" pic="NULL" cnp="200" weiDis="18" shuDis="10" wuDis="8" x="2415" y="2966" model="model604"/>
+	<city id="114" name="Linh Lăng" intro="NULL" terrain="6" chief="Tào Thực" pic="NULL" cnp="100" weiDis="18" shuDis="9" wuDis="9" x="2243" y="3135" model="model604"/>
+	<city id="115" name="Linh Lăng Nam" intro="NULL" terrain="3" chief="Bàng Đức" pic="NULL" cnp="10" weiDis="18" shuDis="9" wuDis="9" x="2203" y="3345" model="model301"/>
+	<city id="116" name="Quế Dương Tây" intro="NULL" terrain="1" chief="Trương Cáp" pic="NULL" cnp="10" weiDis="18" shuDis="10" wuDis="8" x="2435" y="3209" model="model101"/>
+	<city id="117" name="Quế Dương" intro="NULL" terrain="6" chief="Hạ Hầu Uyên" pic="NULL" cnp="100" weiDis="18" shuDis="11" wuDis="8" x="2639" y="3122" model="model604"/>
+	<city id="118" name="Quế Dương Nam" intro="NULL" terrain="3" chief="Vu Cấm" pic="NULL" cnp="10" weiDis="17" shuDis="11" wuDis="7" x="2729" y="3307" model="model301"/>
+	<city id="119" name="Bạch Mã" intro="NULL" terrain="6" chief="Điêu Thuyền" pic="NULL" cnp="50" weiDis="2" shuDis="17" wuDis="19" x="3099" y="185" model="model605"/>
+	<city id="120" name="Lạc Dương Tây" intro="NULL" terrain="1" chief="Tào Hồng" pic="NULL" cnp="10" weiDis="1" shuDis="18" wuDis="18" x="3355" y="200" model="model101"/>
+	<city id="121" name="Bình Nguyên" intro="NULL" terrain="6" chief="Giả Hủ" pic="NULL" cnp="50" weiDis="1" shuDis="16" wuDis="16" x="3279" y="487" model="model604"/>
+	<city id="122" name="Lạc Dương Hiệu Ngoại" intro="NULL" terrain="3" chief="Từ Hoảng" pic="NULL" cnp="10" weiDis="2" shuDis="19" wuDis="19" x="3730" y="114" model="model301"/>
+	<city id="123" name="Lạc Dương" intro="NULL" terrain="6" chief="Hạ Hầu Đôn" pic="NULL" cnp="500" weiDis="0" shuDis="17" wuDis="17" x="3614" y="355" model="model601"/>
+	<city id="124" name="Bộc Dương Hiệu Ngoại" intro="NULL" terrain="1" chief="Hứa Chử" pic="NULL" cnp="10" weiDis="3" shuDis="14" wuDis="14" x="2974" y="705" model="model101"/>
+	<city id="125" name="Bình Nguyên Nam" intro="NULL" terrain="1" chief="Điển Vi" pic="NULL" cnp="10" weiDis="2" shuDis="15" wuDis="15" x="3208" y="668" model="model101"/>
+	<city id="126" name="Hàm Đan" intro="NULL" terrain="6" chief="Trương Lỗ" pic="NULL" cnp="50" weiDis="4" shuDis="13" wuDis="13" x="3129" y="836" model="model604"/>
+	<city id="127" name="Nghiệp Thành Đông" intro="NULL" terrain="1" chief="Dương Phụng" pic="NULL" cnp="10" weiDis="5" shuDis="12" wuDis="12" x="3088" y="1046" model="model101"/>
+	<city id="128" name="Nam Bì Tây" intro="NULL" terrain="1" chief="Tữ Thụ" pic="NULL" cnp="10" weiDis="2" shuDis="15" wuDis="15" x="3442" y="636" model="model101"/>
+	<city id="129" name="Trần Lưu Tây" intro="NULL" terrain="1" chief="Lưu Chương" pic="NULL" cnp="10" weiDis="4" shuDis="13" wuDis="13" x="3462" y="939" model="model101"/>
+	<city id="130" name="Nam Bì" intro="NULL" terrain="6" chief="Lý Túc" pic="NULL" cnp="50" weiDis="1" shuDis="16" wuDis="16" x="3686" y="543" model="model604"/>
+	<city id="131" name="Trần Lưu Bắc" intro="NULL" terrain="1" chief="Đào Khiêm" pic="NULL" cnp="10" weiDis="3" shuDis="14" wuDis="14" x="3626" y="803" model="model101"/>
+	<city id="132" name="Trần Lưu" intro="NULL" terrain="6" chief="Trần Quần" pic="NULL" cnp="50" weiDis="4" shuDis="13" wuDis="13" x="3762" y="1001" model="model602"/>
+	<city id="133" name="Hổ Lao Quan" intro="NULL" terrain="5" chief="Tào Thực" pic="NULL" cnp="10" weiDis="6" shuDis="11" wuDis="11" x="3217" y="1269" model="model501"/>
+	<city id="134" name="Tứ Thủy" intro="NULL" terrain="1" chief="Hạ Hầu Bá" pic="NULL" cnp="10" weiDis="7" shuDis="10" wuDis="12" x="3056" y="1383" model="model101"/>
+	<city id="135" name="Uyển Thành" intro="NULL" terrain="6" chief="Điền Phong" pic="NULL" cnp="200" weiDis="9" shuDis="10" wuDis="10" x="2956" y="1534" model="model604"/>
+	<city id="136" name="Trần Lưu Nam" intro="NULL" terrain="1" chief="Lý Nho" pic="NULL" cnp="10" weiDis="5" shuDis="12" wuDis="12" x="3551" y="1170" model="model101"/>
+	<city id="137" name="Tân Dã" intro="NULL" terrain="1" chief="Lỗ Túc" pic="NULL" cnp="10" weiDis="7" shuDis="12" wuDis="10" x="3481" y="1401" model="model101"/>
+	<city id="138" name="Nhữ Nam" intro="NULL" terrain="6" chief="Trần Cung" pic="NULL" cnp="100" weiDis="8" shuDis="11" wuDis="9" x="3315" y="1545" model="model604"/>
+	<city id="139" name="Giang Hạ" intro="NULL" terrain="6" chief="Tuân Úc" pic="NULL" cnp="200" weiDis="10" shuDis="10" wuDis="9" x="3200" y="1808" model="model604"/>
+	<city id="140" name="Tử Tang" intro="NULL" terrain="6" chief="Tào Hồng" pic="NULL" cnp="100" weiDis="11" shuDis="9" wuDis="8" x="3038" y="1984" model="model604"/>
+	<city id="141" name="Kiến Xương Bắc" intro="NULL" terrain="1" chief="Viên Thuật" pic="NULL" cnp="10" weiDis="15" shuDis="15" wuDis="7" x="3134" y="2285" model="model101"/>
+	<city id="142" name="Hoa Dung" intro="NULL" terrain="1" chief="Tưởng Can" pic="NULL" cnp="10" weiDis="10" shuDis="12" wuDis="7" x="3577" y="1850" model="model101"/>
+	<city id="143" name="Hán Dương" intro="NULL" terrain="6" chief="Trần Quần" pic="NULL" cnp="100" weiDis="9" shuDis="11" wuDis="8" x="3535" y="1655" model="model604"/>
+	<city id="144" name="Xích Bích" intro="NULL" terrain="5" chief="Đại Kiều" pic="NULL" cnp="10" weiDis="11" shuDis="11" wuDis="6" x="3634" y="2006" model="model502"/>
+	<city id="145" name="Xích Bích Đông" intro="NULL" terrain="1" chief="Tiểu Kiều" pic="NULL" cnp="10" weiDis="12" shuDis="12" wuDis="5" x="3928" y="1917" model="model101"/>
+	<city id="146" name="Đan Dương Thủy Vực" intro="NULL" terrain="4" chief="Đổng Chiêu" pic="NULL" cnp="10" weiDis="12" shuDis="12" wuDis="6" x="3763" y="2241" model="model401"/>
+	<city id="147" name="Kiến Xương Thủy Vực" intro="NULL" terrain="4" chief="Gia Cát Cẩn" pic="NULL" cnp="10" weiDis="14" shuDis="14" wuDis="6" x="3464" y="2278" model="model401"/>
+	<city id="148" name="Kiến Xương Tây" intro="NULL" terrain="4" chief="Khoái Lương" pic="NULL" cnp="10" weiDis="15" shuDis="14" wuDis="6" x="3004" y="2545" model="model401"/>
+	<city id="149" name="Tầm Dương" intro="NULL" terrain="5" chief="Y Tịch" pic="NULL" cnp="10" weiDis="16" shuDis="12" wuDis="6" x="2975" y="2912" model="model503"/>
+	<city id="150" name="Kiến Xương" intro="NULL" terrain="6" chief="Khổng Dung" pic="NULL" cnp="50" weiDis="14" shuDis="14" wuDis="6" x="3259" y="2511" model="model604"/>
+	<city id="151" name="Kiến Xương Nam" intro="NULL" terrain="1" chief="Giả Hủ" pic="NULL" cnp="10" weiDis="15" shuDis="13" wuDis="5" x="3224" y="2752" model="model101"/>
+	<city id="152" name="Đan Dương Bắc" intro="NULL" terrain="1" chief="Trần Cung" pic="NULL" cnp="10" weiDis="13" shuDis="13" wuDis="5" x="3749" y="2444" model="model101"/>
+	<city id="153" name="Đan Dương" intro="NULL" terrain="6" chief="Lý Nho" pic="NULL" cnp="50" weiDis="14" shuDis="14" wuDis="4" x="3755" y="2590" model="model604"/>
+	<city id="154" name="Đan Dương Tây" intro="NULL" terrain="4" chief="Điền Phong" pic="NULL" cnp="10" weiDis="15" shuDis="15" wuDis="4" x="3601" y="2714" model="model401"/>
+	<city id="155" name="Đan Dương Nam" intro="NULL" terrain="1" chief="Đào Khiêm" pic="NULL" cnp="10" weiDis="15" shuDis="15" wuDis="3" x="3869" y="2727" model="model101"/>
+	<city id="156" name="Phàn Dương Tây" intro="NULL" terrain="4" chief="Lý Túc" pic="NULL" cnp="10" weiDis="16" shuDis="16" wuDis="2" x="3899" y="2891" model="model401"/>
+	<city id="157" name="Tầm Dương Thủy Vực" intro="NULL" terrain="4" chief="Tổ Mậu" pic="NULL" cnp="10" weiDis="17" shuDis="13" wuDis="5" x="3158" y="3101" model="model401"/>
+	<city id="158" name="Vũ Xương Bắc" intro="NULL" terrain="1" chief="Lưu Chương" pic="NULL" cnp="10" weiDis="16" shuDis="14" wuDis="4" x="3383" y="2932" model="model101"/>
+	<city id="159" name="Vũ Xương" intro="NULL" terrain="6" chief="Tữ Thụ" pic="NULL" cnp="50" weiDis="17" shuDis="15" wuDis="3" x="3425" y="3081" model="model604"/>
+	<city id="160" name="Vũ Xương Nam" intro="NULL" terrain="4" chief="Dương Phụng" pic="NULL" cnp="10" weiDis="18" shuDis="16" wuDis="4" x="3417" y="3299" model="model401"/>
+	<city id="161" name="Vũ Xương Đông" intro="NULL" terrain="4" chief="Trương Lỗ" pic="NULL" cnp="10" weiDis="17" shuDis="16" wuDis="2" x="3677" y="3060" model="model401"/>
+	<city id="162" name="Kế Thành Tây" intro="NULL" terrain="1" chief="Thái Sử Từ" pic="NULL" cnp="10" weiDis="3" shuDis="20" wuDis="19" x="4106" y="181" model="model101"/>
+	<city id="163" name="Huỳnh Dương" intro="NULL" terrain="6" chief="Tôn Sách" pic="NULL" cnp="50" weiDis="1" shuDis="17" wuDis="17" x="4036" y="382" model="model604"/>
+	<city id="164" name="Kế Thành" intro="NULL" terrain="6" chief="Cam Ninh" pic="NULL" cnp="50" weiDis="3" shuDis="19" wuDis="18" x="4410" y="236" model="model604"/>
+	<city id="165" name="Huỳnh Dương Đông" intro="NULL" terrain="1" chief="Lữ Mông" pic="NULL" cnp="10" weiDis="2" shuDis="18" wuDis="17" x="4264" y="437" model="model101"/>
+	<city id="166" name="Kế Thành Đông" intro="NULL" terrain="1" chief="Tôn Thượng Hương" pic="NULL" cnp="10" weiDis="4" shuDis="20" wuDis="19" x="4659" y="181" model="model101"/>
+	<city id="167" name="Đông Quận Bắc" intro="NULL" terrain="1" chief="Hoàng Cái" pic="NULL" cnp="10" weiDis="3" shuDis="17" wuDis="16" x="4532" y="480" model="model101"/>
+	<city id="168" name="Bắc Hải Hiệu Ngoại" intro="NULL" terrain="1" chief="Tôn Kiên" pic="NULL" cnp="10" weiDis="4" shuDis="18" wuDis="17" x="4805" y="365" model="model101"/>
+	<city id="169" name="Bình Khâu" intro="NULL" terrain="6" chief="Chu Thái" pic="NULL" cnp="50" weiDis="2" shuDis="16" wuDis="16" x="4074" y="591" model="model604"/>
+	<city id="170" name="Bình Khâu Nam" intro="NULL" terrain="1" chief="Lăng Thống" pic="NULL" cnp="10" weiDis="2" shuDis="15" wuDis="15" x="3951" y="756" model="model101"/>
+	<city id="171" name="Trần Lưu Đông" intro="NULL" terrain="1" chief="Tư Mã Sư" pic="NULL" cnp="10" weiDis="4" shuDis="14" wuDis="14" x="4032" y="968" model="model101"/>
+	<city id="172" name="Đông Quận Tây" intro="NULL" terrain="1" chief="Tống Hiến" pic="NULL" cnp="10" weiDis="5" shuDis="15" wuDis="14" x="4250" y="723" model="model101"/>
+	<city id="173" name="Đông Quận" intro="NULL" terrain="6" chief="Phàn Trù" pic="NULL" cnp="50" weiDis="4" shuDis="16" wuDis="15" x="4495" y="673" model="model604"/>
+	<city id="174" name="Đông Quận Nam" intro="NULL" terrain="1" chief="Thuần Vu Quỳnh" pic="NULL" cnp="10" weiDis="6" shuDis="16" wuDis="13" x="4551" y="866" model="model101"/>
+	<city id="175" name="Hạ Phì" intro="NULL" terrain="6" chief="Hoa Hùng" pic="NULL" cnp="100" weiDis="9" shuDis="19" wuDis="12" x="4515" y="1089" model="model604"/>
+	<city id="176" name="Đông Quận Đông" intro="NULL" terrain="1" chief="Viên Thiệu" pic="NULL" cnp="10" weiDis="5" shuDis="17" wuDis="14" x="4818" y="765" model="model101"/>
+	<city id="177" name="Quan Độ" intro="NULL" terrain="5" chief="Lạc Tiến" pic="NULL" cnp="10" weiDis="7" shuDis="17" wuDis="12" x="4883" y="1008" model="model502"/>
+	<city id="178" name="Trần Lưu Hiệu Ngoại" intro="NULL" terrain="1" chief="Hàn Toại" pic="NULL" cnp="10" weiDis="5" shuDis="14" wuDis="14" x="3934" y="1215" model="model101"/>
+	<city id="179" name="Khúc A Tây" intro="NULL" terrain="4" chief="Trương Lương" pic="NULL" cnp="10" weiDis="13" shuDis="13" wuDis="6" x="3980" y="1702" model="model401"/>
+	<city id="180" name="Hạ Phì Tây" intro="NULL" terrain="3" chief="Trương Nhiệm" pic="NULL" cnp="10" weiDis="10" shuDis="20" wuDis="12" x="4301" y="1173" model="model301"/>
+	<city id="181" name="Hạ Phì Hiệu Ngoại" intro="NULL" terrain="3" chief="Mạnh Hoạch" pic="NULL" cnp="10" weiDis="11" shuDis="19" wuDis="10" x="4223" y="1390" model="model301"/>
+	<city id="182" name="Thọ Xuân Thủy Vực" intro="NULL" terrain="4" chief="Phan Phụng" pic="NULL" cnp="10" weiDis="12" shuDis="19" wuDis="10" x="4098" y="1554" model="model401"/>
+	<city id="183" name="Thọ Xuân Tây" intro="NULL" terrain="4" chief="Lưu Chương" pic="NULL" cnp="10" weiDis="12" shuDis="18" wuDis="9" x="4288" y="1572" model="model401"/>
+	<city id="184" name="Hạ Phì Nam" intro="NULL" terrain="1" chief="Quan Bình" pic="NULL" cnp="10" weiDis="10" shuDis="20" wuDis="11" x="4497" y="1301" model="model101"/>
+	<city id="185" name="Từ Châu Tây" intro="NULL" terrain="1" chief="Mã Đại" pic="NULL" cnp="10" weiDis="11" shuDis="19" wuDis="10" x="4482" y="1468" model="model101"/>
+	<city id="186" name="Thọ Xuân" intro="NULL" terrain="6" chief="Chu Thương" pic="NULL" cnp="100" weiDis="13" shuDis="17" wuDis="8" x="4468" y="1682" model="model604"/>
+	<city id="187" name="Hạ Phì Đông" intro="NULL" terrain="1" chief="Trương Bao" pic="NULL" cnp="10" weiDis="8" shuDis="18" wuDis="13" x="4737" y="1172" model="model101"/>
+	<city id="188" name="Từ Châu" intro="NULL" terrain="6" chief="Chúc Dung" pic="NULL" cnp="200" weiDis="10" shuDis="19" wuDis="10" x="4710" y="1400" model="model604"/>
+	<city id="189" name="Nhu Tu Ổ" intro="NULL" terrain="5" chief="Liêu Hóa" pic="NULL" cnp="10" weiDis="12" shuDis="16" wuDis="7" x="4785" y="1736" model="model502"/>
+	<city id="190" name="Lư Giang Thủy Vực" intro="NULL" terrain="4" chief="Quan Hưng" pic="NULL" cnp="10" weiDis="12" shuDis="12" wuDis="5" x="3962" y="2174" model="model401"/>
+	<city id="191" name="Khúc A" intro="NULL" terrain="6" chief="Nghiêm Nhan" pic="NULL" cnp="50" weiDis="14" shuDis="14" wuDis="7" x="4216" y="1767" model="model604"/>
+	<city id="192" name="Cửu Giang Tây" intro="NULL" terrain="4" chief="Ngụy Diên" pic="NULL" cnp="10" weiDis="15" shuDis="15" wuDis="6" x="4304" y="2055" model="model401"/>
+	<city id="193" name="Lư Giang" intro="NULL" terrain="6" chief="Bàng Đức" pic="NULL" cnp="50" weiDis="13" shuDis="13" wuDis="4" x="4250" y="2335" model="model602"/>
+	<city id="194" name="Cửu Giang Bắc" intro="NULL" terrain="1" chief="Quan Vũ" pic="NULL" cnp="10" weiDis="14" shuDis="15" wuDis="6" x="4508" y="1900" model="model101"/>
+	<city id="195" name="Cửu Giang" intro="NULL" terrain="6" chief="Quan Hưng" pic="NULL" cnp="50" weiDis="14" shuDis="14" wuDis="5" x="4425" y="2147" model="model604"/>
+	<city id="196" name="Nhu Tu Ổ Nam" intro="NULL" terrain="1" chief="Quan Bình" pic="NULL" cnp="10" weiDis="13" shuDis="15" wuDis="6" x="4774" y="1956" model="model101"/>
+	<city id="197" name="Cửu Giang Đông" intro="NULL" terrain="4" chief="Bàng Thống" pic="NULL" cnp="10" weiDis="15" shuDis="15" wuDis="4" x="4687" y="2200" model="model401"/>
+	<city id="198" name="Đan Dương Đông" intro="NULL" terrain="4" chief="Khương Duy" pic="NULL" cnp="10" weiDis="14" shuDis="14" wuDis="4" x="3993" y="2510" model="model401"/>
+	<city id="199" name="Hán Tân" intro="NULL" terrain="6" chief="Trương Phi" pic="NULL" cnp="50" weiDis="14" shuDis="14" wuDis="3" x="4211" y="2544" model="model604"/>
+	<city id="200" name="Hán Tân Nam" intro="NULL" terrain="4" chief="Ngụy Diên" pic="NULL" cnp="10" weiDis="15" shuDis="15" wuDis="2" x="4218" y="2748" model="model401"/>
+	<city id="201" name="Hán Tân Đông" intro="NULL" terrain="1" chief="Mã Siêu" pic="NULL" cnp="10" weiDis="15" shuDis="15" wuDis="2" x="4479" y="2618" model="model101"/>
+	<city id="202" name="Hồ Khẩu" intro="NULL" terrain="6" chief="Hoàng Trung" pic="NULL" cnp="50" weiDis="16" shuDis="16" wuDis="1" x="4415" y="2888" model="model604"/>
+	<city id="203" name="Nam Xương Tây" intro="NULL" terrain="1" chief="Tôn Càn" pic="NULL" cnp="10" weiDis="16" shuDis="16" wuDis="3" x="4696" y="2449" model="model101"/>
+	<city id="204" name="Ngô Quận Bắc" intro="NULL" terrain="4" chief="Triệu Vân" pic="NULL" cnp="10" weiDis="16" shuDis="16" wuDis="3" x="4676" y="2764" model="model401"/>
+	<city id="205" name="Phàn Dương" intro="NULL" terrain="6" chief="Từ Thứ" pic="NULL" cnp="50" weiDis="16" shuDis="16" wuDis="1" x="4107" y="2993" model="model604"/>
+	<city id="206" name="Đồn Điền" intro="NULL" terrain="4" chief="Mã Đại" pic="NULL" cnp="10" weiDis="18" shuDis="18" wuDis="1" x="4011" y="3215" model="farmCity"/>
+	<city id="207" name="Kiến Nghiệp" intro="NULL" terrain="6" chief="Trương Bao" pic="NULL" cnp="500" weiDis="17" shuDis="17" wuDis="0" x="4313" y="3094" model="model601"/>
+	<city id="208" name="Kiến Nghiệp Nam" intro="NULL" terrain="4" chief="Gia Cát Lượng" pic="NULL" cnp="10" weiDis="18" shuDis="18" wuDis="1" x="4384" y="3318" model="model401"/>
+	<city id="209" name="Ngô Quận" intro="NULL" terrain="6" chief="Hoàng Trung" pic="NULL" cnp="50" weiDis="17" shuDis="17" wuDis="2" x="4784" y="2922" model="model604"/>
+	<city id="210" name="Quảng Lăng" intro="NULL" terrain="6" chief="Pháp Chính" pic="NULL" cnp="50" weiDis="18" shuDis="18" wuDis="1" x="4636" y="3191" model="model604"/>
+	<city id="211" name="Quảng Lăng Nam" intro="NULL" terrain="1" chief="Tôn Sách" pic="NULL" cnp="10" weiDis="19" shuDis="19" wuDis="2" x="4691" y="3426" model="model101"/>
+	<city id="212" name="Quảng Lăng Đông" intro="NULL" terrain="4" chief="Tôn Kiên" pic="NULL" cnp="10" weiDis="19" shuDis="19" wuDis="2" x="4876" y="3140" model="model401"/>
+	<city id="213" name="Bắc Bình Tây" intro="NULL" terrain="1" chief="Cam Ninh" pic="NULL" cnp="10" weiDis="5" shuDis="19" wuDis="18" x="5015" y="247" model="model101"/>
+	<city id="214" name="Bắc Hải" intro="NULL" terrain="6" chief="Chu Du" pic="NULL" cnp="50" weiDis="5" shuDis="19" wuDis="17" x="4928" y="520" model="model604"/>
+	<city id="215" name="Bắc Bình Bắc" intro="NULL" terrain="1" chief="Lữ Mông" pic="NULL" cnp="10" weiDis="6" shuDis="20" wuDis="18" x="5153" y="121" model="model101"/>
+	<city id="216" name="Bắc Bình" intro="NULL" terrain="6" chief="Lúc Tốn" pic="NULL" cnp="50" weiDis="6" shuDis="20" wuDis="17" x="5282" y="280" model="model605"/>
+	<city id="217" name="Bắc Bình Nam" intro="NULL" terrain="1" chief="Thái Sử Từ" pic="NULL" cnp="10" weiDis="6" shuDis="20" wuDis="16" x="5199" y="468" model="model101"/>
+	<city id="218" name="Bắc Bình Đông" intro="NULL" terrain="1" chief="Lăng Thống" pic="NULL" cnp="10" weiDis="7" shuDis="21" wuDis="17" x="5570" y="300" model="model101"/>
+	<city id="219" name="Đông Hải Tây" intro="NULL" terrain="1" chief="Hàn Đương" pic="NULL" cnp="10" weiDis="6" shuDis="18" wuDis="13" x="5093" y="839" model="model101"/>
+	<city id="220" name="Đông Hải Bắc" intro="NULL" terrain="1" chief="Chu Du" pic="NULL" cnp="10" weiDis="7" shuDis="20" wuDis="15" x="5336" y="617" model="model101"/>
+	<city id="221" name="Đông Hải" intro="NULL" terrain="6" chief="Lỗ Túc" pic="NULL" cnp="50" weiDis="7" shuDis="19" wuDis="14" x="5322" y="798" model="model605"/>
+	<city id="222" name="Đông Hải Đông" intro="NULL" terrain="1" chief="Gia Cát Cẩn" pic="NULL" cnp="10" weiDis="8" shuDis="20" wuDis="15" x="5558" y="839" model="model101"/>
+	<city id="223" name="Đông Hải Nam" intro="NULL" terrain="3" chief="Trình Phổ" pic="NULL" cnp="10" weiDis="7" shuDis="19" wuDis="14" x="5370" y="968" model="model301"/>
+	<city id="224" name="Lâm Tri Tây" intro="NULL" terrain="1" chief="Hoàng Cái" pic="NULL" cnp="10" weiDis="9" shuDis="19" wuDis="10" x="4950" y="1272" model="model101"/>
+	<city id="225" name="Hợp Phì" intro="NULL" terrain="6" chief="Tổ Mậu" pic="NULL" cnp="100" weiDis="11" shuDis="17" wuDis="8" x="5056" y="1602" model="model604"/>
+	<city id="226" name="Lâm Tri" intro="NULL" terrain="6" chief="Từ Vinh" pic="NULL" cnp="100" weiDis="8" shuDis="18" wuDis="11" x="5191" y="1193" model="model604"/>
+	<city id="227" name="Hợp Phì Bắc" intro="NULL" terrain="1" chief="Cao Thuận" pic="NULL" cnp="10" weiDis="10" shuDis="18" wuDis="9" x="5167" y="1390" model="model101"/>
+	<city id="228" name="Lâm Tri Đông" intro="NULL" terrain="4" chief="Đổng Trác" pic="NULL" cnp="10" weiDis="9" shuDis="19" wuDis="12" x="5479" y="1168" model="model401"/>
+	<city id="229" name="Lâm Tri Thủy Vực" intro="NULL" terrain="4" chief="Nghiêm Xú" pic="NULL" cnp="10" weiDis="9" shuDis="19" wuDis="12" x="5452" y="1354" model="model401"/>
+	<city id="230" name="Hợp Phì Đông" intro="NULL" terrain="1" chief="Nghiêm Lương" pic="NULL" cnp="10" weiDis="11" shuDis="19" wuDis="10" x="5385" y="1509" model="model101"/>
+	<city id="231" name="Hợp Phì Thủy Vực" intro="NULL" terrain="4" chief="Mã Đằng" pic="NULL" cnp="10" weiDis="12" shuDis="18" wuDis="9" x="5457" y="1702" model="model401"/>
+	<city id="232" name="Nhu Tu Ổ Đông" intro="NULL" terrain="1" chief="Hầu Thành" pic="NULL" cnp="10" weiDis="13" shuDis="17" wuDis="7" x="4987" y="1818" model="model101"/>
+	<city id="233" name="Giang Đô Tây" intro="NULL" terrain="4" chief="Ngụy Tục" pic="NULL" cnp="10" weiDis="14" shuDis="16" wuDis="6" x="5067" y="2003" model="model401"/>
+	<city id="234" name="Nam Xương Bắc" intro="NULL" terrain="1" chief="Lý Giác" pic="NULL" cnp="10" weiDis="15" shuDis="16" wuDis="5" x="4963" y="2208" model="model101"/>
+	<city id="235" name="Hợp Phì Nam" intro="NULL" terrain="4" chief="Quách Tị" pic="NULL" cnp="10" weiDis="12" shuDis="18" wuDis="9" x="5272" y="1809" model="model401"/>
+	<city id="236" name="Giang Đô Bắc" intro="NULL" terrain="4" chief="Trương Lỗ" pic="NULL" cnp="10" weiDis="16" shuDis="18" wuDis="7" x="5515" y="1811" model="model401"/>
+	<city id="237" name="Giang Đô" intro="NULL" terrain="6" chief="Dương Phụng" pic="NULL" cnp="50" weiDis="15" shuDis="17" wuDis="6" x="5433" y="2054" model="model604"/>
+	<city id="238" name="Giang Đô Thủy Vực" intro="NULL" terrain="4" chief="Tữ Thụ" pic="NULL" cnp="10" weiDis="16" shuDis="18" wuDis="7" x="5639" y="2235" model="model401"/>
+	<city id="239" name="Nam Xương" intro="NULL" terrain="6" chief="Lưu Chương" pic="NULL" cnp="50" weiDis="16" shuDis="17" wuDis="4" x="4951" y="2426" model="model604"/>
+	<city id="240" name="Nam Xương Nam" intro="NULL" terrain="4" chief="Lý Túc" pic="NULL" cnp="10" weiDis="16" shuDis="16" wuDis="3" x="4889" y="2647" model="model401"/>
+	<city id="241" name="Ngô Quận Thủy Vực" intro="NULL" terrain="4" chief="Đào Khiêm" pic="NULL" cnp="10" weiDis="17" shuDis="17" wuDis="4" x="4948" y="2803" model="model401"/>
+	<city id="242" name="Nam Xương Đông" intro="NULL" terrain="4" chief="Điền Phong" pic="NULL" cnp="10" weiDis="16" shuDis="18" wuDis="5" x="5246" y="2437" model="model401"/>
+	<city id="243" name="Kiến An Hiệu Ngoại" intro="NULL" terrain="1" chief="Lý Nho" pic="NULL" cnp="10" weiDis="17" shuDis="17" wuDis="4" x="5248" y="2665" model="model101"/>
+	<city id="244" name="Kiến An Bắc" intro="NULL" terrain="1" chief="Trần Cung" pic="NULL" cnp="10" weiDis="17" shuDis="19" wuDis="6" x="5549" y="2618" model="model101"/>
+	<city id="245" name="Kiến An" intro="NULL" terrain="6" chief="Giả Hủ" pic="NULL" cnp="50" weiDis="18" shuDis="18" wuDis="5" x="5470" y="2847" model="model604"/>
+	<city id="246" name="Hội Kê" intro="NULL" terrain="6" chief="Y Tịch" pic="NULL" cnp="50" weiDis="18" shuDis="18" wuDis="3" x="5122" y="3140" model="model604"/>
+	<city id="247" name="Hội Kê Thủy Vực" intro="NULL" terrain="4" chief="Khoái Lương" pic="NULL" cnp="10" weiDis="19" shuDis="19" wuDis="4" x="5315" y="2964" model="model401"/>
+	<city id="248" name="Hội Kê Đông" intro="NULL" terrain="4" chief="Gia Cát Cẩn" pic="NULL" cnp="10" weiDis="19" shuDis="19" wuDis="4" x="5554" y="3249" model="model401"/>
+	<city id="249" name="Kiến An Thủy Vực" intro="NULL" terrain="4" chief="Đổng Chiêu" pic="NULL" cnp="10" weiDis="19" shuDis="19" wuDis="5" x="5720" y="2940" model="model401"/>
+	<city id="250" name="Tây Nhung Thành" intro="NULL" terrain="6" chief="Đổng Chiêu" pic="NULL" cnp="0" weiDis="19" shuDis="4" wuDis="17" x="198" y="2538" model="model603"/>
+	<city id="251" name="Bắc Địch Thành" intro="NULL" terrain="6" chief="Đổng Chiêu" pic="NULL" cnp="0" weiDis="4" shuDis="20" wuDis="19" x="4466" y="84" model="model603"/>
+	<city id="252" name="Đông Di Thành" intro="NULL" terrain="6" chief="Đổng Chiêu" pic="NULL" cnp="0" weiDis="19" shuDis="19" wuDis="4" x="5055" y="3326" model="model603"/>
+	<city id="253" name="Đồn Điền" intro="NULL" terrain="4" chief="Mã Đại" pic="NULL" cnp="10" weiDis="18" shuDis="18" wuDis="1" x="151" y="2030" model="farmCity"/>
+	<city id="254" name="Đồn Điền" intro="NULL" terrain="4" chief="Mã Đại" pic="NULL" cnp="10" weiDis="18" shuDis="18" wuDis="1" x="3845" y="262" model="farmCity"/>
+</cities>

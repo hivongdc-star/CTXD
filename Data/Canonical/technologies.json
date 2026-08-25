@@ -1,0 +1,3146 @@
+[
+  {
+    "id": 1,
+    "key": 1,
+    "keyString": "jidian",
+    "name": "Tế Điển Lễ Nghi",
+    "pic": "jidian",
+    "intro": "Mỗi ngày đạt được 3 lần miễn phí  đại tế tự",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Mỗi ngày miễn phí đại tế tự số lần",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 2,
+    "key": 2,
+    "keyString": "ganji",
+    "name": "Cản Tập",
+    "pic": "ganji",
+    "intro": "Đạt được nên khoa học kỹ thuật sau ，chợ 30phút khôi phục lần lượt sổ",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      0.0,
+      0.0,
+      0.5,
+      0.0
+    ],
+    "parameterIntros": [
+      "Chưa sử dụng",
+      "0",
+      "Mỗi 30phút chợ khôi phục  số lần ，trình tự trụ cột vì 0.5 lần",
+      "0"
+    ]
+  },
+  {
+    "id": 3,
+    "key": 3,
+    "keyString": "hexie",
+    "name": "Hòa Hài",
+    "pic": "hexie",
+    "intro": "Xử lý chính vụ đạt được  dân trung +5",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Đạt được nên khoa học kỹ thuật sau ，mỗi lần dân trung chính vụ trung thêm vào gia tăng 5điểm dân trung",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 4,
+    "key": 4,
+    "keyString": "dianbing",
+    "name": "Điểm Binh",
+    "pic": "dianbing",
+    "intro": "Nên khoa học kỹ thuật có thể gia tăng võ tướng mang binh liệt sổ 1liệt",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 5,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Ghi lại đạt được nên khoa học kỹ thuật sau võ tướng  mang binh liệt sổ",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 5,
+    "key": 5,
+    "keyString": "qinzheng",
+    "name": "Cần Chính",
+    "pic": "qinzheng",
+    "intro": "Quan văn xử lý nội chính đạt được tài nguyên gia tăng 20%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 10,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 6,
+    "key": 6,
+    "keyString": "tuntian",
+    "name": "Truân Điền",
+    "pic": "tuntian",
+    "intro": "Lương thực  sản lượng gia tăng 20%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 5,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 7,
+    "key": 7,
+    "keyString": "zhujian",
+    "name": "Chú Kiếm",
+    "pic": "zhujian",
+    "intro": "Gia tăng bộ binh võ tướng lực công kích",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 5,
+    "dropIndex": 0,
+    "parameters": [
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 8,
+    "key": 8,
+    "keyString": "zhaomu",
+    "name": "Chiêu mộ",
+    "pic": "zhaomu",
+    "intro": "Gia tăng 20%mộ binh tốc độ",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 10,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 9,
+    "key": 9,
+    "keyString": "duanjia",
+    "name": "Đoán Giáp",
+    "pic": "duanjia",
+    "intro": "Gia tăng bộ binh võ tướng lực phòng ngự",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 10,
+    "dropIndex": 0,
+    "parameters": [
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 10,
+    "key": 10,
+    "keyString": "yingyong",
+    "name": "Anh Dũng",
+    "pic": "yingyong",
+    "intro": "Võ tướng chiến pháp thương tổn gia tăng 10%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      10.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 11,
+    "key": 11,
+    "keyString": "kusi",
+    "name": "Khổ Tư",
+    "pic": "kusi",
+    "intro": "Quan văn kế sách phục hồi thời gian giảm bớt 20%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 12,
+    "key": 12,
+    "keyString": "lingdan",
+    "name": "Linh Đan Diệu Dược",
+    "pic": "lingdan",
+    "intro": "Thẩm tra theo đạt được đan dược  số lượng gia tăng 20%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 13,
+    "key": 13,
+    "keyString": "jianren",
+    "name": "Kiên Nhận",
+    "pic": "jianren",
+    "intro": "Bộ đội đối chiến pháp  phòng ngự gia tăng 5%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 14,
+    "key": 14,
+    "keyString": "tanyou",
+    "name": "Thám U Tác Ẩn",
+    "pic": "tanyou",
+    "intro": "Thẩm tra theo đạt được bảo vật  tỷ lệ gia tăng 5%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 15,
+    "key": 15,
+    "keyString": "jiaohuo",
+    "name": "Chước Hoạch",
+    "pic": "jiaohuo",
+    "intro": "Phó bản rơi xuống tiền bạc gia tăng 20%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 16,
+    "key": 16,
+    "keyString": "lilian",
+    "name": "Lịch Luyện",
+    "pic": "lilian",
+    "intro": "Võ tướng chiến đấu đạt được  kinh nghiệm gia tăng 10%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      10.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 17,
+    "key": 17,
+    "keyString": "jiaofu",
+    "name": "Cước Phu",
+    "pic": "jiaofu",
+    "intro": "Thẩm tra theo đạt được  tài nguyên gia tăng 20%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 18,
+    "key": 18,
+    "keyString": "kaoshang",
+    "name": "Khao Thưởng",
+    "pic": "kaoshang",
+    "intro": "Quốc chiến đạt được  quân tư thưởng cho gia tăng 20%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 19,
+    "key": 19,
+    "keyString": "shengyan",
+    "name": "Thịnh Yến",
+    "pic": "shengyan",
+    "intro": "Mỗi ngày yến hội  số lần thêm 1",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Mỗi ngày gia tăng  yến hội số lần",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 20,
+    "key": 20,
+    "keyString": "cangku",
+    "name": "Thương Khố Kiến Thiết",
+    "pic": "cangku",
+    "intro": "Tài nguyên thượng hạn gia tăng 500%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      500.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 21,
+    "key": 21,
+    "keyString": "riliwanji",
+    "name": "Nhật Lý Vạn Cơ",
+    "pic": "riliwanji",
+    "intro": "Xử lý chính vụ đạt được  tài nguyên gia tăng 20%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 22,
+    "key": 22,
+    "keyString": "gaoguan",
+    "name": "Cao Quan Hậu Lộc",
+    "pic": "gaoguan",
+    "intro": "Chức quan  sản lượng gia tăng gia tăng 20%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 23,
+    "key": 23,
+    "keyString": "pijing",
+    "name": "Phi Kinh Trảm Cức",
+    "pic": "pijing",
+    "intro": "Tấn công không biết khu vực đạt được tài nguyên gia tăng 20%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 24,
+    "key": 24,
+    "keyString": "qianggong",
+    "name": "Ô Tàm Tiên Cường Hóa",
+    "pic": "qianggong",
+    "intro": "Gia tăng binh khí  trụ cột lực công kích 5%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 25,
+    "key": 25,
+    "keyString": "qiangfang",
+    "name": "Tu La Thuẫn Cường Hóa",
+    "pic": "qiangfang",
+    "intro": "Gia tăng binh khí  trụ cột lực phòng ngự 5%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 26,
+    "key": 26,
+    "keyString": "qiangbing",
+    "name": "Hộ Quân Phù Cường Hóa",
+    "pic": "qiangbing",
+    "intro": "Gia tăng binh khí  trụ cột mang binh sổ 5%",
+    "researchTime": 30,
+    "resource": "iron,100",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 27,
+    "key": 27,
+    "keyString": "wujiang",
+    "name": "Thống Soái Lực",
+    "pic": "wujiang",
+    "intro": "Tân tăng một cái võ tướng vị",
+    "researchTime": 1,
+    "resource": "iron,100",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tân tăng võ tướng vị  số lượng ，số nguyên",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 28,
+    "key": 28,
+    "keyString": "bingzhong",
+    "name": "Binh Chủng Thăng Cấp",
+    "pic": "bingzhong",
+    "intro": "Sở hữu võ tướng  binh chủng thăng cấp 1 cấp",
+    "researchTime": 1,
+    "resource": "iron,100",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Binh chủng thăng cấp  cấp số ，số nguyên",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 29,
+    "key": 29,
+    "keyString": "jianyan",
+    "name": "Gián Ngôn",
+    "pic": "jianyan",
+    "intro": "Thăng cấp tài nguyên khu kiến trúc khi có xác suất đạt được chính vụ sự kiện",
+    "researchTime": 1,
+    "resource": "iron,100",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      0.0,
+      0.0,
+      0.5,
+      0.0
+    ],
+    "parameterIntros": [
+      "0",
+      "0",
+      "Thăng cấp kiến trúc đạt được chính vụ sự kiện  xác suất",
+      "0"
+    ]
+  },
+  {
+    "id": 30,
+    "key": 30,
+    "keyString": "qiangzhuang",
+    "name": "Cường Tráng",
+    "pic": "qiangzhuang",
+    "intro": "Thăng cấp sở tăng cường sở hữu võ tướng  lực công kích",
+    "researchTime": 1,
+    "resource": "iron,100",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      45.0,
+      15.0,
+      360.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Gia tăng võ tướng công kích",
+      "gia tăng Võ tướngphòng ngự",
+      "Gia tăng võ tướng huyết lượng （viết ra từng điều bộ đội ）",
+      "0"
+    ]
+  },
+  {
+    "id": 31,
+    "key": 31,
+    "keyString": "xiangzhu",
+    "name": "Hương Chúc Tế Tự",
+    "pic": "xiangzhu",
+    "intro": "Kim tệ hiến tế hiệu quả đề cao 1500%",
+    "researchTime": 1,
+    "resource": "iron,100",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1500.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，số nguyên tỏ vẻ tỉ lệ phần trăm ，tỉ lệ phần trăm mệt thêm không ngay cả thừa",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 32,
+    "key": 32,
+    "keyString": "wenguan",
+    "name": "Tân Tăng Văn Quan Vị",
+    "pic": "wenguan",
+    "intro": "Tân tăng một cái quan văn vị",
+    "researchTime": 1,
+    "resource": "iron,100",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tân tăng quan văn vị số lượng ，số nguyên",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 33,
+    "key": 33,
+    "keyString": "shadi",
+    "name": "Sát Địch",
+    "pic": "shadi",
+    "intro": "Công huân bảng bài danh thưởng cho trung có thể đạt được thép ròng",
+    "researchTime": 1,
+    "resource": "iron,100",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Phát phóng tỉ lệ phần trăm ，100tỏ vẻ phát phóng 100% thưởng cho",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 34,
+    "key": 34,
+    "keyString": "tiaozhan",
+    "name": "Khiêu Chiến",
+    "pic": "tiaozhan",
+    "intro": "Đề cao công huân bảng bảo tương thưởng cho số lượng ，đồng thời đề cao đánh chết mục tiêu",
+    "researchTime": 1,
+    "resource": "iron,100",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Thưởng cho hệ số ，lấy số nguyên đại biểu tỉ lệ phần trăm dùng cho tăng lên bảo tương thưởng cho",
+      "đạt tiêu chuẩn hệ số ，lấy số nguyên đại biểu tỉ lệ phần trăm",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 35,
+    "key": 35,
+    "keyString": "guanyun",
+    "name": "Quan Vận",
+    "pic": "guanyun",
+    "intro": "Chức quan sản xuất gia tăng gia tăng thép ròng",
+    "researchTime": 1,
+    "resource": "iron,50",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Phát phóng tỉ lệ phần trăm ，100tỏ vẻ phát phóng 100% thưởng cho",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 36,
+    "key": 36,
+    "keyString": "btjishi",
+    "name": "Tấn Thiết Chợ",
+    "pic": "btjishi",
+    "intro": "Chợ xuất hiện thép ròng tài nguyên",
+    "researchTime": 1,
+    "resource": "iron,50",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Hay không xuất hiện thép ròng ，lớn hơn 0tỏ vẻ xuất hiện",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 37,
+    "key": 37,
+    "keyString": "hengtong",
+    "name": "Hanh Thông",
+    "pic": "hengtong",
+    "intro": "Hắc thị đan thứ giao dịch lượng phiên lần",
+    "researchTime": 1,
+    "resource": "iron,100",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Hắc thị mỗi lần giao dịch lượng gia tăng  lần dẫn ，lấy số nguyên tỏ vẻ tỉ lệ phần trăm ，như 100tỏ vẻ gia tăng 100%",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 38,
+    "key": 38,
+    "keyString": "xjwx",
+    "name": "Hãm Tịnh Vô Hiệu",
+    "pic": "xjwx",
+    "intro": "Riêng cấp bậc  cạm bẫy không có hiệu quả",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Đề cao có thể ngăn cản  cạm bẫy cấp bậc  cấp số",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 39,
+    "key": 39,
+    "keyString": "tjqh",
+    "name": "Đột Tiến Cường Hóa",
+    "pic": "tjqh",
+    "intro": "Làm giảm đột tiến sở nhu  bản phương nhân sổ",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Giảm bớt  lần dẫn ，như ：nguyên lai đột tiến cần 3lần địch quân nhân sổ ，nơi này viết 1，thực tế chỉ cần 2lần phương nhân sổ có thể",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 40,
+    "key": 40,
+    "keyString": "gzjy",
+    "name": "Quốc Chiến Kinh Nghiệm",
+    "pic": "gzjy",
+    "intro": "Quốc chiến đạt được  kinh nghiệm gia tăng 20%",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Quốc chiến gia tăng  kinh nghiệm ，lấy số nguyên đại biểu tỉ lệ phần trăm ，như 20đại biểu gia tăng 20%，này kinh nghiệm cùng phía trước  tỉ lệ phần trăm là mệt thêm ！",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 41,
+    "key": 41,
+    "keyString": "jituanjun",
+    "name": "Chinh Triệu Lệnh",
+    "pic": "jituanjun",
+    "intro": "Có thể sử dụng Mộ Binh Lệnh",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ nên khoa học kỹ thuật đã Mở ra ，khoa học kỹ thuật tổ kiến Mộ Binh Lệnh",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 42,
+    "key": 42,
+    "keyString": "zhengdian",
+    "name": "Ngũ Cốc Phong Đăng",
+    "pic": "zhengdian",
+    "intro": "Đề cao chỉnh điểm thưởng cho  số lượng",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Thưởng cho phát phóng  tỉ lệ phần trăm ，100tỏ vẻ phát phóng 100%",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 43,
+    "key": 43,
+    "keyString": "zdzs",
+    "name": "Tự Động Chiến Thuật",
+    "pic": "zdzs",
+    "intro": "Trong chiến đấu có thể tự động lựa chọn tối ưu chiến thuật",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ nên khoa học kỹ thuật đã Mở ra ，trong chiến đấu có thể tự động lựa chọn chiến thuật",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 44,
+    "key": 44,
+    "keyString": "jtcf",
+    "name": "Tạm Thì Bất Tố",
+    "pic": "jtcf",
+    "intro": "Bên ta nhiều 1 10chi bộ đội phóng ra /dụ địch ，không nhìn CD，xác xuất thành công không thay đổi",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      10.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ nên khoa học kỹ thuật đã Mở ra ，trong chiến đấu có thể tiến hành đại phóng ra /dụ địch ，nên liệt trung  số lượng xác định  phóng ra /dụ địch  nhân sổ thượng hạn",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 45,
+    "key": 45,
+    "keyString": "ycjn",
+    "name": "Bí Kỹ",
+    "pic": "ycjn",
+    "intro": "Màu đỏ đã ngoài tinh phẩm trang bị kỹ năng mãn cấp thả giống nhau ，Mở ra bí kỹ",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ nên khoa học kỹ thuật đã Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 46,
+    "key": 46,
+    "keyString": "gem",
+    "name": "Bảo Thạch",
+    "pic": "gem",
+    "intro": "Có thể được khảm bảo thạch hoặc đề cao bảo thạch thượng hạn",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ bảo thạch có thể cường hóa đến  cấp bậc",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 47,
+    "key": 47,
+    "keyString": "hysj",
+    "name": "Huyễn Ảnh Sự Kiện",
+    "pic": "hysj",
+    "intro": "Nghiên cứu nên khoa học kỹ thuật sau có thể ở sự kiện trung gặp được ảo ảnh sự kiện",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ nên khoa học kỹ thuật Mở ra ，có thể ở thế giới trung gặp được ảo ảnh sự kiện （4c quân nhu quan ）",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 48,
+    "key": 48,
+    "keyString": "taozhuang",
+    "name": "Sáo Trang",
+    "pic": "taozhuang",
+    "intro": "Có thể hợp thành sáo trang ，sử dụng điểm khoán đổi sáo trang bản vẽ",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Hay không Mở ra sáo trang ，lớn hơn 0tỏ vẻ đã Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 49,
+    "key": 49,
+    "keyString": "JIEBINGJY",
+    "name": "Tá Binh Cường Hóa",
+    "pic": "jiebingjy",
+    "intro": "Kim tệ mượn binh khi ，chủ tướng có thể đạt được thêm vào kinh nghiệm",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Mượn binh có thể đạt được bao nhiêu kinh nghiệm ，1000tỏ vẻ đạt được thêm vào kinh nghiệm 1000điểm ，0tỏ vẻ chưa Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 50,
+    "key": 50,
+    "keyString": "ZHANCHENGJY",
+    "name": "Thanh Tảo Chiến Tràng",
+    "pic": "zhanchengjy",
+    "intro": "Chiếm lĩnh thành trì khi ，chủ tướng có thể đạt được thêm vào kinh nghiệm",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Công thành tích phân 1phân có thể đạt được bao nhiêu kinh nghiệm ，1000tỏ vẻ đạt được thêm vào kinh nghiệm 1000điểm ，0tỏ vẻ chưa Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 51,
+    "key": 51,
+    "keyString": "tpfExp",
+    "name": "Công Huân Bảng Cường Hóa",
+    "pic": "tpfExp",
+    "intro": "Thăng cấp khoa học kỹ thuật sau ，có thể theo công huân bảng trung lấy được kinh nghiệm",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Phát phóng tỉ lệ phần trăm ，100tỏ vẻ phát phóng 100% thưởng cho",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 52,
+    "key": 52,
+    "keyString": "cityfeat",
+    "name": "Chiêm Thành Công Huân",
+    "pic": "cityfeat",
+    "intro": "Thăng cấp khoa học kỹ thuật sau ，chiếm lĩnh thành trì （đang xem cuộc chiến 、trợ công ）có thể đạt được tương ứng công huân",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ chiếm lĩnh thành trì có thể đạt được công huân",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 53,
+    "key": 53,
+    "keyString": "sjjb1",
+    "name": "Thế Giới Kịch Bản 1",
+    "pic": "sjjb",
+    "intro": "Mở ra đơn giản thế giới kịch bản ，hoàn thành khả đạt được đại lượng kinh nghiệm",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ khả đánh đơn giản kịch bản",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 54,
+    "key": 54,
+    "keyString": "sjjb2",
+    "name": "Thế Giới Kịch Bản 2",
+    "pic": "sjjb",
+    "intro": "Mở ra bình thường thế giới kịch bản ，hoàn thành khả đạt được đại lượng kinh nghiệm",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ khả đánh bình thường kịch bản",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 55,
+    "key": 55,
+    "keyString": "sjjb3",
+    "name": "Thế Giới Kịch Bản 3",
+    "pic": "sjjb",
+    "intro": "Mở ra khó khăn thế giới kịch bản ，hoàn thành khả đạt được đại lượng kinh nghiệm",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ khả đánh khó khăn kịch bản",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 56,
+    "key": 56,
+    "keyString": "sjjb4",
+    "name": "Thế Giới Kịch Bản 4",
+    "pic": "sjjb",
+    "intro": "Mở ra ngục thế giới kịch bản ，hoàn thành khả đạt được đại lượng kinh nghiệm",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ khả đánh ngục kịch bản",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 57,
+    "key": 57,
+    "keyString": "sjjb5",
+    "name": "Thế Giới Kịch Bản 5",
+    "pic": "sjjb",
+    "intro": "Mở ra chiến thần thế giới kịch bản ，hoàn thành khả đạt được đại lượng kinh nghiệm",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ khả đánh chiến thần kịch bản",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 58,
+    "key": 58,
+    "keyString": "bcsj",
+    "name": "Tiên Si Thăng Cấp",
+    "pic": "sjjb",
+    "intro": "Quất roi tù binh khi ，có xác suất đạt được quất roi thăng cấp kinh nghiệm",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ có thể đạt được roi kinh nghiệm",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 59,
+    "key": 59,
+    "keyString": "zidongguozhan",
+    "name": "Tự Động Quốc Chiến",
+    "pic": "jituanjun",
+    "intro": "Tự động đối mục tiêu thành không ngừng phái binh ，30phút nội đạt thành mục tiêu 4c đình chỉ 。",
+    "researchTime": 1,
+    "resource": "iron,150",
+    "resourceTimes": 1,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Hay không có thể tự động quốc chiến",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 201,
+    "key": 21,
+    "keyString": "riliwanji",
+    "name": "Nhật Lý Vạn Cơ",
+    "pic": "riliwanji",
+    "intro": "Chính vụ trung đạt được  tài nguyên phiên lần",
+    "researchTime": 1,
+    "resource": "copper,2000;lumber,2000",
+    "resourceTimes": 1,
+    "dropIndex": 1,
+    "parameters": [
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 202,
+    "key": 16,
+    "keyString": "lilian",
+    "name": "Lịch Luyện 1",
+    "pic": "lilian",
+    "intro": "Trong chiến đấu võ tướng đạt được  kinh nghiệm gia tăng 5000%",
+    "researchTime": 3,
+    "resource": "copper,3000;lumber,2000;food,1000",
+    "resourceTimes": 2,
+    "dropIndex": 2,
+    "parameters": [
+      5000.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 203,
+    "key": 28,
+    "keyString": "bingzhong",
+    "name": "Binh Chủng Thăng Cấp 1",
+    "pic": "bingzhong",
+    "intro": "Binh chủng tăng lên vì 2cấp ，sức chiến đấu tăng lên ，mộ binh tiêu hao gia tăng",
+    "researchTime": 5,
+    "resource": "copper,1000;lumber,4000;food,1000",
+    "resourceTimes": 2,
+    "dropIndex": 3,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Binh chủng thăng cấp  cấp số ，số nguyên",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 204,
+    "key": 29,
+    "keyString": "jianyan",
+    "name": "Gián Ngôn",
+    "pic": "jianyan",
+    "intro": "Thăng cấp kiến trúc khi ，đạt được chính vụ sự kiện  xác suất tăng lên",
+    "researchTime": 10,
+    "resource": "lumber,5000",
+    "resourceTimes": 3,
+    "dropIndex": 4,
+    "parameters": [
+      0.0,
+      0.0,
+      0.03,
+      0.0
+    ],
+    "parameterIntros": [
+      "0",
+      "0",
+      "Thăng cấp kiến trúc đạt được chính vụ sự kiện  xác suất ，thực tế tính toán khi trực tiếp “mệt thêm ”par_3，đạt tới 1tắc đưa cho ngoạn gia một cái chính vụ",
+      "0"
+    ]
+  },
+  {
+    "id": 205,
+    "key": 4,
+    "keyString": "dianbing",
+    "name": "Điểm Binh 1",
+    "pic": "dianbing",
+    "intro": "Võ tướng khả nhiều điểm binh 3cái phương trận （nhiều mang 1 bài binh ）",
+    "researchTime": 15,
+    "resource": "copper,2000;lumber,3000;food,1000",
+    "resourceTimes": 3,
+    "dropIndex": 5,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Ghi lại đạt được sửa khoa học kỹ thuật sau có thể gia tăng  võ tướng mang binh liệt sổ",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 301,
+    "key": 31,
+    "keyString": "xiangzhu",
+    "name": "Hương Chúc Tế Tự",
+    "pic": "xiangzhu",
+    "intro": "Kim tệ hiến tế hiệu quả thêm vào đề cao 1500%",
+    "researchTime": 60,
+    "resource": "copper,15000",
+    "resourceTimes": 3,
+    "dropIndex": 7,
+    "parameters": [
+      1500.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，số nguyên tỏ vẻ tỉ lệ phần trăm ，tỉ lệ phần trăm mệt thêm không ngay cả thừa",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 302,
+    "key": 27,
+    "keyString": "wujiang",
+    "name": "Thống Soái Lực 1",
+    "pic": "wujiang",
+    "intro": "Khả nhiều Chiêu mộ một cái võ tướng",
+    "researchTime": 30,
+    "resource": "copper,5000;lumber,5000;food,2000",
+    "resourceTimes": 4,
+    "dropIndex": 6,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tân tăng võ tướng vị  số lượng ，số nguyên",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 303,
+    "key": 16,
+    "keyString": "lilian",
+    "name": "Lịch Luyện 2",
+    "pic": "lilian",
+    "intro": "Võ tướng chiến đấu đạt được  kinh nghiệm gia tăng 10%",
+    "researchTime": 30,
+    "resource": "iron,50",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      10.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 304,
+    "key": 30,
+    "keyString": "qiangzhuang",
+    "name": "Cường Tráng",
+    "pic": "qiangzhuang",
+    "intro": "Võ tướng  công kích 、phòng ngự 、binh lực cùng(quân) được đến tăng lên",
+    "researchTime": 30,
+    "resource": "copper,3000;lumber,5000;food,3000",
+    "resourceTimes": 4,
+    "dropIndex": 8,
+    "parameters": [
+      45.0,
+      15.0,
+      360.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Gia tăng võ tướng công kích",
+      "gia tăng Võ tướngphòng ngự",
+      "Gia tăng võ tướng huyết lượng （viết ra từng điều bộ đội ）",
+      "0"
+    ]
+  },
+  {
+    "id": 305,
+    "key": 16,
+    "keyString": "lilian",
+    "name": "Lịch Luyện 3",
+    "pic": "lilian",
+    "intro": "Võ tướng chiến đấu đạt được  kinh nghiệm gia tăng 10%",
+    "researchTime": 30,
+    "resource": "iron,50",
+    "resourceTimes": 5,
+    "dropIndex": 0,
+    "parameters": [
+      10.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 306,
+    "key": 2,
+    "keyString": "ganji",
+    "name": "Cản Tập 1",
+    "pic": "ganji",
+    "intro": "Đạt được nên khoa học kỹ thuật sau ，chợ 30phút khôi phục lần lượt sổ",
+    "researchTime": 50,
+    "resource": "lumber,5000;food,5000",
+    "resourceTimes": 2,
+    "dropIndex": 9,
+    "parameters": [
+      0.0,
+      0.0,
+      0.5,
+      0.0
+    ],
+    "parameterIntros": [
+      "Chưa sử dụng",
+      "0",
+      "Mỗi 30phút chợ khôi phục  số lần ，trình tự trụ cột vì 0.5 lần",
+      "0"
+    ]
+  },
+  {
+    "id": 307,
+    "key": 4,
+    "keyString": "dianbing",
+    "name": "Điểm Binh 2",
+    "pic": "dianbing",
+    "intro": "Gia tăng võ tướng mang binh bộ đội 3cái phương trận （nhiều mang 1bài binh ）",
+    "researchTime": 60,
+    "resource": "iron,50",
+    "resourceTimes": 5,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Ghi lại đạt được nên khoa học kỹ thuật sau võ tướng  mang binh liệt sổ",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 308,
+    "key": 16,
+    "keyString": "lilian",
+    "name": "Lịch Luyện 4",
+    "pic": "lilian",
+    "intro": "Võ tướng chiến đấu đạt được  kinh nghiệm gia tăng 10%",
+    "researchTime": 30,
+    "resource": "iron,50",
+    "resourceTimes": 5,
+    "dropIndex": 0,
+    "parameters": [
+      10.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 309,
+    "key": 16,
+    "keyString": "lilian",
+    "name": "Lịch Luyện 5",
+    "pic": "lilian",
+    "intro": "Võ tướng chiến đấu đạt được  kinh nghiệm gia tăng 10%",
+    "researchTime": 30,
+    "resource": "iron,50",
+    "resourceTimes": 5,
+    "dropIndex": 0,
+    "parameters": [
+      10.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 310,
+    "key": 20,
+    "keyString": "cangku",
+    "name": "Thương Khố Kiến Thiết",
+    "pic": "cangku",
+    "intro": "Tài nguyên khu kho hàng thượng hạn tăng lên 500%",
+    "researchTime": 30,
+    "resource": "copper,5000;lumber,5000;food,5000",
+    "resourceTimes": 3,
+    "dropIndex": 10,
+    "parameters": [
+      500.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 401,
+    "key": 10,
+    "keyString": "yingyong",
+    "name": "Anh Dũng",
+    "pic": "yingyong",
+    "intro": "Võ tướng chiến pháp thương tổn gia tăng 10%",
+    "researchTime": 40,
+    "resource": "copper,5000;lumber,5000;food,5000",
+    "resourceTimes": 3,
+    "dropIndex": 11,
+    "parameters": [
+      10.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 402,
+    "key": 21,
+    "keyString": "riliwanji",
+    "name": "Nhật Lý Vạn Cơ",
+    "pic": "riliwanji",
+    "intro": "Xử lý chính vụ đạt được  tài nguyên gia tăng 50%",
+    "researchTime": 80,
+    "resource": "copper,2000;lumber,2000;food,2000",
+    "resourceTimes": 5,
+    "dropIndex": 13,
+    "parameters": [
+      50.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 403,
+    "key": 28,
+    "keyString": "bingzhong",
+    "name": "Binh Chủng Thăng Cấp 2",
+    "pic": "bingzhong",
+    "intro": "Binh chủng tăng lên vì 3cấp ，sức chiến đấu tăng lên ，mộ binh tiêu hao gia tăng",
+    "researchTime": 50,
+    "resource": "copper,5000;lumber,10000;food,5000",
+    "resourceTimes": 4,
+    "dropIndex": 12,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Binh chủng thăng cấp  cấp số ，số nguyên",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 404,
+    "key": 34,
+    "keyString": "tiaozhan",
+    "name": "Khiêu Chiến 1",
+    "pic": "tiaozhan",
+    "intro": "Đề cao công huân lĩnh thưởng thượng hạn ，thưởng cho 2cấp công huân bảo tương",
+    "researchTime": 80,
+    "resource": "copper,5000;lumber,5000",
+    "resourceTimes": 5,
+    "dropIndex": 15,
+    "parameters": [
+      100.0,
+      100.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Thưởng cho hệ số ，lấy số nguyên đại biểu tỉ lệ phần trăm dùng cho tăng lên bảo tương thưởng cho",
+      "đạt tiêu chuẩn hệ số ，lấy số nguyên đại biểu tỉ lệ phần trăm",
+      "Công huân bảng bảo tương trung hay không có thể khai ra thép ròng ，1tỏ vẻ có thể khai ra",
+      ""
+    ]
+  },
+  {
+    "id": 407,
+    "key": 4,
+    "keyString": "dianbing",
+    "name": "Điểm Binh 2",
+    "pic": "dianbing",
+    "intro": "Võ tướng khả tái nhiều điểm binh 3cái phương trận （tái nhiều mang 1bài binh ）",
+    "researchTime": 60,
+    "resource": "copper,10000;lumber,10000;food,5000",
+    "resourceTimes": 5,
+    "dropIndex": 14,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Ghi lại đạt được nên khoa học kỹ thuật sau võ tướng  mang binh liệt sổ",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 408,
+    "key": 42,
+    "keyString": "zhengdian",
+    "name": "Ngũ Cốc Phong Đăng",
+    "pic": "zhengdian",
+    "intro": "Chỉnh điểm thưởng cho số lượng tăng lên",
+    "researchTime": 60,
+    "resource": "copper,5000;lumber,5000",
+    "resourceTimes": 5,
+    "dropIndex": 16,
+    "parameters": [
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Thưởng cho phát phóng  tỉ lệ phần trăm ，100tỏ vẻ phát phóng 100%,trụ cột vì 100%",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 501,
+    "key": 33,
+    "keyString": "shadi",
+    "name": "Công Huân Cường Hóa 1",
+    "pic": "shadi",
+    "intro": "Công huân bảng bài danh thưởng cho trung có thể đạt được thép ròng",
+    "researchTime": 90,
+    "resource": "copper,20000;lumber,10000;food,5000",
+    "resourceTimes": 5,
+    "dropIndex": 17,
+    "parameters": [
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Phát phóng thưởng cho  tỉ lệ phần trăm ，100tỏ vẻ 100%",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 502,
+    "key": 34,
+    "keyString": "tiaozhan",
+    "name": "Khiêu Chiến 2",
+    "pic": "tiaozhan",
+    "intro": "Đề cao công huân lĩnh thưởng thượng hạn ，thưởng cho 3cấp công huân bảo tương",
+    "researchTime": 90,
+    "resource": "copper,6000;lumber,6000",
+    "resourceTimes": 5,
+    "dropIndex": 22,
+    "parameters": [
+      200.0,
+      400.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Thưởng cho hệ số ，lấy số nguyên đại biểu tỉ lệ phần trăm dùng cho tăng lên bảo tương thưởng cho",
+      "đạt tiêu chuẩn hệ số ，lấy số nguyên đại biểu tỉ lệ phần trăm",
+      "Công huân bảng bảo tương trung hay không có thể khai ra thép ròng ，1tỏ vẻ có thể khai ra",
+      ""
+    ]
+  },
+  {
+    "id": 503,
+    "key": 35,
+    "keyString": "guanyun",
+    "name": "Quan Vận",
+    "pic": "guanyun",
+    "intro": "Chức quan khả mà chống đỡ quặng tràng sản lượng có gia tăng",
+    "researchTime": 120,
+    "resource": "copper,10000;lumber,10000;food,5000",
+    "resourceTimes": 5,
+    "dropIndex": 19,
+    "parameters": [
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Phát phóng thưởng cho  tỉ lệ phần trăm ，100tỏ vẻ 100%",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 504,
+    "key": 28,
+    "keyString": "bingzhong",
+    "name": "Binh Chủng Thăng Cấp 3",
+    "pic": "bingzhong",
+    "intro": "Binh chủng tăng lên vì 4cấp ，sức chiến đấu tăng lên ，mộ binh tiêu hao gia tăng",
+    "researchTime": 90,
+    "resource": "copper,20000;lumber,30000",
+    "resourceTimes": 5,
+    "dropIndex": 20,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Binh chủng thăng cấp  cấp số ，số nguyên",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 505,
+    "key": 8,
+    "keyString": "zhaomu",
+    "name": "Chiêu mộ",
+    "pic": "zhaomu",
+    "intro": "Gia tăng 20%mộ binh tốc độ",
+    "researchTime": 150,
+    "resource": "copper,5000;lumber,5000",
+    "resourceTimes": 5,
+    "dropIndex": 21,
+    "parameters": [
+      20.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 506,
+    "key": 43,
+    "keyString": "zdzs",
+    "name": "Tự Động Chiến Thuật",
+    "pic": "zdzs",
+    "intro": "Trong chiến đấu có thể tự động lựa chọn tối ưu chiến thuật",
+    "researchTime": 90,
+    "resource": "copper,10000;lumber,10000",
+    "resourceTimes": 6,
+    "dropIndex": 23,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ nên khoa học kỹ thuật đã Mở ra ，trong chiến đấu có thể tự động lựa chọn chiến thuật",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 507,
+    "key": 45,
+    "keyString": "ycjn",
+    "name": "Bí Kỹ",
+    "pic": "ycjn",
+    "intro": "Màu đỏ đã ngoài tinh phẩm trang bị kỹ năng mãn cấp thả giống nhau ，Mở ra bí kỹ",
+    "researchTime": 120,
+    "resource": "copper,10000;lumber,10000;food,10000",
+    "resourceTimes": 5,
+    "dropIndex": 18,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ nên khoa học kỹ thuật đã Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 601,
+    "key": 13,
+    "keyString": "jianren",
+    "name": "Kiên Nhận",
+    "pic": "jianren",
+    "intro": "Bộ đội đối chiến pháp  phòng ngự gia tăng 5%",
+    "researchTime": 120,
+    "resource": "copper,10000;lumber,10000",
+    "resourceTimes": 6,
+    "dropIndex": 24,
+    "parameters": [
+      5.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 602,
+    "key": 20,
+    "keyString": "cangku",
+    "name": "Thương Khố Kiến Thiết",
+    "pic": "cangku",
+    "intro": "Tài nguyên thượng hạn gia tăng 500%",
+    "researchTime": 200,
+    "resource": "copper,5000;lumber,5000;food,5000",
+    "resourceTimes": 6,
+    "dropIndex": 26,
+    "parameters": [
+      500.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tăng cường tỉ lệ phần trăm ，dùng số nguyên tỏ vẻ tỉ lệ phần trăm ，như ：5tỏ vẻ 5%",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 603,
+    "key": 32,
+    "keyString": "wenguan",
+    "name": "Hiến Sách",
+    "pic": "wenguan",
+    "intro": "Tân tăng một cái quan văn vị",
+    "researchTime": 300,
+    "resource": "copper,15000;lumber,10000",
+    "resourceTimes": 6,
+    "dropIndex": 27,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tân tăng quan văn vị số lượng ，số nguyên",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 604,
+    "key": 34,
+    "keyString": "tiaozhan",
+    "name": "Khiêu Chiến 3",
+    "pic": "tiaozhan",
+    "intro": "Đề cao công huân lĩnh thưởng thượng hạn ，thưởng cho 4cấp công huân bảo tương",
+    "researchTime": 240,
+    "resource": "copper,7000;lumber,7000",
+    "resourceTimes": 6,
+    "dropIndex": 28,
+    "parameters": [
+      200.0,
+      600.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Thưởng cho hệ số ，lấy số nguyên đại biểu tỉ lệ phần trăm dùng cho tăng lên bảo tương thưởng cho",
+      "đạt tiêu chuẩn hệ số ，lấy số nguyên đại biểu tỉ lệ phần trăm",
+      "Công huân bảng bảo tương trung hay không có thể khai ra thép ròng ，1tỏ vẻ có thể khai ra",
+      ""
+    ]
+  },
+  {
+    "id": 605,
+    "key": 27,
+    "keyString": "wujiang",
+    "name": "Thống Soái Lực 2",
+    "pic": "wujiang",
+    "intro": "Khả tái nhiều Chiêu mộ hai võ tướng",
+    "researchTime": 300,
+    "resource": "copper,10000;lumber,20000",
+    "resourceTimes": 6,
+    "dropIndex": 30,
+    "parameters": [
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tân tăng võ tướng vị  số lượng ，số nguyên",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 606,
+    "key": 41,
+    "keyString": "jituanjun",
+    "name": "Quốc Chiến Hào Lệnh",
+    "pic": "jituanjun",
+    "intro": "Có thể sử dụng tập đoàn quân cùng Mộ Binh Lệnh",
+    "researchTime": 400,
+    "resource": "copper,10000;lumber,20000;food,5000;iron,200",
+    "resourceTimes": 6,
+    "dropIndex": 31,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ nên khoa học kỹ thuật đã Mở ra ，có thể sử dụng tập đoàn quân cùng Mộ Binh Lệnh",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 607,
+    "key": 52,
+    "keyString": "cityfeat",
+    "name": "Công Thành Công Huân",
+    "pic": "cityfeat",
+    "intro": "Trợ trận 、trợ công 、chiếm lĩnh thành trì có thể đạt được tương ứng công huân",
+    "researchTime": 500,
+    "resource": "copper,20000;lumber,25000;food,5000",
+    "resourceTimes": 6,
+    "dropIndex": 25,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ chiếm lĩnh thành trì có thể đạt được công huân",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 608,
+    "key": 53,
+    "keyString": "sjjb1",
+    "name": "Thế Giới Kịch Bản 1",
+    "pic": "sjjb",
+    "intro": "Mở ra đơn giản thế giới kịch bản ，hoàn thành khả đạt được đại lượng kinh nghiệm",
+    "researchTime": 550,
+    "resource": "copper,10000;lumber,10000",
+    "resourceTimes": 6,
+    "dropIndex": 32,
+    "parameters": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Chưa sử dụng",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 610,
+    "key": 49,
+    "keyString": "JIEBINGJY",
+    "name": "Tá Binh Cường Hóa 1",
+    "pic": "jiebingjy",
+    "intro": "Kim tệ mượn binh khi ，chủ tướng có thể đạt được thêm vào kinh nghiệm",
+    "researchTime": 1000,
+    "resource": "copper,20000;lumber,20000",
+    "resourceTimes": 7,
+    "dropIndex": 29,
+    "parameters": [
+      5000.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Mượn binh có thể đạt được bao nhiêu kinh nghiệm ，1000tỏ vẻ đạt được thêm vào kinh nghiệm 1000điểm ，0tỏ vẻ chưa Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 701,
+    "key": 37,
+    "keyString": "hengtong",
+    "name": "Hanh Thông",
+    "pic": "hengtong",
+    "intro": "Hắc thị đan thứ giao dịch lượng phiên lần",
+    "researchTime": 600,
+    "resource": "copper,5000;lumber,5000",
+    "resourceTimes": 6,
+    "dropIndex": 33,
+    "parameters": [
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Hắc thị mỗi lần giao dịch lượng gia tăng  lần dẫn ，lấy số nguyên tỏ vẻ tỉ lệ phần trăm ，như 100tỏ vẻ gia tăng 100%",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 702,
+    "key": 36,
+    "keyString": "btjishi",
+    "name": "Tấn Thiết Chợ",
+    "pic": "btjishi",
+    "intro": "Chợ xuất hiện thép ròng tài nguyên",
+    "researchTime": 900,
+    "resource": "copper,30000;lumber,20000;iron,1000",
+    "resourceTimes": 6,
+    "dropIndex": 37,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Hay không xuất hiện thép ròng ，lớn hơn 0tỏ vẻ xuất hiện",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 703,
+    "key": 33,
+    "keyString": "shadi",
+    "name": "Công Huân Cường Hóa 3",
+    "pic": "shadi",
+    "intro": "Công huân bảng bài danh thưởng cho trung thép ròng sản xuất số lượng đề cao 50%",
+    "researchTime": 1000,
+    "resource": "copper,30000;lumber,20000;iron,100",
+    "resourceTimes": 6,
+    "dropIndex": 42,
+    "parameters": [
+      50.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Phát phóng tỉ lệ phần trăm ，100tỏ vẻ phát phóng 100% thưởng cho",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 704,
+    "key": 40,
+    "keyString": "gzjy",
+    "name": "Ma Lệ 1",
+    "pic": "gzjy",
+    "intro": "Chủ tướng đạt được  quốc chiến kinh nghiệm gia tăng 50%",
+    "researchTime": 750,
+    "resource": "copper,20000;lumber,20000;food,10000",
+    "resourceTimes": 6,
+    "dropIndex": 35,
+    "parameters": [
+      50.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Quốc chiến gia tăng  kinh nghiệm ，lấy số nguyên đại biểu tỉ lệ phần trăm ，như 20đại biểu gia tăng 20%，này kinh nghiệm cùng phía trước  tỉ lệ phần trăm là mệt thêm ！",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 705,
+    "key": 47,
+    "keyString": "hysj",
+    "name": "Phương Thuật Ẩn Sĩ 1",
+    "pic": "hysj",
+    "intro": "Thế giới xuất hiện phương thuật ẩn sĩ ，khả đạt được miễn phí mượn binh số lần",
+    "researchTime": 600,
+    "resource": "copper,50000;lumber,20000",
+    "resourceTimes": 6,
+    "dropIndex": 40,
+    "parameters": [
+      3.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ nên khoa học kỹ thuật Mở ra ，có thể ở thế giới trung gặp được ảo ảnh sự kiện （4c quân nhu quan ）,số lượng đại biểu thượng hạn ，như ：3đại biểu nhiều 1 gặp 3 lần quân nhu quan",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 706,
+    "key": 48,
+    "keyString": "taozhuang",
+    "name": "Sáo Trang",
+    "pic": "taozhuang",
+    "intro": "Có thể hợp thành sáo trang",
+    "researchTime": 600,
+    "resource": "copper,30000;lumber,20000",
+    "resourceTimes": 6,
+    "dropIndex": 39,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Hay không Mở ra sáo trang ，lớn hơn 0tỏ vẻ đã Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 707,
+    "key": 50,
+    "keyString": "ZHANCHENGJY",
+    "name": "Thanh Tảo Chiến Tràng 1",
+    "pic": "zhanchengjy",
+    "intro": "Công thành công huân mỗi điểm 50chủ tướng kinh nghiệm ，mặt trời đã cao hạn 50vạn kinh nghiệm",
+    "researchTime": 650,
+    "resource": "copper,10000;lumber,10000;iron,500",
+    "resourceTimes": 5,
+    "dropIndex": 34,
+    "parameters": [
+      1000.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Công thành tích phân 1phân có thể đạt được bao nhiêu kinh nghiệm ，1000tỏ vẻ đạt được thêm vào kinh nghiệm 1000điểm ，0tỏ vẻ chưa Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 708,
+    "key": 47,
+    "keyString": "hysj",
+    "name": "Phương Thuật Ẩn Sĩ 2",
+    "pic": "hysj",
+    "intro": "Phương thuật ẩn sĩ xuất hiện  số lần gia tăng",
+    "researchTime": 700,
+    "resource": "copper,50000;lumber,20000",
+    "resourceTimes": 7,
+    "dropIndex": 0,
+    "parameters": [
+      7.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ nên khoa học kỹ thuật Mở ra ，có thể ở thế giới trung gặp được ảo ảnh sự kiện （4c quân nhu quan ）,số lượng đại biểu thượng hạn ，như ：3đại biểu nhiều 1 gặp 3 lần quân nhu quan",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 709,
+    "key": 49,
+    "keyString": "JIEBINGJY",
+    "name": "Tá Binh Cường Hóa 2",
+    "pic": "jiebingjy",
+    "intro": "Kim tệ mượn binh khi ，chủ tướng có thể đạt được thêm vào kinh nghiệm",
+    "researchTime": 1000,
+    "resource": "copper,20000;lumber,20000",
+    "resourceTimes": 7,
+    "dropIndex": 43,
+    "parameters": [
+      2500.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Mượn binh có thể đạt được bao nhiêu kinh nghiệm ，1000tỏ vẻ đạt được thêm vào kinh nghiệm 1000điểm ，0tỏ vẻ chưa Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 710,
+    "key": 51,
+    "keyString": "tpfExp",
+    "name": "Công Huân Cường Hóa 2",
+    "pic": "tpfExp",
+    "intro": "Thăng cấp khoa học kỹ thuật sau ，có thể theo công huân bảng trung lấy được kinh nghiệm",
+    "researchTime": 800,
+    "resource": "copper,25000;lumber,15000;iron,150",
+    "resourceTimes": 6,
+    "dropIndex": 38,
+    "parameters": [
+      100.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Phát phóng tỉ lệ phần trăm ，100tỏ vẻ phát phóng 100% thưởng cho",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 711,
+    "key": 34,
+    "keyString": "tiaozhan",
+    "name": "Khiêu Chiến 4",
+    "pic": "tiaozhan",
+    "intro": "Đề cao công huân lĩnh thưởng thượng hạn ，thưởng cho 5cấp công huân bảo tương",
+    "researchTime": 900,
+    "resource": "copper,10000;lumber,10000",
+    "resourceTimes": 7,
+    "dropIndex": 41,
+    "parameters": [
+      400.0,
+      800.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Thưởng cho hệ số ，lấy số nguyên đại biểu tỉ lệ phần trăm dùng cho tăng lên bảo tương thưởng cho",
+      "Đạt tiêu hệ kể ra, lấy chỉnh kể ra đại biểu phần trăm",
+      "Công huân bảng bảo tương trung hay không có thể khai ra thép ròng ，1tỏ vẻ có thể khai ra",
+      ""
+    ]
+  },
+  {
+    "id": 712,
+    "key": 59,
+    "keyString": "zidongguozhan",
+    "name": "Tự Động Quốc Chiến",
+    "pic": "jituanjun",
+    "intro": "Võ tướng hướng mục tiêu thành tự động phái binh thẳng đến chiếm lĩnh ，liên tục 30phút 。",
+    "researchTime": 700,
+    "resource": "copper,10000;lumber,10000;food,10000",
+    "resourceTimes": 5,
+    "dropIndex": 36,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Hay không có thể tự động quốc chiến",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 801,
+    "key": 38,
+    "keyString": "xjwx",
+    "name": "Cơ Mẫn 1",
+    "pic": "xjwx",
+    "intro": "Tiêu hao địch quân Lv1cạm bẫy số lần ，thả không chịu gì ảnh hưởng",
+    "researchTime": 1000,
+    "resource": "copper,10000;lumber,20000;food,10000",
+    "resourceTimes": 6,
+    "dropIndex": 45,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Đề cao có thể ngăn cản  cạm bẫy cấp bậc  cấp số",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 802,
+    "key": 39,
+    "keyString": "tjqh",
+    "name": "Đột Tiến Cường Hóa",
+    "pic": "tjqh",
+    "intro": "Bên ta nhân sổ lớn hơn địch quân nhân sổ gấp hai có thể đột tiến",
+    "researchTime": 1000,
+    "resource": "copper,10000;lumber,10000;food,10000;iron,100",
+    "resourceTimes": 6,
+    "dropIndex": 50,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Giảm bớt  lần dẫn ，như ：nguyên lai đột tiến cần 3lần địch quân nhân sổ ，nơi này viết 1，thực tế chỉ cần 2lần phương nhân sổ có thể",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 803,
+    "key": 33,
+    "keyString": "shadi",
+    "name": "Sát Địch 3",
+    "pic": "shadi",
+    "intro": "Công huân bảng bài danh thưởng cho trung thép ròng sản xuất số lượng đề cao 50%",
+    "researchTime": 1000,
+    "resource": "copper,20000;lumber,20000;iron,500",
+    "resourceTimes": 7,
+    "dropIndex": 52,
+    "parameters": [
+      50.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Phát phóng tỉ lệ phần trăm ，100tỏ vẻ phát phóng 100% thưởng cho",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 804,
+    "key": 50,
+    "keyString": "ZHANCHENGJY",
+    "name": "Thanh Tảo Chiến Tràng 2",
+    "pic": "zhanchengjy",
+    "intro": "Công thành công huân mỗi điểm 100chủ tướng kinh nghiệm ，mặt trời đã cao hạn cao 100vạn kinh nghiệm",
+    "researchTime": 1000,
+    "resource": "copper,20000;lumber,20000;iron,500",
+    "resourceTimes": 5,
+    "dropIndex": 46,
+    "parameters": [
+      1000.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Công thành tích phân 1phân có thể đạt được bao nhiêu kinh nghiệm ，1000tỏ vẻ đạt được thêm vào kinh nghiệm 1000điểm ，0tỏ vẻ chưa Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 805,
+    "key": 40,
+    "keyString": "gzjy",
+    "name": "Ma Lệ 2",
+    "pic": "gzjy",
+    "intro": "Chủ tướng đạt được  quốc chiến kinh nghiệm gia tăng 30%",
+    "researchTime": 1000,
+    "resource": "copper,20000;lumber,20000;food,10000",
+    "resourceTimes": 6,
+    "dropIndex": 48,
+    "parameters": [
+      30.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Quốc chiến gia tăng  kinh nghiệm ，lấy số nguyên đại biểu tỉ lệ phần trăm ，như 20đại biểu gia tăng 20%，này kinh nghiệm cùng phía trước  tỉ lệ phần trăm là mệt thêm ！",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 806,
+    "key": 47,
+    "keyString": "hysj",
+    "name": "Phương Thuật Ẩn Sĩ 2",
+    "pic": "hysj",
+    "intro": "Phương thuật ẩn sĩ xuất hiện  số lần gia tăng",
+    "researchTime": 1000,
+    "resource": "copper,50000;lumber,20000",
+    "resourceTimes": 6,
+    "dropIndex": 51,
+    "parameters": [
+      7.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ nên khoa học kỹ thuật Mở ra ，có thể ở thế giới trung gặp được ảo ảnh sự kiện （4c quân nhu quan ）,số lượng đại biểu thượng hạn ，như ：3đại biểu nhiều 1 gặp 3 lần quân nhu quan",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 807,
+    "key": 54,
+    "keyString": "sjjb2",
+    "name": "Thế Giới Kịch Bản 2",
+    "pic": "sjjb",
+    "intro": "Mở ra bình thường thế giới kịch bản ，hoàn thành khả đạt được đại lượng kinh nghiệm",
+    "researchTime": 550,
+    "resource": "copper,10000;lumber,10000;food,10000",
+    "resourceTimes": 6,
+    "dropIndex": 44,
+    "parameters": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Chưa sử dụng",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 808,
+    "key": 55,
+    "keyString": "sjjb3",
+    "name": "Thế Giới Kịch Bản 3",
+    "pic": "sjjb",
+    "intro": "Mở ra khó khăn thế giới kịch bản ，hoàn thành khả đạt được đại lượng kinh nghiệm",
+    "researchTime": 550,
+    "resource": "copper,10000;lumber,10000;food,10000",
+    "resourceTimes": 6,
+    "dropIndex": 49,
+    "parameters": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Chưa sử dụng",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 810,
+    "key": 49,
+    "keyString": "JIEBINGJY",
+    "name": "Tá Binh Cường Hóa 3",
+    "pic": "jiebingjy",
+    "intro": "Kim tệ mượn binh khi ，chủ tướng có thể đạt được thêm vào kinh nghiệm",
+    "researchTime": 1000,
+    "resource": "copper,20000;lumber,20000",
+    "resourceTimes": 7,
+    "dropIndex": 53,
+    "parameters": [
+      2500.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Mượn binh có thể đạt được bao nhiêu kinh nghiệm ，1000tỏ vẻ đạt được thêm vào kinh nghiệm 1000điểm ，0tỏ vẻ chưa Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 811,
+    "key": 58,
+    "keyString": "bcsj",
+    "name": "Tiên Si Thăng Cấp",
+    "pic": "bianchi",
+    "intro": "Quất roi tù binh khi ，có xác suất đạt được quất roi thăng cấp kinh nghiệm",
+    "researchTime": 1000,
+    "resource": "copper,10000;lumber,20000",
+    "resourceTimes": 5,
+    "dropIndex": 47,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ quất có thể đạt được roi kinh nghiệm",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 901,
+    "key": 46,
+    "keyString": "gem",
+    "name": "Bảo Thạch Nhập Môn",
+    "pic": "gem",
+    "intro": "Mở ra bảo thạch (tối cao 8cấp )，thế giới xuất hiện bảo thạch thương nhân",
+    "researchTime": 600,
+    "resource": "copper,10000;lumber,10000;food,10000;iron,10000",
+    "resourceTimes": 6,
+    "dropIndex": 54,
+    "parameters": [
+      8.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ bảo thạch có thể cường hóa đến  cấp bậc",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 902,
+    "key": 34,
+    "keyString": "tiaozhan",
+    "name": "Khiêu Chiến 5",
+    "pic": "tiaozhan",
+    "intro": "Đề cao công huân lĩnh thưởng thượng hạn ，thưởng cho 6cấp công huân bảo tương",
+    "researchTime": 900,
+    "resource": "copper,10000;lumber,10000;food,10000;iron,500",
+    "resourceTimes": 7,
+    "dropIndex": 56,
+    "parameters": [
+      400.0,
+      1000.0,
+      1.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Thưởng cho hệ số ，lấy số nguyên đại biểu tỉ lệ phần trăm dùng cho tăng lên bảo tương thưởng cho",
+      "đạt tiêu chuẩn hệ số ，lấy số nguyên đại biểu tỉ lệ phần trăm",
+      "Công huân bảng bảo tương trung hay không có thể khai ra thép ròng ，1tỏ vẻ có thể khai ra",
+      ""
+    ]
+  },
+  {
+    "id": 903,
+    "key": 56,
+    "keyString": "sjjb4",
+    "name": "Thế Giới Kịch Bản 4",
+    "pic": "sjjb",
+    "intro": "Mở ra ngục thế giới kịch bản ，hoàn thành khả đạt được đại lượng kinh nghiệm",
+    "researchTime": 550,
+    "resource": "copper,20000;lumber,20000;food,10000",
+    "resourceTimes": 6,
+    "dropIndex": 55,
+    "parameters": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Chưa sử dụng",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 904,
+    "key": 57,
+    "keyString": "sjjb5",
+    "name": "Thế Giới Kịch Bản 5",
+    "pic": "sjjb",
+    "intro": "Mở ra chiến thần thế giới kịch bản ，hoàn thành khả đạt được đại lượng kinh nghiệm",
+    "researchTime": 550,
+    "resource": "copper,30000;lumber,30000;food,20000",
+    "resourceTimes": 6,
+    "dropIndex": 57,
+    "parameters": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Chưa sử dụng",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 910,
+    "key": 49,
+    "keyString": "JIEBINGJY",
+    "name": "Tá Binh Cường Hóa 4",
+    "pic": "jiebingjy",
+    "intro": "Kim tệ mượn binh khi ，chủ tướng có thể đạt được thêm vào kinh nghiệm",
+    "researchTime": 1000,
+    "resource": "copper,20000;lumber,20000",
+    "resourceTimes": 7,
+    "dropIndex": 58,
+    "parameters": [
+      2500.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Mượn binh có thể đạt được bao nhiêu kinh nghiệm ，1000tỏ vẻ đạt được thêm vào kinh nghiệm 1000điểm ，0tỏ vẻ chưa Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 1001,
+    "key": 46,
+    "keyString": "gem",
+    "name": "Sơ  Cấp Bảo Thạch",
+    "pic": "gem",
+    "intro": "Mở ra 10cấp bảo thạch ，bảo thạch hiến tế",
+    "researchTime": 600,
+    "resource": "copper,12000;lumber,12000;food,12000;iron,12000",
+    "resourceTimes": 6,
+    "dropIndex": 59,
+    "parameters": [
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ bảo thạch có thể cường hóa đến  cấp bậc",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 1002,
+    "key": 46,
+    "keyString": "gem",
+    "name": "Trung  Cấp Bảo Thạch",
+    "pic": "gem",
+    "intro": "Mở ra 12cấp bảo thạch",
+    "researchTime": 800,
+    "resource": "copper,15000;lumber,15000;food,15000;iron,15000",
+    "resourceTimes": 6,
+    "dropIndex": 60,
+    "parameters": [
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ bảo thạch có thể cường hóa đến  cấp bậc",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 1003,
+    "key": 27,
+    "keyString": "wujiang",
+    "name": "Thống Soái Lực 3",
+    "pic": "wujiang",
+    "intro": "Tân tăng một cái võ tướng vị",
+    "researchTime": 600,
+    "resource": "copper,20000;lumber,20000;food,10000;iron,5000",
+    "resourceTimes": 6,
+    "dropIndex": 0,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Tân tăng võ tướng vị  số lượng ，số nguyên",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": 1010,
+    "key": 49,
+    "keyString": "JIEBINGJY",
+    "name": "Tá Binh Cường Hóa 5",
+    "pic": "jiebingjy",
+    "intro": "Kim tệ mượn binh khi ，chủ tướng có thể đạt được thêm vào kinh nghiệm",
+    "researchTime": 1000,
+    "resource": "copper,20000;lumber,20000",
+    "resourceTimes": 7,
+    "dropIndex": 61,
+    "parameters": [
+      2500.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Mượn binh có thể đạt được bao nhiêu kinh nghiệm ，1000tỏ vẻ đạt được thêm vào kinh nghiệm 1000điểm ，0tỏ vẻ chưa Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 1101,
+    "key": 46,
+    "keyString": "gem",
+    "name": "Cao  Cấp Bảo Thạch",
+    "pic": "gem",
+    "intro": "Mở ra 14cấp bảo thạch",
+    "researchTime": 900,
+    "resource": "copper,12000;lumber,12000;food,12000;iron,12000",
+    "resourceTimes": 6,
+    "dropIndex": 62,
+    "parameters": [
+      2.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ bảo thạch có thể cường hóa đến  cấp bậc",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 1102,
+    "key": 46,
+    "keyString": "gem",
+    "name": "Đặc  Cấp Bảo Thạch",
+    "pic": "gem",
+    "intro": "Mở ra 15cấp bảo thạch cùng bảo thạch tiến giai",
+    "researchTime": 1000,
+    "resource": "copper,15000;lumber,15000;food,15000;iron,15000",
+    "resourceTimes": 6,
+    "dropIndex": 63,
+    "parameters": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Lớn hơn 0tỏ vẻ bảo thạch có thể cường hóa đến  cấp bậc",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 1110,
+    "key": 49,
+    "keyString": "JIEBINGJY",
+    "name": "Tá Binh Cường Hóa 6",
+    "pic": "jiebingjy",
+    "intro": "Kim tệ mượn binh khi ，chủ tướng có thể đạt được thêm vào kinh nghiệm",
+    "researchTime": 1000,
+    "resource": "copper,20000;lumber,20000",
+    "resourceTimes": 7,
+    "dropIndex": 64,
+    "parameters": [
+      2500.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "parameterIntros": [
+      "Mượn binh có thể đạt được bao nhiêu kinh nghiệm ，1000tỏ vẻ đạt được thêm vào kinh nghiệm 1000điểm ，0tỏ vẻ chưa Mở ra",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 20002,
+    "key": 2,
+    "keyString": "ganji",
+    "name": "Cản Tập",
+    "pic": "ganji",
+    "intro": "Đạt được nên khoa học kỹ thuật sau ，chợ 30phút khôi phục lần lượt sổ",
+    "researchTime": 30,
+    "resource": "iron,50",
+    "resourceTimes": 3,
+    "dropIndex": 0,
+    "parameters": [
+      0.0,
+      0.0,
+      0.5,
+      0.0
+    ],
+    "parameterIntros": [
+      "Chưa sử dụng",
+      "0",
+      "Mỗi 30phút chợ khôi phục  số lần ，trình tự trụ cột vì 0.5 lần",
+      "0"
+    ]
+  }
+]
