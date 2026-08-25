@@ -19,12 +19,37 @@ public sealed class KfgzRushService(
         var generalIds=(request.GeneralIds??[]).Distinct().ToArray();
         if(generalIds.Length==0)throw new GameException("KFGZ_RUSH_GENERALS_REQUIRED","Select at least one general to rush.");
 
+        // Existing target battles are lazily materialized by BattleService. Materialize with
+        // the original lead player before taking the source-battle transfer transaction.
+        long? preTargetBattle=null;long preTargetLead=0;
+        await using(var pre=await db.DataSource.OpenConnectionAsync(ct))
+        await using(var q=new NpgsqlCommand(@"
+SELECT target.battle_id,target.attacker_player_id
+FROM kfgz_battles source
+JOIN kfgz_battles target ON target.round_id=source.round_id AND target.city_id=$2 AND target.state=1
+WHERE source.battle_id=$1 AND source.state=1
+LIMIT 1",pre))
+        {
+            q.Parameters.AddWithValue(battleId);q.Parameters.AddWithValue(request.CityId);
+            await using var r=await q.ExecuteReaderAsync(ct);
+            if(await r.ReadAsync(ct)){preTargetBattle=r.GetInt64(0);preTargetLead=r.GetInt64(1);}
+        }
+        if(preTargetBattle.HasValue)
+        {
+            var materialized=false;
+            await using(var pre=await db.DataSource.OpenConnectionAsync(ct))
+            await using(var q=new NpgsqlCommand("SELECT 1 FROM battles WHERE id=$1",pre))
+            {q.Parameters.AddWithValue(preTargetBattle.Value);materialized=await q.ExecuteScalarAsync(ct)is not null;}
+            if(!materialized)await battles.GetAsync(preTargetLead,preTargetBattle.Value,ct);
+        }
+
         long roundId,seasonId;
         int worldId,fromCity,side,force1,force2;
         DateTimeOffset roundStarts;
         long? targetBattleId=null;
         bool captured=false;
         bool sourceSideEmpty=false;
+        bool joinedExistingBattle=false;
         long defenderPlayer=0;
         int[] defenderGenerals=[];
 
@@ -32,11 +57,10 @@ public sealed class KfgzRushService(
         await using(var t=await c.BeginTransactionAsync(ct))
         {
             await using(var meta=new NpgsqlCommand(@"
-SELECT kb.round_id,r.season_id,r.world_id,r.starts_at,kb.city_id,
-       CASE WHEN kb.attacker_player_id=$2 THEN kb.attacker_side WHEN kb.defender_player_id=$2 THEN kb.defender_side ELSE 0 END,
-       r.force1,r.force2
+SELECT kb.round_id,r.season_id,r.world_id,r.starts_at,kb.city_id,p.side,r.force1,r.force2
 FROM kfgz_battles kb
 JOIN kfgz_rounds r ON r.id=kb.round_id
+JOIN kfgz_battle_participants p ON p.battle_id=kb.battle_id AND p.player_id=$2
 JOIN world_battle_handoffs h ON h.id=kb.battle_id
 JOIN battles b ON b.id=kb.battle_id
 WHERE kb.battle_id=$1 AND kb.state=1 AND r.state=1 AND h.battle_type=18 AND b.status=0
@@ -44,16 +68,16 @@ FOR UPDATE OF kb,r,b",c,t))
             {
                 meta.Parameters.AddWithValue(battleId);meta.Parameters.AddWithValue(playerId);
                 await using var r=await meta.ExecuteReaderAsync(ct);
-                if(!await r.ReadAsync(ct))throw new GameException("KFGZ_RUSH_BATTLE_INVALID","Rush requires an active KFGZ battle.",409);
-                roundId=r.GetInt64(0);seasonId=r.GetInt64(1);worldId=r.GetInt32(2);roundStarts=r.GetFieldValue<DateTimeOffset>(3);fromCity=r.GetInt32(4);side=r.GetInt32(5);force1=r.GetInt16(6);force2=r.GetInt16(7);
+                if(!await r.ReadAsync(ct))throw new GameException("KFGZ_RUSH_BATTLE_INVALID","Rush requires an active KFGZ battle participant.",409);
+                roundId=r.GetInt64(0);seasonId=r.GetInt64(1);worldId=r.GetInt32(2);roundStarts=r.GetFieldValue<DateTimeOffset>(3);fromCity=r.GetInt32(4);side=r.GetInt16(5);force1=r.GetInt16(6);force2=r.GetInt16(7);
             }
-            if(side is not(1 or 2))throw new GameException("KFGZ_RUSH_NOT_PARTICIPANT","Player is not a tracked participant of this KFGZ battle.",403);
 
             var selected=new List<(long id,int general,int hp,int maxHp,int side,int sequence)>();
             await using(var q=new NpgsqlCommand(@"
 SELECT id,general_id,hp,max_hp,side,sequence
 FROM battle_units
 WHERE battle_id=$1 AND player_id=$2 AND general_id=ANY($3) AND hp>0 AND detached=false AND is_phantom=false
+ORDER BY sequence
 FOR UPDATE",c,t))
             {
                 q.Parameters.AddWithValue(battleId);q.Parameters.AddWithValue(playerId);q.Parameters.AddWithValue(generalIds);
@@ -88,86 +112,131 @@ FROM battle_units WHERE battle_id=$1",c,t))
             var road=content.KfgzWorldRoads.Values.FirstOrDefault(v=>v.World==worldId&&(v.From==fromCity&&v.To==request.CityId||v.From==request.CityId&&v.To==fromCity));
             if(road is null||!RoadOpen(road,roundStarts))throw new GameException("KFGZ_RUSH_ROAD_CLOSED","Rush target must be connected by an open legacy KFGZ road.",409);
 
-            await using(var activeTarget=new NpgsqlCommand("SELECT battle_id FROM kfgz_battles WHERE round_id=$1 AND city_id=$2 AND state=1 FOR UPDATE",c,t))
+            await using(var activeTarget=new NpgsqlCommand(@"
+SELECT kb.battle_id
+FROM kfgz_battles kb
+JOIN battles b ON b.id=kb.battle_id
+WHERE kb.round_id=$1 AND kb.city_id=$2 AND kb.state=1 AND b.status=0
+FOR UPDATE OF kb,b",c,t))
             {
                 activeTarget.Parameters.AddWithValue(roundId);activeTarget.Parameters.AddWithValue(request.CityId);
                 var value=await activeTarget.ExecuteScalarAsync(ct);
-                if(value is not null)throw new GameException("KFGZ_RUSH_TARGET_BATTLE_PENDING","Rush into an already active KFGZ battle needs the multi-player battle participant foundation; current two-player settlement model cannot represent it safely.",409);
+                if(value is not null)targetBattleId=Convert.ToInt64(value);
             }
 
-            int ownerSide;
-            await using(var owner=new NpgsqlCommand("SELECT owner_side FROM kfgz_city_states WHERE round_id=$1 AND city_id=$2 FOR UPDATE",c,t))
-            {owner.Parameters.AddWithValue(roundId);owner.Parameters.AddWithValue(request.CityId);ownerSide=Convert.ToInt16(await owner.ExecuteScalarAsync(ct)??0);}
-            if(ownerSide==side)throw new GameException("KFGZ_RUSH_OWN_CITY","Legacy rush cannot enter an unopposed city already owned by the player's side.",409);
+            if(targetBattleId.HasValue)
+            {
+                await using(var participant=new NpgsqlCommand(@"
+INSERT INTO kfgz_battle_participants(battle_id,player_id,side)
+VALUES($1,$2,$3)
+ON CONFLICT(battle_id,player_id) DO NOTHING",c,t))
+                {participant.Parameters.AddWithValue(targetBattleId.Value);participant.Parameters.AddWithValue(playerId);participant.Parameters.AddWithValue(side);await participant.ExecuteNonQueryAsync(ct);}
+                await using(var sideCheck=new NpgsqlCommand("SELECT side FROM kfgz_battle_participants WHERE battle_id=$1 AND player_id=$2 FOR UPDATE",c,t))
+                {sideCheck.Parameters.AddWithValue(targetBattleId.Value);sideCheck.Parameters.AddWithValue(playerId);if(Convert.ToInt32(await sideCheck.ExecuteScalarAsync(ct))!=side)throw new GameException("KFGZ_RUSH_TARGET_SIDE_CONFLICT","Player belongs to the opposite camp in the target battle.",409);}
 
-            var enemyForce=side==1?force2:force1;
-            await using(var defenderOwner=new NpgsqlCommand(@"
+                int sequence;
+                await using(var seq=new NpgsqlCommand("SELECT COALESCE(max(sequence),-1)+1 FROM battle_units WHERE battle_id=$1 AND side=$2",c,t))
+                {seq.Parameters.AddWithValue(targetBattleId.Value);seq.Parameters.AddWithValue(side);sequence=Convert.ToInt32(await seq.ExecuteScalarAsync(ct));}
+
+                foreach(var unit in selected)
+                {
+                    await using(var duplicate=new NpgsqlCommand("SELECT 1 FROM battle_units WHERE battle_id=$1 AND player_id=$2 AND general_id=$3 AND is_phantom=false",c,t))
+                    {duplicate.Parameters.AddWithValue(targetBattleId.Value);duplicate.Parameters.AddWithValue(playerId);duplicate.Parameters.AddWithValue(unit.general);if(await duplicate.ExecuteScalarAsync(ct)is not null)throw new GameException("KFGZ_RUSH_TARGET_DUPLICATE","General already exists in the target KFGZ battle.",409);}
+                    await using var clone=new NpgsqlCommand(@"
+INSERT INTO battle_units(
+ battle_id,side,sequence,player_id,general_id,troop_id,name,level,attack,defense,leader,strength,hp,max_hp,is_npc,
+ quality,tactic_id,tactic_damage,tactic_range,tactic_used,strategy_id,tech_tactic_attack,tech_tactic_defense,selected_action,event_npc_id,detached,is_phantom)
+SELECT $2,$3,$4,player_id,general_id,troop_id,name,level,attack,defense,leader,strength,hp,max_hp,false,
+ quality,tactic_id,tactic_damage,tactic_range,tactic_used,strategy_id,tech_tactic_attack,tech_tactic_defense,2,NULL,false,false
+FROM battle_units WHERE id=$1",c,t);
+                    clone.Parameters.AddWithValue(unit.id);clone.Parameters.AddWithValue(targetBattleId.Value);clone.Parameters.AddWithValue(side);clone.Parameters.AddWithValue(sequence++);await clone.ExecuteNonQueryAsync(ct);
+                }
+
+                await using(var detach=new NpgsqlCommand("UPDATE battle_units SET detached=true WHERE id=ANY($1)",c,t))
+                {detach.Parameters.AddWithValue(selected.Select(x=>x.id).ToArray());await detach.ExecuteNonQueryAsync(ct);}
+                await using(var deploy=new NpgsqlCommand(@"
+UPDATE kfgz_deployments SET state=3,battle_id=$4,mubing_active=false,mubing_updated_at=NULL,updated_at=now()
+WHERE round_id=$1 AND player_id=$2 AND general_id=ANY($3);
+UPDATE player_generals SET state=3,updated_at=now() WHERE player_id=$2 AND general_id=ANY($3);",c,t))
+                {deploy.Parameters.AddWithValue(roundId);deploy.Parameters.AddWithValue(playerId);deploy.Parameters.AddWithValue(generalIds);deploy.Parameters.AddWithValue(targetBattleId.Value);await deploy.ExecuteNonQueryAsync(ct);}
+                joinedExistingBattle=true;
+            }
+            else
+            {
+                int ownerSide;
+                await using(var owner=new NpgsqlCommand("SELECT owner_side FROM kfgz_city_states WHERE round_id=$1 AND city_id=$2 FOR UPDATE",c,t))
+                {owner.Parameters.AddWithValue(roundId);owner.Parameters.AddWithValue(request.CityId);ownerSide=Convert.ToInt16(await owner.ExecuteScalarAsync(ct)??0);}
+                if(ownerSide==side)throw new GameException("KFGZ_RUSH_OWN_CITY","Legacy rush cannot enter an unopposed city already owned by the player's side.",409);
+
+                var enemyForce=side==1?force2:force1;
+                await using(var defenderOwner=new NpgsqlCommand(@"
 SELECT d.player_id
 FROM kfgz_deployments d
 WHERE d.round_id=$1 AND d.city_id=$2 AND d.state=1 AND d.player_id<>$3
   AND d.player_id IN(SELECT player_id FROM kfgz_signups WHERE season_id=$4 AND force_id=$5)
 GROUP BY d.player_id ORDER BY d.player_id LIMIT 1",c,t))
-            {
-                defenderOwner.Parameters.AddWithValue(roundId);defenderOwner.Parameters.AddWithValue(request.CityId);defenderOwner.Parameters.AddWithValue(playerId);defenderOwner.Parameters.AddWithValue(seasonId);defenderOwner.Parameters.AddWithValue(enemyForce);
-                defenderPlayer=Convert.ToInt64(await defenderOwner.ExecuteScalarAsync(ct)??0L);
-            }
-            if(defenderPlayer!=0)
-            {
-                var locked=new List<int>();
-                await using(var defenders=new NpgsqlCommand(@"
+                {
+                    defenderOwner.Parameters.AddWithValue(roundId);defenderOwner.Parameters.AddWithValue(request.CityId);defenderOwner.Parameters.AddWithValue(playerId);defenderOwner.Parameters.AddWithValue(seasonId);defenderOwner.Parameters.AddWithValue(enemyForce);
+                    defenderPlayer=Convert.ToInt64(await defenderOwner.ExecuteScalarAsync(ct)??0L);
+                }
+                if(defenderPlayer!=0)
+                {
+                    var locked=new List<int>();
+                    await using(var defenders=new NpgsqlCommand(@"
 SELECT general_id
 FROM kfgz_deployments
 WHERE round_id=$1 AND city_id=$2 AND state=1 AND player_id=$3
 ORDER BY general_id
 FOR UPDATE",c,t))
-                {
-                    defenders.Parameters.AddWithValue(roundId);defenders.Parameters.AddWithValue(request.CityId);defenders.Parameters.AddWithValue(defenderPlayer);
-                    await using var r=await defenders.ExecuteReaderAsync(ct);
-                    while(await r.ReadAsync(ct))locked.Add(r.GetInt32(0));
+                    {
+                        defenders.Parameters.AddWithValue(roundId);defenders.Parameters.AddWithValue(request.CityId);defenders.Parameters.AddWithValue(defenderPlayer);
+                        await using var r=await defenders.ExecuteReaderAsync(ct);
+                        while(await r.ReadAsync(ct))locked.Add(r.GetInt32(0));
+                    }
+                    defenderGenerals=locked.ToArray();
+                    if(defenderGenerals.Length==0)defenderPlayer=0;
                 }
-                defenderGenerals=locked.ToArray();
-                if(defenderGenerals.Length==0)defenderPlayer=0;
-            }
 
-            await using(var detach=new NpgsqlCommand("UPDATE battle_units SET detached=true WHERE id=ANY($1)",c,t))
-            {detach.Parameters.AddWithValue(selected.Select(x=>x.id).ToArray());await detach.ExecuteNonQueryAsync(ct);}
+                await using(var detach=new NpgsqlCommand("UPDATE battle_units SET detached=true WHERE id=ANY($1)",c,t))
+                {detach.Parameters.AddWithValue(selected.Select(x=>x.id).ToArray());await detach.ExecuteNonQueryAsync(ct);}
 
-            if(defenderPlayer==0)
-            {
-                await using(var move=new NpgsqlCommand(@"
+                if(defenderPlayer==0)
+                {
+                    await using(var move=new NpgsqlCommand(@"
 UPDATE kfgz_deployments SET city_id=$4,state=1,battle_id=NULL,updated_at=now()
 WHERE round_id=$1 AND player_id=$2 AND general_id=ANY($3);
 UPDATE player_generals SET state=1,updated_at=now() WHERE player_id=$2 AND general_id=ANY($3);",c,t))
-                {move.Parameters.AddWithValue(roundId);move.Parameters.AddWithValue(playerId);move.Parameters.AddWithValue(generalIds);move.Parameters.AddWithValue(request.CityId);await move.ExecuteNonQueryAsync(ct);}
-                if(ownerSide!=side)
-                {
-                    await using var occupy=new NpgsqlCommand(@"
+                    {move.Parameters.AddWithValue(roundId);move.Parameters.AddWithValue(playerId);move.Parameters.AddWithValue(generalIds);move.Parameters.AddWithValue(request.CityId);await move.ExecuteNonQueryAsync(ct);}
+                    if(ownerSide!=side)
+                    {
+                        await using var occupy=new NpgsqlCommand(@"
 UPDATE kfgz_city_states SET owner_side=$3,updated_at=now() WHERE round_id=$1 AND city_id=$2 AND owner_side<>$3;
 UPDATE kfgz_player_stats SET occupy_city=occupy_city+1,updated_at=now() WHERE season_id=$4 AND player_id=$5;",c,t);
-                    occupy.Parameters.AddWithValue(roundId);occupy.Parameters.AddWithValue(request.CityId);occupy.Parameters.AddWithValue(side);occupy.Parameters.AddWithValue(seasonId);occupy.Parameters.AddWithValue(playerId);await occupy.ExecuteNonQueryAsync(ct);captured=true;
+                        occupy.Parameters.AddWithValue(roundId);occupy.Parameters.AddWithValue(request.CityId);occupy.Parameters.AddWithValue(side);occupy.Parameters.AddWithValue(seasonId);occupy.Parameters.AddWithValue(playerId);await occupy.ExecuteNonQueryAsync(ct);captured=true;
+                    }
                 }
-            }
-            else
-            {
-                var attackerForce=side==1?force1:force2;
-                var lead=generalIds[0];
-                await using(var handoff=new NpgsqlCommand(@"
+                else
+                {
+                    var attackerForce=side==1?force1:force2;
+                    var lead=generalIds[0];
+                    await using(var handoff=new NpgsqlCommand(@"
 INSERT INTO world_battle_handoffs(city_id,attacker_player_id,attacker_general_id,attacker_force_id,defender_force_id,battle_type,result_payload)
 VALUES($1,$2,$3,$4,$5,18,jsonb_build_object('defenderPlayerId',$6,'attackerGenerals',to_jsonb($7::integer[]),'defenderGenerals',to_jsonb($8::integer[]),'kfgzRoundId',$9,'kfgzSide',$10,'rush',true))
 RETURNING id",c,t))
-                {
-                    handoff.Parameters.AddWithValue(request.CityId);handoff.Parameters.AddWithValue(playerId);handoff.Parameters.AddWithValue(lead);handoff.Parameters.AddWithValue(attackerForce);handoff.Parameters.AddWithValue(enemyForce);handoff.Parameters.AddWithValue(defenderPlayer);handoff.Parameters.AddWithValue(generalIds);handoff.Parameters.AddWithValue(defenderGenerals);handoff.Parameters.AddWithValue(roundId);handoff.Parameters.AddWithValue(side);
-                    targetBattleId=Convert.ToInt64(await handoff.ExecuteScalarAsync(ct));
-                }
-                long matchId;
-                await using(var match=new NpgsqlCommand("INSERT INTO kfgz_battles(round_id,city_id,attacker_player_id,defender_player_id,attacker_side,defender_side,battle_id) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING id",c,t))
-                {match.Parameters.AddWithValue(roundId);match.Parameters.AddWithValue(request.CityId);match.Parameters.AddWithValue(playerId);match.Parameters.AddWithValue(defenderPlayer);match.Parameters.AddWithValue(side);match.Parameters.AddWithValue(side==1?2:1);match.Parameters.AddWithValue(targetBattleId.Value);matchId=Convert.ToInt64(await match.ExecuteScalarAsync(ct));}
-                await using(var deploy=new NpgsqlCommand(@"
+                    {
+                        handoff.Parameters.AddWithValue(request.CityId);handoff.Parameters.AddWithValue(playerId);handoff.Parameters.AddWithValue(lead);handoff.Parameters.AddWithValue(attackerForce);handoff.Parameters.AddWithValue(enemyForce);handoff.Parameters.AddWithValue(defenderPlayer);handoff.Parameters.AddWithValue(generalIds);handoff.Parameters.AddWithValue(defenderGenerals);handoff.Parameters.AddWithValue(roundId);handoff.Parameters.AddWithValue(side);
+                        targetBattleId=Convert.ToInt64(await handoff.ExecuteScalarAsync(ct));
+                    }
+                    long matchId;
+                    await using(var match=new NpgsqlCommand("INSERT INTO kfgz_battles(round_id,city_id,attacker_player_id,defender_player_id,attacker_side,defender_side,battle_id) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING id",c,t))
+                    {match.Parameters.AddWithValue(roundId);match.Parameters.AddWithValue(request.CityId);match.Parameters.AddWithValue(playerId);match.Parameters.AddWithValue(defenderPlayer);match.Parameters.AddWithValue(side);match.Parameters.AddWithValue(side==1?2:1);match.Parameters.AddWithValue(targetBattleId.Value);matchId=Convert.ToInt64(await match.ExecuteScalarAsync(ct));}
+                    await using(var deploy=new NpgsqlCommand(@"
 UPDATE kfgz_deployments SET city_id=$4,state=3,battle_id=$5,mubing_active=false,mubing_updated_at=NULL,updated_at=now() WHERE round_id=$1 AND player_id=$2 AND general_id=ANY($3);
 UPDATE kfgz_deployments SET state=3,battle_id=$5,mubing_active=false,mubing_updated_at=NULL,updated_at=now() WHERE round_id=$1 AND player_id=$6 AND general_id=ANY($7);
 UPDATE player_generals SET state=3,updated_at=now() WHERE (player_id=$2 AND general_id=ANY($3)) OR (player_id=$6 AND general_id=ANY($7));",c,t))
-                {deploy.Parameters.AddWithValue(roundId);deploy.Parameters.AddWithValue(playerId);deploy.Parameters.AddWithValue(generalIds);deploy.Parameters.AddWithValue(request.CityId);deploy.Parameters.AddWithValue(targetBattleId.Value);deploy.Parameters.AddWithValue(defenderPlayer);deploy.Parameters.AddWithValue(defenderGenerals);await deploy.ExecuteNonQueryAsync(ct);}
-                await push.SendAsync(defenderPlayer,"kfgz.battle",new{matchId,battleId=targetBattleId.Value,cityId=request.CityId,opponent=playerId,rush=true},ct);
+                    {deploy.Parameters.AddWithValue(roundId);deploy.Parameters.AddWithValue(playerId);deploy.Parameters.AddWithValue(generalIds);deploy.Parameters.AddWithValue(request.CityId);deploy.Parameters.AddWithValue(targetBattleId.Value);deploy.Parameters.AddWithValue(defenderPlayer);deploy.Parameters.AddWithValue(defenderGenerals);await deploy.ExecuteNonQueryAsync(ct);}
+                    await push.SendAsync(defenderPlayer,"kfgz.battle",new{matchId,battleId=targetBattleId.Value,cityId=request.CityId,opponent=playerId,rush=true},ct);
+                }
             }
 
             await using(var empty=new NpgsqlCommand("SELECT NOT EXISTS(SELECT 1 FROM battle_units WHERE battle_id=$1 AND side=$2 AND hp>0 AND detached=false)",c,t))
@@ -176,6 +245,7 @@ UPDATE player_generals SET state=3,updated_at=now() WHERE (player_id=$2 AND gene
         }
 
         if(sourceSideEmpty)await battles.AdvanceAsync(playerId,battleId,ct);
+        if(joinedExistingBattle&&targetBattleId.HasValue)await push.BroadcastAsync("battle.updated",new{battleId=targetBattleId.Value,reason="kfgz.rush.reinforce",playerId,generalIds},ct);
         await push.BroadcastAsync("kfgz.world",new{reason="rush",sourceBattleId=battleId,targetCityId=request.CityId,targetBattleId,generalIds},ct);
         return new(battleId,request.CityId,targetBattleId,generalIds,captured);
     }
