@@ -1,0 +1,26 @@
+namespace CTXD.Server.Services;
+
+public static class KfgzExtendedCombatEndpoints
+{
+    public static IEndpointRouteBuilder MapKfgzExtendedCombat(this IEndpointRouteBuilder app)
+    {
+        app.MapGet("/api/kfgz/resources",async(HttpRequest request,AuthService auth,KfgzExtendedCombatService combat,CancellationToken ct)=>
+        {
+            var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
+            return Results.Ok(await combat.ResourcesAsync(id,ct));
+        });
+
+        app.MapPost("/api/battles/{battleId:long}/phantom",async(long battleId,KfgzPhantomRequest body,HttpRequest request,AuthService auth,KfgzExtendedCombatService combat,CancellationToken ct)=>
+        {
+            var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
+            return Results.Ok(await combat.CreatePhantomAsync(id,battleId,body,ct));
+        });
+        return app;
+    }
+
+    static string? Bearer(HttpRequest request)
+    {
+        var h=request.Headers["Authorization"].ToString();
+        return h.StartsWith("Bearer ",StringComparison.OrdinalIgnoreCase)?h[7..].Trim():null;
+    }
+}
