@@ -12,8 +12,7 @@ public sealed class KfgzCallGeneralService(CanonicalContent content,KfgzService 
     public async Task<KfgzCallGeneralInfo> InfoAsync(long playerId,int cityId,CancellationToken ct)
     {
         var world=await kfgz.WorldAsync(playerId,ct);
-        if(!content.KfgzWorldCities.TryGetValue(cityId,out var city)||city.World!=world.WorldId)
-            throw new GameException("KFGZ_CALL_GENERAL_CITY_INVALID","Call-general target must be a city in the active KFGZ world.",404);
+        ValidateTarget(world,cityId);
         var ids=world.Deployments
             .Where(x=>x.PlayerId==playerId&&x.State==1&&x.CityId!=cityId)
             .Select(x=>x.GeneralId)
@@ -30,8 +29,7 @@ public sealed class KfgzCallGeneralService(CanonicalContent content,KfgzService 
         if(ids.Length==0)throw new GameException("KFGZ_CALL_GENERAL_REQUIRED","Select at least one general to call.");
 
         var world=await kfgz.WorldAsync(playerId,ct);
-        if(!content.KfgzWorldCities.TryGetValue(cityId,out var city)||city.World!=world.WorldId)
-            throw new GameException("KFGZ_CALL_GENERAL_CITY_INVALID","Call-general target must be a city in the active KFGZ world.",404);
+        ValidateTarget(world,cityId);
         var known=world.Deployments.Where(x=>x.PlayerId==playerId).Select(x=>x.GeneralId).ToHashSet();
         if(ids.Any(x=>!known.Contains(x)))throw new GameException("KFGZ_CALL_GENERAL_INVALID","One or more selected generals are not synchronized into this KFGZ round.",400);
 
@@ -49,5 +47,13 @@ public sealed class KfgzCallGeneralService(CanonicalContent content,KfgzService 
             }
         }
         return new(cityId,moved.ToArray(),failed.ToArray());
+    }
+
+    void ValidateTarget(KfgzWarView world,int cityId)
+    {
+        if(!content.KfgzWorldCities.TryGetValue(cityId,out var city)||city.World!=world.WorldId)
+            throw new GameException("KFGZ_CALL_GENERAL_CITY_INVALID","Call-general target must be a city in the active KFGZ world.",404);
+        if((world.Battles??[]).Any(x=>x.CityId==cityId&&x.State==1))
+            throw new GameException("KFGZ_CALL_GENERAL_TARGET_FIGHTING","Call-general cannot target a city with an active KFGZ battle until multi-player reinforcement is ported.",409);
     }
 }
