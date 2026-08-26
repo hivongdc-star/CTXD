@@ -1,14 +1,14 @@
 # CTXD Remake — Current Handoff (2026-08-26)
 
-> Đây là handoff authoritative mới nhất cho phiên tiếp theo. `HANDOFF_CURRENT_20260825.md` và `HANDOFF_NEXT_SESSION.md` chỉ còn giá trị lịch sử.
+> Đây là handoff authoritative mới nhất cho phiên tiếp theo. Không dùng handoff 24/08 hoặc 25/08 làm source of truth.
 
 ## Mục tiêu dự án
 - Remake công nghệ, **không redesign** gameplay/UI/UX/art/animation/flow legacy.
 - Client: Unity + C#, target Windows x64 + Android ARM64, một codebase.
-- Server: C#/.NET / ASP.NET Core, server-authoritative.
+- Server: C#/.NET 8 / ASP.NET Core, server-authoritative.
 - DB: PostgreSQL clean schema.
 - Network: HTTPS + WebSocket.
-- Legacy chỉ dùng làm source/reference; không phụ thuộc Flash/ActionScript runtime, Java 6, Apache/PHP, MySQL 5.5 hay legacy TCP ở thành phẩm.
+- Legacy chỉ dùng làm source/reference; thành phẩm không phụ thuộc Flash/ActionScript runtime, Java 6, Apache/PHP, MySQL 5.5 hay legacy TCP.
 - Chỉ migrate static definition/content cần thiết; không migrate account/player/runtime/history/session/cache cũ.
 
 ## Quy tắc làm việc đã chốt
@@ -19,207 +19,257 @@
 - Không tự bịa rule/reward/timer/cost/static mapping. Thiếu evidence thì ghi `BLOCKED` và chuyển module khác.
 - Chỉ build/startup validation tối thiểu sau block implementation đáng kể.
 - Ưu tiên additive changes; không phá API/schema/runtime hiện có.
-- Đường dẫn Windows phải giữ đúng casing:
+- Đường dẫn Windows:
   - legacy: `D:\Sever`
   - remake: `D:\SeverRMK`
-  - working source cũ: `D:\SeverRMK\CTXD_Remake_Working`
+  - working source: `D:\SeverRMK\CTXD_Remake_Working`
   - legacy extracted: `D:\SeverRMK\LegacyReference`
   - remake input: `D:\SeverRMK\RemakeInput`
 - Không overwrite `D:\Sever`.
 
 ## Repo / branch hiện tại
 - GitHub: `hivongdc-star/CTXD`
-- Branch đang làm: `codex/kfgz-extended-combat`
-- Latest verified branch commit khi tạo handoff: `38f19d9537017c52bd091ea6210da04460caaa9e`
-  - message: `Add reusable world battle reinforcement`
-- Commit ngay trước:
-  - `6cca7dcf2a6e940ec13e270479848fb10523c82a` — Auto Battle persistence migration.
-- Pull request hiện có: PR #1, branch trên -> `main`.
-- `main` cũ hơn đáng kể; **không tiếp tục từ main** nếu chưa merge branch này.
+- Branch authoritative: `codex/kfgz-extended-combat`
+- HEAD trước khi cập nhật handoff này: `1120b232c3afa0e687d115b3d198fd338b9640d6`
+  - message: `Add safe Farm early-claim flow`
+- PR #1: branch trên -> `main`.
+- `main` vẫn cũ hơn đáng kể; **không tiếp tục từ main** nếu chưa merge branch này.
+- Local của user đã đồng bộ bằng:
+  - `git fetch origin`
+  - `git switch codex/kfgz-extended-combat`
+  - `git reset --hard origin/codex/kfgz-extended-combat`
+- Local xác nhận HEAD `1120b23` và server đã chạy được trên máy user.
 
 ## Commercial completeness
-- Báo bảo thủ: **~63–64% commercial-complete**.
-- Không tăng % vì documentation/audit/test-only work.
+- Mốc hiện tại: **~66% commercial-complete**.
+- Giữ cách tính liên tục từ đây; không tự đổi mẫu số.
+- Chỉ tăng khi có functionality thật; docs/audit/test-only không tăng %.
+
+## Server status tổng thể
+- Server **chạy được**, nhưng chưa phải 100% server game.
+- Ước lượng riêng server gameplay hiện khoảng **80–85%** chức năng cần remake.
+- Đã có boot thật, PostgreSQL, migrations, canonical legacy data, API/gameplay đã port.
+- User đã chạy local server thành công; phần cần kiểm tiếp chủ yếu là Unity compile/runtime và các gameplay chưa port.
 
 ## DONE — core hiện có
 ### Core game
-- Auth / player flow / force selection / main city.
+- Auth / player / force selection / main city.
 - Building / resource production.
 - General / Tavern.
-- Equipment store + inventory.
+- Equipment / Store / Inventory.
 - Technology.
-- World movement / visibility / conquest boundary.
-- Battle engine server-authoritative, reinforcement/action/reward integration.
-- Nation core, office/politics/civil-affair, Nation Trial, Nation Task, ranking/reward phần có evidence.
-- Quest vertical slices + nhiều providers.
+- World movement / fog / auto-path / conquest boundary.
+- Battle server-authoritative: tactic/strategy/equipment/technology/reward/reinforcement.
+- Nation core / office / politics / civil affair / Nation Trial / Nation Task / scheduled nation/world tasks / ranking/reward phần có evidence.
+- Quest nhiều providers.
 - Mail server + Unity + realtime + atomic/idempotent attachments.
-- Market + black market + cooldown/recovery/special-city bonus.
-- Chat COUNTRY/ONE2ONE + history/blacklist/realtime + Unity.
-- Team core: teamTimes, deploy, type-1 duel, inspire/order/result/reward.
-- Activities: scheduler, Online Gift, Daily Gift, Battle EXP, Level Growth EXP, Dragon, Iron, DSTQ phần có evidence.
-- Pay/VIP entitlement + benefits đã có evidence.
+- Market / black market / recovery.
+- Chat / Team core.
+- Activities: Online/Daily/Battle EXP/Level EXP/Dragon/Iron/DSTQ + scheduler/push.
+- Pay/VIP phần có evidence.
+- Global level rank exact legacy `rankId=1`: `/api/rank/1`, max 200, sort level desc only, Unity panel.
 
 ### Cross-server
-- KFWD core: signup/sync, scheduler, matchmaking, multi-round, Battle/result, timeout, ranking, history, API/push/Unity.
-- KFZB core: signup/sync, phases, bracket, Battle/result, elimination, timeout, persistence, spectator, API/push/Unity.
-- KFZB Feast/support phần có evidence.
-- KFGZ core + extended combat đã đi xa hơn handoff 25/08:
-  - season/phases/signup/competitor sync
+- KFWD core.
+- KFZB core + support/Feast phần có evidence.
+- KFGZ core + extended combat:
+  - season/phases/signup/sync
   - dynamic world/city/road
   - deployment/movement
-  - Battle handoff/result
+  - battle handoff/result
   - timeout/settlement/ranking
   - persistence/reconnect
-  - resource/per-general state restore
-  - retreat theo legacy
-  - occupy settlement chỉ cộng khi ownership thực sự đổi
-  - Rush endpoint/service
-  - Fast Recruit endpoint/service
-  - Phantom endpoint/service
-  - Call-General + KFGZ reinforcement endpoint/service
-  - KFGZ Mubing lifecycle/worker
-- BattleDrop resource settlement foundation; mapping 4/1004 -> iron + chống grant lặp.
+  - resource/per-general restore
+  - retreat 10% HP
+  - occupy authoritative only on real owner change
+  - Rush
+  - Fast Recruit
+  - Phantom
+  - Call-General/Reinforcement
+  - Mubing lifecycle/worker
+- BattleDrop resource settlement foundation; mapping 4/1004 -> iron + duplicate protection.
 
-## DONE mới trong phiên 25→26/08
-### Global Level Ranking
-Port đúng legacy `RankAction.send(rankId=1)`:
-- Endpoint: `GET /api/rank/1`
-- Authenticated.
-- Tối đa 200 player.
-- Semantics legacy: `ORDER BY player level DESC`; **không dùng EXP để phá hòa**, không thêm lực chiến/metric khác.
-- Payload giữ các field tương đương `playerId / playerName / playerLv`.
-- Unity đã có Rank API/model/panel và nút `Xếp hạng` ở main city.
-- Server CI cho Rank block: **PASS** `dotnet build` + PostgreSQL migrations/startup.
+## DONE — Auto Battle + Recruit Recovery
+### Auto Battle
+Files chính:
+- `Server/CTXD.Server/Services/AutoBattleService.cs`
+- `AutoBattleWorker.cs`
+- `AutoBattleEndpoints.cs`
+- Unity `Networking/AutoBattleApi.cs`
+- Unity `Features/World/AutoBattlePanel.cs`
+- migration `052_auto_battle.sql`
 
-### World Battle Reinforcement foundation
-File mới:
-- `Server/CTXD.Server/Services/WorldBattleReinforcementService.cs`
+Đã port:
+- TechEffect 59.
+- start cost 50,000 food.
+- duration 30 phút.
+- worker cadence 10s, scheduler wake 5s.
+- attack/defense autoType theo ownership/active battle.
+- movement/reinforcement/battle handoff/advance.
+- result `1/2/3/4/5` theo legacy.
+- EXP/lost tracking runtime.
+- timeout/ownership/result settlement.
+- manual stop.
+- duplicate charge/race protection bằng lock + re-read.
+- Unity panel + realtime `auto-battle.updated`.
 
-Đã hỗ trợ:
-- join/reinforce world city battle type 3/14.
-- xác định side theo force của player: attacker hoặc defender.
-- general phải sẵn sàng, có quân, đúng battle city.
-- chống duplicate general.
-- materialize `battle_units` theo general/troop/equipment/technology/tactic/terrain hiện có.
-- chuyển general sang battle state.
+### Recruit Recovery
+Files/data:
+- `Server/CTXD.Server/Services/RecruitRecoveryService.cs`
+- migration `053_recruit_recovery.sql`
+- `Data/Canonical/troop_conscribe_speed.json`
+- `Data/Canonical/world_city_area.json`
 
-Foundation này được thêm để phục vụ Auto Battle/auto-defense và reusable cho quốc chiến thường.
+Legacy exact evidence đã port:
+- `Troop.Conscribe.BaseSpeed = 40000`.
+- recruit tokens: base 20/day; consume level >=4 thêm +10; max semantics 100.
+- chargeitem 13 param 90 phút/token.
+- passive recovery + token recovery + food consumption.
+- city-area recruit speed.
+- TechEffect8 và TechEffect28 handling.
+- legacy partial/full recovery behavior, kể cả timestamp quirk.
+- Auto Battle gọi recovery trước khi general move/join/battle.
 
-### Auto Battle persistence foundation
-Migration mới:
-- `Database/Migrations/052_auto_battle.sql`
+Known parity gap:
+- legacy `player_resource_addition` contribution vào recruit/building type5 chưa có runtime system tương ứng trong remake => hiện contribution = 0.
 
-Table:
-- `player_auto_battles`
+## DONE/PARTIAL — World Farm / Truân Điền
+### Static source đã giải blocker
+Snapshot deploy `gcld.3.1/sdata.zip` chứa nguyên static table, không chỉ `.frm`.
+Đã tìm và port authoritative:
+- `farm`: 13 levels.
+- `farm_coe`.
+- chargeitem 78/86 liên quan Farm.
 
-State đã chuẩn bị gồm:
-- force/target city/state/auto type
-- exp/lost/result
-- baseline exp/lost
-- started/ends/need-check timestamps
-- active due index.
+### Server Farm đã implement
+Files chính:
+- `Data/Canonical/farm.json`
+- `Data/Canonical/farm_coe.json`
+- `Database/Migrations/054_world_farm.sql`
+- `Server/CTXD.Server/Services/FarmService.cs`
+- `Server/CTXD.Server/Services/FarmEndpoints.cs`
 
-## PARTIAL — ưu tiên tiếp tục ngay
-### 1. Auto Battle / tự động quốc chiến — PRIORITY HIGHEST
-Legacy đã reverse đủ nhiều để tiếp tục code ngay:
-- lifecycle legacy: `start / stop / detail`.
-- yêu cầu TechEffect **59**.
-- start cost: **50,000 food**.
-- duration: **30 phút**.
-- daemon/worker cadence: **10 giây**.
-- target ownership quyết định:
-  - `autoType=1`: xue-zhan / công thành.
-  - `autoType=2`: jian-shou / phòng thủ.
-- timeout result:
-  - attack timeout -> result `2`.
-  - defense timeout -> result `5`.
-- ownership change/other stop result theo legacy đã reverse: `1 / 3 / 4` tùy nhánh.
-- `exp` phải dựa player EXP thực nhận từ battle reward.
-- `lost` phải dựa quân tổn thất thực tế.
-- Có thể lấy delta từ runtime hiện tại bằng baseline của `battle_rewards` + battle damage/rounds, tránh sửa sâu BattleService.
+Đã port:
+- Farm city: Wei 254 / Shu 253 / Wu 206.
+- open level 30.
+- initial Farm lv1, invest 0.
+- invest: 10,000 copper + 1,000 player EXP.
+- invest CD step 10 phút, queue cap 1 giờ.
+- clear invest CD: ChargeItem 78, `ceil(remaining / 10 min) * 1 gold`.
+- token item 1701/type20.
+- Farm action type 0/1/2/3 -> general states 25/26/27/28; idle state 24.
+- food/time/reward coefficients từ static legacy.
+- early stop reward theo elapsed fraction.
+- early claim gold theo ChargeItem 86.
+- gold-action request-key ledger chống double charge.
+- full/partial reward settlement.
+- Farm food reward hoặc General EXP reward theo type.
+- completion tạo buff 30 phút.
+- auto-start khi general vào Farm city theo legacy flow.
+- state24 có thể rời Farm city qua World movement.
 
-**Việc cần làm ngay:**
-1. Tạo `AutoBattleService`.
-2. Implement `Get/Detail`, `Start`, `Stop` với transaction.
-3. Worker 10 giây:
-   - kiểm tra timeout/ownership/result;
-   - điều khiển general idle/movement vào target;
-   - dùng `WorldBattleReinforcementService` để reinforce attacker/defender;
-   - advance battle theo lifecycle authoritative hiện có.
-4. Map API endpoints.
-5. Nối Unity World panel tối thiểu theo legacy flow.
-6. CI build + clean PostgreSQL migration/startup.
+### Battle Farm buff đã ghép
+Commit: `2d234eeb082e5ae49b4f5800dc01ec5c5206a622`
+- Legacy bytecode xác nhận `WorldFarmService.getBuff()/100` được cộng additive.
+- Remake áp `+50%` vào **Player EXP và General EXP** của đúng `player + general`.
+- Không tăng damage/copper.
+- Không áp phantom.
 
-### Auto recruit/heal trong Auto Battle
-- **PARTIAL/BLOCKED** nếu cần exact `TroopConscribeSpeed` mà chưa có authoritative mapping.
-- Không tự dựng tốc độ hồi quân.
-- Phần Auto Battle không phụ thuộc exact recruit-speed vẫn implement trước.
+### Unity Farm đã nối
+Files:
+- `Client/Unity/Assets/Game/Scripts/Networking/FarmApi.cs`
+- `Client/Unity/Assets/Game/Scripts/Features/World/FarmPanel.cs`
+- `WorldPanel.cs` có nút `Truân Điền`.
 
-## PARTIAL / BLOCKED static-data families
-Các family dưới đây có service/schema legacy nhưng static rows authoritative hiện không tìm thấy trong `gcld_sdata`; archive chủ yếu chỉ còn `.frm`:
-- Farm
-- Mine
-- Treasure
-- Weapon-related static family
-- Prison/Slave static coefficients
+Client hiện có:
+- xem Farm state.
+- đầu tư.
+- xóa invest CD.
+- chọn loại Farm.
+- chọn general.
+- start/stop/claim/stop-all.
+- xem buff +50% EXP.
+- early-claim an toàn: xem giá trước, nhấn lần hai xác nhận rồi server mới trừ vàng.
 
-### Farm evidence đã reverse được nhưng chưa đủ reward rows
-Có thể tin cậy:
-- methods: `investFarm`, `start/doStart`, `stop`, `getFarmInfo`, `startAll`, `getRecoverCostGold`, `recoverGold`, `stopAll`, `rewardPlayerGeneral`, `getReward`.
-- farm action type `0/1/2/3` map general state `25/26/27/28`.
-- buff sau kết thúc: **30 phút**.
-- `getBuff()` trả **50**.
-- invest queue cộng **10 phút**, chặn nếu queue vượt **1 giờ**.
-- charge item id `78`: farm invest CD, `param=10`, `cost=1` (10 phút / 1 gold).
-- charge item id `82`: farm gold training, `cost=5`.
-
-Thiếu:
-- authoritative row values cho Farm reward/time/food coefficients.
-=> Giữ Farm `PARTIAL/BLOCKED`, không dựng reward giả.
-
-## Các BLOCKED cũ vẫn giữ
-- KFGZ ranking/title/end reward: authoritative reward strings nằm coordinator DB ngoài source hiện có.
-- KFWD day/treasure reward: thiếu gateway rows / ranking-day / KfwdRankTreasure mapping chắc chắn.
-- KFZB treasure reward mapping chưa đủ evidence.
-- Feast room cần coordinator cung cấp organizer rank authoritative.
-- VIP6_1 còn phụ thuộc premium-equipment/Jinpin mapping chưa chắc chắn.
-- Một số Quest providers còn phụ thuộc gameplay chưa port.
-- Một số Iron source/provider phụ có thể còn thiếu nếu mapping không xuất hiện.
+Farm còn PARTIAL nhỏ:
+- ChargeItem 82 semantic chưa đủ evidence, chưa invent.
+- `FARMING_GENERAL_NUMBER=20` đã thấy constant nhưng chưa xác định chính xác enforcement point, chưa ép.
+- Unity Editor compile toàn project chưa được xác nhận.
 
 ## Build/runtime status
-- Rank server block đã được GitHub Actions xác nhận **PASS**:
-  - `dotnet build Server/CTXD.Server/CTXD.Server.csproj --configuration Release`
-  - apply migrations + PostgreSQL startup PASS.
-- Latest Auto Battle migration + world reinforcement commits cần **CI verification lại** sau khi AutoBattleService/worker được nối hoàn chỉnh; không ghi PASS giả cho latest HEAD nếu chưa kiểm tra.
-- Unity Rank panel đã commit nhưng Unity Editor compile toàn project vẫn chưa được xác nhận trong môi trường này.
+- GitHub Actions server build đã nhiều lần PASS:
+  - `dotnet build Server/CTXD.Server/CTXD.Server.csproj --configuration Release --nologo`
+  - PostgreSQL migrations + server startup `/health` PASS cho các block server trước HEAD.
+- Commit Farm battle buff đã PASS build + migration/startup ở CI.
+- User đã pull/reset đúng HEAD và xác nhận server chạy local thành công.
+- CI workflow hiện chỉ cover server; **không coi Unity compile là PASS** nếu chưa mở/batch compile Unity thực tế.
+- Unity project declares `6000.0.0f1`.
+
+## BLOCKER STATIC-DATA CŨ ĐÃ ĐƯỢC GỠ
+`sdata.zip` deploy đã xác nhận có authoritative tables:
+- `mine` — 162 rows.
+- `treasure`.
+- `arms_weapon`.
+- `prison_lv`.
+- `prison_reward`.
+- `prison_lash_reward`.
+- `prison_degree`.
+- `prison_catch_prob`.
+
+=> Mine / Treasure / Weapon / Prison-Slave không còn bị BLOCKED chỉ vì thiếu static rows.
+
+## MODULE TIẾP THEO — Mine / Khoáng Trường
+Đã reverse đủ foundation để implementation server-first ngay:
+- legacy runtime/service/action tồn tại: `getMineInfo / rush / abandon / mine`.
+- 162 mine rows.
+- mine type 1/2 = iron; type 3/4 = gem.
+- 5 mine pages.
+- battle type legacy:
+  - personal mine = 6.
+  - force/group mine = 7.
+- Rush chỉ trong 15 phút đầu.
+- Rush làm production stage sau chạy x2.
+- hết thời gian tự settlement.
+- bị chiếm: chủ cũ nhận 50% accumulated output.
+- iron mine có stone item 1401 khi Blacksmith condition thỏa.
+- force mine có daily harvest nếu nation đang sở hữu.
+- output/time/stone formulas đã reverse từ bytecode/static.
+
+**Việc tiếp theo:** implement Mine migration + canonical import + service + endpoints + Battle integration + worker/settlement + Unity minimal slice, rồi build/startup validation.
+
+## Các PARTIAL/BLOCKED còn đáng chú ý
+- KFGZ ranking/title/end reward: coordinator reward strings ngoài source hiện có.
+- KFWD day/treasure reward chưa đủ mapping chắc chắn.
+- KFZB treasure/title reward mapping chưa đủ.
+- Feast organizer/rank phần cần authoritative coordinator data.
+- VIP6_1 premium/Jinpin mapping chưa đủ.
+- Quest providers phụ còn tùy gameplay chưa port.
+- Battle special equipment/suit effects chưa full parity.
+- precise SWF frame animation mapping chưa full.
+- production/commercial hardening: monitoring/backup/security/liveops/release pipeline chưa hoàn chỉnh.
 
 ## Điểm bắt đầu chính xác cho phiên sau
-1. **Không scan/audit toàn repo.**
-2. Checkout/đọc branch `codex/kfgz-extended-combat`, latest từ `38f19d9537017c52bd091ea6210da04460caaa9e` hoặc commit mới hơn nếu có.
-3. Đọc:
-   - `Database/Migrations/052_auto_battle.sql`
-   - `Server/CTXD.Server/Services/WorldBattleReinforcementService.cs`
-   - `WorldService.cs`
-   - `BattleService.cs`
-   - legacy AutoBattle Action/Service trực tiếp liên quan.
-4. Implement ngay `AutoBattleService + worker + endpoints`.
-5. Nối Unity WorldPanel sau khi server lifecycle chạy.
-6. Auto-recruit exact speed thiếu evidence thì giữ BLOCKED; không để nó chặn phần Auto Battle còn lại.
-7. Build + PostgreSQL startup sau block lớn.
-8. Khi Auto Battle đủ vertical slice, chuyển ngay module gameplay lớn tiếp theo có evidence; tránh quay lại static family mất row nếu chưa tìm được authoritative source mới.
+1. Không scan/audit toàn repo.
+2. Dùng branch `codex/kfgz-extended-combat`, HEAD `1120b23` hoặc commit mới hơn nếu handoff update tạo commit mới.
+3. Farm không cần làm lại trừ khi có bug cụ thể.
+4. Bắt đầu trực tiếp **Mine** từ legacy evidence đã reverse.
+5. Chỉ đọc Java/ActionScript/static liên quan Mine nếu cần chốt công thức còn thiếu.
+6. Implement migration/service/API/Battle/lifecycle trước, Unity nối sau.
+7. Build server + PostgreSQL startup sau block lớn.
+8. Sau Mine chuyển Treasure / Weapon / Prison theo evidence, không quay lại audit.
 
-## Không làm ở phiên sau
-- Không quay về `main` cũ và code đè lên branch current.
-- Không rerun V3/V4/V5 preprocessing chỉ để tìm lại dữ liệu đã biết là thiếu.
-- Không tăng % bằng test/docs/audit.
-- Không tự invent Farm/Mine/Treasure/Prison coefficients.
-- Không redesign UI/gameplay.
+## Không làm
+- Không code từ `main` cũ.
+- Không rerun preprocessing V3/V4/V5 vô cớ.
+- Không tăng % bằng docs/tests/audit.
+- Không invent gameplay/static.
+- Không redesign UI/UX/gameplay.
+- Không overwrite `D:\Sever`.
 
 ## Cách báo cuối phiên
-Ngắn, theo format:
 - `DONE`
 - `PARTIAL`
 - `BLOCKED`
 - `MODULE`
 - `BUILD`
-- `COMMERCIAL %` (conservative)
+- `COMMERCIAL %` — giữ baseline hiện tại ~66%, chỉ tăng bằng functionality thật.
