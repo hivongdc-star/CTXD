@@ -271,5 +271,12 @@ Farm còn PARTIAL nhỏ:
 - `PARTIAL`
 - `BLOCKED`
 - `MODULE`
+- Session 2026-08-26 implementation update:
+  - DONE Mine: canonical 162 rows, migration `055_world_mine.sql`, server service/endpoints/worker, battle type 6/7 terrain 9, ownership settlement, rush/abandon/auto-settle, 50/50 capture payout, force daily harvest, Unity minimal vertical slice + realtime.
+  - PARTIAL Mine: stone 1401 is not granted because authoritative Blacksmith runtime/unlock state is not present; Unity Editor compile remains unverified.
+  - DONE/PARTIAL Treasure: canonical 10 rows, migration `056_treasures.sql`, inventory endpoint, Politics type5 drop at exact `0.001` with function 20 gate, Battle ATT/DEF/BASE effects, Unity inventory panel + realtime. Incense/Search/Store acquisition hooks remain pending with their owning gameplay.
+  - BUILD: `dotnet build CTXD.Server.csproj` PASS, 0 warnings / 0 errors. Startup stopped because PostgreSQL `127.0.0.1:5432` was offline in this environment.
+  - NEXT: Weapon / Binh Khi server-first from `arms_weapon` and `WeaponService.java`; migration/state, forge blueprint type6 + exact costs, serial/crit upgrade, Battle ATT/DEF/HP, then Unity minimal slice. Do not invent gem socket rules.
+  - COMMERCIAL: new baseline **~68%**.
 - `BUILD`
 - `COMMERCIAL %` — giữ baseline hiện tại ~66%, chỉ tăng bằng functionality thật.

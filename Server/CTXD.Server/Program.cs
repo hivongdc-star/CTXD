@@ -44,6 +44,8 @@ builder.Services.AddSingleton<ActivityScheduleService>();
 builder.Services.AddSingleton<DragonActivityService>();
 builder.Services.AddSingleton<DstqActivityService>();
 builder.Services.AddSingleton<IronActivityService>();
+builder.Services.AddSingleton<MineService>();
+builder.Services.AddSingleton<TreasureService>();
 builder.Services.AddSingleton<ISystemMailSender>(sp=>sp.GetRequiredService<MailService>());
 builder.Services.AddSingleton<NationProgressService>();
 builder.Services.AddSingleton<IPlayerItemInventory,PlayerItemInventoryService>();

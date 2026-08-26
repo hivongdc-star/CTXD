@@ -8,9 +8,12 @@ public static class KfgzExtendedCombatEndpoints
     {
         KfgzMubingWorker.Start(app.ServiceProvider);
         AutoBattleWorker.Start(app.ServiceProvider);
+        MineWorker.Start(app.ServiceProvider);
         app.MapRankEndpoints();
         app.MapAutoBattleEndpoints();
         app.MapFarmEndpoints();
+        app.MapMineEndpoints();
+        app.MapTreasureEndpoints();
 
         app.MapGet("/api/kfgz/resources",async(HttpRequest request,AuthService auth,KfgzExtendedCombatService combat,GameDb db,CanonicalContent content,ResourceProductionService production,TechnologyEffectService technologies,GamePushHub push,CancellationToken ct)=>
         {
