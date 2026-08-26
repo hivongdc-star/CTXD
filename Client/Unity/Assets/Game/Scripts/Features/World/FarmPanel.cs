@@ -18,6 +18,8 @@ namespace CTXD.Client.Features.World
         GeneralRosterResponse _roster;
         int _generalId;
         int _type=1;
+        int _claimPreviewGeneralId;
+        int _claimPreviewGold=-1;
         bool _busy;
 
         public static FarmPanel Open(RectTransform host,ApiClient api,Action<string> status,int selectedGeneralId=0)
@@ -96,15 +98,25 @@ namespace CTXD.Client.Features.World
                 var active=state!=null&&state.state>=25&&state.state<=28;
                 var buff=state!=null&&state.buffCd>0;
                 var suffix=active?$" [Farm loại {state.type}]":state!=null&&state.state==24?" [tại Farm]":buff?" [+50% EXP]":"";
-                LegacyUiFactory.PixelButton(_window,(general.id==_generalId?"▶ ":"")+general.name+suffix,20,372+i*35,305,29,()=>{_generalId=general.id;Draw();});
+                LegacyUiFactory.PixelButton(_window,(general.id==_generalId?"▶ ":"")+general.name+suffix,20,372+i*35,305,29,()=>{_generalId=general.id;_claimPreviewGeneralId=0;_claimPreviewGold=-1;Draw();});
                 if(general.id!=_generalId)continue;
                 if(active)
                 {
                     var ended=Ended(state.endsAt);
-                    LegacyUiFactory.PixelButton(_window,ended?"Nhận thưởng":"Dừng",335,372+i*35,125,29,
-                        async()=>{if(ended)await ClaimAsync(general.id);else await StopAsync(general.id);});
+                    if(ended)
+                    {
+                        LegacyUiFactory.PixelButton(_window,"Nhận thưởng",335,372+i*35,265,29,async()=>await ClaimAsync(general.id));
+                    }
+                    else
+                    {
+                        LegacyUiFactory.PixelButton(_window,"Dừng",335,372+i*35,90,29,async()=>await StopAsync(general.id));
+                        var previewed=_claimPreviewGeneralId==general.id&&_claimPreviewGold>=0;
+                        var label=previewed?$"Nhận sớm ({_claimPreviewGold} vàng)":"Xem giá nhận sớm";
+                        LegacyUiFactory.PixelButton(_window,label,430,372+i*35,170,29,
+                            async()=>{if(previewed)await ClaimAsync(general.id);else await PreviewClaimAsync(general.id);});
+                    }
                 }
-                else LegacyUiFactory.PixelButton(_window,"Bắt đầu",335,372+i*35,125,29,async()=>await StartAsync(general.id));
+                else LegacyUiFactory.PixelButton(_window,"Bắt đầu",335,372+i*35,265,29,async()=>await StartAsync(general.id));
             }
             LegacyUiFactory.PixelButton(_window,"Làm mới",475,450,125,32,async()=>await LoadAsync());
         }
@@ -132,28 +144,42 @@ namespace CTXD.Client.Features.World
         async Task StartAsync(int generalId)
         {
             if(_busy)return;_busy=true;
-            try{var r=await _api.StartFarmAsync(generalId,_type);_status($"Võ tướng bắt đầu Truân Điền loại {r.type}.");}
+            try{var r=await _api.StartFarmAsync(generalId,_type);_claimPreviewGeneralId=0;_claimPreviewGold=-1;_status($"Võ tướng bắt đầu Truân Điền loại {r.type}.");}
             catch(Exception ex){_status(ex.Message);}finally{_busy=false;}await LoadAsync();
         }
 
         async Task StopAsync(int generalId)
         {
             if(_busy)return;_busy=true;
-            try{var r=await _api.StopFarmAsync(generalId);_status($"Đã dừng Truân Điền, nhận {r.reward:N0}.");}
+            try{var r=await _api.StopFarmAsync(generalId);_claimPreviewGeneralId=0;_claimPreviewGold=-1;_status($"Đã dừng Truân Điền, nhận {r.reward:N0}.");}
             catch(Exception ex){_status(ex.Message);}finally{_busy=false;}await LoadAsync();
+        }
+
+        async Task PreviewClaimAsync(int generalId)
+        {
+            if(_busy)return;_busy=true;
+            try
+            {
+                var r=await _api.GetFarmClaimCostAsync(generalId);
+                _claimPreviewGeneralId=generalId;_claimPreviewGold=r.gold;
+                _status(r.gold>0?$"Nhận toàn bộ thưởng ngay cần {r.gold} vàng. Nhấn lại để xác nhận.":"Đã đủ thời gian, nhận thưởng không tốn vàng.");
+                Draw();
+            }
+            catch(Exception ex){_status(ex.Message);}
+            finally{_busy=false;}
         }
 
         async Task ClaimAsync(int generalId)
         {
             if(_busy)return;_busy=true;
-            try{var r=await _api.ClaimFarmAsync(generalId,Guid.NewGuid().ToString("N"));_status($"Đã nhận thưởng {r.reward:N0}; buff EXP chiến đấu 30 phút.");}
+            try{var r=await _api.ClaimFarmAsync(generalId,Guid.NewGuid().ToString("N"));_claimPreviewGeneralId=0;_claimPreviewGold=-1;_status($"Đã nhận thưởng {r.reward:N0}, dùng {r.gold} vàng; buff EXP chiến đấu 30 phút.");}
             catch(Exception ex){_status(ex.Message);}finally{_busy=false;}await LoadAsync();
         }
 
         async Task StopAllAsync()
         {
             if(_busy)return;_busy=true;
-            try{var r=await _api.StopAllFarmAsync();_status($"Đã dừng {r.items?.Length??0} võ tướng Truân Điền.");}
+            try{var r=await _api.StopAllFarmAsync();_claimPreviewGeneralId=0;_claimPreviewGold=-1;_status($"Đã dừng {r.items?.Length??0} võ tướng Truân Điền.");}
             catch(Exception ex){_status(ex.Message);}finally{_busy=false;}await LoadAsync();
         }
     }
