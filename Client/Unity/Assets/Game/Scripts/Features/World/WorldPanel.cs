@@ -127,6 +127,8 @@ namespace CTXD.Client.Features.World
             LegacyUiFactory.PixelButton(_window, "KFGZ", 14, 488, 244, 38, () => KfgzPanel.Open((RectTransform)_window.parent, _api, _status));
             LegacyUiFactory.PixelButton(_window, "Tự động quốc chiến", 14, 536, 244, 34,
                 () => AutoBattlePanel.Open((RectTransform)_window.parent, _api, _status, city.id));
+            LegacyUiFactory.PixelButton(_window, "Truân Điền", 14, 578, 244, 34,
+                () => FarmPanel.Open((RectTransform)_window.parent, _api, _status, _generalId));
         }
 
         void SelectCity(int cityId) { _cityId = cityId; Draw(); }
