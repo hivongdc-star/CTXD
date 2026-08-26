@@ -90,6 +90,9 @@ namespace CTXD.Client.Networking
         public static Task<FarmStartResult> StartFarmAsync(this ApiClient api,int generalId,int type) =>
             SendAsync<FarmStartResult>(api,"POST","/api/world/farm/start",new FarmStartRequest{generalId=generalId,type=type});
 
+        public static Task<FarmGoldResult> GetFarmClaimCostAsync(this ApiClient api,int generalId) =>
+            SendAsync<FarmGoldResult>(api,"GET",$"/api/world/farm/{generalId}/claim-cost",null);
+
         public static Task<FarmRewardResult> StopFarmAsync(this ApiClient api,int generalId) =>
             SendAsync<FarmRewardResult>(api,"POST",$"/api/world/farm/{generalId}/stop",null);
 
