@@ -91,6 +91,7 @@ static string? Bearer(HttpRequest request)
 
 app.MapGet("/health", () => Results.Ok(new { status = "ok", game = "CTXD Remake" }));
 app.MapKfgzExtendedCombat();
+app.MapCourtesy();
 
 app.MapGet("/api/quests/current",async(HttpRequest request,AuthService auth,QuestService quests,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await quests.GetCurrentAsync(id,ct));});
 app.MapPost("/api/quests/current/claim",async(HttpRequest request,AuthService auth,QuestService quests,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await quests.ClaimCurrentAsync(id,ct);await push.SendAsync(id,"quest.updated",result,ct);return Results.Ok(result);});
@@ -109,7 +110,7 @@ app.MapGet("/api/market",async(HttpRequest request,AuthService auth,MarketServic
 app.MapPost("/api/market/buy",async(MarketBuyRequest body,HttpRequest request,AuthService auth,MarketService market,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await market.BuyAsync(id,body.Slot,body.RequestKey,ct);await push.SendAsync(id,"market.updated",result,ct);return Results.Ok(result);});
 app.MapGet("/api/market/black",async(HttpRequest request,AuthService auth,MarketService market,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await market.GetBlackAsync(id,ct));});
 app.MapPost("/api/market/black/trade",async(BlackMarketTradeRequest body,HttpRequest request,AuthService auth,MarketService market,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await market.TradeBlackAsync(id,body.Left,body.Right,body.RequestKey,ct);await push.SendAsync(id,"market.updated",result,ct);return Results.Ok(result);});
-app.MapPost("/api/market/black/recover",async(BlackMarketRecoverRequest body,HttpRequest request,AuthService auth,MarketService market,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await market.RecoverBlackAsync(id,body.RequestKey,ct);await push.SendAsync(id,"market.updated",result,ct);return Results.Ok(result);});
+app.MapPost("/api/market/black/recover",async(BlackMarketRecoverRequest body,HttpRequest request,AuthService auth,MarketService market,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await market.RecoverBlackAsync(id,ct);await push.SendAsync(id,"market.updated",result,ct);return Results.Ok(result);});
 app.MapGet("/api/chat/{type}",async(string type,HttpRequest request,AuthService auth,ChatService chat,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(new{items=await chat.HistoryAsync(id,type,ct)});});
 app.MapPost("/api/chat",async(ChatSendRequest body,HttpRequest request,AuthService auth,ChatService chat,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await chat.SendAsync(id,body.Type,body.To,body.Message,ct));});
 app.MapGet("/api/chat/blacklist",async(HttpRequest request,AuthService auth,ChatService chat,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(new{items=await chat.BlacklistAsync(id,ct)});});
@@ -212,7 +213,7 @@ app.MapGet("/api/player/random-names", async (
     bool? male, int? count, HttpRequest request, AuthService auth, PlayerFlowService flow, CancellationToken ct) =>
 {
     _ = await auth.ResolvePlayerIdAsync(Bearer(request), ct);
-    return Results.Ok(new RandomNamesResponse(await flow.RandomNamesAsync(male ?? true, Math.Clamp(count ?? 5, 1, 5), ct)));
+    return Results.Ok(new RandomNamesResponse(await flow.RandomNamesAsync(male ?? true, Math.Clamp(count ?? 5, 1, 5), ct));
 });
 
 app.MapPost("/api/player/name", async (
