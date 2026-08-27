@@ -45,10 +45,12 @@ public sealed class KfzbFeastService(GameDb db,GamePushHub push,DstqActivityServ
         await using(var card=new NpgsqlCommand(x.CardType==1?"SELECT free_feast_cards FROM kfzb_spectator_state WHERE season_id=$1 AND player_id=$2 FOR UPDATE":"SELECT gold_feast_cards FROM kfzb_spectator_state WHERE season_id=$1 AND player_id=$2 FOR UPDATE",c,t)){card.Parameters.AddWithValue(season);card.Parameters.AddWithValue(player);if(Convert.ToInt32(await card.ExecuteScalarAsync(ct))<=0)throw new GameException("KFZB_FEAST_NO_CARD","No selected Feast card remains.",409);}
         await using(var l=new NpgsqlCommand("SELECT pg_advisory_xact_lock($1,$2)",c,t)){l.Parameters.AddWithValue((int)(season%int.MaxValue));l.Parameters.AddWithValue(x.Rank);await l.ExecuteNonQueryAsync(ct);}
         long room;bool buff;await using(var q=new NpgsqlCommand("SELECT r.id,r.buff FROM kfzb_feast_rooms r WHERE r.season_id=$1 AND r.rank=$2 AND r.state=1 AND r.expires_at>now() AND (SELECT count(*) FROM kfzb_feast_participants p WHERE p.room_id=r.id)<10 ORDER BY r.created_at DESC LIMIT 1 FOR UPDATE",c,t)){q.Parameters.AddWithValue(season);q.Parameters.AddWithValue(x.Rank);await using var r=await q.ExecuteReaderAsync(ct);if(await r.ReadAsync(ct)){room=r.GetInt64(0);buff=r.GetBoolean(1);}else{room=0;buff=false;}}
-        if(room==0){await using var q=new NpgsqlCommand("SELECT o.player_id,COALESCE(s.drink_num,0)>o.drink_used FROM kfzb_feast_organizers o LEFT JOIN kfzb_spectator_state s ON s.season_id=o.season_id AND s.player_id=o.player_id WHERE o.season_id=$1 AND o.rank=$2 FOR UPDATE OF o",c,t);q.Parameters.AddWithValue(season);q.Parameters.AddWithValue(x.Rank);await using var r=await q.ExecuteReaderAsync(ct);if(!await r.ReadAsync(ct))throw new GameException("KFZB_FEAST_ORGANIZER_MISSING","Coordinator has not synchronized this Feast rank.",409);buff=r.GetBoolean(1);await r.CloseAsync();await using var create=new NpgsqlCommand("INSERT INTO kfzb_feast_rooms(id,season_id,rank,buff,expires_at) VALUES((nextval('kfzb_feast_room_seq')::bigint<<8)|$2,$1,$2,$3,now()+interval '3 minutes') RETURNING id",c,t);create.Parameters.AddWithValue(season);create.Parameters.AddWithValue(x.Rank);create.Parameters.AddWithValue(buff);room=Convert.ToInt64(await create.ExecuteScalarAsync(ct));}
+        bool consumeDrink;await using(var q=new NpgsqlCommand("SELECT COALESCE(s.drink_num,0)>o.drink_used FROM kfzb_feast_organizers o LEFT JOIN kfzb_spectator_state s ON s.season_id=o.season_id AND s.player_id=o.player_id WHERE o.season_id=$1 AND o.rank=$2 FOR UPDATE OF o",c,t)){q.Parameters.AddWithValue(season);q.Parameters.AddWithValue(x.Rank);var available=await q.ExecuteScalarAsync(ct);if(available is null)throw new GameException("KFZB_FEAST_ORGANIZER_MISSING","Coordinator has not synchronized this Feast rank.",409);consumeDrink=Convert.ToBoolean(available);}
+        if(room==0){buff=consumeDrink;await using var create=new NpgsqlCommand("INSERT INTO kfzb_feast_rooms(id,season_id,rank,buff,expires_at) VALUES((nextval('kfzb_feast_room_seq')::bigint<<8)|$2,$1,$2,$3,now()+interval '3 minutes') RETURNING id",c,t);create.Parameters.AddWithValue(season);create.Parameters.AddWithValue(x.Rank);create.Parameters.AddWithValue(buff);room=Convert.ToInt64(await create.ExecuteScalarAsync(ct));}
         short force;await using(var q=new NpgsqlCommand("SELECT force_id FROM players WHERE id=$1",c,t)){q.Parameters.AddWithValue(player);force=Convert.ToInt16(await q.ExecuteScalarAsync(ct));}
         await using(var q=new NpgsqlCommand("INSERT INTO kfzb_feast_participants(room_id,player_id,card_type,force_id) VALUES($1,$2,$3,$4)",c,t)){q.Parameters.AddWithValue(room);q.Parameters.AddWithValue(player);q.Parameters.AddWithValue(x.CardType);q.Parameters.AddWithValue(force);await q.ExecuteNonQueryAsync(ct);}
-        if(buff){await using var q=new NpgsqlCommand("UPDATE kfzb_feast_organizers SET drink_used=drink_used+1,updated_at=now() WHERE season_id=$1 AND rank=$2",c,t);q.Parameters.AddWithValue(season);q.Parameters.AddWithValue(x.Rank);await q.ExecuteNonQueryAsync(ct);}
+        // Legacy consumes goldFeastTime per accepted participant, while goldAddFeastTimes is the raw +500 drink amount.
+        if(consumeDrink){await using var q=new NpgsqlCommand("UPDATE kfzb_feast_organizers SET drink_used=drink_used+1,updated_at=now() WHERE season_id=$1 AND rank=$2",c,t);q.Parameters.AddWithValue(season);q.Parameters.AddWithValue(x.Rank);await q.ExecuteNonQueryAsync(ct);}
         var count=0;await using(var q=new NpgsqlCommand("SELECT count(*)::int FROM kfzb_feast_participants WHERE room_id=$1",c,t)){q.Parameters.AddWithValue(room);count=Convert.ToInt32(await q.ExecuteScalarAsync(ct));}
         if(count==10)await ResolveAsync(c,t,room,ct);
         var view=await ReadRoomAsync(c,t,room,ct);await t.CommitAsync(ct);
@@ -63,9 +65,54 @@ public sealed class KfzbFeastService(GameDb db,GamePushHub push,DstqActivityServ
         var view=await ReadRoomAsync(c,t,room,ct);await t.CommitAsync(ct);return view;
     }
 
-    static async Task<long> FeastSeasonAsync(NpgsqlConnection c,NpgsqlTransaction t,CancellationToken ct)
+    async Task<long> FeastSeasonAsync(NpgsqlConnection c,NpgsqlTransaction t,CancellationToken ct)
     {
-        await using var q=new NpgsqlCommand("SELECT id,COALESCE(feast_opens_at,date_trunc('day',ends_at)+interval '1 day'),COALESCE(feast_ends_at,date_trunc('day',ends_at)+interval '2 days') FROM kfzb_seasons ORDER BY season_no DESC LIMIT 1",c,t);await using var r=await q.ExecuteReaderAsync(ct);if(!await r.ReadAsync(ct))throw new GameException("KFZB_INACTIVE","No KFZB season is available.",404);var id=r.GetInt64(0);var now=DateTimeOffset.UtcNow;if(now<r.GetFieldValue<DateTimeOffset>(1)||now>=r.GetFieldValue<DateTimeOffset>(2))throw new GameException("KFZB_FEAST_CLOSED","KFZB Feast is not open.",409);return id;
+        await using var q=new NpgsqlCommand("SELECT id,COALESCE(feast_opens_at,date_trunc('day',ends_at)+interval '1 day'),COALESCE(feast_ends_at,date_trunc('day',ends_at)+interval '2 days') FROM kfzb_seasons ORDER BY season_no DESC LIMIT 1",c,t);
+        await using var r=await q.ExecuteReaderAsync(ct);
+        if(!await r.ReadAsync(ct))throw new GameException("KFZB_INACTIVE","No KFZB season is available.",404);
+        var id=r.GetInt64(0);var opens=r.GetFieldValue<DateTimeOffset>(1);var ends=r.GetFieldValue<DateTimeOffset>(2);
+        await r.CloseAsync();
+        var now=DateTimeOffset.UtcNow;if(now<opens||now>=ends)throw new GameException("KFZB_FEAST_CLOSED","KFZB Feast is not open.",409);
+        await EnsureOrganizersAsync(c,t,id,ct);
+        return id;
+    }
+
+    static async Task EnsureOrganizersAsync(NpgsqlConnection c,NpgsqlTransaction t,long season,CancellationToken ct)
+    {
+        // Legacy match sends the final layer<=4 result set only after the bracket reaches its terminal layer.
+        // Gateway then orders by result layer and persisted result-row order, and exposes those 16 rows as positions 1..16.
+        await using(var l=new NpgsqlCommand("SELECT pg_advisory_xact_lock($1,$2)",c,t)){l.Parameters.AddWithValue((int)(season%int.MaxValue));l.Parameters.AddWithValue(0x46454153);await l.ExecuteNonQueryAsync(ct);}
+        var candidates=new List<long>(16);
+        await using(var q=new NpgsqlCommand("SELECT g.player_id FROM kfzb_rewards r JOIN kfzb_signups g ON g.season_id=r.season_id AND g.player_id=r.player_id WHERE r.season_id=$1 AND r.eliminated_layer BETWEEN 0 AND 4 ORDER BY r.eliminated_layer ASC,g.competitor_id ASC,g.player_id ASC",c,t))
+        {
+            q.Parameters.AddWithValue(season);
+            await using var r=await q.ExecuteReaderAsync(ct);
+            while(await r.ReadAsync(ct))candidates.Add(r.GetInt64(0));
+        }
+        if(candidates.Count!=16)return;
+
+        var byRank=new Dictionary<int,long>();var byPlayer=new Dictionary<long,int>();
+        await using(var q=new NpgsqlCommand("SELECT rank,player_id FROM kfzb_feast_organizers WHERE season_id=$1 FOR UPDATE",c,t))
+        {
+            q.Parameters.AddWithValue(season);
+            await using var r=await q.ExecuteReaderAsync(ct);
+            while(await r.ReadAsync(ct)){var rank=r.GetInt32(0);var player=r.GetInt64(1);byRank[rank]=player;byPlayer[player]=rank;}
+        }
+
+        for(var i=0;i<candidates.Count;i++)
+        {
+            var rank=i+1;var player=candidates[i];
+            if(byRank.TryGetValue(rank,out var rankPlayer)&&rankPlayer!=player)throw new GameException("KFZB_FEAST_ORGANIZER_CONFLICT","Persisted Feast organizer rank conflicts with the authoritative KFZB result order.",409);
+            if(byPlayer.TryGetValue(player,out var playerRank)&&playerRank!=rank)throw new GameException("KFZB_FEAST_ORGANIZER_CONFLICT","Persisted Feast organizer player conflicts with the authoritative KFZB result order.",409);
+        }
+
+        for(var i=0;i<candidates.Count;i++)
+        {
+            var rank=i+1;if(byRank.ContainsKey(rank))continue;
+            await using var insert=new NpgsqlCommand("INSERT INTO kfzb_feast_organizers(season_id,rank,player_id) VALUES($1,$2,$3) ON CONFLICT DO NOTHING",c,t);
+            insert.Parameters.AddWithValue(season);insert.Parameters.AddWithValue(rank);insert.Parameters.AddWithValue(candidates[i]);
+            await insert.ExecuteNonQueryAsync(ct);
+        }
     }
 
     static async Task ExpireAsync(NpgsqlConnection c,NpgsqlTransaction t,long season,CancellationToken ct){await using var q=new NpgsqlCommand("UPDATE kfzb_feast_rooms SET state=3 WHERE season_id=$1 AND state=1 AND expires_at<=now()",c,t);q.Parameters.AddWithValue(season);await q.ExecuteNonQueryAsync(ct);}
