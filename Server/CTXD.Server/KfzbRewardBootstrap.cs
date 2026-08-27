@@ -19,6 +19,7 @@ namespace CTXD.Server.Services
             KfgzExtendedCombatEndpoints.MapKfgzExtendedCombat((Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)app);
             app.MapKfzbRewardEndpoints();
             app.MapGeneralTreasureEndpoints();
+            app.MapKfzbFeastPublicInfoEndpoints();
             return app;
         }
     }

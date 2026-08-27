@@ -2,7 +2,7 @@ namespace CTXD.Server.Services;
 
 public static class KfwdRewardEndpoints
 {
-    public static WebApplication MapKfwdRewards(this WebApplication app)
+    public static Microsoft.AspNetCore.Builder.WebApplication MapKfwdRewards(this Microsoft.AspNetCore.Builder.WebApplication app)
     {
         app.MapGet("/api/kfwd/rewards", async (
             HttpRequest request,

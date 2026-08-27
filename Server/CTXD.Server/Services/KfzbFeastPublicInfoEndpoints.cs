@@ -19,15 +19,3 @@ public static class KfzbFeastPublicInfoEndpoints
     }
 }
 
-// Program already calls MapKfgzExtendedCombat on a concrete WebApplication. This
-// more-specific overload keeps Program.cs untouched, delegates to the original
-// KFGZ registration, then adds the Feast public-info route only.
-public static class KfzbFeastPublicInfoBootstrap
-{
-    public static Microsoft.AspNetCore.Builder.WebApplication MapKfgzExtendedCombat(this Microsoft.AspNetCore.Builder.WebApplication app)
-    {
-        KfgzExtendedCombatEndpoints.MapKfgzExtendedCombat((Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)app);
-        app.MapKfzbFeastPublicInfoEndpoints();
-        return app;
-    }
-}

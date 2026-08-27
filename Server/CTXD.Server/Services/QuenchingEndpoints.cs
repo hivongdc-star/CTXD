@@ -2,7 +2,7 @@ namespace CTXD.Server.Services;
 
 public static class QuenchingEndpoints
 {
-    public static WebApplication MapQuenching(this WebApplication app)
+    public static Microsoft.AspNetCore.Builder.WebApplication MapQuenching(this Microsoft.AspNetCore.Builder.WebApplication app)
     {
         app.MapGet("/api/equipment/inventory/{instanceId:long}/quenching", async (
             long instanceId,
