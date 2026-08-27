@@ -9,6 +9,7 @@ namespace CTXD.Server.Services;
 
 public static class WorldTreasureBoxState
 {
+    public const string RewardNotificationChannel="ctxd_world_treasure";
     const string MailTitle="世界移动中获得宝箱";
     static readonly ConcurrentDictionary<string,IReadOnlyDictionary<int,WorldTreasureDefinition>> DefinitionsByDirectory=new(StringComparer.OrdinalIgnoreCase);
 
@@ -80,12 +81,26 @@ ON CONFLICT(recipient_player_id,source_key) WHERE source_key IS NOT NULL DO NOTH
         // Legacy decideBoxInfo emits TaskMessageWorldTreasureByType after the reward/mail and before persisting boxispicked=0.
         await QuestEventLedger.RecordCurrentAsync(c,t,playerId,"world_treasure_type",treasure.Type,ct);
 
-        await using var picked=new NpgsqlCommand(@"UPDATE player_world_treasure_boxes
+        await using(var picked=new NpgsqlCommand(@"UPDATE player_world_treasure_boxes
 SET picked_at=now()
-WHERE player_id=$1 AND road_id=$2 AND treasure_id=$3 AND picked_at IS NULL",c,t);
-        picked.Parameters.AddWithValue(playerId);picked.Parameters.AddWithValue(roadId);picked.Parameters.AddWithValue(treasureId);
-        if(await picked.ExecuteNonQueryAsync(ct)!=1)
-            throw new GameException("WORLD_TREASURE_PICK_CHANGED","World treasure box state changed during reward grant.",409);
+WHERE player_id=$1 AND road_id=$2 AND treasure_id=$3 AND picked_at IS NULL",c,t))
+        {
+            picked.Parameters.AddWithValue(playerId);picked.Parameters.AddWithValue(roadId);picked.Parameters.AddWithValue(treasureId);
+            if(await picked.ExecuteNonQueryAsync(ct)!=1)
+                throw new GameException("WORLD_TREASURE_PICK_CHANGED","World treasure box state changed during reward grant.",409);
+        }
+
+        // PostgreSQL NOTIFY is transaction-aware: it is delivered only when the enclosing World transaction commits.
+        // Payload mirrors legacy PUSH_ATTMOV.curReward without altering the authoritative WorldResponse contract.
+        var curReward=BuildCurReward(content,kind,value);
+        var notification=JsonSerializer.Serialize(new Dictionary<string,object>
+        {
+            ["playerId"]=playerId,
+            ["curReward"]=new[]{curReward}
+        });
+        await using var notify=new NpgsqlCommand($"SELECT pg_notify('{RewardNotificationChannel}',$1)",c,t);
+        notify.Parameters.AddWithValue(notification);
+        await notify.ExecuteNonQueryAsync(ct);
     }
 
     public static async Task<bool> HasGottenAllAsync(NpgsqlConnection c,NpgsqlTransaction? t,CanonicalContent content,long playerId,CancellationToken ct)
@@ -106,6 +121,32 @@ WHERE p.id=$1",c,t))
         await using var cmd=new NpgsqlCommand("SELECT NOT EXISTS(SELECT 1 FROM player_world_treasure_boxes WHERE player_id=$1 AND picked_at IS NULL)",c,t);
         cmd.Parameters.AddWithValue(playerId);
         return Convert.ToBoolean(await cmd.ExecuteScalarAsync(ct));
+    }
+
+    static Dictionary<string,object> BuildCurReward(CanonicalContent content,string kind,int value)
+    {
+        if(kind=="equip")
+        {
+            if(!content.Equipment.TryGetValue(value,out var equip))
+                throw new GameException("WORLD_TREASURE_EQUIPMENT_MISSING",$"Legacy reward equipment {value} is missing.",500);
+            return new Dictionary<string,object>
+            {
+                ["type"]=31,
+                ["equipName"]=equip.Name,
+                ["pic"]=equip.Pic,
+                ["intro"]=equip.Intro,
+                ["quality"]=equip.Quality
+            };
+        }
+        var type=kind switch
+        {
+            "copper"=>1,
+            "lumber"=>2,
+            "food"=>3,
+            "gold"=>19,
+            _=>throw new GameException("WORLD_TREASURE_REWARD_UNSUPPORTED",$"Unsupported legacy WorldTreasure reward: {kind}.",500)
+        };
+        return new Dictionary<string,object>{{"type",type},{"num",value}};
     }
 
     static async Task<string> GrantAsync(NpgsqlConnection c,NpgsqlTransaction t,CanonicalContent content,long playerId,string kind,int value,CancellationToken ct)
