@@ -1,295 +1,284 @@
-# CTXD Remake — Current Handoff (2026-08-26)
+# CTXD Remake — Current Handoff
 
-> Đây là handoff authoritative mới nhất cho phiên tiếp theo. Không dùng handoff 24/08 hoặc 25/08 làm source of truth.
+> **AUTHORITATIVE CONTEXT cho phiên tiếp theo.** Không dùng các handoff/checkpoint cũ hơn làm source of truth.
 
-## Mục tiêu dự án
+## 1. Mục tiêu và nguyên tắc cố định
+
 - Remake công nghệ, **không redesign** gameplay/UI/UX/art/animation/flow legacy.
-- Client: Unity + C#, target Windows x64 + Android ARM64, một codebase.
-- Server: C#/.NET 8 / ASP.NET Core, server-authoritative.
+- Legacy/reference: `D:\Sever` — **read-only, không overwrite**.
+- Remake root: `D:\SeverRMK`.
+- Working source: `D:\SeverRMK\CTXD_Remake_Working`.
+- Client: Unity + C#, Windows x64 + Android ARM64, một codebase.
+- Server: .NET 8 / ASP.NET Core, server-authoritative.
 - DB: PostgreSQL clean schema.
 - Network: HTTPS + WebSocket.
-- Legacy chỉ dùng làm source/reference; thành phẩm không phụ thuộc Flash/ActionScript runtime, Java 6, Apache/PHP, MySQL 5.5 hay legacy TCP.
-- Chỉ migrate static definition/content cần thiết; không migrate account/player/runtime/history/session/cache cũ.
+- Legacy chỉ dùng làm bằng chứng/static/reference; thành phẩm không phụ thuộc Flash/ActionScript runtime, Java 6, Apache/PHP, MySQL 5.5 hay legacy TCP.
+- Không migrate account/player/runtime/history/session/cache cũ.
+- Ưu tiên implementation/code thật; không tăng % bằng audit/checklist/test/docs.
+- Backend/server đi trước, Unity nối theo vertical slice.
+- Không scan/audit toàn repo nếu không có blocker cụ thể.
+- Không rerun preprocessing V3/V4/V5 vô cớ.
+- Không tự bịa rule/reward/timer/cost/static mapping. Thiếu evidence => `BLOCKED`, chuyển phần khả thi khác.
+- Chỉ build/startup validation sau block implementation đáng kể.
+- Unity chỉ được coi PASS khi thực sự compile/runtime bằng Unity Editor/batch mode.
 
-## Quy tắc làm việc đã chốt
-- Ưu tiên **implementation/remake code thật**, không tăng tiến độ bằng audit/checklist/test/docs dư thừa.
-- Backend/server đi trước một nhịp, client nối theo từng vertical slice.
-- Không scan/audit lại toàn repo nếu không có blocker cụ thể.
-- Không chạy lại preprocessing V3/V4/V5 nếu chưa có lý do trực tiếp.
-- Không tự bịa rule/reward/timer/cost/static mapping. Thiếu evidence thì ghi `BLOCKED` và chuyển module khác.
-- Chỉ build/startup validation tối thiểu sau block implementation đáng kể.
-- Ưu tiên additive changes; không phá API/schema/runtime hiện có.
-- Đường dẫn Windows:
-  - legacy: `D:\Sever`
-  - remake: `D:\SeverRMK`
-  - working source: `D:\SeverRMK\CTXD_Remake_Working`
-  - legacy extracted: `D:\SeverRMK\LegacyReference`
-  - remake input: `D:\SeverRMK\RemakeInput`
-- Không overwrite `D:\Sever`.
+## 2. Repo / branch authoritative
 
-## Repo / branch hiện tại
 - GitHub: `hivongdc-star/CTXD`
-- Branch authoritative: `codex/kfgz-extended-combat`
-- HEAD trước khi cập nhật handoff này: `1120b232c3afa0e687d115b3d198fd338b9640d6`
-  - message: `Add safe Farm early-claim flow`
-- PR #1: branch trên -> `main`.
-- `main` vẫn cũ hơn đáng kể; **không tiếp tục từ main** nếu chưa merge branch này.
-- Local của user đã đồng bộ bằng:
-  - `git fetch origin`
-  - `git switch codex/kfgz-extended-combat`
-  - `git reset --hard origin/codex/kfgz-extended-combat`
-- Local xác nhận HEAD `1120b23` và server đã chạy được trên máy user.
+- Branch: `codex/kfgz-extended-combat`
+- **Validated source HEAD trước commit handoff:** `a956d7166d7782b1695dc01b300bbc7fef189714`
+  - message: `Remove temporary quest patch workflow`
+- Commit source chính của Quest auxiliary: `3296668575ef2e13ad6442f05ef786796996371f`
+  - message: `Complete legacy quest auxiliary events`
+- Battle equipment parity commit chính: `254658d905b9d6ef73a45efd050b5ade051914e7`
+- `main` vẫn cũ hơn; **không tiếp tục từ main** nếu branch này chưa merge.
+- Khi mở phiên mới: fetch/pull branch này rồi đọc chính file handoff này trước khi code.
 
-## Commercial completeness
-- Mốc hiện tại: **~66% commercial-complete**.
-- Giữ cách tính liên tục từ đây; không tự đổi mẫu số.
-- Chỉ tăng khi có functionality thật; docs/audit/test-only không tăng %.
+## 3. Commercial completeness
 
-## Server status tổng thể
-- Server **chạy được**, nhưng chưa phải 100% server game.
-- Ước lượng riêng server gameplay hiện khoảng **80–85%** chức năng cần remake.
-- Đã có boot thật, PostgreSQL, migrations, canonical legacy data, API/gameplay đã port.
-- User đã chạy local server thành công; phần cần kiểm tiếp chủ yếu là Unity compile/runtime và các gameplay chưa port.
+- Baseline hiện tại: **~72% commercial-complete**.
+- Đây là % so với thành phẩm thương mại hoàn chỉnh, không phải % số file/code.
+- Chỉ tăng khi có chức năng thật và integration thật.
+- Server gameplay đã ở mức cao hơn tổng commercial %, nhưng Unity parity/build/release/hardening vẫn còn đáng kể.
 
-## DONE — core hiện có
-### Core game
+## 4. DONE — core/game systems đã có
+
 - Auth / player / force selection / main city.
 - Building / resource production.
 - General / Tavern.
 - Equipment / Store / Inventory.
 - Technology.
 - World movement / fog / auto-path / conquest boundary.
-- Battle server-authoritative: tactic/strategy/equipment/technology/reward/reinforcement.
-- Nation core / office / politics / civil affair / Nation Trial / Nation Task / scheduled nation/world tasks / ranking/reward phần có evidence.
-- Quest nhiều providers.
-- Mail server + Unity + realtime + atomic/idempotent attachments.
+- Battle server-authoritative: tactic / strategy / equipment / technology / reward / reinforcement.
+- Nation core / office / politics / civil affair / Nation Trial / Nation Task / scheduled nation-world tasks.
+- Quest core + nhiều provider.
+- Mail server + Unity + realtime + atomic/idempotent attachment claim.
 - Market / black market / recovery.
 - Chat / Team core.
-- Activities: Online/Daily/Battle EXP/Level EXP/Dragon/Iron/DSTQ + scheduler/push.
-- Pay/VIP phần có evidence.
-- Global level rank exact legacy `rankId=1`: `/api/rank/1`, max 200, sort level desc only, Unity panel.
+- Activities: Online / Daily / Battle EXP / Level EXP / Dragon / Iron / DSTQ + scheduler/push.
+- Pay/VIP phần có authoritative evidence.
+- Global level ranking exact legacy `rankId=1`, max 200.
 
-### Cross-server
-- KFWD core.
-- KFZB core + support/Feast phần có evidence.
-- KFGZ core + extended combat:
-  - season/phases/signup/sync
-  - dynamic world/city/road
-  - deployment/movement
-  - battle handoff/result
-  - timeout/settlement/ranking
-  - persistence/reconnect
-  - resource/per-general restore
-  - retreat 10% HP
-  - occupy authoritative only on real owner change
-  - Rush
-  - Fast Recruit
-  - Phantom
-  - Call-General/Reinforcement
-  - Mubing lifecycle/worker
-- BattleDrop resource settlement foundation; mapping 4/1004 -> iron + duplicate protection.
+## 5. DONE — cross-server hiện có
 
-## DONE — Auto Battle + Recruit Recovery
+### KFWD
+- Core lifecycle.
+- Match settlement.
+- Nguồn Tickets per-match đã nối idempotent khi có công thức authoritative.
+
+### KFZB
+- Core + support/Feast phần có evidence.
+- Feast ticket column đã sửa đúng `tickets`.
+
+### KFGZ
+- season/phases/signup/sync.
+- dynamic world/city/road.
+- deployment/movement.
+- battle handoff/result.
+- timeout/settlement/ranking core.
+- persistence/reconnect.
+- resource/per-general restore.
+- retreat 10% HP.
+- occupy authoritative chỉ khi owner thực sự đổi.
+- Rush / Fast Recruit / Phantom / Call-General-Reinforcement.
+- Mubing lifecycle/worker.
+
+## 6. DONE/PARTIAL — Auto Battle / Recruit Recovery / Farm
+
 ### Auto Battle
-Files chính:
-- `Server/CTXD.Server/Services/AutoBattleService.cs`
-- `AutoBattleWorker.cs`
-- `AutoBattleEndpoints.cs`
-- Unity `Networking/AutoBattleApi.cs`
-- Unity `Features/World/AutoBattlePanel.cs`
-- migration `052_auto_battle.sql`
-
-Đã port:
-- TechEffect 59.
-- start cost 50,000 food.
+- migration `052_auto_battle.sql`.
+- TechEffect59.
+- start 50,000 food.
 - duration 30 phút.
-- worker cadence 10s, scheduler wake 5s.
-- attack/defense autoType theo ownership/active battle.
-- movement/reinforcement/battle handoff/advance.
-- result `1/2/3/4/5` theo legacy.
-- EXP/lost tracking runtime.
-- timeout/ownership/result settlement.
-- manual stop.
-- duplicate charge/race protection bằng lock + re-read.
+- worker 10s / scheduler wake 5s.
+- attack/defense autoType, movement, reinforcement, battle handoff, advance.
+- result legacy 1/2/3/4/5.
+- EXP/lost tracking, timeout/settlement, manual stop.
+- lock/re-read chống duplicate charge/race.
 - Unity panel + realtime `auto-battle.updated`.
 
 ### Recruit Recovery
-Files/data:
-- `Server/CTXD.Server/Services/RecruitRecoveryService.cs`
-- migration `053_recruit_recovery.sql`
-- `Data/Canonical/troop_conscribe_speed.json`
-- `Data/Canonical/world_city_area.json`
+- migration `053_recruit_recovery.sql`.
+- `Troop.Conscribe.BaseSpeed=40000`.
+- recruit token semantics, passive/token recovery, food cost.
+- city-area speed, TechEffect8/28, partial/full behavior.
+- Auto Battle gọi recovery trước move/join/battle.
+- PARITY GAP: legacy `player_resource_addition` vào recruit/building type5 chưa có runtime tương ứng => contribution hiện 0.
 
-Legacy exact evidence đã port:
-- `Troop.Conscribe.BaseSpeed = 40000`.
-- recruit tokens: base 20/day; consume level >=4 thêm +10; max semantics 100.
-- chargeitem 13 param 90 phút/token.
-- passive recovery + token recovery + food consumption.
-- city-area recruit speed.
-- TechEffect8 và TechEffect28 handling.
-- legacy partial/full recovery behavior, kể cả timestamp quirk.
-- Auto Battle gọi recovery trước khi general move/join/battle.
+### Farm / Truân Điền
+- migration `054_world_farm.sql`.
+- canonical `farm.json`, `farm_coe.json`.
+- city Wei254 / Shu253 / Wu206, open lv30.
+- invest 10,000 copper + 1,000 EXP; CD/clear CD đúng legacy evidence.
+- token 1701/type20.
+- states 24–28, start/stop/claim/stop-all, partial reward.
+- food/general EXP rewards, completion buff 30 phút.
+- Battle buff +50% Player EXP + General EXP đúng player+general, không damage/copper, không phantom.
+- Unity Farm panel/API đã nối.
+- PARTIAL: ChargeItem82 semantic chưa đủ evidence; `FARMING_GENERAL_NUMBER=20` chưa chốt enforcement point; Unity full compile chưa xác nhận.
 
-Known parity gap:
-- legacy `player_resource_addition` contribution vào recruit/building type5 chưa có runtime system tương ứng trong remake => hiện contribution = 0.
+## 7. DONE/PARTIAL — Mine / Treasure / Weapon / Prison-Slave
 
-## DONE/PARTIAL — World Farm / Truân Điền
-### Static source đã giải blocker
-Snapshot deploy `gcld.3.1/sdata.zip` chứa nguyên static table, không chỉ `.frm`.
-Đã tìm và port authoritative:
-- `farm`: 13 levels.
-- `farm_coe`.
-- chargeitem 78/86 liên quan Farm.
+### Mine / Khoáng Trường
+- canonical 162 rows.
+- migration `055_world_mine.sql`.
+- server service/endpoints/worker.
+- battle type 6/7, terrain 9.
+- personal/force ownership, rush 15 phút, x2 production stage, abandon, auto settlement.
+- capture payout 50/50 theo legacy evidence.
+- force daily harvest.
+- Unity minimal vertical slice + realtime.
+- PARTIAL: stone item1401 phụ thuộc Blacksmith condition/runtime chưa port đủ để grant an toàn.
 
-### Server Farm đã implement
-Files chính:
-- `Data/Canonical/farm.json`
-- `Data/Canonical/farm_coe.json`
-- `Database/Migrations/054_world_farm.sql`
-- `Server/CTXD.Server/Services/FarmService.cs`
-- `Server/CTXD.Server/Services/FarmEndpoints.cs`
+### Treasure
+- canonical 10 rows.
+- migration `056_treasures.sql`.
+- inventory endpoint + Unity panel/realtime.
+- Politics type5 drop exact 0.001 với function20 gate.
+- Battle ATT/DEF/ATT_BASE/DEF_BASE effects.
+- acquisition hook hiện có ghi Quest event theo treasure type.
+- PARTIAL: Incense/Search/Store acquisition chỉ nối khi owning gameplay có authoritative evidence.
 
-Đã port:
-- Farm city: Wei 254 / Shu 253 / Wu 206.
-- open level 30.
-- initial Farm lv1, invest 0.
-- invest: 10,000 copper + 1,000 player EXP.
-- invest CD step 10 phút, queue cap 1 giờ.
-- clear invest CD: ChargeItem 78, `ceil(remaining / 10 min) * 1 gold`.
-- token item 1701/type20.
-- Farm action type 0/1/2/3 -> general states 25/26/27/28; idle state 24.
-- food/time/reward coefficients từ static legacy.
-- early stop reward theo elapsed fraction.
-- early claim gold theo ChargeItem 86.
-- gold-action request-key ledger chống double charge.
-- full/partial reward settlement.
-- Farm food reward hoặc General EXP reward theo type.
-- completion tạo buff 30 phút.
-- auto-start khi general vào Farm city theo legacy flow.
-- state24 có thể rời Farm city qua World movement.
+### Weapon
+- migration `057_weapons.sql` và runtime Weapon slice đã tồn tại.
+- Quest providers hiện có: `arms_weapon_on`, `check_arms_weapon`, `weapon_make_done`.
+- Không invent gem/socket rule nếu legacy evidence chưa đủ.
 
-### Battle Farm buff đã ghép
-Commit: `2d234eeb082e5ae49b4f5800dc01ec5c5206a622`
-- Legacy bytecode xác nhận `WorldFarmService.getBuff()/100` được cộng additive.
-- Remake áp `+50%` vào **Player EXP và General EXP** của đúng `player + general`.
-- Không tăng damage/copper.
-- Không áp phantom.
+### Prison / Slave
+- migration `059_prison.sql`, `060_prison_followup.sql`, `061_slave_activity.sql`.
+- Quest branch `804 / Builded_Limbo`, reward copper 2000, claim idempotent.
+- Trial lash override / `try_gold` / `trail_gold`, 24h next-lash effective level.
+- SlaveEvent type9, rewards authoritative, capture/lash state, prisoner lash EXP, expiry return reward.
+- Unity minimal panel đã nối.
+- BLOCKED `prison_reward/labor`: static có nhưng chưa tìm thấy runtime caller đủ để port flow/reward chính xác.
 
-### Unity Farm đã nối
-Files:
-- `Client/Unity/Assets/Game/Scripts/Networking/FarmApi.cs`
-- `Client/Unity/Assets/Game/Scripts/Features/World/FarmPanel.cs`
-- `WorldPanel.cs` có nút `Truân Điền`.
+## 8. DONE — Battle equipment refresh-skill parity
 
-Client hiện có:
-- xem Farm state.
-- đầu tư.
-- xóa invest CD.
-- chọn loại Farm.
-- chọn general.
-- start/stop/claim/stop-all.
-- xem buff +50% EXP.
-- early-claim an toàn: xem giá trước, nhấn lần hai xác nhận rồi server mới trừ vàng.
+Files/data chính:
+- `Data/Canonical/equip_skill.json`
+- `Data/Canonical/equip_skill_effect.json`
+- `Server/CTXD.Server/Services/EquipmentSkillEffectService.cs`
+- `Server/CTXD.Server/Services/BattleService.cs`
+- migration `062_battle_equipment_skills.sql`.
 
-Farm còn PARTIAL nhỏ:
-- ChargeItem 82 semantic chưa đủ evidence, chưa invent.
-- `FARMING_GENERAL_NUMBER=20` đã thấy constant nhưng chưa xác định chính xác enforcement point, chưa ép.
-- Unity Editor compile toàn project chưa được xác nhận.
+Đã port theo legacy bytecode/static:
+- Store refresh-skill roll theo `skill_type`, `skill_num`, default level.
+- Battle effect theo **từng general đang mặc trang bị**.
+- `ATT` -> Attack.
+- `DEF` -> Defense.
+- `BLOOD` -> Max HP.
+- `ATT_B / DEF_B` -> direct normal-damage bonus/subtraction.
+- `TACTIC_ATT / TACTIC_DEF` -> direct tactic-damage bonus/subtraction.
+- `ATT_B/DEF_B` và `TACTIC_*` dùng legacy clamp đã reverse, không dùng công thức tự nghĩ.
+- Effect được snapshot vào `battle_units` khi general vào trận, tránh thay đồ giữa trận làm đổi snapshot.
 
-## Build/runtime status
-- GitHub Actions server build đã nhiều lần PASS:
-  - `dotnet build Server/CTXD.Server/CTXD.Server.csproj --configuration Release --nologo`
-  - PostgreSQL migrations + server startup `/health` PASS cho các block server trước HEAD.
-- Commit Farm battle buff đã PASS build + migration/startup ở CI.
-- User đã pull/reset đúng HEAD và xác nhận server chạy local thành công.
-- CI workflow hiện chỉ cover server; **không coi Unity compile là PASS** nếu chưa mở/batch compile Unity thực tế.
-- Unity project declares `6000.0.0f1`.
+### Suit / Proset
+- Static đã reverse được:
+  - 8 bộ thường 501–508.
+  - 3 bộ Chân 511–513.
+  - 6 skill yêu cầu theo vị trí.
+  - ATT/DEF/BLOOD của set.
+  - technology open effect key 48.
+- **BLOCKED implementation hoàn chỉnh:** legacy yêu cầu `specialSkillId` + quenching special-skill state trên từng món; remake chưa có prerequisite runtime này.
+- Không tạo shortcut “đủ 6 món là thành suit”, vì sẽ sai legacy.
 
-## BLOCKER STATIC-DATA CŨ ĐÃ ĐƯỢC GỠ
-`sdata.zip` deploy đã xác nhận có authoritative tables:
-- `mine` — 162 rows.
-- `treasure`.
-- `arms_weapon`.
-- `prison_lv`.
-- `prison_reward`.
-- `prison_lash_reward`.
-- `prison_degree`.
-- `prison_catch_prob`.
+## 9. DONE — Quest auxiliary block vừa hoàn tất
 
-=> Mine / Treasure / Weapon / Prison-Slave không còn bị BLOCKED chỉ vì thiếu static rows.
+Migration/runtime:
+- `Database/Migrations/063_quest_aux_events.sql`.
+- `Server/CTXD.Server/Services/QuestEventLedger.cs`.
+- Quest event được **scope theo current_task_id**, không lưu kiểu global làm nhiệm vụ tương lai tự hoàn tất sai.
 
-## MODULE TIẾP THEO — Mine / Khoáng Trường
-Đã reverse đủ foundation để implementation server-first ngay:
-- legacy runtime/service/action tồn tại: `getMineInfo / rush / abandon / mine`.
-- 162 mine rows.
-- mine type 1/2 = iron; type 3/4 = gem.
-- 5 mine pages.
-- battle type legacy:
-  - personal mine = 6.
-  - force/group mine = 7.
-- Rush chỉ trong 15 phút đầu.
-- Rush làm production stage sau chạy x2.
-- hết thời gian tự settlement.
-- bị chiếm: chủ cũ nhận 50% accumulated output.
-- iron mine có stone item 1401 khi Blacksmith condition thỏa.
-- force mine có daily harvest nếu nation đang sở hữu.
-- output/time/stone formulas đã reverse từ bytecode/static.
+Provider đã nối:
+- `world_mine_iron_visit`
+  - mở/xem Iron Mine khi task đang active.
+- `world_mine_iron_own`
+  - legacy xác nhận **phát động một lần iron-mine action/battle là đủ**, không cần thắng.
+- `world_treasure_type`
+  - param `0` nhận mọi treasure type.
+  - param khác 0 yêu cầu **đúng type**.
+- `sell_equip`
+  - event được ghi từ flow `TutorialService` đang có khi bán trang bị thành công.
+- `tavern_refresh`
+  - event refresh + fallback legacy: Tavern đang có refresh cooldown active thì evaluator có thể hoàn tất.
 
-**Việc tiếp theo:** implement Mine migration + canonical import + service + endpoints + Battle integration + worker/settlement + Unity minimal slice, rồi build/startup validation.
+Đã nối event từ:
+- `MineEndpoints`.
+- `TreasureService.TryAcquireAsync`.
+- `TutorialService.TryCompleteAsync` cho các action event hiện hữu như sell/tavern.
+- `QuestService` evaluator cho 5 target trên.
 
-## Các PARTIAL/BLOCKED còn đáng chú ý
-- KFGZ ranking/title/end reward: coordinator reward strings ngoài source hiện có.
-- KFWD day/treasure reward chưa đủ mapping chắc chắn.
-- KFZB treasure/title reward mapping chưa đủ.
-- Feast organizer/rank phần cần authoritative coordinator data.
-- VIP6_1 premium/Jinpin mapping chưa đủ.
-- Quest providers phụ còn tùy gameplay chưa port.
-- Battle special equipment/suit effects chưa full parity.
-- precise SWF frame animation mapping chưa full.
-- production/commercial hardening: monitoring/backup/security/liveops/release pipeline chưa hoàn chỉnh.
+Known exact parity gap:
+- `TaskRequestWorldTreasureByType.check()` legacy còn fallback `hasGottenBox(...)` dựa vào `PlayerWorld.boxispicked` + route/nation-specific treasure boxes.
+- Remake hiện chưa có runtime state tương đương đủ authoritative để port fallback này.
+- Event acquire-by-type đã đúng; **không invent** phần “all boxes already picked”.
 
-## Điểm bắt đầu chính xác cho phiên sau
-1. Không scan/audit toàn repo.
-2. Dùng branch `codex/kfgz-extended-combat`, HEAD `1120b23` hoặc commit mới hơn nếu handoff update tạo commit mới.
-3. Farm không cần làm lại trừ khi có bug cụ thể.
-4. Bắt đầu trực tiếp **Mine** từ legacy evidence đã reverse.
-5. Chỉ đọc Java/ActionScript/static liên quan Mine nếu cần chốt công thức còn thiếu.
-6. Implement migration/service/API/Battle/lifecycle trước, Unity nối sau.
-7. Build server + PostgreSQL startup sau block lớn.
-8. Sau Mine chuyển Treasure / Weapon / Prison theo evidence, không quay lại audit.
+## 10. BUILD / runtime validation mới nhất
 
-## Không làm
+Validated source HEAD: `a956d7166d7782b1695dc01b300bbc7fef189714`.
+
+GitHub Actions server-build run:
+- run id: `33057267974`.
+- `dotnet build Server/CTXD.Server/CTXD.Server.csproj --configuration Release --nologo` — **PASS**.
+- PostgreSQL container init — PASS.
+- apply all migrations, bao gồm `062` + `063` — **PASS**.
+- server startup/health step — **PASS**.
+- cleanup — PASS.
+
+Temporary workflow dùng để patch file dài đã được **xóa khỏi repo**; không còn workflow rác để phiên sau xử lý.
+
+Unity:
+- project declares `6000.0.0f1`.
+- **Unity full compile/runtime vẫn chưa được xác nhận**.
+- Không báo Unity PASS cho tới khi thực sự chạy Editor/batch compile.
+
+## 11. PARTIAL / BLOCKED còn quan trọng
+
+- Suit/proset: thiếu `specialSkillId` + quenching special-skill runtime prerequisite.
+- Quest world treasure: thiếu exact `boxispicked`/nation-route fallback cho trường hợp đã lấy hết box trước khi task check.
+- Quest providers còn lại: chỉ port provider nào owning gameplay/runtime đã có evidence.
+- RecruitRecovery: `player_resource_addition` contribution chưa có runtime.
+- Farm: ChargeItem82 + exact `FARMING_GENERAL_NUMBER=20` enforcement chưa chốt.
+- Mine stone1401: Blacksmith condition/runtime chưa đủ.
+- KFGZ ranking/title/end reward: coordinator reward strings chưa đủ authoritative mapping.
+- KFWD day/final/treasure reward: mapping chưa đủ.
+- KFZB treasure/title reward: mapping chưa đủ.
+- Feast organizer/rank: cần authoritative coordinator data.
+- VIP6_1/Jinpin mapping chưa đủ.
+- precise SWF frame/timeline/effect parity chưa full.
+- Unity scene/prefab/serialized refs/full compile, Windows build, Android build chưa final validation.
+- Commercial hardening: monitoring / backup / security / liveops / release pipeline / performance/deployment chưa hoàn chỉnh.
+
+## 12. Điểm bắt đầu chính xác cho phiên sau
+
+1. Dùng branch `codex/kfgz-extended-combat`; **không dùng main**.
+2. Đọc file này trước, không audit lại toàn repo.
+3. Không làm lại Mine/Treasure/Weapon/Prison/Battle equipment skill/Quest auxiliary vừa hoàn tất.
+4. Ưu tiên tiếp **Quest provider gaps có authoritative runtime hiện hữu**; chỉ đọc đúng target/service liên quan.
+5. Nếu Quest target phụ thuộc gameplay chưa port hoặc thiếu evidence, bỏ qua ngay và chuyển sang prerequisite khả thi, ưu tiên:
+   - equipment `specialSkillId` / quenching special-skill nếu reverse đủ để mở Suit/Proset;
+   - sau đó các cross-server reward source chỉ khi mapping + lifecycle đều đủ.
+6. Server-first; Unity nối sau vertical slice.
+7. Build server + migrations/startup sau block lớn.
+8. Gần cuối dự án mới dành một lượt local/Codex lớn cho Unity Editor compile/runtime, scene/prefab refs và Windows/Android build.
+
+## 13. Không làm
+
 - Không code từ `main` cũ.
 - Không rerun preprocessing V3/V4/V5 vô cớ.
-- Không tăng % bằng docs/tests/audit.
-- Không invent gameplay/static.
+- Không scan/audit toàn repo để “tìm việc”.
+- Không tạo test/checklist/checkpoint/handoff phụ nếu không thật sự cần.
+- Không tăng commercial % bằng docs/test/audit.
+- Không invent gameplay/reward/static.
 - Không redesign UI/UX/gameplay.
 - Không overwrite `D:\Sever`.
 
-## Cách báo cuối phiên
+## 14. Báo cuối phiên chuẩn
+
+Chỉ cần ngắn:
 - `DONE`
 - `PARTIAL`
 - `BLOCKED`
-- `MODULE`
-- Session 2026-08-26 implementation update:
-  - DONE Mine: canonical 162 rows, migration `055_world_mine.sql`, server service/endpoints/worker, battle type 6/7 terrain 9, ownership settlement, rush/abandon/auto-settle, 50/50 capture payout, force daily harvest, Unity minimal vertical slice + realtime.
-  - PARTIAL Mine: stone 1401 is not granted because authoritative Blacksmith runtime/unlock state is not present; Unity Editor compile remains unverified.
-  - DONE/PARTIAL Treasure: canonical 10 rows, migration `056_treasures.sql`, inventory endpoint, Politics type5 drop at exact `0.001` with function 20 gate, Battle ATT/DEF/BASE effects, Unity inventory panel + realtime. Incense/Search/Store acquisition hooks remain pending with their owning gameplay.
-  - BUILD: `dotnet build CTXD.Server.csproj` PASS, 0 warnings / 0 errors. Startup stopped because PostgreSQL `127.0.0.1:5432` was offline in this environment.
-  - NEXT: Weapon / Binh Khi server-first from `arms_weapon` and `WeaponService.java`; migration/state, forge blueprint type6 + exact costs, serial/crit upgrade, Battle ATT/DEF/HP, then Unity minimal slice. Do not invent gem socket rules.
-  - COMMERCIAL: new baseline **~68%**.
 - `BUILD`
-- `COMMERCIAL %` — giữ baseline hiện tại ~66%, chỉ tăng bằng functionality thật.
-
-## Session 2026-08-27 — Prison follow-up + authoritative Tickets
-- Base: `1d14649` trên `codex/kfgz-extended-combat`.
-- DONE quest branch `804 / Builded_Limbo`: trạng thái hoàn thành theo `player_prisons`, claim idempotent một lần, reward authoritative `copper,2000`; migration `060_prison_followup.sql`.
-- DONE Trial lash override: dùng `try_gold`, cộng dồn `trail_gold`, hiệu lực đúng 24 giờ ở cấp roi kế tiếp; đủ tổng cost thì nâng cấp thật và reset trial. Manual lash, auto-lash và escape CD đều dùng effective lash level.
-- DONE SlaveEvent type 9: bit mở theo lash level, 4 reward authoritative (EXP 500k/1m, iron 100k/200k), capture/lash state, mỗi event slave đã lash cộng `2500 EXP` cho mọi prisoner lash, tự trả reward chưa capture khi activity hết hạn; migration `061_slave_activity.sql`; Unity minimal panel đã nối.
-- DONE nguồn Tickets authoritative đầu tiên: KFWD match settlement ghi idempotent vào `player_ticket_grants` rồi cộng `player_tickets`; sửa KFZB Feast ghi đúng column `tickets` và migration `060` đổi schema legacy `balance` sang `tickets` (giữ nguyên số dư).
-- BLOCKED `prison_reward/labor`: 28 static rows và stage mapper có thật, nhưng không tìm thấy runtime caller dùng các stage methods trong legacy source đã kiểm tra. Không invent labor flow/reward.
-- PARTIAL Tickets: các nguồn KFWD/KFGZ/KFZB/pay-event khác có legacy `addTickets`, nhưng chỉ KFWD per-match hiện có đủ công thức và lifecycle tương ứng trong remake để nối an toàn. Day/final/coordinator rewards vẫn BLOCKED nếu thiếu mapping authoritative.
-- BUILD: `dotnet build CTXD.Server.csproj` PASS, 0 warnings / 0 errors. PostgreSQL migration/startup/health chưa rerun được ở environment này vì local PostgreSQL `127.0.0.1:5432` offline; baseline CI trước session vẫn PASS.
-- Unity Editor compile chưa được xác nhận.
-- NEXT: tiếp tục các gap có evidence trong danh sách PARTIAL/BLOCKED; ưu tiên Tickets/reward source nào có lifecycle + mapping đầy đủ, nếu thiếu thì chuyển quest provider hoặc battle equipment/suit effect có static/runtime evidence. Không quay lại audit toàn repo.
-- COMMERCIAL: baseline mới **~71%** nhờ functionality server + Unity thật; không tính phần labor/reward đang BLOCKED.
+- `NEXT`
+- `COMMERCIAL %`
