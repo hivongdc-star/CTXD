@@ -12,6 +12,7 @@ namespace CTXD.Client.Features.Social
     {
         ApiClient _api;
         Action<string> _status;
+        RectTransform _host;
         RectTransform _window;
         KfzbView _view;
         KfzbRewardView _reward;
@@ -19,6 +20,7 @@ namespace CTXD.Client.Features.Social
         GeneralRosterResponse _roster;
         int[] _selected = Array.Empty<int>();
         bool _claiming;
+        bool _feastOpen;
 
         public static KfzbPanel Open(RectTransform host, ApiClient api, Action<string> status)
         {
@@ -27,6 +29,7 @@ namespace CTXD.Client.Features.Social
             var panel = go.AddComponent<KfzbPanel>();
             panel._api = api;
             panel._status = status;
+            panel._host = host;
             panel.Build();
             _ = panel.Refresh();
             return panel;
@@ -46,6 +49,14 @@ namespace CTXD.Client.Features.Social
                 _reward = await _api.GetKfzbRewardAsync();
                 _treasures = await _api.GetGeneralTreasuresAsync();
                 _roster = await _api.GetGeneralsAsync();
+                _feastOpen = false;
+                try
+                {
+                    await _api.GetKfzbFeastCardsAsync();
+                    _feastOpen = true;
+                }
+                catch (ApiException ex) when (ex.Code == "KFZB_FEAST_CLOSED" || ex.Code == "KFZB_INACTIVE") { }
+                catch (Exception ex) { _status(ex.Message); }
                 Draw();
             }
             catch (Exception e)
@@ -64,7 +75,9 @@ namespace CTXD.Client.Features.Social
                 "State " + _view.globalState + "   W " + _view.wins + " / L " + _view.losses + (_view.eliminated ? "   ELIMINATED" : ""),
                 16, TextAnchor.MiddleCenter, _view.eliminated ? new Color(1, .35f, .25f) : Color.white, 120, 55, 600, 30);
 
-            if (!_view.signed && _view.globalState == 20)
+            if (_feastOpen)
+                LegacyUiFactory.PixelButton(_window, "Thịnh Yến", 450, 105, 270, 36, () => KfzbFeastPanel.Open(_host, _api, _status));
+            else if (!_view.signed && _view.globalState == 20)
                 LegacyUiFactory.PixelButton(_window, "Sign up with all generals", 450, 105, 270, 36, () => Signup());
 
             var y = 105;
@@ -79,10 +92,8 @@ namespace CTXD.Client.Features.Social
                 });
                 y += 37;
             }
-
             if (_view.signed && !_view.eliminated)
                 LegacyUiFactory.PixelButton(_window, "Sync selected formation", 450, 150, 270, 34, () => Sync());
-
             if (_view.match != null)
             {
                 var match = _view.match;

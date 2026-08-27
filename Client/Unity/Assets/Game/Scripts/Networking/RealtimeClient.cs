@@ -13,6 +13,8 @@ namespace CTXD.Client.Networking
         ClientWebSocket _socket;
         CancellationTokenSource _cts;
 
+        internal static event Action<string> MessageObserved;
+
         public bool TryDequeue(out string message) => _messages.TryDequeue(out message);
 
         public async Task ConnectAsync(string httpBaseUrl, string token)
@@ -43,7 +45,9 @@ namespace CTXD.Client.Networking
                         if (result.MessageType == WebSocketMessageType.Close) return;
                         builder.Append(Encoding.UTF8.GetString(buffer, 0, result.Count));
                     } while (!result.EndOfMessage);
-                    _messages.Enqueue(builder.ToString());
+                    var message = builder.ToString();
+                    _messages.Enqueue(message);
+                    try { MessageObserved?.Invoke(message); } catch { }
                 }
             }
             catch (OperationCanceledException) { }
