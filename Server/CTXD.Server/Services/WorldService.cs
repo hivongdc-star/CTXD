@@ -51,8 +51,10 @@ public sealed class WorldService(GameDb db, CanonicalContent content, GeneralSer
         { cmd.Parameters.AddWithValue(battleId); cmd.Parameters.AddWithValue(attackerWon ? 1 : 2); cmd.Parameters.AddWithValue(winner); cmd.Parameters.AddWithValue((object?)resultPayload ?? DBNull.Value); await cmd.ExecuteNonQueryAsync(ct); }
         await using (var cmd = new NpgsqlCommand("UPDATE world_cities SET owner_force_id=CASE WHEN $2 AND $4 NOT IN(14,15) THEN $3 ELSE owner_force_id END,state=0,updated_at=now() WHERE city_id=$1", c, t))
         { cmd.Parameters.AddWithValue(city); cmd.Parameters.AddWithValue(attackerWon); cmd.Parameters.AddWithValue(attacker); cmd.Parameters.AddWithValue(battleType); await cmd.ExecuteNonQueryAsync(ct); }
+        int? origin=null;
+        if(attackerWon&&battleType is not(14 or 15))origin=(await GeneralAsync(c,t,player,general,false,ct)).location;
         await GeneralStateAsync(c, t, player, general, 1, ct);
-        if (attackerWon) { await GeneralLocationAsync(c, t, player, general, city, ct); if(battleType is not(14 or 15)){await RevealAfterConquestAsync(c, t, attacker, city, ct);await nationProgress.RecordWorldOwnershipAsync(c,t,battleId,player,attacker,city,ct);var assists=new List<long>();await using(var assist=new NpgsqlCommand("SELECT DISTINCT player_id FROM battle_units WHERE battle_id=$1 AND side=1 AND player_id IS NOT NULL AND player_id<>$2",c,t)){assist.Parameters.AddWithValue(battleId);assist.Parameters.AddWithValue(player);await using var r=await assist.ExecuteReaderAsync(ct);while(await r.ReadAsync(ct))assists.Add(r.GetInt64(0));}foreach(var id in assists)await nationProgress.AddScoreAsync(c,t,id,attacker,city,2,$"world:battle:{battleId}:score:assist:{id}",ct);} }
+        if (attackerWon) { await GeneralLocationAsync(c, t, player, general, city, ct); if(battleType is not(14 or 15)){var road=origin.HasValue?Road(origin.Value,city):null;if(road is not null)await WorldTreasureBoxState.PickAsync(c,t,content,player,attacker,road.Id,ct);await RevealAfterConquestAsync(c, t, attacker, city, ct);await nationProgress.RecordWorldOwnershipAsync(c,t,battleId,player,attacker,city,ct);var assists=new List<long>();await using(var assist=new NpgsqlCommand("SELECT DISTINCT player_id FROM battle_units WHERE battle_id=$1 AND side=1 AND player_id IS NOT NULL AND player_id<>$2",c,t)){assist.Parameters.AddWithValue(battleId);assist.Parameters.AddWithValue(player);await using var r=await assist.ExecuteReaderAsync(ct);while(await r.ReadAsync(ct))assists.Add(r.GetInt64(0));}foreach(var id in assists)await nationProgress.AddScoreAsync(c,t,id,attacker,city,2,$"world:battle:{battleId}:score:assist:{id}",ct);} }
         await t.CommitAsync(ct); return new(battleId, city, winner, attackerWon);
     }
 
@@ -107,13 +109,13 @@ VALUES($1,$2,$3,$4,$5,$6,$7,$8,1) ON CONFLICT(player_id,general_id) DO NOTHING",
     {
         while (true)
         {
-            int general, city, index; int[] path;
-            await using (var cmd = new NpgsqlCommand("SELECT general_id,to_city_id,path_city_ids,path_index FROM player_world_moves WHERE player_id=$1 AND arrives_at<=now() ORDER BY arrives_at LIMIT 1 FOR UPDATE", c, t))
+            int general, roadId, city, index; int[] path;
+            await using (var cmd = new NpgsqlCommand("SELECT general_id,road_id,to_city_id,path_city_ids,path_index FROM player_world_moves WHERE player_id=$1 AND arrives_at<=now() ORDER BY arrives_at LIMIT 1 FOR UPDATE", c, t))
             {
                 cmd.Parameters.AddWithValue(playerId); await using var r = await cmd.ExecuteReaderAsync(ct); if (!await r.ReadAsync(ct)) break;
-                general = r.GetInt32(0); city = r.GetInt32(1); path = r.GetFieldValue<int[]>(2); index = r.GetInt32(3);
+                general = r.GetInt32(0); roadId=r.GetInt32(1); city = r.GetInt32(2); path = r.GetFieldValue<int[]>(3); index = r.GetInt32(4);
             }
-            await GeneralLocationAsync(c, t, playerId, general, city, ct); var next = index + 1;
+            await GeneralLocationAsync(c, t, playerId, general, city, ct);await WorldTreasureBoxState.PickAsync(c,t,content,playerId,force,roadId,ct);var next = index + 1;
             if (next >= path.Length) { await DeleteMoveAsync(c, t, playerId, general, ct); await GeneralStateAsync(c, t, playerId, general, 1, ct); continue; }
             var owners = await OwnersAsync(c, t, ct); var nextCity = path[next];
             if (owners.GetValueOrDefault(nextCity) != force) { await DeleteMoveAsync(c, t, playerId, general, ct); await BattleAsync(c, t, playerId, general, force, nextCity, owners.GetValueOrDefault(nextCity), ct); continue; }
@@ -158,7 +160,7 @@ VALUES($1,$2,$3,$4,$5,$6,$7,$8,1) ON CONFLICT(player_id,general_id) DO NOTHING",
     { var area = Area(content.WorldCities[capital], force); var seen = content.WorldCities.Values.Where(x => Area(x, force) == area).Select(x => x.Id).ToHashSet(); if (seen.Count == 0) seen.Add(capital);
       var areas = content.WorldRoads.Values.SelectMany(x => seen.Contains(x.Start) && !seen.Contains(x.End) ? new[] { x.End } : seen.Contains(x.End) && !seen.Contains(x.Start) ? new[] { x.Start } : []).Where(content.WorldCities.ContainsKey).Select(x => Area(content.WorldCities[x], force)).ToHashSet();
       var attackable = content.WorldCities.Values.Where(x => areas.Contains(Area(x, force))).Select(x => x.Id).Where(x => !seen.Contains(x)).Distinct().OrderBy(x => x).ToArray();
-      await using var cmd = new NpgsqlCommand("INSERT INTO player_world(player_id,discovered_city_ids,attackable_city_ids) VALUES($1,$2,$3) ON CONFLICT(player_id) DO NOTHING", c, t); cmd.Parameters.AddWithValue(player); cmd.Parameters.AddWithValue(seen.OrderBy(x => x).ToArray()); cmd.Parameters.AddWithValue(attackable); await cmd.ExecuteNonQueryAsync(ct); }
+      await using var cmd = new NpgsqlCommand("INSERT INTO player_world(player_id,discovered_city_ids,attackable_city_ids) VALUES($1,$2,$3) ON CONFLICT(player_id) DO NOTHING", c, t); cmd.Parameters.AddWithValue(player); cmd.Parameters.AddWithValue(seen.OrderBy(x => x).ToArray()); cmd.Parameters.AddWithValue(attackable); await cmd.ExecuteNonQueryAsync(ct);await WorldTreasureBoxState.EnsureAsync(c,t,content,player,force,ct); }
     async Task BattleAsync(NpgsqlConnection c, NpgsqlTransaction t, long player, int general, int force, int city, int defender, CancellationToken ct)
     { await using var cmd = new NpgsqlCommand("INSERT INTO world_battle_handoffs(city_id,attacker_player_id,attacker_general_id,attacker_force_id,defender_force_id,battle_type) VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT DO NOTHING", c, t); cmd.Parameters.AddWithValue(city); cmd.Parameters.AddWithValue(player); cmd.Parameters.AddWithValue(general); cmd.Parameters.AddWithValue(force); cmd.Parameters.AddWithValue(defender); cmd.Parameters.AddWithValue(city is 250 or 251 or 252 ? 14 : 3); if (await cmd.ExecuteNonQueryAsync(ct) == 0) throw new GameException("WORLD_BATTLE_ACTIVE", "Thanh nay da co tran chien."); await GeneralStateAsync(c, t, player, general, InBattle, ct); await using var state = new NpgsqlCommand("UPDATE world_cities SET state=1,updated_at=now() WHERE city_id=$1", c, t); state.Parameters.AddWithValue(city); await state.ExecuteNonQueryAsync(ct); }
 

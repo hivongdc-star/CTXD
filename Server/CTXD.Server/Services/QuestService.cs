@@ -147,7 +147,7 @@ FROM player_quest_branches b WHERE b.player_id=$1 AND b.branch_id=$2 FOR UPDATE"
             case "world_mine_iron_own":
                 return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_mine_iron_own",null,ct)>0,null);
             case "world_treasure_type":
-                var treasureTypeArgs=Args(task.Target);var treasureType=treasureTypeArgs.Length==0?0:treasureTypeArgs[0];var treasureCount=treasureType==0?await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",null,ct):await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",treasureType,ct);return(treasureCount>0,null);
+                var treasureTypeArgs=Args(task.Target);var treasureType=treasureTypeArgs.Length==0?0:treasureTypeArgs[0];var treasureCount=treasureType==0?await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",null,ct):await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",treasureType,ct);var boxFallback=await WorldTreasureBoxState.HasGottenAllAsync(c,t,content,player,ct);return(treasureCount>0|boxFallback,null);
             case "sell_equip":
                 return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"sell_equip",null,ct)>0,null);
             case "equip_skill_refresh":
