@@ -1,0 +1,22 @@
+[
+  { "id": 11, "type": 1, "name": "银币1", "reward": "copper,8000", "taskIntroduction": "-" },
+  { "id": 12, "type": 1, "name": "银币2", "reward": "copper,9000", "taskIntroduction": "-" },
+  { "id": 13, "type": 1, "name": "银币3", "reward": "copper,11000", "taskIntroduction": "-" },
+  { "id": 14, "type": 1, "name": "银币4", "reward": "copper,12000", "taskIntroduction": "-" },
+  { "id": 21, "type": 1, "name": "木材1", "reward": "lumber,8000", "taskIntroduction": "-" },
+  { "id": 22, "type": 1, "name": "木材2", "reward": "lumber,9000", "taskIntroduction": "-" },
+  { "id": 23, "type": 1, "name": "木材3", "reward": "lumber,11000", "taskIntroduction": "-" },
+  { "id": 24, "type": 1, "name": "木材4", "reward": "lumber,12000", "taskIntroduction": "-" },
+  { "id": 31, "type": 1, "name": "粮草1", "reward": "food,8000", "taskIntroduction": "-" },
+  { "id": 32, "type": 1, "name": "粮草2", "reward": "food,9000", "taskIntroduction": "-" },
+  { "id": 33, "type": 1, "name": "粮草3", "reward": "food,11000", "taskIntroduction": "-" },
+  { "id": 34, "type": 1, "name": "粮草4", "reward": "food,12000", "taskIntroduction": "-" },
+  { "id": 41, "type": 1, "name": "金币1", "reward": "gold,50", "taskIntroduction": "-" },
+  { "id": 42, "type": 1, "name": "金币2", "reward": "gold,100", "taskIntroduction": "-" },
+  { "id": 51, "type": 1, "name": "装备1", "reward": "equip,1040", "taskIntroduction": "-" },
+  { "id": 52, "type": 1, "name": "装备2", "reward": "equip,2040", "taskIntroduction": "-" },
+  { "id": 53, "type": 1, "name": "装备3", "reward": "equip,3040", "taskIntroduction": "-" },
+  { "id": 54, "type": 1, "name": "装备4", "reward": "equip,4040", "taskIntroduction": "-" },
+  { "id": 55, "type": 1, "name": "装备5", "reward": "equip,5040", "taskIntroduction": "-" },
+  { "id": 56, "type": 1, "name": "装备6", "reward": "equip,6040", "taskIntroduction": "-" }
+]
