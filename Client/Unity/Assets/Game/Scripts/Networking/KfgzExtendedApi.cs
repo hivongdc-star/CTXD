@@ -20,6 +20,12 @@ namespace CTXD.Client.Networking
         public Task<KfgzPhantomResult> CreatePhantomAsync(long battleId) => SendAsync<KfgzPhantomResult>("POST", "/api/battles/" + battleId + "/phantom", new KfgzPhantomRequest { requestKey = Guid.NewGuid().ToString() });
         public Task<KfgzRushResult> RushAsync(long battleId, int[] generalIds, int cityId) => SendAsync<KfgzRushResult>("POST", "/api/battles/" + battleId + "/rush", new KfgzRushRequest { generalIds = generalIds, cityId = cityId });
 
+        public Task<KfgzRewardView> GetRoundRewardAsync(long roundId) => SendAsync<KfgzRewardView>("GET", "/api/kfgz/rewards/round/" + roundId, null);
+        public Task<KfgzRewardClaimResult> ClaimRoundRewardAsync(long roundId) => SendAsync<KfgzRewardClaimResult>("POST", "/api/kfgz/rewards/round/" + roundId + "/claim", null);
+        public Task<KfgzEndRewardView> GetEndRewardAsync() => SendAsync<KfgzEndRewardView>("GET", "/api/kfgz/rewards/end", null);
+        public Task<KfgzRewardClaimResult> ClaimEndRewardAsync(int slot) => SendAsync<KfgzRewardClaimResult>("POST", "/api/kfgz/rewards/end/" + slot + "/claim", null);
+        public Task<KfgzTitlesResponse> GetTitlesAsync() => SendAsync<KfgzTitlesResponse>("GET", "/api/kfgz/titles", null);
+
         async Task<T> SendAsync<T>(string method, string path, object body)
         {
             using var req = new UnityWebRequest(_api.BaseUrl.TrimEnd('/') + path, method);
