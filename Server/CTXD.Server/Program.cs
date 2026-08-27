@@ -367,7 +367,7 @@ app.MapGet("/api/technology", async (int? page, HttpRequest request, AuthService
     return Results.Ok(await technology.GetAsync(id, Math.Max(1, page ?? 1), ct));
 });
 
-app.MapPost("/api/technology/{technologyId:int}/inject", async (int technologyId, HttpRequest request, AuthService auth, TechnologyService technology, MainCityService city, GamePushHub push,CancellationToken ct) =>
+app.MapPost("/api/technology/{technologyId:int}/inject", async (int technologyId, HttpRequest request, AuthService auth, TechnologyService technology, MainCityService city, GamePushHub push, CancellationToken ct) =>
 {
     var id = await auth.ResolvePlayerIdAsync(Bearer(request), ct);
     var result = await technology.InjectAsync(id, technologyId, ct);
