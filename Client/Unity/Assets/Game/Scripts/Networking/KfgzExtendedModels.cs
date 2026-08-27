@@ -15,4 +15,45 @@ namespace CTXD.Client.Networking
     [Serializable] public class KfgzCallGeneralInfo { public int cityId; public int[] generalIds; }
     [Serializable] public class KfgzCallGeneralFailure { public int generalId; public string code; public string message; }
     [Serializable] public class KfgzCallGeneralResult { public int cityId; public int[] movedGeneralIds; public KfgzCallGeneralFailure[] failed; }
+
+    [Serializable] public class KfgzRewardView
+    {
+        public bool mapped;
+        public long seasonId;
+        public long referenceId;
+        public int claimTimes;
+        public long baseTickets;
+        public long nextTickets;
+        public long goldCost;
+        public long cityTickets;
+        public long winTickets;
+        public long killRankTickets;
+        public long soloTickets;
+        public long occupyTickets;
+        public string blocker;
+    }
+
+    [Serializable] public class KfgzEndRewardSlotView
+    {
+        public int slot;
+        public int claimTimes;
+        public int requiredNationScore;
+        public long baseTickets;
+        public long nextTickets;
+        public long goldCost;
+        public bool available;
+    }
+
+    [Serializable] public class KfgzEndRewardView
+    {
+        public bool mapped;
+        public long seasonId;
+        public int nationScore;
+        public KfgzEndRewardSlotView[] slots;
+        public string blocker;
+    }
+
+    [Serializable] public class KfgzRewardClaimResult { public long tickets; public long goldCost; public int claimTimes; }
+    [Serializable] public class KfgzTitleView { public long seasonId; public long playerId; public string playerName; public string titleKey; }
+    [Serializable] public class KfgzTitlesResponse { public KfgzTitleView[] items; }
 }
