@@ -37,10 +37,20 @@ public static class KfgzRewardEndpoints
             if(!InternalAuthorized(request,config))return InternalAuthResult(config);
             await new KfgzRewardService(db,push).ProvisionRoundRewardAsync(body,ct);return Results.Ok();
         });
+        app.MapPost("/internal/kfgz/rewards/round-result",async(KfgzRoundResultProvision body,HttpRequest request,IConfiguration config,GameDb db,GamePushHub push,CancellationToken ct)=>
+        {
+            if(!InternalAuthorized(request,config))return InternalAuthResult(config);
+            var rewardInfo=await new KfgzRewardService(db,push).MaterializeRoundRewardAsync(body,ct);return Results.Ok(new{rewardInfo});
+        });
         app.MapPost("/internal/kfgz/rewards/end-profile",async(KfgzEndRewardProfileProvision body,HttpRequest request,IConfiguration config,GameDb db,GamePushHub push,CancellationToken ct)=>
         {
             if(!InternalAuthorized(request,config))return InternalAuthResult(config);
             await new KfgzRewardService(db,push).ProvisionEndRewardProfileAsync(body,ct);return Results.Ok();
+        });
+        app.MapPost("/internal/kfgz/rewards/end-mapping",async(KfgzEndMappingProvision body,HttpRequest request,IConfiguration config,GameDb db,GamePushHub push,CancellationToken ct)=>
+        {
+            if(!InternalAuthorized(request,config))return InternalAuthResult(config);
+            var rewardInfo=await new KfgzRewardService(db,push).MaterializeEndRewardProfileAsync(body,ct);return Results.Ok(new{rewardInfo});
         });
         app.MapPost("/internal/kfgz/rewards/title-candidate",async(KfgzTitleCandidateProvision body,HttpRequest request,IConfiguration config,GameDb db,GamePushHub push,CancellationToken ct)=>
         {
