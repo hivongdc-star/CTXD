@@ -78,7 +78,6 @@ ON CONFLICT(recipient_player_id,source_key) WHERE source_key IS NOT NULL DO NOTH
             await mail.ExecuteNonQueryAsync(ct);
         }
 
-        // Legacy decideBoxInfo emits TaskMessageWorldTreasureByType after the reward/mail and before persisting boxispicked=0.
         await QuestEventLedger.RecordCurrentAsync(c,t,playerId,"world_treasure_type",treasure.Type,ct);
 
         await using(var picked=new NpgsqlCommand(@"UPDATE player_world_treasure_boxes
@@ -90,8 +89,10 @@ WHERE player_id=$1 AND road_id=$2 AND treasure_id=$3 AND picked_at IS NULL",c,t)
                 throw new GameException("WORLD_TREASURE_PICK_CHANGED","World treasure box state changed during reward grant.",409);
         }
 
-        // PostgreSQL NOTIFY is transaction-aware: it is delivered only when the enclosing World transaction commits.
-        // Payload mirrors legacy PUSH_ATTMOV.curReward without altering the authoritative WorldResponse contract.
+        // Legacy decideBoxInfo invokes courtesyService.addPlayerEvent(playerId,7,0) only for an actually obtained World Treasure.
+        // This runs in the same transaction: a failed/rolled-back box reward cannot leave a Courtesy offer behind.
+        await CourtesyService.AddPlayerEventAsync(c,t,playerId,CourtesyService.OpenBoxExternalEvent,0,sourceKey,ct);
+
         var curReward=BuildCurReward(content,kind,value);
         var notification=JsonSerializer.Serialize(new Dictionary<string,object>
         {
@@ -154,20 +155,15 @@ WHERE p.id=$1",c,t))
     {
         switch(kind)
         {
-            case "copper":
-                await AddResourceAsync(c,t,playerId,"copper",value,ct);return $"{value}银币";
-            case "lumber":
-                await AddResourceAsync(c,t,playerId,"wood",value,ct);return $"{value}木材";
-            case "food":
-                await AddResourceAsync(c,t,playerId,"food",value,ct);return $"{value}粮食";
+            case "copper": await AddResourceAsync(c,t,playerId,"copper",value,ct);return $"{value}银币";
+            case "lumber": await AddResourceAsync(c,t,playerId,"wood",value,ct);return $"{value}木材";
+            case "food": await AddResourceAsync(c,t,playerId,"food",value,ct);return $"{value}粮食";
             case "gold":
                 await using(var gold=new NpgsqlCommand("UPDATE players SET sys_gold=sys_gold+$2,updated_at=now() WHERE id=$1",c,t))
                 {gold.Parameters.AddWithValue(playerId);gold.Parameters.AddWithValue(value);if(await gold.ExecuteNonQueryAsync(ct)!=1)throw new GameException("PLAYER_NOT_FOUND","Player does not exist.",404);}
                 return $"{value}金币";
-            case "equip":
-                return await GrantEquipmentAsync(c,t,content,playerId,value,ct);
-            default:
-                throw new GameException("WORLD_TREASURE_REWARD_UNSUPPORTED",$"Unsupported legacy WorldTreasure reward: {kind}.",500);
+            case "equip": return await GrantEquipmentAsync(c,t,content,playerId,value,ct);
+            default: throw new GameException("WORLD_TREASURE_REWARD_UNSUPPORTED",$"Unsupported legacy WorldTreasure reward: {kind}.",500);
         }
     }
 
