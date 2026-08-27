@@ -18,15 +18,19 @@ public static class ResourceAdditionEndpoints
             _=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
             return Results.Ok(Service.GetRecruitPrice(content,additionMode,timeType));
         });
-        app.MapPost("/api/resource-additions/recruit/buy",async(ResourceAdditionBuyRequest body,HttpRequest request,AuthService auth,GameDb db,CanonicalContent content,CancellationToken ct)=>
+        app.MapPost("/api/resource-additions/recruit/buy",async(ResourceAdditionBuyRequest body,HttpRequest request,AuthService auth,GameDb db,CanonicalContent content,QuestService quests,GamePushHub push,CancellationToken ct)=>
         {
             var playerId=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
-            return Results.Ok(await Service.BuyRecruitAsync(db,content,playerId,body.AdditionMode,body.TimeType,body.RequestKey,ct));
+            var result=await Service.BuyRecruitAsync(db,content,playerId,body.AdditionMode,body.TimeType,body.RequestKey,ct);
+            if(!result.Replayed)await push.SendAsync(playerId,"quest.updated",await quests.GetCurrentAsync(playerId,ct),ct);
+            return Results.Ok(result);
         });
-        app.MapPost("/api/resource-additions/recruit/use-item",async(ResourceAdditionUseItemRequest body,HttpRequest request,AuthService auth,GameDb db,CanonicalContent content,IPlayerItemInventory inventory,CancellationToken ct)=>
+        app.MapPost("/api/resource-additions/recruit/use-item",async(ResourceAdditionUseItemRequest body,HttpRequest request,AuthService auth,GameDb db,CanonicalContent content,IPlayerItemInventory inventory,QuestService quests,GamePushHub push,CancellationToken ct)=>
         {
             var playerId=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
-            return Results.Ok(await Service.UseRecruitItemAsync(db,content,inventory,playerId,body.ItemId,body.RequestKey,ct));
+            var result=await Service.UseRecruitItemAsync(db,content,inventory,playerId,body.ItemId,body.RequestKey,ct);
+            if(!result.Replayed)await push.SendAsync(playerId,"quest.updated",await quests.GetCurrentAsync(playerId,ct),ct);
+            return Results.Ok(result);
         });
         return app;
     }
