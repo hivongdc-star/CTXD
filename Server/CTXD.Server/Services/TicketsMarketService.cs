@@ -14,6 +14,9 @@ public sealed record TicketsBuyResult(long Tickets,TicketsMarketItemView Item,in
 
 public sealed class TicketsMarketService(GameDb db,CanonicalContent content,IPlayerItemInventory items,GamePushHub push)
 {
+    const int BlacksmithBlueprint1Id=1201;
+    const int BlacksmithBlueprintRuntimeType=15;
+
     sealed class MarketDef
     {
         [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]public int Id{get;set;}
@@ -60,7 +63,7 @@ public sealed class TicketsMarketService(GameDb db,CanonicalContent content,IPla
         await using(var spend=new NpgsqlCommand("UPDATE player_tickets SET tickets=tickets-$2,updated_at=now() WHERE player_id=$1 AND tickets>=$2 RETURNING tickets",c,t)){spend.Parameters.AddWithValue(playerId);spend.Parameters.AddWithValue(cost);var raw=await spend.ExecuteScalarAsync(ct);if(raw is null)throw new GameException("TICKETS_NOT_ENOUGH","Điểm Khoán không đủ.");tickets=Convert.ToInt64(raw);}
         if(parsed.kind=="item")
         {
-            var item=content.Items[parsed.value];await items.GrantAsync(c,t,playerId,item.Id,item.Type,1,ct);
+            var item=content.Items[parsed.value];await items.GrantAsync(c,t,playerId,item.Id,RuntimeItemType(item),1,ct);
         }
         else
         {
@@ -88,12 +91,32 @@ public sealed class TicketsMarketService(GameDb db,CanonicalContent content,IPla
                 await using var owned=new NpgsqlCommand("SELECT COALESCE((SELECT quantity FROM player_items WHERE player_id=$1 AND item_id=$2 AND item_type=$3),0)",c,t);owned.Parameters.AddWithValue(player);owned.Parameters.AddWithValue(item.Id);owned.Parameters.AddWithValue(item.Type);if(Convert.ToInt64(await owned.ExecuteScalarAsync(ct))>0)return null;
                 return new(d.Id,d.Tickets,d.BuyLevel,d.SeeLevel,d.Reward,d.Pic,item.Id,item.Type,item.Name,level>=d.BuyLevel);
             }
+            // Legacy TicketsService item type 12 is the Blacksmith drawing chain.  The drawing
+            // index must be exactly the next smith slot, and an already-owned drawing is hidden.
+            // Only smith1/item1201 is ported in this vertical slice.
+            if(item.Id==BlacksmithBlueprint1Id&&item.Type==12)
+            {
+                var smithCount=await BlacksmithCountAsync(c,t,player,ct);if(item.Index!=smithCount+1)return null;
+                await using var owned=new NpgsqlCommand("SELECT COALESCE((SELECT quantity FROM player_items WHERE player_id=$1 AND item_id=$2 AND item_type=$3),0)",c,t);owned.Parameters.AddWithValue(player);owned.Parameters.AddWithValue(item.Id);owned.Parameters.AddWithValue(BlacksmithBlueprintRuntimeType);if(Convert.ToInt64(await owned.ExecuteScalarAsync(ct))>0)return null;
+                return new(d.Id,d.Tickets,d.BuyLevel,d.SeeLevel,d.Reward,d.Pic,item.Id,BlacksmithBlueprintRuntimeType,item.Name,level>=d.BuyLevel);
+            }
             return null;
         }
         return new(d.Id,d.Tickets,d.BuyLevel,d.SeeLevel,d.Reward,d.Pic,0,0,kind=="food"?"Lương thực":"Sắt",level>=d.BuyLevel);
     }
 
-    static bool SupportedForCurrentRemake(string kind,int value)=>kind is "food" or "iron" || kind=="item"&&value is>=601 and<=605;
+    static int RuntimeItemType(ItemDefinition item)=>item.Id==BlacksmithBlueprint1Id&&item.Type==12?BlacksmithBlueprintRuntimeType:item.Type;
+
+    static async Task<int> BlacksmithCountAsync(NpgsqlConnection c,NpgsqlTransaction t,long player,CancellationToken ct)
+    {
+        // This worker branch is intentionally based before migration 105.  Keep it independently
+        // runnable; once the Mine/Blacksmith branch is merged, the authoritative smith count is used.
+        await using(var exists=new NpgsqlCommand("SELECT to_regclass('public.player_blacksmiths') IS NOT NULL",c,t))
+            if(!Convert.ToBoolean(await exists.ExecuteScalarAsync(ct)))return 0;
+        await using var q=new NpgsqlCommand("SELECT count(*) FROM player_blacksmiths WHERE player_id=$1",c,t);q.Parameters.AddWithValue(player);return Convert.ToInt32(await q.ExecuteScalarAsync(ct));
+    }
+
+    static bool SupportedForCurrentRemake(string kind,int value)=>kind is "food" or "iron" || kind=="item"&&(value is>=601 and<=605||value==BlacksmithBlueprint1Id);
     static (string kind,int value) ParseReward(string reward){var p=reward.Split(':',StringSplitOptions.TrimEntries);if(p.Length!=2||!int.TryParse(p[1],out var value))throw new GameException("TICKETS_STATIC_INVALID",$"Reward Điểm Khoán không hợp lệ: {reward}",500);return(p[0].ToLowerInvariant(),value);}
     static async Task<int> PrisonLevelAsync(NpgsqlConnection c,NpgsqlTransaction t,long player,CancellationToken ct){await using var q=new NpgsqlCommand("SELECT COALESCE((SELECT prison_lv FROM player_prisons WHERE player_id=$1),0)",c,t);q.Parameters.AddWithValue(player);return Convert.ToInt32(await q.ExecuteScalarAsync(ct));}
     static async Task<(int level,long tickets)> EnsurePlayerAsync(NpgsqlConnection c,NpgsqlTransaction t,long player,bool update,CancellationToken ct)
