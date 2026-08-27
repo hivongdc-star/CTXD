@@ -1,9 +1,16 @@
+using CTXD.Server.Data;
 using Npgsql;
 
 namespace CTXD.Server.Services;
 
 public static class QuestEventLedger
 {
+    public static async Task RecordAsync(GameDb db,long playerId,string kind,int arg,CancellationToken ct)
+    {
+        await using var c=await db.DataSource.OpenConnectionAsync(ct);
+        await RecordAsync(c,null,playerId,kind,arg,ct);
+    }
+
     public static async Task RecordAsync(NpgsqlConnection c,NpgsqlTransaction? t,long playerId,string kind,int arg,CancellationToken ct)
     {
         await using var cmd=new NpgsqlCommand(@"INSERT INTO player_quest_events(player_id,kind,arg,count)
