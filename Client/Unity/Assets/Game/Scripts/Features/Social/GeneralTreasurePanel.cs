@@ -143,7 +143,7 @@ namespace CTXD.Client.Features.Social
                 LegacyUiFactory.PixelLabel(_window, selectedText, 14, TextAnchor.MiddleLeft, Color.gray, 335, y + 9, 245, 34);
                 var button = LegacyUiFactory.PixelButton(_window, "装备", 615, y + 12, 105, 34,
                     () => { if (selected != null) Equip(item.id, selected.id); else _status("请选择武将"); });
-                button.interactable = selected != null && !_busy;
+                button.interactable = selected != null;
             }
         }
 
