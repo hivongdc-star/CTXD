@@ -1,0 +1,37 @@
+[
+  {
+    "lv": 1,
+    "upgrade_prob_gold": 0.8,
+    "upgrade_max_times_gold": 5,
+    "upgrade_prob_free": 0.4,
+    "upgrade_max_times_free": 10
+  },
+  {
+    "lv": 2,
+    "upgrade_prob_gold": 0.5,
+    "upgrade_max_times_gold": 15,
+    "upgrade_prob_free": 0.25,
+    "upgrade_max_times_free": 30
+  },
+  {
+    "lv": 3,
+    "upgrade_prob_gold": 0.13,
+    "upgrade_max_times_gold": 45,
+    "upgrade_prob_free": 0.07,
+    "upgrade_max_times_free": 130
+  },
+  {
+    "lv": 4,
+    "upgrade_prob_gold": 0.07,
+    "upgrade_max_times_gold": 100,
+    "upgrade_prob_free": 0.04,
+    "upgrade_max_times_free": 300
+  },
+  {
+    "lv": 5,
+    "upgrade_prob_gold": 0.0,
+    "upgrade_max_times_gold": 0,
+    "upgrade_prob_free": 0.0,
+    "upgrade_max_times_free": 0
+  }
+]
