@@ -137,7 +137,7 @@ WHERE player_id=$1 AND store_type=$2 AND equipment_id=$3 FOR UPDATE", conn, tx))
 
         if (offer.IsGold)
         {
-            if (player.ConsumeLevel < 8) // legacy Chargeitem 8 level gate; current baseline consume level is 8.
+            if (player.ConsumeLevel < 8)
                 throw new GameException("GOLD_CONSUME_LOCKED", "Chưa đạt cấp tiêu phí để mua bằng Hoàng Kim.");
             var total = player.SysGold + player.UserGold;
             if (total < offer.Price) throw new GameException("GOLD_NOT_ENOUGH", "Hoàng kim không đủ.");
@@ -230,13 +230,12 @@ WHERE player_id=$1", conn, tx);
     {
         var existing = await ReadOffersAsync(conn, tx, player.Id, storeType, ct);
         var kept = existing.Where(x => x.Locked && !x.Bought).ToList();
-        if (kept.Count >= 6) return; // exact legacy fast path: six locked entries means no reroll.
+        if (kept.Count >= 6) return;
 
         var forcedIds = ParseLockedIds(store.LockedEquipmentIds);
         var occupiedTypes = kept.Select(x => x.GoodsType).ToHashSet();
         var newOffers = new List<OfferRow>(kept);
 
-        // Materialize tutorial/system forced equipment before random filling, matching lockEquipId behavior.
         foreach (var equipmentId in forcedIds)
         {
             if (newOffers.Count >= 6) break;
@@ -262,7 +261,6 @@ WHERE player_id=$1", conn, tx);
             occupiedTypes.Add(goodsType);
         }
 
-        // Rebuild only this store style. Locked offers retain their semantic identity but receive their natural slot.
         await using (var del = new NpgsqlCommand("DELETE FROM player_store_offers WHERE player_id=$1 AND store_type=$2", conn, tx))
         { del.Parameters.AddWithValue(player.Id); del.Parameters.AddWithValue(storeType); await del.ExecuteNonQueryAsync(ct); }
 
@@ -282,8 +280,6 @@ ON CONFLICT(player_id,store_type,position) DO UPDATE SET
             await ins.ExecuteNonQueryAsync(ct);
         }
 
-        // Legacy StoreService increments intimacy after a successful refresh when player >= 18 and
-        // the current intimacy level is below EquipSuitCache.getNowMaxIntimacyLv(playerLv).
         if (player.Level >= 18 && content.IntimacyLevel(player.Intimacy) < content.MaxIntimacyLevelForPlayer(player.Level))
         {
             const int legacyHardMax = 48_511_100;
@@ -303,9 +299,8 @@ ON CONFLICT(player_id,store_type,position) DO UPDATE SET
         var basePrice = isGold ? staticItem!.Gold : (staticItem?.Copper ?? eq.CopperBuy);
         var (factor, cheap) = DecidePriceFactor();
         var price = Math.Max(0, (int)Math.Round(basePrice * factor, MidpointRounding.AwayFromZero));
-        // getRefreshAttr depends on EquipSkill static tables; until that table is ported we preserve the
-        // legacy field as an empty string rather than fabricate skill ids.
-        return new OfferRow(position, eq.Id, eq.Type, locked, false, isGold, cheap, price, "");
+        var refreshAttribute = EquipmentSkillEffectService.GenerateRefreshAttribute(content, eq);
+        return new OfferRow(position, eq.Id, eq.Type, locked, false, isGold, cheap, price, refreshAttribute);
     }
 
     EquipmentDefinition ChooseEquipment(IReadOnlyList<EquipmentDefinition> source, int intimacy)
@@ -420,7 +415,6 @@ FROM player_equipment WHERE player_id=$1 AND id=$2", conn, tx);
 
     async Task<int> CountInventoryAsync(NpgsqlConnection conn, NpgsqlTransaction tx, long playerId, CancellationToken ct)
     {
-        // Legacy StoreService.getNowItemNum ignores the shop style and calls StoreHouseDao.getCountByPlayerId.
         await using var cmd = new NpgsqlCommand("SELECT count(*) FROM player_equipment WHERE player_id=$1", conn, tx);
         cmd.Parameters.AddWithValue(playerId);
         return Convert.ToInt32(await cmd.ExecuteScalarAsync(ct));
