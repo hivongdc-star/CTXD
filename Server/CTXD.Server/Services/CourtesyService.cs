@@ -15,17 +15,16 @@ public static class CourtesyService
     public const int OpenBoxExternalEvent=7;
     public const int OpenBoxStaticEventId=13;
     public const string PendingNotificationChannel="courtesy_pending";
-    const int MaxNeedHandleSize=4;
     static readonly ConcurrentDictionary<long,int> RecommendCount=new();
 
     sealed record Profile(long Id,string Name,int Pic,int Level,int ForceId,int LiYiDu);
     sealed record Candidate(Profile Profile,int EventId,string SourceKey,int RecommendCount);
 
-    public static async Task AddPlayerEventAsync(NpgsqlConnection c,NpgsqlTransaction t,GamePushHub push,long playerId,int externalEventId,int parameter,string sourceKey,CancellationToken ct)
+    public static async Task AddPlayerEventAsync(NpgsqlConnection c,NpgsqlTransaction t,long playerId,int externalEventId,int parameter,string sourceKey,CancellationToken ct)
     {
         if(externalEventId!=OpenBoxExternalEvent||parameter!=0)
             throw new GameException("COURTESY_EVENT_UNSUPPORTED",$"Unsupported Courtesy event {externalEventId},{parameter}.",500);
-        if(!push.IsConnected(playerId))return; // legacy Players.getPlayer(): offline players do not enter CourtesyManager.
+        if(!GamePushHub.IsPlayerConnected(playerId))return; // legacy Players.getPlayer(): offline players do not enter CourtesyManager.
         var actor=await NeedHandleProfileAsync(c,t,playerId,ct);
         if(actor is null)return;
 
@@ -37,7 +36,7 @@ ON CONFLICT(source_player_id) DO UPDATE SET event_id=EXCLUDED.event_id,source_ke
             offer.Parameters.AddWithValue(playerId);offer.Parameters.AddWithValue(OpenBoxStaticEventId);offer.Parameters.AddWithValue(sourceKey);
             await offer.ExecuteNonQueryAsync(ct);
         }
-        await TryClaimOfferAsync(c,t,push,actor,ct);
+        await TryClaimOfferAsync(c,t,actor,ct);
     }
 
     public static async Task<CourtesyStateView> GetAsync(GameDb db,long playerId,CancellationToken ct)
@@ -56,20 +55,20 @@ ON CONFLICT(source_player_id) DO UPDATE SET event_id=EXCLUDED.event_id,source_ke
         return new(open,liYiDu,MaxLiYiDu,open,events);
     }
 
-    public static async Task<CourtesyHandleView> HandleAsync(GameDb db,GamePushHub push,long playerId,long courtesyEventId,CancellationToken ct)
+    public static async Task<CourtesyHandleView> HandleAsync(GameDb db,long playerId,long courtesyEventId,CancellationToken ct)
     {
         await using var c=await db.DataSource.OpenConnectionAsync(ct);
         await using var t=await c.BeginTransactionAsync(ct);
         if(!await EnsureStateIfOpenAsync(c,t,playerId,ct))throw new GameException("COURTESY_CLOSED","Courtesy is not unlocked.",409);
 
-        long counterparty;int type,eventId,state;string counterName;int counterPic,counterLevel;
-        await using(var cmd=new NpgsqlCommand(@"SELECT type,counterparty_player_id,player_name,player_pic,player_level,event_id,state
+        long counterparty;int type,eventId,state;
+        await using(var cmd=new NpgsqlCommand(@"SELECT type,counterparty_player_id,event_id,state
 FROM courtesy_events WHERE id=$1 AND player_id=$2 FOR UPDATE",c,t))
         {
             cmd.Parameters.AddWithValue(courtesyEventId);cmd.Parameters.AddWithValue(playerId);
             await using var r=await cmd.ExecuteReaderAsync(ct);
             if(!await r.ReadAsync(ct))throw new GameException("COURTESY_EVENT_NOT_FOUND","Courtesy event does not exist.",404);
-            type=r.GetInt16(0);counterparty=r.GetInt64(1);counterName=r.GetString(2);counterPic=r.GetInt32(3);counterLevel=r.GetInt32(4);eventId=r.GetInt32(5);state=r.GetInt16(6);
+            type=r.GetInt16(0);counterparty=r.GetInt64(1);eventId=r.GetInt32(2);state=r.GetInt16(3);
         }
         if(state!=1)throw new GameException("COURTESY_EVENT_HANDLED","Courtesy event was already handled.",409);
         if(eventId!=OpenBoxStaticEventId)throw new GameException("COURTESY_STATIC_UNSUPPORTED",$"Unsupported Courtesy static event {eventId}.",500);
@@ -79,8 +78,8 @@ FROM courtesy_events WHERE id=$1 AND player_id=$2 FOR UPDATE",c,t))
         {
             point=await AddPointsAsync(c,t,playerId,10,ct);
             await MarkHandledAsync(c,t,courtesyEventId,ct);
-            // Legacy creates the reply before awarding the send-side result, but only while the source player is online/module-open/<=36/not maxed.
-            if(push.IsConnected(counterparty)&&await NeedHandleProfileAsync(c,t,counterparty,ct) is not null)
+            // Legacy creates the reply only while the source player is still online/module-open/<=36/not maxed.
+            if(GamePushHub.IsPlayerConnected(counterparty)&&await NeedHandleProfileAsync(c,t,counterparty,ct) is not null)
             {
                 var handler=await ProfileAsync(c,t,playerId,ct)??throw new GameException("PLAYER_NOT_FOUND","Player does not exist.",404);
                 await InsertEventAsync(c,t,counterparty,2,handler,eventId,$"reply:{courtesyEventId}",ct);
@@ -102,7 +101,7 @@ FROM courtesy_events WHERE id=$1 AND player_id=$2 FOR UPDATE",c,t))
         return new(point,rewardType,rewardNum,new(true,liYiDu,MaxLiYiDu,true,events));
     }
 
-    static async Task TryClaimOfferAsync(NpgsqlConnection c,NpgsqlTransaction t,GamePushHub push,Profile actor,CancellationToken ct)
+    static async Task TryClaimOfferAsync(NpgsqlConnection c,NpgsqlTransaction t,Profile actor,CancellationToken ct)
     {
         var candidates=new List<Candidate>();
         await using(var cmd=new NpgsqlCommand(@"SELECT o.source_player_id,o.event_id,o.source_key,COALESCE(p.display_name,''),p.pic,p.level,p.force_id,COALESCE(pc.li_yi_du,0)
@@ -118,14 +117,14 @@ FOR UPDATE OF o SKIP LOCKED",c,t))
             await using var r=await cmd.ExecuteReaderAsync(ct);
             while(await r.ReadAsync(ct))
             {
-                var id=r.GetInt64(0);if(!push.IsConnected(id))continue;
+                var id=r.GetInt64(0);if(!GamePushHub.IsPlayerConnected(id))continue;
                 var profile=new Profile(id,r.GetString(3),r.GetInt32(4),r.GetInt32(5),r.GetInt16(6),r.GetInt32(7));
                 candidates.Add(new(profile,r.GetInt32(1),r.GetString(2),RecommendCount.GetValueOrDefault(id)));
             }
         }
         if(candidates.Count==0)return;
         var chosen=ChooseCandidate(candidates);
-        await InsertEventAsync(c,t,actor.Id,1,chosen.Profile,chosen.EventId,$"offer:{chosen.SourceKey}",ct);
+        await InsertEventAsync(c,t,actor.Id,1,chosen.Profile,chosen.EventId,$"offer:{chosen.Profile.Id}:{chosen.SourceKey}",ct);
         await using(var consume=new NpgsqlCommand("DELETE FROM courtesy_offers WHERE source_player_id=$1 AND source_key=$2",c,t))
         {consume.Parameters.AddWithValue(chosen.Profile.Id);consume.Parameters.AddWithValue(chosen.SourceKey);if(await consume.ExecuteNonQueryAsync(ct)!=1)return;}
         RecommendCount.AddOrUpdate(chosen.Profile.Id,1,static(_,v)=>v+1);
