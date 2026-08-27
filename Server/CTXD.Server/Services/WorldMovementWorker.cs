@@ -1,3 +1,5 @@
+using System.Collections.Concurrent;
+using System.Text.Json;
 using CTXD.Server.Data;
 using Npgsql;
 
@@ -19,7 +21,10 @@ public sealed class WorldMovementWorker(
     readonly AutoBattleService autoBattle=new(db,content,technologies,production,world,battles);
     readonly FarmArrivalService farmArrivals=new(db,content,production,experience,items,dstq,push);
 
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    protected override Task ExecuteAsync(CancellationToken stoppingToken)=>Task.WhenAll(
+        RunMovementLoopAsync(stoppingToken),ListenCommittedPushesAsync(stoppingToken));
+
+    async Task RunMovementLoopAsync(CancellationToken stoppingToken)
     {
         using var timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
         while (!stoppingToken.IsCancellationRequested && await timer.WaitForNextTickAsync(stoppingToken))
@@ -38,6 +43,60 @@ public sealed class WorldMovementWorker(
             catch (OperationCanceledException) when (stoppingToken.IsCancellationRequested) { }
             catch (Exception ex) { log.LogError(ex, "World movement completion tick failed"); }
         }
+    }
+
+    async Task ListenCommittedPushesAsync(CancellationToken stoppingToken)
+    {
+        while(!stoppingToken.IsCancellationRequested)
+        {
+            try
+            {
+                await using var conn=await db.DataSource.OpenConnectionAsync(stoppingToken);
+                var pending=new ConcurrentQueue<(string channel,string payload)>();
+                conn.Notification+=(sender,args)=>
+                {
+                    if(args.Channel==WorldTreasureBoxState.RewardNotificationChannel||args.Channel==CourtesyService.PendingNotificationChannel)
+                        pending.Enqueue((args.Channel,args.Payload));
+                };
+                await using(var listenWorld=new NpgsqlCommand($"LISTEN {WorldTreasureBoxState.RewardNotificationChannel}",conn))
+                    await listenWorld.ExecuteNonQueryAsync(stoppingToken);
+                await using(var listenCourtesy=new NpgsqlCommand($"LISTEN {CourtesyService.PendingNotificationChannel}",conn))
+                    await listenCourtesy.ExecuteNonQueryAsync(stoppingToken);
+
+                while(!stoppingToken.IsCancellationRequested)
+                {
+                    await conn.WaitAsync(stoppingToken);
+                    while(pending.TryDequeue(out var item))
+                    {
+                        if(item.channel==WorldTreasureBoxState.RewardNotificationChannel)await ForwardTreasureRewardAsync(item.payload,stoppingToken);
+                        else if(item.channel==CourtesyService.PendingNotificationChannel)await ForwardCourtesyAsync(item.payload,stoppingToken);
+                    }
+                }
+            }
+            catch(OperationCanceledException) when(stoppingToken.IsCancellationRequested) { return; }
+            catch(Exception ex)
+            {
+                log.LogError(ex,"Committed realtime notification listener failed");
+                try { await Task.Delay(TimeSpan.FromSeconds(1),stoppingToken); }
+                catch(OperationCanceledException) when(stoppingToken.IsCancellationRequested) { return; }
+            }
+        }
+    }
+
+    async Task ForwardTreasureRewardAsync(string payload,CancellationToken ct)
+    {
+        using var doc=JsonDocument.Parse(payload);
+        var root=doc.RootElement;
+        if(!root.TryGetProperty("playerId",out var playerElement)||!root.TryGetProperty("curReward",out var rewardElement))return;
+        var playerId=playerElement.GetInt64();var curReward=rewardElement.Clone();
+        await push.SendAsync(playerId,"world.treasure",new{curReward},ct);
+    }
+
+    async Task ForwardCourtesyAsync(string payload,CancellationToken ct)
+    {
+        using var doc=JsonDocument.Parse(payload);var root=doc.RootElement;
+        if(!root.TryGetProperty("playerId",out var playerElement))return;
+        await push.SendAsync(playerElement.GetInt64(),"courtesy.updated",new{liShangWangLai=true},ct);
     }
 
     async Task<long[]> FindDuePlayersAsync(CancellationToken ct)
