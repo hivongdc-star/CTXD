@@ -28,6 +28,11 @@ public static class FarmEndpoints
             var player=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
             return Results.Ok(await Service(db,content,production,experience,items,dstq,push).StartAsync(player,body.GeneralId,body.Type,ct));
         });
+        app.MapPost("/api/world/farm/start-all",async(FarmStartAllRequest body,HttpRequest request,AuthService auth,GameDb db,CanonicalContent content,ResourceProductionService production,ExperienceService experience,IPlayerItemInventory items,DstqActivityService dstq,GamePushHub push,CancellationToken ct)=>
+        {
+            var player=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
+            return Results.Ok(await Service(db,content,production,experience,items,dstq,push).StartAllAsync(player,body.Type,ct));
+        });
         app.MapGet("/api/world/farm/{generalId:int}/claim-cost",async(int generalId,HttpRequest request,AuthService auth,GameDb db,CanonicalContent content,CancellationToken ct)=>
         {
             var player=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
