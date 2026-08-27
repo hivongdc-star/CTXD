@@ -43,7 +43,7 @@ public static class QuenchingEndpoints
             return Results.Ok(result);
         });
 
-        return app;
+        return app.MapEquipmentComposites();
     }
 
     static string? Bearer(HttpRequest request)
