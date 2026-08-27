@@ -34,6 +34,9 @@ public sealed class EquipmentInventoryService(
         var generalType = await ReadGeneralTypeAsync(conn, tx, playerId, generalId, ct);
         EnsureCompatible(item.GoodsType, generalType);
 
+        // Legacy changeEquip: wearing normal gear removes an active Suit/Proset from this general first.
+        await EquipmentCompositeService.UnequipCompositeForNormalWearAsync(conn, tx, playerId, generalId, ct);
+
         // A general can wear one item per goods_type. Legacy changeEquip swaps the previous StoreHouse owner.
         EquipmentRow? replaced = null;
         await using (var find = new NpgsqlCommand(@"
