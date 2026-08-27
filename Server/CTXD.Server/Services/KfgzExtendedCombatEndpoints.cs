@@ -14,6 +14,7 @@ public static class KfgzExtendedCombatEndpoints
         app.MapAutoBattleEndpoints();
         app.MapFarmEndpoints();
         app.MapMineEndpoints();
+        app.MapBlacksmithEndpoints();
         app.MapTreasureEndpoints();
         app.MapWeaponEndpoints();
         app.MapTicketsMarketEndpoints();
