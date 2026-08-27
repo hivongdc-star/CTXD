@@ -4,8 +4,10 @@ namespace CTXD.Server.Services;
 
 public static class ResourceAdditionEndpoints
 {
+    const string Mode3CountryNoticeTemplate="<font color=\"#00FF00\">{0}</font>开启了三倍资源产出，事半功倍，一夜暴富！";
     static readonly ResourceAdditionService Service=new();
     static readonly ResourceAdditionSideEffectService SideEffects=new();
+    static readonly CountryNoticeService Notices=new();
 
     public static IEndpointRouteBuilder MapResourceAdditionEndpoints(this IEndpointRouteBuilder app)
     {
@@ -23,6 +25,7 @@ public static class ResourceAdditionEndpoints
         {
             var playerId=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
             var result=await Service.BuyRecruitAsync(db,content,playerId,body.AdditionMode,body.TimeType,body.RequestKey,ct);
+            if(!result.Replayed&&body.AdditionMode==3)await PublishMode3NoticeAsync(db,push,playerId,ct);
             var reward=await SideEffects.ApplyPaidRecruitRewardAsync(db,content,inventory,playerId,body.RequestKey,body.AdditionMode,body.TimeType,ct);
             if(!result.Replayed)await push.SendAsync(playerId,"quest.updated",await quests.GetCurrentAsync(playerId,ct),ct);
             return Results.Ok(new ResourceAdditionActivationResponse(result.State,result.GoldSpent,result.ItemId,result.Replayed,reward.RewardType,reward.RewardValue));
@@ -31,10 +34,23 @@ public static class ResourceAdditionEndpoints
         {
             var playerId=await auth.ResolvePlayerIdAsync(Bearer(request),ct);
             var result=await Service.UseRecruitItemAsync(db,content,inventory,playerId,body.ItemId,body.RequestKey,ct);
+            if(!result.Replayed&&result.State.AdditionMode==3)await PublishMode3NoticeAsync(db,push,playerId,ct);
             if(!result.Replayed)await push.SendAsync(playerId,"quest.updated",await quests.GetCurrentAsync(playerId,ct),ct);
             return Results.Ok(result);
         });
         return app;
+    }
+
+    static async Task PublishMode3NoticeAsync(GameDb db,GamePushHub push,long playerId,CancellationToken ct)
+    {
+        await using var c=await db.DataSource.OpenConnectionAsync(ct);
+        await using var q=new Npgsql.NpgsqlCommand("SELECT display_name FROM players WHERE id=$1",c);
+        q.Parameters.AddWithValue(playerId);
+        var raw=await q.ExecuteScalarAsync(ct);
+        if(raw is null or DBNull)throw new GameException("PLAYER_NOT_FOUND","Player does not exist.",404);
+        var displayName=Convert.ToString(raw)??string.Empty;
+        var content=string.Format(System.Globalization.CultureInfo.InvariantCulture,Mode3CountryNoticeTemplate,displayName);
+        await Notices.PublishForPlayerAsync(db,push,playerId,content,ct);
     }
 
     static string? Bearer(HttpRequest request)
