@@ -54,6 +54,7 @@ namespace CTXD.Client.Editor
                 if (AssetImporter.GetAtPath(path) is not TextureImporter ti) continue;
                 var dirty = false;
                 if (ti.textureType != TextureImporterType.Sprite) { ti.textureType = TextureImporterType.Sprite; dirty = true; }
+                if (ti.spriteImportMode != SpriteImportMode.Single) { ti.spriteImportMode = SpriteImportMode.Single; dirty = true; }
                 if (ti.mipmapEnabled) { ti.mipmapEnabled = false; dirty = true; }
                 if (ti.alphaIsTransparency == false && path.EndsWith(".png")) { ti.alphaIsTransparency = true; dirty = true; }
                 if (dirty) ti.SaveAndReimport();

@@ -131,7 +131,7 @@ namespace CTXD.Client.Features.Social
             var root = LegacyUiFactory.PixelPanel(parent, "BanquetLegacyVisual", x, y, width, height, Color.clear);
             var image = root.GetComponent<Image>();
             image.sprite = sprite;
-            image.type = Image.Type.Simple;
+            image.type = UnityEngine.UI.Image.Type.Simple;
             image.color = sprite == null ? Color.clear : Color.white;
             image.raycastTarget = false;
             return image;
