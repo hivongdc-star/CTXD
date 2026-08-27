@@ -1,5 +1,4 @@
 using CTXD.Server.Data;
-using CTXD.Server.Data;
 using Npgsql;
 
 namespace CTXD.Server.Services;
