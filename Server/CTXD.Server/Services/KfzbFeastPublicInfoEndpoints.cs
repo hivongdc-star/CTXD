@@ -18,4 +18,3 @@ public static class KfzbFeastPublicInfoEndpoints
         return h.StartsWith("Bearer ",StringComparison.OrdinalIgnoreCase)?h[7..].Trim():null;
     }
 }
-
