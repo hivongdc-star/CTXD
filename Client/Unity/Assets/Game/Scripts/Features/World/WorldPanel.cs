@@ -15,7 +15,7 @@ namespace CTXD.Client.Features.World
         const float MapScale = .145f;
         static WorldPanel _open;
         ApiClient _api; Action<string> _status; RectTransform _window;
-        WorldResponse _world; GeneralRosterResponse _generals;
+        WorldResponse _world; GeneralRosterResponse _generals; PlayerView _player;
         int _generalId, _cityId; bool _busy;
 
         public static WorldPanel Open(RectTransform host, ApiClient api, Action<string> status)
@@ -30,7 +30,7 @@ namespace CTXD.Client.Features.World
 
         async Task RefreshAsync()
         {
-            try { _world = await _api.GetWorldAsync(); _generals = await _api.GetGeneralsAsync(); if (_window != null) Draw(); }
+            try { _world = await _api.GetWorldAsync(); _generals = await _api.GetGeneralsAsync(); _player = await _api.GetPlayerAsync(); if (_window != null) Draw(); }
             catch (Exception ex) { _status(ex.Message); }
         }
 
@@ -47,7 +47,7 @@ namespace CTXD.Client.Features.World
         {
             try
             {
-                _world = await _api.GetWorldAsync(); _generals = await _api.GetGeneralsAsync();
+                _world = await _api.GetWorldAsync(); _generals = await _api.GetGeneralsAsync(); _player = await _api.GetPlayerAsync();
                 var military = _generals?.military ?? Array.Empty<GeneralView>();
                 if (military.Length > 0) _generalId = _world.focusGeneralId != 0 ? _world.focusGeneralId : military[0].id;
                 _cityId = _world.capitalCityId; Draw();
@@ -129,6 +129,9 @@ namespace CTXD.Client.Features.World
                 () => AutoBattlePanel.Open((RectTransform)_window.parent, _api, _status, city.id));
             LegacyUiFactory.PixelButton(_window, "Truân Điền", 14, 578, 244, 34,
                 () => FarmPanel.Open((RectTransform)_window.parent, _api, _status, _generalId));
+            if(_player?.functionIds!=null&&Array.IndexOf(_player.functionIds,66)>=0)
+                LegacyUiFactory.PixelButton(_window, "Thợ Rèn", 906, 578, 104, 34,
+                    () => BlacksmithPanel.Open((RectTransform)_window.parent, _api, _status));
             LegacyUiFactory.PixelButton(_window, "Khoáng", 1018, 578, 132, 34,
                 () => MinePanel.Open((RectTransform)_window.parent, _api, _status, _generalId));
         }
