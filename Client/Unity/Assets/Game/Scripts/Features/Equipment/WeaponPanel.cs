@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using CTXD.Client.Features.FirstPlayable;
+using CTXD.Client.Features.World;
 using CTXD.Client.Networking;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,6 +49,7 @@ namespace CTXD.Client.Features.Equipment
             LegacyUiFactory.PixelLabel(_window,"BINH KHÍ",22,TextAnchor.MiddleCenter,new Color(1,.82f,.35f),225,8,290,34);
             var iron=_view.resources==null?0:_view.resources.iron;
             LegacyUiFactory.PixelLabel(_window,$"Sắt: {iron:N0}",14,TextAnchor.MiddleLeft,new Color(.9f,.86f,.75f),18,18,180,26);
+            LegacyUiFactory.PixelButton(_window,"Lao Phòng",548,13,96,27,()=>PrisonPanel.Open((RectTransform)transform.parent,_api,_status));
             LegacyUiFactory.PixelButton(_window,"Đóng",650,13,70,27,()=>Destroy(gameObject));
 
             var weapons=(_view.weapons??Array.Empty<WeaponItemView>()).OrderBy(x=>x.id).ToArray();
