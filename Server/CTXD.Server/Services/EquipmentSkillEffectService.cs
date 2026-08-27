@@ -7,13 +7,16 @@ using Npgsql;
 
 namespace CTXD.Server.Services;
 
-public readonly record struct EquipmentSkillFlatEffect(int Attack,int Defense,int Blood);
+public readonly record struct EquipmentSkillBattleEffect(
+    int Attack,int Defense,int Blood,
+    int AttackBonus,int DefenseBonus,
+    int TacticAttack,int TacticDefense);
 
 /// <summary>
 /// Authoritative legacy equipment refresh-skill catalog.
 /// StoreService.getRefreshAttr rolls skill_num entries with replacement from equip_skill by skill_type,
-/// each at skill_lv_default. BattleEffectCache.calcEquipMilitaryEffect consumes ATT/DEF/BLOOD effects
-/// from the equipped item's refresh_attribute string. ATT_B/DEF_B/TACTIC_* remain outside this flat projection.
+/// each at skill_lv_default. BattleEffectCache.calcEquipMilitaryEffect consumes the equipped item's
+/// refresh_attribute string as flat ATT/DEF/BLOOD plus ATT_B/DEF_B/TACTIC_ATT/TACTIC_DEF combat effects.
 /// </summary>
 public static class EquipmentSkillEffectService
 {
@@ -46,7 +49,7 @@ public static class EquipmentSkillEffectService
         return string.Join(';',result);
     }
 
-    public static async Task<EquipmentSkillFlatEffect> BattleFlatAsync(
+    public static async Task<EquipmentSkillBattleEffect> BattleAsync(
         NpgsqlConnection connection,NpgsqlTransaction? transaction,CanonicalContent content,long playerId,int generalId,CancellationToken ct)
     {
         var attributes=new List<string>();
@@ -56,7 +59,8 @@ public static class EquipmentSkillEffectService
             await using var r=await cmd.ExecuteReaderAsync(ct);
             while(await r.ReadAsync(ct))attributes.Add(r.IsDBNull(0)?"":r.GetString(0));
         }
-        var catalog=Get(content);var attack=0;var defense=0;var blood=0;
+        var catalog=Get(content);
+        var attack=0;var defense=0;var blood=0;var attackBonus=0;var defenseBonus=0;var tacticAttack=0;var tacticDefense=0;
         foreach(var raw in attributes)
         foreach(var token in raw.Split(';',StringSplitOptions.RemoveEmptyEntries|StringSplitOptions.TrimEntries))
         {
@@ -70,9 +74,13 @@ public static class EquipmentSkillEffectService
                 case "ATT":attack+=value;break;
                 case "DEF":defense+=value;break;
                 case "BLOOD":blood+=value;break;
+                case "ATT_B":attackBonus+=value;break;
+                case "DEF_B":defenseBonus+=value;break;
+                case "TACTIC_ATT":tacticAttack+=value;break;
+                case "TACTIC_DEF":tacticDefense+=value;break;
             }
         }
-        return new(attack,defense,blood);
+        return new(attack,defense,blood,attackBonus,defenseBonus,tacticAttack,tacticDefense);
     }
 
     static Catalog Get(CanonicalContent content)=>Cache.GetOrAdd(content.BaseDirectory,Load);
