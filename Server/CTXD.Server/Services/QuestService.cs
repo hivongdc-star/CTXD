@@ -150,6 +150,8 @@ FROM player_quest_branches b WHERE b.player_id=$1 AND b.branch_id=$2 FOR UPDATE"
                 var treasureTypeArgs=Args(task.Target);var treasureType=treasureTypeArgs.Length==0?0:treasureTypeArgs[0];var treasureCount=treasureType==0?await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",null,ct):await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",treasureType,ct);return(treasureCount>0,null);
             case "sell_equip":
                 return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"sell_equip",null,ct)>0,null);
+            case "equip_skill_refresh":
+                return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"equip_skill_refresh",null,ct)>0,null);
             case "tavern_refresh":
                 if(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"tavern_refresh",null,ct)>0)return(true,null);await using(var tavernCd=new NpgsqlCommand("SELECT EXISTS(SELECT 1 FROM player_tavern WHERE player_id=$1 AND (next_civil_at>now() OR next_military_at>now()))",c,t)){tavernCd.Parameters.AddWithValue(player);return(Convert.ToBoolean(await tavernCd.ExecuteScalarAsync(ct)),null);}
             case "and":
@@ -204,7 +206,7 @@ FROM player_quest_branches b WHERE b.player_id=$1 AND b.branch_id=$2 FOR UPDATE"
         return(results.Count>0&&(requireAll?results.All(x=>x):results.Any(x=>x)),null);
     }
 
-    static readonly HashSet<string> SupportedRewards=new(StringComparer.OrdinalIgnoreCase){"ChiefExp","copper","lumber","food","iron","new_building","functionId","new_construction","auto_construction_stop","construction_complete","arms_weapon","brunch","new_incense"};
+    static readonly HashSet<string> SupportedRewards=new(StringComparer.OrdinalIgnoreCase){"ChiefExp","copper","lumber","food","iron","new_building","functionId","new_construction","auto_construction_stop","construction_complete","arms_weapon","brunch","new_incense","store_lock_off"};
     static void EnsureRewardsSupported(TaskDefinition task){var unsupported=task.Reward.FirstOrDefault(x=>!SupportedRewards.Contains(x.Kind));if(unsupported is not null)throw new GameException("QUEST_REWARD_DEPENDENCY",$"Legacy quest reward dependency is not available: {unsupported.Kind}.",409);}
     async Task ApplyRewardAsync(NpgsqlConnection c,NpgsqlTransaction t,long player,RewardDefinition reward,CancellationToken ct)
     {
@@ -218,6 +220,13 @@ FROM player_quest_branches b WHERE b.player_id=$1 AND b.branch_id=$2 FOR UPDATE"
         if(reward.Kind.Equals("arms_weapon",StringComparison.OrdinalIgnoreCase)){await WeaponService.AssignAsync(c,t,content,player,value,ct);return;}
         if(reward.Kind.Equals("brunch",StringComparison.OrdinalIgnoreCase)){await using var cmd=new NpgsqlCommand("INSERT INTO player_quest_branches(player_id,branch_id) VALUES($1,$2) ON CONFLICT DO NOTHING",c,t);cmd.Parameters.AddWithValue(player);cmd.Parameters.AddWithValue(value);await cmd.ExecuteNonQueryAsync(ct);return;}
         if(reward.Kind.Equals("new_incense",StringComparison.OrdinalIgnoreCase)){await using var cmd=new NpgsqlCommand("INSERT INTO player_incense_unlocks(player_id,incense_id) VALUES($1,$2) ON CONFLICT DO NOTHING",c,t);cmd.Parameters.AddWithValue(player);cmd.Parameters.AddWithValue(value);await cmd.ExecuteNonQueryAsync(ct);return;}
+        if(reward.Kind.Equals("store_lock_off",StringComparison.OrdinalIgnoreCase))
+        {
+            await using var cmd=new NpgsqlCommand(@"INSERT INTO player_store(player_id,locked_equipment_ids)
+VALUES($1,'')
+ON CONFLICT(player_id) DO UPDATE SET locked_equipment_ids='',updated_at=now()",c,t);
+            cmd.Parameters.AddWithValue(player);await cmd.ExecuteNonQueryAsync(ct);return;
+        }
         var column=reward.Kind.ToLowerInvariant() switch{"copper"=>"copper","lumber"=>"wood","food"=>"food","iron"=>"iron",_=>throw new GameException("QUEST_REWARD_DEPENDENCY",$"Legacy quest reward dependency is not available: {reward.Kind}.",409)};
         await using(var resource=new NpgsqlCommand($"UPDATE player_resources SET {column}={column}+$2 WHERE player_id=$1",c,t)){resource.Parameters.AddWithValue(player);resource.Parameters.AddWithValue(value);await resource.ExecuteNonQueryAsync(ct);}
     }
