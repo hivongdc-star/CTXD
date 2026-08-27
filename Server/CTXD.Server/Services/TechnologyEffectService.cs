@@ -4,10 +4,9 @@ using Npgsql;
 namespace CTXD.Server.Services;
 
 /// <summary>
-/// Read-only projection of completed legacy technology effects. Legacy TechEffectCache sums
-/// parameters for every PlayerTech with status=5 and the same key id.
-/// Keeping this separate from TechnologyService avoids a dependency cycle with systems whose
-/// output is modified by completed technologies (resources, generals, later battle/world).
+/// Read-only projection of completed legacy technology effects. For combat key 30, the legacy
+/// global Arms Weapon flat ATT/DEF/Blood values are folded into the same downstream projection
+/// so battle and recruit-cap calculations consume one authoritative stat source.
 /// </summary>
 public sealed class TechnologyEffectService(GameDb db, CanonicalContent content)
 {
@@ -45,6 +44,18 @@ WHERE player_id=$1 AND key_id=$2 AND status=5", conn, tx))
                     definition.Parameters.Length > parameterIndex)
                     sum += definition.Parameters[parameterIndex];
             }
+
+            if (key == 30 && parameterIndex < 3)
+            {
+                var weapon = await WeaponService.BattleEffectAsync(conn, tx, content, playerId, ct);
+                sum += parameterIndex switch
+                {
+                    0 => weapon.Attack,
+                    1 => weapon.Defense,
+                    2 => weapon.Blood,
+                    _ => 0
+                };
+            }
             return sum;
         }
         finally
@@ -62,7 +73,6 @@ WHERE player_id=$1 AND key_id=$2 AND status=5", conn, tx))
         NpgsqlTransaction? tx = null)
     {
         var value = await GetCompletedEffectAsync(playerId, key, parameterIndex, ct, existing, tx);
-        // Legacy TechEffectCache.getTechEffect returns an integer sum for par1/par2.
         return (int)Math.Truncate(value);
     }
 }

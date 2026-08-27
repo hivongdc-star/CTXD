@@ -14,6 +14,7 @@ public static class KfgzExtendedCombatEndpoints
         app.MapFarmEndpoints();
         app.MapMineEndpoints();
         app.MapTreasureEndpoints();
+        app.MapWeaponEndpoints();
 
         app.MapGet("/api/kfgz/resources",async(HttpRequest request,AuthService auth,KfgzExtendedCombatService combat,GameDb db,CanonicalContent content,ResourceProductionService production,TechnologyEffectService technologies,GamePushHub push,CancellationToken ct)=>
         {
