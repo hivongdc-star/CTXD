@@ -1,8 +1,8 @@
 BEGIN;
 
 -- Migration 046 originally introduced player_tickets(balance), while later ticket
--- services use player_tickets(tickets). Keep existing rows and normalize the
--- canonical column without touching Feast behavior.
+-- services use player_tickets(tickets). Copy existing balances once, then remove
+-- the obsolete column so tickets has exactly one authoritative storage source.
 ALTER TABLE player_tickets ADD COLUMN IF NOT EXISTS tickets BIGINT;
 DO $$
 BEGIN
@@ -17,6 +17,9 @@ BEGIN
 END $$;
 ALTER TABLE player_tickets ALTER COLUMN tickets SET DEFAULT 0;
 ALTER TABLE player_tickets ALTER COLUMN tickets SET NOT NULL;
+ALTER TABLE player_tickets DROP COLUMN IF EXISTS balance;
+ALTER TABLE player_tickets DROP CONSTRAINT IF EXISTS ck_player_tickets_tickets_nonnegative;
+ALTER TABLE player_tickets ADD CONSTRAINT ck_player_tickets_tickets_nonnegative CHECK(tickets>=0);
 
 -- Mail rows themselves are idempotent through player_mail.source_key. This
 -- ledger prevents the KFZB maintenance worker from repeatedly emitting the same
@@ -24,10 +27,12 @@ ALTER TABLE player_tickets ALTER COLUMN tickets SET NOT NULL;
 CREATE TABLE IF NOT EXISTS kfzb_reward_notice_ledger(
     season_id BIGINT NOT NULL REFERENCES kfzb_seasons(id) ON DELETE CASCADE,
     player_id BIGINT NOT NULL REFERENCES players(id) ON DELETE CASCADE,
-    kind TEXT NOT NULL CHECK(kind IN('eliminated','title','end')),
+    kind TEXT NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     PRIMARY KEY(season_id,player_id,kind)
 );
+ALTER TABLE kfzb_reward_notice_ledger DROP CONSTRAINT IF EXISTS kfzb_reward_notice_ledger_kind_check;
+ALTER TABLE kfzb_reward_notice_ledger ADD CONSTRAINT kfzb_reward_notice_ledger_kind_check CHECK(kind IN('eliminated','title','end','treasure'));
 
 -- Legacy title timing: runner-up/top-4/top-8/qualifier titles are attached when
 -- elimination is finalized. The champion title must not become active before
