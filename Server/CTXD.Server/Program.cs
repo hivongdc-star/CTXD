@@ -131,7 +131,7 @@ app.MapPost("/api/activities/online-gift/claim",async(OnlineGiftClaimRequest bod
 app.MapGet("/api/activities/daily-gift",async(HttpRequest request,AuthService auth,DailyGiftService gifts,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await gifts.GetAsync(id,ct));});
 app.MapPost("/api/activities/daily-gift/claim",async(DailyGiftRequest body,HttpRequest request,AuthService auth,DailyGiftService gifts,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await gifts.ClaimAsync(id,body.RequestKey,ct));});
 app.MapGet("/api/activities/battle-exp",async(HttpRequest request,AuthService auth,BattleExpActivityService activity,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await activity.GetAsync(id,ct));});
-app.MapPost("/api/activities/battle-exp/activate",async(HttpRequest request,AuthService auth,BattleExpActivityService activity,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await activity.ActivateAsync(id,ct);return Results.Ok(result);});
+app.MapPost("/api/activities/battle-exp/activate",async(HttpRequest request,AuthService auth,BattleExpActivityService activity,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await activity.ActivateAsync(id,ct));});
 app.MapGet("/api/activities/level-exp",async(HttpRequest request,AuthService auth,LevelExpActivityService activity,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await activity.GetAsync(id,ct));});
 app.MapPost("/api/activities/level-exp/claim",async(HttpRequest request,AuthService auth,LevelExpActivityService activity,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await activity.ClaimAsync(id,ct));});
 app.MapGet("/api/activities/dragon",async(HttpRequest request,AuthService auth,DragonActivityService activity,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await activity.GetAsync(id,ct));});
@@ -342,7 +342,7 @@ app.MapPost("/api/equipment/inventory/{instanceId:long}/equip", async (long inst
     return Results.Ok(result);
 });
 
-app.MapPost("/api/equipment/inventory/{instanceId:long}/unequip", async (long instanceId, HttpRequest request, AuthService auth, EquipmentInventoryService inventory, GeneralService generals, GamePushHub push,CancellationToken ct) =>
+app.MapPost("/api/equipment/inventory/{instanceId:long}/unequip", async (long instanceId, HttpRequest request, AuthService auth, EquipmentInventoryService inventory, GeneralService generals, GamePushHub push, CancellationToken ct) =>
 {
     var id = await auth.ResolvePlayerIdAsync(Bearer(request), ct);
     var result = await inventory.UnequipAsync(id, instanceId, ct);
