@@ -56,6 +56,7 @@ public sealed partial class PrisonService
         services.GetRequiredService<ExperienceService>(),
         services.GetRequiredService<TechnologyEffectService>(),
         services.GetRequiredService<DstqActivityService>(),
+        services.GetRequiredService<SlaveActivityService>(),
         services.GetRequiredService<GamePushHub>());
 
     static StaticData LoadStatic(string dir)

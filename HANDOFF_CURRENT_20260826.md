@@ -280,3 +280,16 @@ Farm còn PARTIAL nhỏ:
   - COMMERCIAL: new baseline **~68%**.
 - `BUILD`
 - `COMMERCIAL %` — giữ baseline hiện tại ~66%, chỉ tăng bằng functionality thật.
+
+## Session 2026-08-27 — Prison follow-up + authoritative Tickets
+- Base: `1d14649` trên `codex/kfgz-extended-combat`.
+- DONE quest branch `804 / Builded_Limbo`: trạng thái hoàn thành theo `player_prisons`, claim idempotent một lần, reward authoritative `copper,2000`; migration `060_prison_followup.sql`.
+- DONE Trial lash override: dùng `try_gold`, cộng dồn `trail_gold`, hiệu lực đúng 24 giờ ở cấp roi kế tiếp; đủ tổng cost thì nâng cấp thật và reset trial. Manual lash, auto-lash và escape CD đều dùng effective lash level.
+- DONE SlaveEvent type 9: bit mở theo lash level, 4 reward authoritative (EXP 500k/1m, iron 100k/200k), capture/lash state, mỗi event slave đã lash cộng `2500 EXP` cho mọi prisoner lash, tự trả reward chưa capture khi activity hết hạn; migration `061_slave_activity.sql`; Unity minimal panel đã nối.
+- DONE nguồn Tickets authoritative đầu tiên: KFWD match settlement ghi idempotent vào `player_ticket_grants` rồi cộng `player_tickets`; sửa KFZB Feast ghi đúng column `tickets` và migration `060` đổi schema legacy `balance` sang `tickets` (giữ nguyên số dư).
+- BLOCKED `prison_reward/labor`: 28 static rows và stage mapper có thật, nhưng không tìm thấy runtime caller dùng các stage methods trong legacy source đã kiểm tra. Không invent labor flow/reward.
+- PARTIAL Tickets: các nguồn KFWD/KFGZ/KFZB/pay-event khác có legacy `addTickets`, nhưng chỉ KFWD per-match hiện có đủ công thức và lifecycle tương ứng trong remake để nối an toàn. Day/final/coordinator rewards vẫn BLOCKED nếu thiếu mapping authoritative.
+- BUILD: `dotnet build CTXD.Server.csproj` PASS, 0 warnings / 0 errors. PostgreSQL migration/startup/health chưa rerun được ở environment này vì local PostgreSQL `127.0.0.1:5432` offline; baseline CI trước session vẫn PASS.
+- Unity Editor compile chưa được xác nhận.
+- NEXT: tiếp tục các gap có evidence trong danh sách PARTIAL/BLOCKED; ưu tiên Tickets/reward source nào có lifecycle + mapping đầy đủ, nếu thiếu thì chuyển quest provider hoặc battle equipment/suit effect có static/runtime evidence. Không quay lại audit toàn repo.
+- COMMERCIAL: baseline mới **~71%** nhờ functionality server + Unity thật; không tính phần labor/reward đang BLOCKED.

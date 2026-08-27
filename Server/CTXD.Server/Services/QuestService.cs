@@ -8,9 +8,14 @@ namespace CTXD.Server.Services;
 public sealed record QuestView(int TaskId,string Name,string IntroLong,string IntroShort,string Target,int[] TargetArgs,bool Completed,string? Dependency,object[] Rewards);
 public sealed record QuestClaimResult(int TaskId,int NextTaskId,object[] Rewards);
 public sealed record QuestRuntimeResult(string Kind,int Remaining);
+public sealed record QuestBranchView(int BranchId,int Index,string Name,string IntroLong,string IntroShort,string Target,bool Completed,bool Claimed,object[] Rewards);
+public sealed record QuestBranchClaimResult(int BranchId,int Index,object[] Rewards);
 
 public sealed class QuestService(GameDb db,CanonicalContent content,ExperienceService experience,ResourceProductionService production)
 {
+    const int LimboBranchId=804;
+    static readonly object[] LimboRewards=[new{kind="copper",args=new[]{2000}}];
+
     public async Task<QuestView> GetCurrentAsync(long playerId,CancellationToken ct)
     {
         await using var c=await db.DataSource.OpenConnectionAsync(ct);
@@ -45,6 +50,45 @@ public sealed class QuestService(GameDb db,CanonicalContent content,ExperienceSe
         await using(var ensure=new NpgsqlCommand("INSERT INTO player_quest_runtime(player_id) VALUES($1) ON CONFLICT DO NOTHING",c,t)){ensure.Parameters.AddWithValue(playerId);await ensure.ExecuteNonQueryAsync(ct);}
         await using(var cmd=new NpgsqlCommand("UPDATE player_quest_runtime SET kidnapper=0,updated_at=now() WHERE player_id=$1 AND kidnapper>0 RETURNING kidnapper",c,t)){cmd.Parameters.AddWithValue(playerId);var result=await cmd.ExecuteScalarAsync(ct);if(result is null)throw new GameException("KIDNAPPER_ALREADY_DEFEATED","Kidnapper has already been defeated.",409);}
         await t.CommitAsync(ct);return new("kidnapper",0);
+    }
+
+    public async Task<QuestBranchView[]> GetBranchesAsync(long playerId,CancellationToken ct)
+    {
+        await using var c=await db.DataSource.OpenConnectionAsync(ct);
+        bool unlocked,claimed,built;
+        await using(var q=new NpgsqlCommand(@"SELECT b.claimed_at IS NOT NULL,EXISTS(SELECT 1 FROM player_prisons p WHERE p.player_id=b.player_id)
+FROM player_quest_branches b WHERE b.player_id=$1 AND b.branch_id=$2",c))
+        {
+            q.Parameters.AddWithValue(playerId);q.Parameters.AddWithValue(LimboBranchId);
+            await using var r=await q.ExecuteReaderAsync(ct);unlocked=await r.ReadAsync(ct);
+            if(!unlocked)return[];claimed=r.GetBoolean(0);built=r.GetBoolean(1);
+        }
+        return[new(LimboBranchId,1,"Kiến Tạo Lao Phòng","","","Builded_Limbo",built,claimed,LimboRewards)];
+    }
+
+    public async Task<QuestBranchClaimResult> ClaimBranchAsync(long playerId,int branchId,CancellationToken ct)
+    {
+        if(branchId!=LimboBranchId)throw new GameException("QUEST_BRANCH_STATIC_MISSING",$"Legacy quest branch {branchId} is not available.",404);
+        await using var c=await db.DataSource.OpenConnectionAsync(ct);await using var t=await c.BeginTransactionAsync(ct);
+        bool claimed,built;
+        await using(var q=new NpgsqlCommand(@"SELECT b.claimed_at IS NOT NULL,EXISTS(SELECT 1 FROM player_prisons p WHERE p.player_id=b.player_id)
+FROM player_quest_branches b WHERE b.player_id=$1 AND b.branch_id=$2 FOR UPDATE",c,t))
+        {
+            q.Parameters.AddWithValue(playerId);q.Parameters.AddWithValue(branchId);await using var r=await q.ExecuteReaderAsync(ct);
+            if(!await r.ReadAsync(ct))throw new GameException("QUEST_BRANCH_LOCKED","Quest branch is not unlocked.",403);
+            claimed=r.GetBoolean(0);built=r.GetBoolean(1);
+        }
+        if(claimed)throw new GameException("QUEST_ALREADY_CLAIMED","Quest reward was already claimed.",409);
+        if(!built)throw new GameException("QUEST_NOT_COMPLETE","Lao Phòng has not been built.",409);
+        await using(var reward=new NpgsqlCommand("UPDATE player_resources SET copper=copper+2000 WHERE player_id=$1",c,t)){reward.Parameters.AddWithValue(playerId);await reward.ExecuteNonQueryAsync(ct);}
+        await using(var done=new NpgsqlCommand("UPDATE player_quest_branches SET completed_at=COALESCE(completed_at,now()),claimed_at=now() WHERE player_id=$1 AND branch_id=$2 AND claimed_at IS NULL",c,t)){done.Parameters.AddWithValue(playerId);done.Parameters.AddWithValue(branchId);if(await done.ExecuteNonQueryAsync(ct)!=1)throw new GameException("QUEST_STATE_CHANGED","Quest branch state changed during claim.",409);}
+        await t.CommitAsync(ct);return new(branchId,1,LimboRewards);
+    }
+
+    public static async Task MarkBuildedLimboAsync(NpgsqlConnection c,NpgsqlTransaction t,long playerId,CancellationToken ct)
+    {
+        await using var q=new NpgsqlCommand("UPDATE player_quest_branches SET completed_at=COALESCE(completed_at,now()) WHERE player_id=$1 AND branch_id=$2 AND claimed_at IS NULL",c,t);
+        q.Parameters.AddWithValue(playerId);q.Parameters.AddWithValue(LimboBranchId);await q.ExecuteNonQueryAsync(ct);
     }
 
     TaskDefinition GetTask(int id)=>content.Tasks.TryGetValue(id,out var task)?task:throw new GameException("QUEST_STATIC_MISSING",$"Legacy task {id} is missing.",500);

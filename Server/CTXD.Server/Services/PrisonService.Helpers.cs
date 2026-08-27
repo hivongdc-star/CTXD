@@ -5,6 +5,8 @@ namespace CTXD.Server.Services;
 
 public sealed partial class PrisonService
 {
+    static int EffectiveLashLevel(Holder holder)=>Math.Min(5,holder.LashLv+(holder.ExpireAt>DateTimeOffset.UtcNow?1:0));
+
     async Task<int> TryAddPointAsync(NpgsqlConnection c,NpgsqlTransaction t,long playerId,Holder holder,CancellationToken ct)
     {
         var degree=data.Degrees[holder.LashLv];if(degree.ExpFree<=0||holder.Point>=degree.ExpFree)return holder.Point;
@@ -16,6 +18,7 @@ public sealed partial class PrisonService
         {
             lash++;
             await using var up=new NpgsqlCommand("UPDATE player_prisons SET lash_lv=$2,expire_at=NULL,trail_gold=0,updated_at=now() WHERE player_id=$1",c,t);up.Parameters.AddWithValue(playerId);up.Parameters.AddWithValue(lash);await up.ExecuteNonQueryAsync(ct);
+            await slaveActivity.UnlockAsync(c,t,playerId,holder.LashLv,ct);
         }
         return point;
     }

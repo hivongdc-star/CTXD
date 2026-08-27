@@ -15,6 +15,7 @@ namespace CTXD.Client.Features.World
         Action<string> _status;
         RectTransform _window;
         PrisonView _view;
+        SlaveActivityView _slaveActivity;
         bool _busy;
 
         public static PrisonPanel Open(RectTransform host,ApiClient api,Action<string> status)
@@ -35,7 +36,12 @@ namespace CTXD.Client.Features.World
         async Task Load()
         {
             if(_busy)return;_busy=true;
-            try{_view=await _api.GetPrisonAsync();Draw();}
+            try
+            {
+                _view=await _api.GetPrisonAsync();
+                try{_slaveActivity=await _api.GetSlaveActivityAsync();}catch(ApiException e)when(e.Code=="SLAVE_ACTIVITY_UNAVAILABLE"||e.Code=="PRISON_MISSING"){_slaveActivity=null;}
+                Draw();
+            }
             catch(Exception e){_status(e.Message);}
             finally{_busy=false;}
         }
@@ -56,7 +62,8 @@ namespace CTXD.Client.Features.World
             }
 
             var tech=_view.haveTech?$"Điểm tự do {_view.currentFreePoint}/{_view.maxFreePoint}":"Chưa có kỹ thuật điểm tự do";
-            LegacyUiFactory.PixelLabel(_window,$"Lao Phòng Lv.{_view.prisonLv}   Roi Lv.{_view.lashLv}/{_view.maxLashLv}   Bắt: {_view.grabNum}   Phẩm chất: {_view.quality}\nEXP tự quất: {_view.autoLashExp:N0}   {tech}",14,TextAnchor.UpperLeft,new Color(.92f,.86f,.68f),18,48,520,56);
+            var lashText=_view.trialActive?$"Roi Lv.{_view.effectiveLashLv} (thử)":$"Roi Lv.{_view.lashLv}";
+            LegacyUiFactory.PixelLabel(_window,$"Lao Phòng Lv.{_view.prisonLv}   {lashText}/{_view.maxLashLv}   Bắt: {_view.grabNum}   Phẩm chất: {_view.quality}\nEXP tự quất: {_view.autoLashExp:N0}   {tech}",14,TextAnchor.UpperLeft,new Color(.92f,.86f,.68f),18,48,520,56);
             if(_view.canUpdate)
             {
                 var text=_view.haveUpgradePic?"Nâng Lao Phòng":"Thiếu bản vẽ";
@@ -64,6 +71,10 @@ namespace CTXD.Client.Features.World
             }
             if(_view.lashLv<_view.maxLashLv)
                 LegacyUiFactory.PixelButton(_window,$"Nâng roi ({_view.upgradeGold}v)",548,85,178,28,async()=>await UpgradeLash());
+            if(_view.canTrial)
+                LegacyUiFactory.PixelButton(_window,$"Thử roi ({_view.trialGold}v)",548,116,178,28,async()=>await TrialLash());
+            if(_slaveActivity!=null)
+                LegacyUiFactory.PixelButton(_window,$"Sự kiện +{_slaveActivity.bonusExp} EXP",548,147,178,28,()=>SlaveActivityPanel.Open((RectTransform)transform.parent,_api,_status,_slaveActivity));
 
             LegacyUiFactory.PixelLabel(_window,"TÙ NHÂN",16,TextAnchor.MiddleLeft,new Color(1,.82f,.35f),18,118,240,24);
             var prisoners=(_view.generals??Array.Empty<PrisonerView>()).Take(5).ToArray();
@@ -102,6 +113,7 @@ namespace CTXD.Client.Features.World
         async Task BuildPrison()=>await RefreshAction(async()=>{_view=await _api.BuildPrisonAsync();_status("Đã kiến tạo Lao Phòng.");});
         async Task UpgradePrison()=>await RefreshAction(async()=>{_view=await _api.UpgradePrisonAsync();_status($"Lao Phòng lên Lv.{_view.prisonLv}.");});
         async Task UpgradeLash()=>await RefreshAction(async()=>{_view=await _api.UpgradeLashAsync();_status($"Roi lên Lv.{_view.lashLv}.");});
+        async Task TrialLash()=>await RefreshAction(async()=>{var r=await _api.TrialLashAsync();_status(r.upgraded?$"Roi lên Lv.{r.lashLv}.":$"Dùng thử Roi Lv.{r.effectiveLashLv} trong 24 giờ.");_view=await _api.GetPrisonAsync();});
         async Task Lash(PrisonerView slave)=>await RefreshAction(async()=>{var r=await _api.LashPrisonerAsync(slave.id);_status($"Quất {slave.generalName}: +{r.rewardExp:N0} EXP.");_view=await _api.GetPrisonAsync();});
         async Task Free(PrisonerView slave)=>await RefreshAction(async()=>{await _api.FreePrisonerAsync(slave.id);_status($"Đã phóng thích {slave.generalName}.");_view=await _api.GetPrisonAsync();});
         async Task Escape(CaptiveGeneralView captive)=>await RefreshAction(async()=>{var r=await _api.EscapePrisonAsync(captive.generalId);_status($"{captive.generalName} bắt đầu vượt ngục ({r.seconds}s).");_view=await _api.GetPrisonAsync();});

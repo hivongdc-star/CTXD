@@ -44,6 +44,7 @@ builder.Services.AddSingleton<ActivityScheduleService>();
 builder.Services.AddSingleton<DragonActivityService>();
 builder.Services.AddSingleton<DstqActivityService>();
 builder.Services.AddSingleton<IronActivityService>();
+builder.Services.AddSingleton<SlaveActivityService>();
 builder.Services.AddSingleton<MineService>();
 builder.Services.AddSingleton<TreasureService>();
 builder.Services.AddSingleton<ISystemMailSender>(sp=>sp.GetRequiredService<MailService>());
@@ -94,6 +95,8 @@ app.MapKfgzExtendedCombat();
 app.MapGet("/api/quests/current",async(HttpRequest request,AuthService auth,QuestService quests,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await quests.GetCurrentAsync(id,ct));});
 app.MapPost("/api/quests/current/claim",async(HttpRequest request,AuthService auth,QuestService quests,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await quests.ClaimCurrentAsync(id,ct);await push.SendAsync(id,"quest.updated",result,ct);return Results.Ok(result);});
 app.MapPost("/api/quests/kidnappers/{kidnapperId:int}/defeat",async(int kidnapperId,HttpRequest request,AuthService auth,QuestService quests,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await quests.KillKidnapperAsync(id,kidnapperId,ct);await push.SendAsync(id,"quest.updated",result,ct);return Results.Ok(result);});
+app.MapGet("/api/quests/branches",async(HttpRequest request,AuthService auth,QuestService quests,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await quests.GetBranchesAsync(id,ct));});
+app.MapPost("/api/quests/branches/{branchId:int}/claim",async(int branchId,HttpRequest request,AuthService auth,QuestService quests,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await quests.ClaimBranchAsync(id,branchId,ct);await push.SendAsync(id,"quest.updated",result,ct);return Results.Ok(result);});
 app.MapGet("/api/mail",async(int? page,bool? deleted,int? type,HttpRequest request,AuthService auth,MailService mail,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await mail.ListAsync(id,page??0,deleted??false,type,ct));});
 app.MapPost("/api/mail/{mailId:long}/read",async(long mailId,HttpRequest request,AuthService auth,MailService mail,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);await mail.ReadAsync(id,mailId,ct);await push.SendAsync(id,"mail.updated",new{mailId,read=true},ct);return Results.Ok();});
 app.MapPost("/api/mail/{mailId:long}/claim",async(long mailId,HttpRequest request,AuthService auth,MailService mail,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var rewards=await mail.ClaimAsync(id,mailId,ct);await push.SendAsync(id,"mail.updated",new{mailId,claimed=true},ct);return Results.Ok(new{items=rewards});});
@@ -138,6 +141,9 @@ app.MapPost("/api/vip/{vipLevel:int}/{sequence:int}/claim",async(int vipLevel,in
 app.MapPost("/internal/pay/entitlements",async(PayEntitlementRequest body,HttpRequest request,IConfiguration config,PayEntitlementService pay,CancellationToken ct)=>{var key=config["Game:BattleResultKey"];if(string.IsNullOrWhiteSpace(key))return Results.StatusCode(503);if(!string.Equals(request.Headers["X-Battle-Key"],key,StringComparison.Ordinal))return Results.Unauthorized();return Results.Ok(await pay.ApplyAsync(body,ct));});
 app.MapGet("/api/activities/iron",async(HttpRequest request,AuthService auth,IronActivityService activity,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await activity.GetAsync(id,ct));});
 app.MapPost("/api/activities/iron/claim",async(IronClaimRequest body,HttpRequest request,AuthService auth,IronActivityService activity,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await activity.ClaimAsync(id,body.RequestKey,ct));});
+app.MapGet("/api/activities/slave",async(HttpRequest request,AuthService auth,SlaveActivityService activity,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await activity.GetAsync(id,ct));});
+app.MapPost("/api/activities/slave/capture/{position:int}",async(int position,HttpRequest request,AuthService auth,SlaveActivityService activity,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await activity.CaptureAsync(id,position,ct));});
+app.MapPost("/api/activities/slave/lash/{position:int}",async(int position,HttpRequest request,AuthService auth,SlaveActivityService activity,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await activity.LashAsync(id,position,ct));});
 
 app.MapGet("/api/nation", async (HttpRequest request,AuthService auth,NationService nation,CancellationToken ct) =>
 {

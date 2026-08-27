@@ -97,7 +97,7 @@ ON CONFLICT(battle_id,killed_unit_id) DO NOTHING",c,t);
         await using(var state=new NpgsqlCommand("UPDATE player_generals SET state=$3,updated_at=now() WHERE player_id=$1 AND general_id=$2",c,t)){state.Parameters.AddWithValue(slavePlayer);state.Parameters.AddWithValue(general);state.Parameters.AddWithValue(CapturedState);await state.ExecuteNonQueryAsync(ct);}
         if(slash>0)
         {
-            var degree=data.Degrees[holder.LashLv];var reward=RewardExp(holder.PrisonLv,level,official)+degree.ExpExtra;
+            var degree=data.Degrees[EffectiveLashLevel(holder)];var reward=RewardExp(holder.PrisonLv,level,official)+degree.ExpExtra+await slaveActivity.BonusAsync(c,t,holderPlayer,ct);
             await experience.AddAsync(c,t,holderPlayer,reward,ct);
             await using(var exp=new NpgsqlCommand("UPDATE player_prisons SET auto_lash_exp=auto_lash_exp+$2,updated_at=now() WHERE player_id=$1",c,t)){exp.Parameters.AddWithValue(holderPlayer);exp.Parameters.AddWithValue(reward);await exp.ExecuteNonQueryAsync(ct);}
             await TryAddPointAsync(c,t,holderPlayer,holder,ct);

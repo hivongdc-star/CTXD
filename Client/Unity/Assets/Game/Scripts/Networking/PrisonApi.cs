@@ -11,8 +11,9 @@ namespace CTXD.Client.Networking
     [Serializable] public sealed class CaptiveGeneralView { public long id,holderPlayerId; public int generalId,slashTimes; public string holderName,generalName,grabTime,escapeAt; }
     [Serializable] public sealed class PrisonView
     {
-        public bool built,havePic,canUpdate,haveUpgradePic,haveTech;
-        public int prisonLv,lashLv,maxLashLv,extraExp,extraCd,upgradeGold,grabNum,quality,currentFreePoint,maxFreePoint,totalPoint;
+        public bool built,havePic,canUpdate,haveUpgradePic,haveTech,trialActive,canTrial;
+        public int prisonLv,lashLv,effectiveLashLv,maxLashLv,extraExp,extraCd,upgradeGold,trialGold,grabNum,quality,currentFreePoint,maxFreePoint,totalPoint;
+        public string trialEndsAt;
         public long autoLashExp;
         public PrisonDegreeView[] lashList;
         public PrisonerView[] generals;
@@ -20,6 +21,7 @@ namespace CTXD.Client.Networking
     }
     [Serializable] public sealed class PrisonLashResult { public long slaveId; public int rewardExp,addedEscapeSeconds,lashLevel,currentFreePoint; }
     [Serializable] public sealed class PrisonEscapeResult { public long slaveId; public int generalId,seconds; public string escapeAt; }
+    [Serializable] public sealed class PrisonTrialResult { public bool upgraded; public int lashLv,effectiveLashLv,gold; public string trialEndsAt; }
 
     public static class PrisonApi
     {
@@ -27,6 +29,7 @@ namespace CTXD.Client.Networking
         public static Task<PrisonView> BuildPrisonAsync(this ApiClient api)=>SendAsync<PrisonView>(api,"POST","/api/prison/build");
         public static Task<PrisonView> UpgradePrisonAsync(this ApiClient api)=>SendAsync<PrisonView>(api,"POST","/api/prison/upgrade");
         public static Task<PrisonView> UpgradeLashAsync(this ApiClient api)=>SendAsync<PrisonView>(api,"POST","/api/prison/lash-level/upgrade");
+        public static Task<PrisonTrialResult> TrialLashAsync(this ApiClient api)=>SendAsync<PrisonTrialResult>(api,"POST","/api/prison/lash-level/trial");
         public static Task<PrisonLashResult> LashPrisonerAsync(this ApiClient api,long slaveId)=>SendAsync<PrisonLashResult>(api,"POST",$"/api/prison/slaves/{slaveId}/lash");
         public static Task<PrisonEscapeResult> EscapePrisonAsync(this ApiClient api,int generalId)=>SendAsync<PrisonEscapeResult>(api,"POST",$"/api/prison/captive/{generalId}/escape");
         public static Task FreePrisonerAsync(this ApiClient api,long slaveId)=>SendEmptyAsync(api,"POST",$"/api/prison/slaves/{slaveId}/freedom");
