@@ -14,6 +14,7 @@ public static class WorldTreasureBoxState
 
     sealed class WorldTreasureDefinition
     {
+        public WorldTreasureDefinition() { }
         public int Id{get;set;}
         public int Type{get;set;}
         public string Name{get;set;}="";
@@ -53,9 +54,9 @@ WHERE player_id=$1 AND road_id=$2 AND picked_at IS NULL
 FOR UPDATE",c,t))
         {
             box.Parameters.AddWithValue(playerId);box.Parameters.AddWithValue(roadId);
-            var value=await box.ExecuteScalarAsync(ct);
-            if(value is null or DBNull)return;
-            treasureId=Convert.ToInt32(value);
+            var boxValue=await box.ExecuteScalarAsync(ct);
+            if(boxValue is null or DBNull)return;
+            treasureId=Convert.ToInt32(boxValue);
         }
 
         var definitions=Definitions(content);
