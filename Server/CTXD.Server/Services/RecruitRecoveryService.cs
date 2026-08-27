@@ -35,6 +35,7 @@ public sealed class RecruitRecoveryService(
 
     readonly IReadOnlyDictionary<int,WorldCityAreaRow> areas=Load<WorldCityAreaRow[]>(content.BaseDirectory,"world_city_area.json").ToDictionary(x=>x.Area);
     readonly IReadOnlyDictionary<int,TroopConscribeSpeedRow> speedLevels=Load<TroopConscribeSpeedRow[]>(content.BaseDirectory,"troop_conscribe_speed.json").ToDictionary(x=>x.Level);
+    readonly ResourceAdditionService resourceAdditions=new();
 
     public async Task<RecruitRecoveryResult> RecoverWithTokensAsync(long playerId,int generalId,CancellationToken ct)
     {
@@ -209,8 +210,9 @@ RETURNING recruit_token",c,t);
         }
         total+=ConstantInt("Troop.Conscribe.BaseSpeed");
 
-        // Legacy BuildingOutputCache: type 5 has no officer output. player_resource_addition
-        // is not present in the remake runtime, therefore its current contribution is exactly 0.
+        // Legacy BuildingOutputCache.getAdditionsOutput applies the resource addition to
+        // building base output (including Troop.Conscribe.BaseSpeed for type 5), before tech.
+        total+=await resourceAdditions.GetBuildingOutputContributionAsync(c,t,playerId,5,total,ct);
         var tech8=await technologies.GetCompletedIntEffectAsync(playerId,8,0,ct,c,t);
         if(tech8!=0)total+=(int)(total*(tech8/100d));
         var speedLevel=await technologies.GetCompletedIntEffectAsync(playerId,28,0,ct,c,t)+1;
