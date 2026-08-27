@@ -142,6 +142,16 @@ FROM player_quest_branches b WHERE b.player_id=$1 AND b.branch_id=$2 FOR UPDATE"
                 await using(var cmd=new NpgsqlCommand("SELECT COALESCE((SELECT arms_weapon_views FROM player_quest_runtime WHERE player_id=$1),0)>0",c,t)){cmd.Parameters.AddWithValue(player);return(Convert.ToBoolean(await cmd.ExecuteScalarAsync(ct)),null);}
             case "weapon_make_done":
                 await using(var cmd=new NpgsqlCommand("SELECT count(*)>=6 FROM player_weapons WHERE player_id=$1 AND weapon_id BETWEEN 1 AND 6 AND level>=1",c,t)){cmd.Parameters.AddWithValue(player);return(Convert.ToBoolean(await cmd.ExecuteScalarAsync(ct)),null);}
+            case "world_mine_iron_visit":
+                return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_mine_iron_visit",null,ct)>0,null);
+            case "world_mine_iron_own":
+                return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_mine_iron_own",null,ct)>0,null);
+            case "world_treasure_type":
+                var treasureTypeArgs=Args(task.Target);var treasureType=treasureTypeArgs.Length==0?0:treasureTypeArgs[0];var treasureCount=treasureType==0?await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",null,ct):await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",treasureType,ct);return(treasureCount>0,null);
+            case "sell_equip":
+                return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"sell_equip",null,ct)>0,null);
+            case "tavern_refresh":
+                if(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"tavern_refresh",null,ct)>0)return(true,null);await using(var tavernCd=new NpgsqlCommand("SELECT EXISTS(SELECT 1 FROM player_tavern WHERE player_id=$1 AND (next_civil_at>now() OR next_military_at>now()))",c,t)){tavernCd.Parameters.AddWithValue(player);return(Convert.ToBoolean(await tavernCd.ExecuteScalarAsync(ct)),null);}
             case "and":
                 return await EvaluateCompositeAsync(c,t,player,task.Target.Raw,true,ct);
             case "or":

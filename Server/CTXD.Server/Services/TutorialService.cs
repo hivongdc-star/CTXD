@@ -11,6 +11,7 @@ public sealed class TutorialService(CanonicalContent content, ExperienceService 
         NpgsqlConnection conn, NpgsqlTransaction tx, long playerId,
         string eventKind, int[] args, CancellationToken ct)
     {
+        await QuestEventLedger.RecordCurrentAsync(conn,tx,playerId,eventKind,args.Length>0?args[0]:0,ct);
         int taskId;
         await using (var cmd = new NpgsqlCommand("SELECT current_task_id FROM players WHERE id=$1 FOR UPDATE", conn, tx))
         {
