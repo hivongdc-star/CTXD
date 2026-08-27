@@ -54,7 +54,7 @@ public sealed class WorldService(GameDb db, CanonicalContent content, GeneralSer
         int? origin=null;
         if(attackerWon&&battleType is not(14 or 15))origin=(await GeneralAsync(c,t,player,general,false,ct)).location;
         await GeneralStateAsync(c, t, player, general, 1, ct);
-        if (attackerWon) { await GeneralLocationAsync(c, t, player, general, city, ct); if(battleType is not(14 or 15)){var road=origin.HasValue?Road(origin.Value,city):null;if(road is not null)await WorldTreasureBoxState.PickAsync(c,t,content,player,attacker,road.Id,ct);await RevealAfterConquestAsync(c, t, attacker, city, ct);await nationProgress.RecordWorldOwnershipAsync(c,t,battleId,player,attacker,city,ct);var assists=new List<long>();await using(var assist=new NpgsqlCommand("SELECT DISTINCT player_id FROM battle_units WHERE battle_id=$1 AND side=1 AND player_id IS NOT NULL AND player_id<>$2",c,t)){assist.Parameters.AddWithValue(battleId);assist.Parameters.AddWithValue(player);await using var r=await assist.ExecuteReaderAsync(ct);while(await r.ReadAsync(ct))assists.Add(r.GetInt64(0));}foreach(var id in assists)await nationProgress.AddScoreAsync(c,t,id,attacker,city,2,$"world:battle:{battleId}:score:assist:{id}",ct);} }
+        if (attackerWon) { await GeneralLocationAsync(c, t, player, general, city, ct); if(battleType is not(14 or 15)){var road=origin.HasValue?Road(origin.Value,city):null;if(road is not null)await WorldTreasureBoxState.PickAndGrantAsync(c,t,content,player,attacker,road.Id,general,ct);await RevealAfterConquestAsync(c, t, attacker, city, ct);await nationProgress.RecordWorldOwnershipAsync(c,t,battleId,player,attacker,city,ct);var assists=new List<long>();await using(var assist=new NpgsqlCommand("SELECT DISTINCT player_id FROM battle_units WHERE battle_id=$1 AND side=1 AND player_id IS NOT NULL AND player_id<>$2",c,t)){assist.Parameters.AddWithValue(battleId);assist.Parameters.AddWithValue(player);await using var r=await assist.ExecuteReaderAsync(ct);while(await r.ReadAsync(ct))assists.Add(r.GetInt64(0));}foreach(var id in assists)await nationProgress.AddScoreAsync(c,t,id,attacker,city,2,$"world:battle:{battleId}:score:assist:{id}",ct);} }
         await t.CommitAsync(ct); return new(battleId, city, winner, attackerWon);
     }
 
@@ -115,7 +115,7 @@ VALUES($1,$2,$3,$4,$5,$6,$7,$8,1) ON CONFLICT(player_id,general_id) DO NOTHING",
                 cmd.Parameters.AddWithValue(playerId); await using var r = await cmd.ExecuteReaderAsync(ct); if (!await r.ReadAsync(ct)) break;
                 general = r.GetInt32(0); roadId=r.GetInt32(1); city = r.GetInt32(2); path = r.GetFieldValue<int[]>(3); index = r.GetInt32(4);
             }
-            await GeneralLocationAsync(c, t, playerId, general, city, ct);await WorldTreasureBoxState.PickAsync(c,t,content,playerId,force,roadId,ct);var next = index + 1;
+            await GeneralLocationAsync(c, t, playerId, general, city, ct);await WorldTreasureBoxState.PickAndGrantAsync(c,t,content,playerId,force,roadId,general,ct);var next = index + 1;
             if (next >= path.Length) { await DeleteMoveAsync(c, t, playerId, general, ct); await GeneralStateAsync(c, t, playerId, general, 1, ct); continue; }
             var owners = await OwnersAsync(c, t, ct); var nextCity = path[next];
             if (owners.GetValueOrDefault(nextCity) != force) { await DeleteMoveAsync(c, t, playerId, general, ct); await BattleAsync(c, t, playerId, general, force, nextCity, owners.GetValueOrDefault(nextCity), ct); continue; }
