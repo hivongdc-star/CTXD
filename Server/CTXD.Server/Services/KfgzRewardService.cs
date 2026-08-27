@@ -4,7 +4,9 @@ using Npgsql;
 namespace CTXD.Server.Services;
 
 public sealed record KfgzRoundRewardProvision(long RoundId,long PlayerId,string RewardInfo);
+public sealed record KfgzRoundResultProvision(long RoundId,long PlayerId,int GroupId,int LayerId,int SelfCityCount,int OpponentCityCount,int KillRank,int SoloWins,int OccupyCity);
 public sealed record KfgzEndRewardProfileProvision(long SeasonId,int ForceId,string RewardInfo);
+public sealed record KfgzEndMappingProvision(long SeasonId,int ForceId,int GroupId,int LayerId);
 public sealed record KfgzTitleCandidateProvision(long SeasonId,int ForceId,long PlayerId);
 public sealed record KfgzRewardView(bool Mapped,long SeasonId,long ReferenceId,int ClaimTimes,long BaseTickets,long NextTickets,long GoldCost,string? Blocker);
 public sealed record KfgzEndRewardSlotView(int Slot,int ClaimTimes,int RequiredNationScore,long BaseTickets,long NextTickets,long GoldCost,bool Available);
@@ -23,13 +25,42 @@ public sealed class KfgzRewardService(GameDb db,GamePushHub push)
         if(components.Length!=5)throw new GameException("KFGZ_REWARD_MAPPING_INVALID","Legacy KFGZ round reward must contain exactly five colon-separated ticket components.");
         await using var c=await db.DataSource.OpenConnectionAsync(ct);
         await using var t=await c.BeginTransactionAsync(ct);
-        long season;
-        await using(var q=new NpgsqlCommand("SELECT r.season_id FROM kfgz_rounds r JOIN kfgz_signups s ON s.season_id=r.season_id AND s.player_id=$2 WHERE r.id=$1",c,t))
-        {q.Parameters.AddWithValue(x.RoundId);q.Parameters.AddWithValue(x.PlayerId);var v=await q.ExecuteScalarAsync(ct);if(v is null)throw new GameException("KFGZ_REWARD_TARGET_INVALID","Player is not signed into the KFGZ season for this round.",404);season=Convert.ToInt64(v);}
-        await using(var q=new NpgsqlCommand(@"INSERT INTO kfgz_round_rewards(round_id,season_id,player_id,reward_info) VALUES($1,$2,$3,$4)
-ON CONFLICT(round_id,player_id) DO UPDATE SET reward_info=EXCLUDED.reward_info,updated_at=now() WHERE kfgz_round_rewards.claim_times=0",c,t))
-        {q.Parameters.AddWithValue(x.RoundId);q.Parameters.AddWithValue(season);q.Parameters.AddWithValue(x.PlayerId);q.Parameters.AddWithValue(x.RewardInfo);if(await q.ExecuteNonQueryAsync(ct)!=1)throw new GameException("KFGZ_REWARD_MAPPING_LOCKED","A claimed KFGZ round reward mapping cannot be replaced.",409);}
+        await SaveRoundRewardAsync(c,t,x.RoundId,x.PlayerId,x.RewardInfo,ct);
         await t.CommitAsync(ct);
+    }
+
+    public async Task<string> MaterializeRoundRewardAsync(KfgzRoundResultProvision x,CancellationToken ct)
+    {
+        if(x.GroupId<=0||x.LayerId<=0||x.SelfCityCount<0||x.OpponentCityCount<0||x.SoloWins<0||x.OccupyCity<0)
+            throw new GameException("KFGZ_ROUND_RESULT_INVALID","KFGZ round result contains invalid authoritative dimensions or counters.");
+
+        await using var c=await db.DataSource.OpenConnectionAsync(ct);
+        await using var t=await c.BeginTransactionAsync(ct);
+        string killRankInfo,cityReward;long soloReward,occupyReward;
+        await using(var q=new NpgsqlCommand(@"SELECT b.kill_rank_reward_info,b.solo_reward,b.occupy_city_reward,b.city_reward
+FROM kfgz_reward m
+JOIN kfgz_battle_reward b ON b.id=m.battle_reward_id
+WHERE m.group_id=$1 AND m.layer_id=$2",c,t))
+        {
+            q.Parameters.AddWithValue(x.GroupId);q.Parameters.AddWithValue(x.LayerId);
+            await using var r=await q.ExecuteReaderAsync(ct);
+            if(!await r.ReadAsync(ct))throw new GameException("KFGZ_REWARD_MAPPING_MISSING","Authoritative KFGZ battle reward mapping is unavailable for this group/layer.",409);
+            killRankInfo=r.GetString(0);soloReward=r.GetInt32(1);occupyReward=r.GetInt32(2);cityReward=r.GetString(3);
+        }
+
+        var city=ParseCityReward(cityReward);
+        var components=new long[]
+        {
+            checked((long)x.SelfCityCount*city.cityTicket),
+            x.SelfCityCount>=x.OpponentCityCount?city.winTicket:city.lostTicket,
+            KillRankTicket(killRankInfo,x.KillRank),
+            checked(soloReward*x.SoloWins),
+            checked(occupyReward*x.OccupyCity)
+        };
+        var rewardInfo=string.Join(":",components);
+        await SaveRoundRewardAsync(c,t,x.RoundId,x.PlayerId,rewardInfo,ct);
+        await t.CommitAsync(ct);
+        return rewardInfo;
     }
 
     public async Task ProvisionEndRewardProfileAsync(KfgzEndRewardProfileProvision x,CancellationToken ct)
@@ -37,11 +68,28 @@ ON CONFLICT(round_id,player_id) DO UPDATE SET reward_info=EXCLUDED.reward_info,u
         if(x.ForceId is <1 or >3)throw new GameException("KFGZ_FORCE_INVALID","KFGZ force must be 1, 2, or 3.");
         ParseEndReward(x.RewardInfo);
         await using var c=await db.DataSource.OpenConnectionAsync(ct);
-        await using var q=new NpgsqlCommand(@"INSERT INTO kfgz_end_reward_profiles(season_id,force_id,reward_info) SELECT $1,$2,$3 WHERE EXISTS(SELECT 1 FROM kfgz_seasons WHERE id=$1)
-ON CONFLICT(season_id,force_id) DO UPDATE SET reward_info=EXCLUDED.reward_info,updated_at=now()
-WHERE NOT EXISTS(SELECT 1 FROM kfgz_final_rewards f WHERE f.season_id=$1 AND f.force_id=$2 AND (f.slot1_times>0 OR f.slot2_times>0 OR f.slot3_times>0 OR f.slot4_times>0))",c);
-        q.Parameters.AddWithValue(x.SeasonId);q.Parameters.AddWithValue(x.ForceId);q.Parameters.AddWithValue(x.RewardInfo);
-        if(await q.ExecuteNonQueryAsync(ct)!=1)throw new GameException("KFGZ_END_REWARD_MAPPING_LOCKED","Season/force is missing or its end reward mapping has already been consumed.",409);
+        await SaveEndRewardProfileAsync(c,x.SeasonId,x.ForceId,x.RewardInfo,ct);
+    }
+
+    public async Task<string> MaterializeEndRewardProfileAsync(KfgzEndMappingProvision x,CancellationToken ct)
+    {
+        if(x.ForceId is <1 or >3)throw new GameException("KFGZ_FORCE_INVALID","KFGZ force must be 1, 2, or 3.");
+        if(x.GroupId<=0||x.LayerId<=0)throw new GameException("KFGZ_END_REWARD_MAPPING_INVALID","KFGZ end reward group/layer must be positive.");
+        await using var c=await db.DataSource.OpenConnectionAsync(ct);
+        string rewardInfo;
+        await using(var q=new NpgsqlCommand(@"SELECT e.reward_info
+FROM kfgz_reward m
+JOIN kfgz_end_reward e ON e.id=m.end_reward_id
+WHERE m.group_id=$1 AND m.layer_id=$2",c))
+        {
+            q.Parameters.AddWithValue(x.GroupId);q.Parameters.AddWithValue(x.LayerId);
+            var value=await q.ExecuteScalarAsync(ct);
+            if(value is null)throw new GameException("KFGZ_END_REWARD_MAPPING_MISSING","Authoritative KFGZ end reward mapping is unavailable for this group/layer.",409);
+            rewardInfo=Convert.ToString(value)!;
+        }
+        ParseEndReward(rewardInfo);
+        await SaveEndRewardProfileAsync(c,x.SeasonId,x.ForceId,rewardInfo,ct);
+        return rewardInfo;
     }
 
     public async Task ProvisionTitleCandidateAsync(KfgzTitleCandidateProvision x,CancellationToken ct)
@@ -128,6 +176,26 @@ WHERE f.player_id=$1 ORDER BY f.season_id DESC LIMIT 1",c);q.Parameters.AddWithV
         long season;await using(var c=await db.DataSource.OpenConnectionAsync(ct)){await using var q=new NpgsqlCommand("SELECT season_id FROM kfgz_signups WHERE player_id=$1 ORDER BY season_id DESC LIMIT 1",c);q.Parameters.AddWithValue(player);var v=await q.ExecuteScalarAsync(ct);if(v is null)return;season=Convert.ToInt64(v);}await SeedFinalRewardsAsync(season,ct,player);
     }
 
+    async Task SaveRoundRewardAsync(NpgsqlConnection c,NpgsqlTransaction t,long roundId,long playerId,string rewardInfo,CancellationToken ct)
+    {
+        long season;
+        await using(var q=new NpgsqlCommand("SELECT r.season_id FROM kfgz_rounds r JOIN kfgz_signups s ON s.season_id=r.season_id AND s.player_id=$2 WHERE r.id=$1",c,t))
+        {q.Parameters.AddWithValue(roundId);q.Parameters.AddWithValue(playerId);var v=await q.ExecuteScalarAsync(ct);if(v is null)throw new GameException("KFGZ_REWARD_TARGET_INVALID","Player is not signed into the KFGZ season for this round.",404);season=Convert.ToInt64(v);}
+        await using var save=new NpgsqlCommand(@"INSERT INTO kfgz_round_rewards(round_id,season_id,player_id,reward_info) VALUES($1,$2,$3,$4)
+ON CONFLICT(round_id,player_id) DO UPDATE SET reward_info=EXCLUDED.reward_info,updated_at=now() WHERE kfgz_round_rewards.claim_times=0",c,t);
+        save.Parameters.AddWithValue(roundId);save.Parameters.AddWithValue(season);save.Parameters.AddWithValue(playerId);save.Parameters.AddWithValue(rewardInfo);
+        if(await save.ExecuteNonQueryAsync(ct)!=1)throw new GameException("KFGZ_REWARD_MAPPING_LOCKED","A claimed KFGZ round reward mapping cannot be replaced.",409);
+    }
+
+    async Task SaveEndRewardProfileAsync(NpgsqlConnection c,long seasonId,int forceId,string rewardInfo,CancellationToken ct)
+    {
+        await using var q=new NpgsqlCommand(@"INSERT INTO kfgz_end_reward_profiles(season_id,force_id,reward_info) SELECT $1,$2,$3 WHERE EXISTS(SELECT 1 FROM kfgz_seasons WHERE id=$1)
+ON CONFLICT(season_id,force_id) DO UPDATE SET reward_info=EXCLUDED.reward_info,updated_at=now()
+WHERE NOT EXISTS(SELECT 1 FROM kfgz_final_rewards f WHERE f.season_id=$1 AND f.force_id=$2 AND (f.slot1_times>0 OR f.slot2_times>0 OR f.slot3_times>0 OR f.slot4_times>0))",c);
+        q.Parameters.AddWithValue(seasonId);q.Parameters.AddWithValue(forceId);q.Parameters.AddWithValue(rewardInfo);
+        if(await q.ExecuteNonQueryAsync(ct)!=1)throw new GameException("KFGZ_END_REWARD_MAPPING_LOCKED","Season/force is missing or its end reward mapping has already been consumed.",409);
+    }
+
     async Task SeedFinalRewardsAsync(long season,CancellationToken ct,long? onlyPlayer=null)
     {
         await using var c=await db.DataSource.OpenConnectionAsync(ct);await using var t=await c.BeginTransactionAsync(ct);
@@ -157,7 +225,16 @@ SELECT c.season_id,c.force_id,c.player_id,COALESCE(p.display_name,''),c.title_ke
     async Task<bool> GrantAsync(NpgsqlConnection c,NpgsqlTransaction t,long season,long player,string kind,long reference,int claimNo,long tickets,long gold,bool autoIssue,CancellationToken ct)
     {
         await using(var ledger=new NpgsqlCommand("INSERT INTO kfgz_reward_ledger(season_id,player_id,reward_kind,reward_ref,claim_no,tickets,gold_cost,auto_issue) VALUES($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT DO NOTHING",c,t)){ledger.Parameters.AddWithValue(season);ledger.Parameters.AddWithValue(player);ledger.Parameters.AddWithValue(kind);ledger.Parameters.AddWithValue(reference);ledger.Parameters.AddWithValue(claimNo);ledger.Parameters.AddWithValue(tickets);ledger.Parameters.AddWithValue(gold);ledger.Parameters.AddWithValue(autoIssue);if(await ledger.ExecuteNonQueryAsync(ct)!=1)return false;}
-        if(gold>0){await using var q=new NpgsqlCommand("UPDATE players SET sys_gold=sys_gold-$2,updated_at=now() WHERE id=$1 AND sys_gold>=$2",c,t);q.Parameters.AddWithValue(player);q.Parameters.AddWithValue(gold);if(await q.ExecuteNonQueryAsync(ct)!=1)throw new GameException("GOLD_NOT_ENOUGH","Not enough gold for this legacy KFGZ repeat claim.",409);}
+        if(gold>0)
+        {
+            await using var q=new NpgsqlCommand(@"UPDATE players
+SET sys_gold=GREATEST(sys_gold-$2,0),
+    user_gold=user_gold-GREATEST($2-sys_gold,0),
+    updated_at=now()
+WHERE id=$1 AND sys_gold+user_gold>=$2",c,t);
+            q.Parameters.AddWithValue(player);q.Parameters.AddWithValue(gold);
+            if(await q.ExecuteNonQueryAsync(ct)!=1)throw new GameException("GOLD_NOT_ENOUGH","Not enough gold for this legacy KFGZ repeat claim.",409);
+        }
         if(tickets>0){await using var q=new NpgsqlCommand("INSERT INTO player_tickets(player_id,tickets) VALUES($1,$2) ON CONFLICT(player_id) DO UPDATE SET tickets=player_tickets.tickets+EXCLUDED.tickets,updated_at=now()",c,t);q.Parameters.AddWithValue(player);q.Parameters.AddWithValue(tickets);await q.ExecuteNonQueryAsync(ct);}return true;
     }
 
@@ -168,6 +245,29 @@ SELECT c.season_id,c.force_id,c.player_id,COALESCE(p.display_name,''),c.title_ke
     static (int threshold,long tickets)[] ParseEndReward(string value)
     {
         if(string.IsNullOrWhiteSpace(value))throw new GameException("KFGZ_END_REWARD_MAPPING_INVALID","KFGZ end reward mapping is empty.");var parts=value.Split(',');if(parts.Length!=4)throw new GameException("KFGZ_END_REWARD_MAPPING_INVALID","Legacy KFGZ end reward must contain exactly four score:tickets entries.");var result=new (int,long)[4];for(var i=0;i<4;i++){var pair=parts[i].Split(':');if(pair.Length!=2||!int.TryParse(pair[0],out var threshold)||threshold<0||!long.TryParse(pair[1],out var tickets)||tickets<0)throw new GameException("KFGZ_END_REWARD_MAPPING_INVALID","KFGZ end reward entry must be non-negative score:tickets.");result[i]=(threshold,tickets);}return result;
+    }
+    static long KillRankTicket(string value,int killRank)
+    {
+        if(killRank<=0)return 0;
+        foreach(var part in value.Split(','))
+        {
+            var pair=part.Split(':');
+            if(pair.Length!=2||!int.TryParse(pair[0],out var threshold)||threshold<=0||!long.TryParse(pair[1],out var tickets)||tickets<0)throw new GameException("KFGZ_REWARD_MAPPING_INVALID","KFGZ kill-rank reward mapping is invalid.");
+            if(killRank<=threshold)return tickets;
+        }
+        throw new GameException("KFGZ_REWARD_MAPPING_INVALID","KFGZ kill-rank reward mapping has no terminal bucket.");
+    }
+    static (long cityTicket,long winTicket,long lostTicket) ParseCityReward(string value)
+    {
+        long? city=null,win=null,lost=null;
+        foreach(var part in value.Split(','))
+        {
+            var pair=part.Split(':');
+            if(pair.Length!=2||!long.TryParse(pair[1],out var amount)||amount<0)throw new GameException("KFGZ_REWARD_MAPPING_INVALID","KFGZ city reward mapping is invalid.");
+            switch(pair[0]){case "cnum":city=amount;break;case "win":win=amount;break;case "lost":lost=amount;break;default:throw new GameException("KFGZ_REWARD_MAPPING_INVALID","KFGZ city reward mapping contains an unknown component.");}
+        }
+        if(city is null||win is null||lost is null)throw new GameException("KFGZ_REWARD_MAPPING_INVALID","KFGZ city reward mapping is incomplete.");
+        return(city.Value,win.Value,lost.Value);
     }
     static long Sum(long[] values){long total=0;foreach(var value in values)total=checked(total+value);return total;}
     static long Multiply(long tickets,int claimTimes)=>claimTimes switch{0=>tickets,1=>tickets,2=>checked(tickets*2),3=>checked(tickets*4),_=>0};
