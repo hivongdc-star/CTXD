@@ -302,7 +302,7 @@ app.MapPost("/api/equipment/store/{type:int}/refresh", async (int type, HttpRequ
     return Results.Ok(result);
 });
 
-app.MapPost("/api/equipment/store/items/{equipmentId:int}/lock", async (int equipmentId, HttpRequest request, AuthService auth, EquipmentStoreService store, GamePushHub push,CancellationToken ct) =>
+app.MapPost("/api/equipment/store/items/{equipmentId:int}/lock", async (int equipmentId, HttpRequest request, AuthService auth, EquipmentStoreService store, GamePushHub push, CancellationToken ct) =>
 {
     var id = await auth.ResolvePlayerIdAsync(Bearer(request), ct);
     var result = await store.SetLockedAsync(id, equipmentId, true, ct);
