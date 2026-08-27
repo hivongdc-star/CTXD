@@ -35,6 +35,7 @@ public sealed class RecruitRecoveryService(
 
     readonly IReadOnlyDictionary<int,WorldCityAreaRow> areas=Load<WorldCityAreaRow[]>(content.BaseDirectory,"world_city_area.json").ToDictionary(x=>x.Area);
     readonly IReadOnlyDictionary<int,TroopConscribeSpeedRow> speedLevels=Load<TroopConscribeSpeedRow[]>(content.BaseDirectory,"troop_conscribe_speed.json").ToDictionary(x=>x.Level);
+    readonly ResourceAdditionService resourceAdditions=new();
 
     public async Task<RecruitRecoveryResult> RecoverWithTokensAsync(long playerId,int generalId,CancellationToken ct)
     {
@@ -198,26 +199,32 @@ RETURNING recruit_token",c,t);
         return Convert.ToInt32(await reset.ExecuteScalarAsync(ct));
     }
 
-    async Task<double> RecruitOutputPerSecondAsync(NpgsqlConnection c,NpgsqlTransaction t,long playerId,int force,WorldCityDefinition city,CancellationToken ct)
+    public async Task<int> GetBuildingOutputAsync(NpgsqlConnection c,NpgsqlTransaction? t,long playerId,CancellationToken ct)
     {
-        var buildings=await ReadBuildingsAsync(c,t,playerId,ct);
-        var total=0;
+        var buildings=await ReadBuildingsAsync(c,t!,playerId,ct);
+        var baseOutput=0;
         foreach(var pb in buildings.Values)
         {
             if(!content.Buildings.TryGetValue(pb.Id,out var b)||b.AreaType!=5||b.OutputType==4)continue;
-            total+=BuildingOutput(buildings,b,pb.Level,new HashSet<int>());
+            baseOutput+=BuildingOutput(buildings,b,pb.Level,new HashSet<int>());
         }
-        total+=ConstantInt("Troop.Conscribe.BaseSpeed");
+        baseOutput+=ConstantInt("Troop.Conscribe.BaseSpeed");
 
-        // Legacy BuildingOutputCache: type 5 has no officer output. player_resource_addition
-        // is not present in the remake runtime, therefore its current contribution is exactly 0.
+        // Exact legacy BuildingOutputCache type-5 order:
+        // base + addition(base) + tech8(base), then TechEffect(28) speed divisor.
+        var addition=await resourceAdditions.GetBuildingOutputContributionAsync(c,t!,playerId,5,baseOutput,ct);
         var tech8=await technologies.GetCompletedIntEffectAsync(playerId,8,0,ct,c,t);
-        if(tech8!=0)total+=(int)(total*(tech8/100d));
+        var tech=tech8==0?0:(int)(baseOutput*(tech8/100d));
+        var total=baseOutput+addition+tech;
         var speedLevel=await technologies.GetCompletedIntEffectAsync(playerId,28,0,ct,c,t)+1;
         if(!speedLevels.TryGetValue(speedLevel,out var speed)||speed.SpeedMultiplier<=0)
             throw new GameException("RECRUIT_SPEED_LEVEL_MISSING",$"Legacy troop conscribe speed level {speedLevel} is missing.",500);
-        total=(int)(total/speed.SpeedMultiplier);
+        return (int)(total/speed.SpeedMultiplier);
+    }
 
+    async Task<double> RecruitOutputPerSecondAsync(NpgsqlConnection c,NpgsqlTransaction t,long playerId,int force,WorldCityDefinition city,CancellationToken ct)
+    {
+        var total=await GetBuildingOutputAsync(c,t,playerId,ct);
         var areaId=force switch{1=>city.WeiArea,2=>city.ShuArea,3=>city.WuArea,_=>0};
         if(!areas.TryGetValue(areaId,out var area))
             throw new GameException("RECRUIT_AREA_MISSING",$"Legacy world city area {areaId} is missing.",500);

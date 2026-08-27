@@ -11,10 +11,11 @@ public sealed record QuestRuntimeResult(string Kind,int Remaining);
 public sealed record QuestBranchView(int BranchId,int Index,string Name,string IntroLong,string IntroShort,string Target,bool Completed,bool Claimed,object[] Rewards);
 public sealed record QuestBranchClaimResult(int BranchId,int Index,object[] Rewards);
 
-public sealed class QuestService(GameDb db,CanonicalContent content,ExperienceService experience,ResourceProductionService production)
+public sealed class QuestService(GameDb db,CanonicalContent content,ExperienceService experience,ResourceProductionService production,TechnologyEffectService technologies)
 {
     const int LimboBranchId=804;
     static readonly object[] LimboRewards=[new{kind="copper",args=new[]{2000}}];
+    readonly RecruitRecoveryService recruit=new(db,content,technologies,production);
 
     public async Task<QuestView> GetCurrentAsync(long playerId,CancellationToken ct)
     {
@@ -163,7 +164,7 @@ FROM player_quest_branches b WHERE b.player_id=$1 AND b.branch_id=$2 FOR UPDATE"
             case "get_salary":
                 await using(var cmd=new NpgsqlCommand("SELECT salary_claimed_on IS NOT NULL FROM players WHERE id=$1",c,t)){cmd.Parameters.AddWithValue(player);return(Convert.ToBoolean(await cmd.ExecuteScalarAsync(ct)),null);}
             case "building_output":
-                var output=Args(task.Target);if(output[0] is<1 or>4)return(false,$"building-output:{output[0]}");var resources=await production.AccrueAndGetAsync(player,ct,c,t);var rate=output[0] switch{1=>resources.CopperPerHour,2=>resources.WoodPerHour,3=>resources.FoodPerHour,4=>resources.IronPerHour,_=>0};return(rate>=output[1],null);
+                var output=Args(task.Target);if(output.Length<2)return(false,"legacy-target-arguments");if(output[0]==5){var recruitRate=await recruit.GetBuildingOutputAsync(c,t,player,ct);return(recruitRate>=output[1],null);}if(output[0] is<1 or>4)return(false,$"building-output:{output[0]}");var resources=await production.AccrueAndGetAsync(player,ct,c,t);var rate=output[0] switch{1=>resources.CopperPerHour,2=>resources.WoodPerHour,3=>resources.FoodPerHour,4=>resources.IronPerHour,_=>0};return(rate>=output[1],null);
             default:return(false,$"quest-target:{task.Target.Kind}");
         }
     }
