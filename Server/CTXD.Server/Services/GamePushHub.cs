@@ -10,6 +10,8 @@ public sealed class GamePushHub
     readonly ConcurrentDictionary<long, ConcurrentDictionary<Guid, WebSocket>> _players = new();
     readonly JsonSerializerOptions _json = new(JsonSerializerDefaults.Web);
 
+    public bool IsConnected(long playerId) => _players.TryGetValue(playerId,out var group) && !group.IsEmpty;
+
     public async Task HoldAsync(long playerId, WebSocket socket, CancellationToken ct)
     {
         var id = Guid.NewGuid();
