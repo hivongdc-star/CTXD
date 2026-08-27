@@ -1,3 +1,5 @@
+using System.Collections.Concurrent;
+using System.Text.Json;
 using CTXD.Server.Data;
 using Npgsql;
 
@@ -19,7 +21,10 @@ public sealed class WorldMovementWorker(
     readonly AutoBattleService autoBattle=new(db,content,technologies,production,world,battles);
     readonly FarmArrivalService farmArrivals=new(db,content,production,experience,items,dstq,push);
 
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    protected override Task ExecuteAsync(CancellationToken stoppingToken)=>Task.WhenAll(
+        RunMovementLoopAsync(stoppingToken),ListenTreasureRewardsAsync(stoppingToken));
+
+    async Task RunMovementLoopAsync(CancellationToken stoppingToken)
     {
         using var timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
         while (!stoppingToken.IsCancellationRequested && await timer.WaitForNextTickAsync(stoppingToken))
@@ -38,6 +43,50 @@ public sealed class WorldMovementWorker(
             catch (OperationCanceledException) when (stoppingToken.IsCancellationRequested) { }
             catch (Exception ex) { log.LogError(ex, "World movement completion tick failed"); }
         }
+    }
+
+    async Task ListenTreasureRewardsAsync(CancellationToken stoppingToken)
+    {
+        while(!stoppingToken.IsCancellationRequested)
+        {
+            try
+            {
+                await using var conn=await db.DataSource.OpenConnectionAsync(stoppingToken);
+                var pending=new ConcurrentQueue<string>();
+                conn.Notification+=(sender,args)=>
+                {
+                    if(args.Channel==WorldTreasureBoxState.RewardNotificationChannel)
+                        pending.Enqueue(args.Payload);
+                };
+                await using(var listen=new NpgsqlCommand($"LISTEN {WorldTreasureBoxState.RewardNotificationChannel}",conn))
+                    await listen.ExecuteNonQueryAsync(stoppingToken);
+
+                while(!stoppingToken.IsCancellationRequested)
+                {
+                    await conn.WaitAsync(stoppingToken);
+                    while(pending.TryDequeue(out var payload))
+                        await ForwardTreasureRewardAsync(payload,stoppingToken);
+                }
+            }
+            catch(OperationCanceledException) when(stoppingToken.IsCancellationRequested) { return; }
+            catch(Exception ex)
+            {
+                log.LogError(ex,"World treasure reward notification listener failed");
+                try { await Task.Delay(TimeSpan.FromSeconds(1),stoppingToken); }
+                catch(OperationCanceledException) when(stoppingToken.IsCancellationRequested) { return; }
+            }
+        }
+    }
+
+    async Task ForwardTreasureRewardAsync(string payload,CancellationToken ct)
+    {
+        using var doc=JsonDocument.Parse(payload);
+        var root=doc.RootElement;
+        if(!root.TryGetProperty("playerId",out var playerElement)||!root.TryGetProperty("curReward",out var rewardElement))
+            return;
+        var playerId=playerElement.GetInt64();
+        var curReward=rewardElement.Clone();
+        await push.SendAsync(playerId,"world.treasure",new{curReward},ct);
     }
 
     async Task<long[]> FindDuePlayersAsync(CancellationToken ct)
