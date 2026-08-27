@@ -91,6 +91,7 @@ static string? Bearer(HttpRequest request)
 
 app.MapGet("/health", () => Results.Ok(new { status = "ok", game = "CTXD Remake" }));
 app.MapKfgzExtendedCombat();
+app.MapResourceAdditionEndpoints();
 
 app.MapGet("/api/quests/current",async(HttpRequest request,AuthService auth,QuestService quests,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await quests.GetCurrentAsync(id,ct));});
 app.MapPost("/api/quests/current/claim",async(HttpRequest request,AuthService auth,QuestService quests,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await quests.ClaimCurrentAsync(id,ct);await push.SendAsync(id,"quest.updated",result,ct);return Results.Ok(result);});
@@ -301,7 +302,7 @@ app.MapPost("/api/equipment/store/{type:int}/refresh", async (int type, HttpRequ
     return Results.Ok(result);
 });
 
-app.MapPost("/api/equipment/store/items/{equipmentId:int}/lock", async (int equipmentId, HttpRequest request, AuthService auth, EquipmentStoreService store, GamePushHub push, CancellationToken ct) =>
+app.MapPost("/api/equipment/store/items/{equipmentId:int}/lock", async (int equipmentId, HttpRequest request, AuthService auth, EquipmentStoreService store, GamePushHub push,CancellationToken ct) =>
 {
     var id = await auth.ResolvePlayerIdAsync(Bearer(request), ct);
     var result = await store.SetLockedAsync(id, equipmentId, true, ct);
