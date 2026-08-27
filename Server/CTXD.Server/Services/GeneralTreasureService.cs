@@ -42,6 +42,7 @@ public sealed class GeneralTreasureService(GameDb db,GamePushHub push)
         var def=DefinitionOf(row.treasure);
         int level;await using(var q=new NpgsqlCommand("SELECT level FROM player_generals WHERE player_id=$1 AND general_id=$2 FOR UPDATE",c,t)){q.Parameters.AddWithValue(playerId);q.Parameters.AddWithValue(generalId);var raw=await q.ExecuteScalarAsync(ct);if(raw is null)throw new GameException("GENERAL_TREASURE_GENERAL_MISSING","General does not exist for this player.",404);level=Convert.ToInt32(raw);}
         if(level<def.MinGeneralLevel)throw new GameException("GENERAL_TREASURE_GENERAL_LEVEL",$"General level {def.MinGeneralLevel} is required.",409);
+        await using(var q=new NpgsqlCommand("UPDATE player_generals SET leader_bonus=leader_bonus+$3,strength_bonus=strength_bonus+$4,updated_at=now() WHERE player_id=$1 AND general_id=$2",c,t)){q.Parameters.AddWithValue(playerId);q.Parameters.AddWithValue(generalId);q.Parameters.AddWithValue(row.lea);q.Parameters.AddWithValue(row.str);if(await q.ExecuteNonQueryAsync(ct)!=1)throw new GameException("GENERAL_TREASURE_GENERAL_MISSING","General does not exist for this player.",404);}
         await using(var q=new NpgsqlCommand("UPDATE player_general_treasures SET owner_general_id=$3,state=1,updated_at=now() WHERE id=$1 AND player_id=$2",c,t)){q.Parameters.AddWithValue(instanceId);q.Parameters.AddWithValue(playerId);q.Parameters.AddWithValue(generalId);await q.ExecuteNonQueryAsync(ct);}
         await t.CommitAsync(ct);
         var view=ToView(instanceId,row.treasure,row.lea,row.str,generalId,true,row.source,row.acquired);await push.SendAsync(playerId,"general_treasure.updated",view,ct);return view;
@@ -51,7 +52,11 @@ public sealed class GeneralTreasureService(GameDb db,GamePushHub push)
     {
         await using var c=await db.DataSource.OpenConnectionAsync(ct);await using var t=await c.BeginTransactionAsync(ct);
         var row=await LockAsync(c,t,playerId,instanceId,ct);
-        if(row.equipped)await using(var q=new NpgsqlCommand("UPDATE player_general_treasures SET owner_general_id=0,state=0,updated_at=now() WHERE id=$1 AND player_id=$2",c,t)){q.Parameters.AddWithValue(instanceId);q.Parameters.AddWithValue(playerId);await q.ExecuteNonQueryAsync(ct);}
+        if(row.equipped)
+        {
+            await using(var q=new NpgsqlCommand("UPDATE player_generals SET leader_bonus=leader_bonus-$3,strength_bonus=strength_bonus-$4,updated_at=now() WHERE player_id=$1 AND general_id=$2 AND leader_bonus>=$3 AND strength_bonus>=$4",c,t)){q.Parameters.AddWithValue(playerId);q.Parameters.AddWithValue(row.owner);q.Parameters.AddWithValue(row.lea);q.Parameters.AddWithValue(row.str);if(await q.ExecuteNonQueryAsync(ct)!=1)throw new GameException("GENERAL_TREASURE_STAT_DIVERGENCE","Equipped General Treasure attributes are not reflected in the owning general.",500);}
+            await using(var q=new NpgsqlCommand("UPDATE player_general_treasures SET owner_general_id=0,state=0,updated_at=now() WHERE id=$1 AND player_id=$2",c,t)){q.Parameters.AddWithValue(instanceId);q.Parameters.AddWithValue(playerId);await q.ExecuteNonQueryAsync(ct);}
+        }
         await t.CommitAsync(ct);
         var view=ToView(instanceId,row.treasure,row.lea,row.str,0,false,row.source,row.acquired);await push.SendAsync(playerId,"general_treasure.updated",view,ct);return view;
     }
