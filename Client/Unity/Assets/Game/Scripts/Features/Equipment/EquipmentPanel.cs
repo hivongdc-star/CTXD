@@ -72,6 +72,7 @@ namespace CTXD.Client.Features.Equipment
             }
 
             LegacyUiFactory.PixelButton(_window, _inventoryMode ? "Cửa hàng" : "Kho", 480, 7, 72, 25, ToggleMode);
+            LegacyUiFactory.PixelButton(_window, "Bảo vật", 400, 7, 74, 25, () => TreasurePanel.Open(_host,_api,_status));
             LegacyUiFactory.PixelButton(_window, "", 558, 8, 58, 24, Close, "LegacyVisual/Equip/00429");
         }
 

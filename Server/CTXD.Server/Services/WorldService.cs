@@ -74,7 +74,7 @@ public sealed class WorldService(GameDb db, CanonicalContent content, GeneralSer
             var force = await ForceAsync(c, t, playerId, ct); var capital = Capital(force);
             await EnsureCitiesAsync(c, t, ct); await EnsurePlayerAsync(c, t, playerId, force, capital, ct); await SettleAsync(c, t, playerId, force, ct);
             var (location, state, speed) = await GeneralAsync(c, t, playerId, generalId, true, ct);
-            if (state is not (0 or 1)) throw new GameException("WORLD_GENERAL_BUSY", "Vo tuong dang ban, khong the di chuyen.");
+            if (state is not (0 or 1 or 24)) throw new GameException("WORLD_GENERAL_BUSY", "Vo tuong dang ban, khong the di chuyen.");
             if (location == target) throw new GameException("WORLD_ALREADY_IN_CITY", "Vo tuong dang o thanh nay.");
             if (!content.WorldCities.ContainsKey(target)) throw new GameException("WORLD_CITY_NOT_FOUND", "Thanh khong ton tai.");
             var (seen, attackable) = await VisibilityAsync(c, t, playerId, ct);

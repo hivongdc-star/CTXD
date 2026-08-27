@@ -12,6 +12,7 @@ using CTXD.Client.Features.Mail;
 using CTXD.Client.Features.Market;
 using CTXD.Client.Features.Social;
 using CTXD.Client.Features.Activity;
+using CTXD.Client.Features.Rank;
 using CTXD.Client.Networking;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,6 +50,9 @@ namespace CTXD.Client.Features.FirstPlayable
                     _ = RefreshFromPush();
                 }
                 if (message.Contains("\"type\":\"world.updated\"")) WorldPanel.RefreshOpenFromPush();
+                if (message.Contains("\"type\":\"auto-battle.updated\"")) AutoBattlePanel.RefreshOpenFromPush();
+                if (message.Contains("\"type\":\"mine.updated\"")) MinePanel.RefreshOpenFromPush();
+                if (message.Contains("\"type\":\"treasure.updated\"")) TreasurePanel.RefreshOpenFromPush();
                 if (message.Contains("\"type\":\"battle.updated\"")) BattlePanel.RefreshOpenFromPush();
                 if (message.Contains("\"type\":\"chat.message\"")) ChatPanel.RefreshOpenFromPush();
             }
@@ -208,6 +212,7 @@ namespace CTXD.Client.Features.FirstPlayable
             LegacyUiFactory.Button(_screen,"VIP",new Vector2(.01f,.805f),new Vector2(.095f,.855f),()=>VipPanel.Open(_screen,_api,SetStatus));
             LegacyUiFactory.Button(_screen,"KFWD",new Vector2(.105f,.805f),new Vector2(.19f,.855f),()=>KfwdPanel.Open(_screen,_api,SetStatus));
             LegacyUiFactory.Button(_screen,"KFZB",new Vector2(.2f,.805f),new Vector2(.285f,.855f),()=>KfzbPanel.Open(_screen,_api,SetStatus));
+            LegacyUiFactory.Button(_screen,"Xếp hạng",new Vector2(.295f,.805f),new Vector2(.38f,.855f),()=>RankPanel.Open(_screen,_api,SetStatus));
             if(p.canChooseName && p.currentTaskId==8) ShowCreateRoleOverlay();
         }
 

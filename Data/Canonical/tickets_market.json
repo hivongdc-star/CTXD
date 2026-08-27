@@ -1,0 +1,266 @@
+[
+  {
+    "tickets": "100",
+    "buy_lv": "0",
+    "see_lv": "0",
+    "pic": "food",
+    "reward": "food:30000",
+    "id": "1"
+  },
+  {
+    "tickets": "100",
+    "buy_lv": "0",
+    "see_lv": "0",
+    "pic": "iron",
+    "reward": "iron:2000",
+    "id": "2"
+  },
+  {
+    "tickets": "15000",
+    "buy_lv": "81",
+    "see_lv": "79",
+    "pic": "",
+    "reward": "item:601",
+    "id": "4"
+  },
+  {
+    "tickets": "20000",
+    "buy_lv": "83",
+    "see_lv": "81",
+    "pic": "",
+    "reward": "item:602",
+    "id": "5"
+  },
+  {
+    "tickets": "25000",
+    "buy_lv": "85",
+    "see_lv": "83",
+    "pic": "",
+    "reward": "item:603",
+    "id": "6"
+  },
+  {
+    "tickets": "30000",
+    "buy_lv": "87",
+    "see_lv": "85",
+    "pic": "",
+    "reward": "item:604",
+    "id": "7"
+  },
+  {
+    "tickets": "35000",
+    "buy_lv": "89",
+    "see_lv": "87",
+    "pic": "",
+    "reward": "item:605",
+    "id": "8"
+  },
+  {
+    "tickets": "8000",
+    "buy_lv": "75",
+    "see_lv": "73",
+    "pic": "",
+    "reward": "item:701",
+    "id": "9"
+  },
+  {
+    "tickets": "9000",
+    "buy_lv": "80",
+    "see_lv": "78",
+    "pic": "",
+    "reward": "item:702",
+    "id": "10"
+  },
+  {
+    "tickets": "10000",
+    "buy_lv": "85",
+    "see_lv": "83",
+    "pic": "",
+    "reward": "item:703",
+    "id": "11"
+  },
+  {
+    "tickets": "10000",
+    "buy_lv": "90",
+    "see_lv": "88",
+    "pic": "",
+    "reward": "item:704",
+    "id": "12"
+  },
+  {
+    "tickets": "12000",
+    "buy_lv": "93",
+    "see_lv": "92",
+    "pic": "",
+    "reward": "item:705",
+    "id": "13"
+  },
+  {
+    "tickets": "14000",
+    "buy_lv": "96",
+    "see_lv": "95",
+    "pic": "",
+    "reward": "item:706",
+    "id": "14"
+  },
+  {
+    "tickets": "16000",
+    "buy_lv": "101",
+    "see_lv": "100",
+    "pic": "",
+    "reward": "item:707",
+    "id": "15"
+  },
+  {
+    "tickets": "16000",
+    "buy_lv": "99",
+    "see_lv": "98",
+    "pic": "",
+    "reward": "item:708",
+    "id": "16"
+  },
+  {
+    "tickets": "20000",
+    "buy_lv": "105",
+    "see_lv": "104",
+    "pic": "",
+    "reward": "item:711",
+    "id": "17"
+  },
+  {
+    "tickets": "20000",
+    "buy_lv": "115",
+    "see_lv": "114",
+    "pic": "",
+    "reward": "item:712",
+    "id": "18"
+  },
+  {
+    "tickets": "25000",
+    "buy_lv": "110",
+    "see_lv": "109",
+    "pic": "",
+    "reward": "item:713",
+    "id": "19"
+  },
+  {
+    "tickets": "20000",
+    "buy_lv": "91",
+    "see_lv": "90",
+    "pic": "",
+    "reward": "item:1001",
+    "id": "20"
+  },
+  {
+    "tickets": "25000",
+    "buy_lv": "93",
+    "see_lv": "92",
+    "pic": "",
+    "reward": "item:1002",
+    "id": "21"
+  },
+  {
+    "tickets": "30000",
+    "buy_lv": "95",
+    "see_lv": "94",
+    "pic": "",
+    "reward": "item:1003",
+    "id": "22"
+  },
+  {
+    "tickets": "35000",
+    "buy_lv": "97",
+    "see_lv": "96",
+    "pic": "",
+    "reward": "item:1004",
+    "id": "23"
+  },
+  {
+    "tickets": "40000",
+    "buy_lv": "99",
+    "see_lv": "98",
+    "pic": "",
+    "reward": "item:1005",
+    "id": "24"
+  },
+  {
+    "tickets": "30000",
+    "buy_lv": "101",
+    "see_lv": "100",
+    "pic": "",
+    "reward": "item:1201",
+    "id": "25"
+  },
+  {
+    "tickets": "35000",
+    "buy_lv": "103",
+    "see_lv": "102",
+    "pic": "",
+    "reward": "item:1202",
+    "id": "26"
+  },
+  {
+    "tickets": "40000",
+    "buy_lv": "105",
+    "see_lv": "104",
+    "pic": "",
+    "reward": "item:1203",
+    "id": "27"
+  },
+  {
+    "tickets": "45000",
+    "buy_lv": "107",
+    "see_lv": "106",
+    "pic": "",
+    "reward": "item:1204",
+    "id": "28"
+  },
+  {
+    "tickets": "50000",
+    "buy_lv": "109",
+    "see_lv": "108",
+    "pic": "",
+    "reward": "item:1205",
+    "id": "29"
+  },
+  {
+    "tickets": "40000",
+    "buy_lv": "111",
+    "see_lv": "110",
+    "pic": "",
+    "reward": "item:1801",
+    "id": "30"
+  },
+  {
+    "tickets": "50000",
+    "buy_lv": "113",
+    "see_lv": "112",
+    "pic": "",
+    "reward": "item:1802",
+    "id": "31"
+  },
+  {
+    "tickets": "60000",
+    "buy_lv": "115",
+    "see_lv": "114",
+    "pic": "",
+    "reward": "item:1803",
+    "id": "32"
+  },
+  {
+    "tickets": "70000",
+    "buy_lv": "117",
+    "see_lv": "116",
+    "pic": "",
+    "reward": "item:1804",
+    "id": "33"
+  },
+  {
+    "tickets": "80000",
+    "buy_lv": "119",
+    "see_lv": "118",
+    "pic": "",
+    "reward": "item:1805",
+    "id": "34"
+  }
+]

@@ -68,7 +68,7 @@ public sealed class CanonicalContent
     public CanonicalContent(IHostEnvironment env)
     {
         BaseDirectory = ResolveDirectory(env.ContentRootPath, "Data", "Canonical");
-        var opt = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var opt = new JsonSerializerOptions { PropertyNameCaseInsensitive = true, NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowReadingFromString };
         _buildings = Load<BuildingDefinition[]>(BaseDirectory, "buildings.json", opt).ToDictionary(x => x.Id);
         _tasks = Load<TaskDefinition[]>(BaseDirectory, "tasks.json", opt).ToDictionary(x => x.Id);
         MarketProducts=Load<MarketProductDefinition[]>(BaseDirectory,"market_products.json",opt).ToDictionary(x=>x.Id);

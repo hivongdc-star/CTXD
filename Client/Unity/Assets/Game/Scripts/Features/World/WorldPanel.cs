@@ -124,6 +124,13 @@ namespace CTXD.Client.Features.World
             LegacyUiFactory.PixelButton(_window, "Chi tiết thành", 14, 397, 118, 34, async () => await DetailAsync(city.id));
             LegacyUiFactory.PixelButton(_window, "Đi trực tiếp", 140, 397, 118, 34, async () => await MoveAsync(city.id, false));
             LegacyUiFactory.PixelButton(_window, "Tự tìm đường", 14, 440, 244, 38, async () => await MoveAsync(city.id, true));
+            LegacyUiFactory.PixelButton(_window, "KFGZ", 14, 488, 244, 38, () => KfgzPanel.Open((RectTransform)_window.parent, _api, _status));
+            LegacyUiFactory.PixelButton(_window, "Tự động quốc chiến", 14, 536, 244, 34,
+                () => AutoBattlePanel.Open((RectTransform)_window.parent, _api, _status, city.id));
+            LegacyUiFactory.PixelButton(_window, "Truân Điền", 14, 578, 244, 34,
+                () => FarmPanel.Open((RectTransform)_window.parent, _api, _status, _generalId));
+            LegacyUiFactory.PixelButton(_window, "Khoáng", 1018, 578, 132, 34,
+                () => MinePanel.Open((RectTransform)_window.parent, _api, _status, _generalId));
         }
 
         void SelectCity(int cityId) { _cityId = cityId; Draw(); }

@@ -1,0 +1,122 @@
+[
+    {
+        "tips_owned":  "Ỷ thiên kiếm ，công kích tăng gia 20%",
+        "name":  "Ỷ Thiên Kiếm ",
+        "gold":  "10000",
+        "pic":  "bao1",
+        "effect":  "ATT=0.2;ATT_BASE=500",
+        "pos":  "1",
+        "intro":  "Ỷ thiên kiếm ，thượng cổ thần khí ，sắc bén vô cùng 。",
+        "tips_lack":  "Ỷ Thiên Kiếm, đạt được đồ kinh: Trang bị trong điếm, bị các thương nhân triển chuyển buôn bán.",
+        "type":  "3",
+        "id":  "1"
+    },
+    {
+        "tips_owned":  "Long lân giáp ，phòng ngự đề cao 20%",
+        "name":  "Long Lân Giáp ",
+        "gold":  "10000",
+        "pic":  "bao2",
+        "effect":  "DEF=0.2;DEF_BASE=300",
+        "pos":  "2",
+        "intro":  "Long lân giáp ，Đông hải long vương  bảo giáp ，phi thường cứng rắn 。",
+        "tips_lack":  "Long lân giáp, đạt được đồ kinh: cúng tế thần minh, trái tim thành thì linh.",
+        "type":  "1",
+        "id":  "2"
+    },
+    {
+        "tips_owned":  "Truyện quốc ngọc tỳ ，công kích tăng gia 20%",
+        "name":  "Truyện Quốc Ngọc Tỳ ",
+        "gold":  "10000",
+        "pic":  "bao3",
+        "effect":  "ATT=0.2;ATT_BASE=500",
+        "pos":  "3",
+        "intro":  "Truyền quốc ngọc tỷ ，tương truyền được đến vật ấy giả liền có thể có được thiên hạ 。",
+        "tips_lack":  "Truyền quốc ngọc tỷ, đạt được đồ kinh: Trang bị trong điếm, bị các thương nhân triển chuyển buôn bán.",
+        "type":  "4",
+        "id":  "3"
+    },
+    {
+        "tips_owned":  "Lý nghiễm cung ，công kích tăng gia 20%",
+        "name":  "Lý Nghiễm Cung ",
+        "gold":  "10000",
+        "pic":  "bao4",
+        "effect":  "ATT=0.2;ATT_BASE=500",
+        "pos":  "4",
+        "intro":  "Lý quảng cung ，nguyên vì phi tướng quân lý quảng vật ，lý quảng tự sát sau liền không biết tung tích 。",
+        "tips_lack":  "Lý nghiễm cung, đạt được đồ kinh: hữu duyên người, thẩm tra theo đạt được.",
+        "type":  "2",
+        "id":  "4"
+    },
+    {
+        "tips_owned":  "Tử đàn hương lô ，phòng ngự đề cao 20%",
+        "name":  "Tử Đàn Hương Lô ",
+        "gold":  "10000",
+        "pic":  "bao5",
+        "effect":  "DEF=0.2;DEF_BASE=300",
+        "pos":  "5",
+        "intro":  "Cây tử đàn lư hương ，khiến người tĩnh khí ngưng thần ，Phúc Thọ an khang 。",
+        "tips_lack":  "Tím đàn thơm mát lò, đạt được đồ kinh: cúng tế thần minh, trái tim thành thì linh.",
+        "type":  "1",
+        "id":  "5"
+    },
+    {
+        "tips_owned":  "Ngọc như ý ，phòng ngự đề cao 20%",
+        "name":  "Ngọc Như Ý ",
+        "gold":  "10000",
+        "pic":  "bao6",
+        "effect":  "DEF=0.2;DEF_BASE=300",
+        "pos":  "6",
+        "intro":  "Ngọc như ý  có được giả ，đem giống như thần trợ ，nghĩ rằng sự thành 。",
+        "tips_lack":  "Ngọc như ý, đạt được đồ kinh: cúng tế thần minh, trái tim thành thì linh.",
+        "type":  "1",
+        "id":  "6"
+    },
+    {
+        "tips_owned":  "Thất tinh bảo đao ，công kích tăng gia 20%",
+        "name":  "Thất Tinh Bảo Đao ",
+        "gold":  "10000",
+        "pic":  "bao7",
+        "effect":  "ATT=0.2;ATT_BASE=500",
+        "pos":  "7",
+        "intro":  "Thất tinh bảo đao ，đao này phong ấn  bắc đẩu thất tinh lực ，có được giả đem lực đại vô cùng 。",
+        "tips_lack":  "Thất tinh bảo đao, đạt được đồ kinh: hữu duyên người, thẩm tra theo đạt được.",
+        "type":  "2",
+        "id":  "7"
+    },
+    {
+        "tips_owned":  "Sơn hà xã tắc đồ ，phòng ngự đề cao 20%",
+        "name":  "Sơn Hà Xã Tắc Đồ ",
+        "gold":  "10000",
+        "pic":  "bao8",
+        "effect":  "DEF=0.2;DEF_BASE=300",
+        "pos":  "8",
+        "intro":  "Sơn hà xã tắc đồ ，tương truyền tần thủy hoàng doanh chính từng ngẫu  này họa ，cố thống 1 lục quốc 。",
+        "tips_lack":  "Núi sông xã tắc đồ, đạt được đồ kinh: hữu duyên người, thẩm tra theo đạt được.",
+        "type":  "2",
+        "id":  "8"
+    },
+    {
+        "tips_owned":  "Độn giáp thiên thư ，phòng ngự đề cao 20%",
+        "name":  "Độn Giáp Thiên Thư ",
+        "gold":  "10000",
+        "pic":  "bao9",
+        "effect":  "DEF=0.2;DEF_BASE=300",
+        "pos":  "9",
+        "intro":  "Độn giáp thiên thư ，nhớ chở các loại phòng ngự kỹ xảo  bộ sách 。",
+        "tips_lack":  "Độn giáp thiên thư, đạt được đồ kinh: cần vu chính vụ người, đem có tỷ lệ đạt được.",
+        "type":  "5",
+        "id":  "9"
+    },
+    {
+        "tips_owned":  "Long hổ lệnh ，công kích tăng gia 20%",
+        "name":  "Long Hổ Lệnh ",
+        "gold":  "10000",
+        "pic":  "bao10",
+        "effect":  "ATT=0.2;ATT_BASE=500",
+        "pos":  "10",
+        "intro":  "Long hổ lệnh ，tương truyền có được long hổ làm giả ，khả hiệu lệnh thiên hạ binh mã ",
+        "tips_lack":  "Long hổ lệnh, đạt được đồ kinh: cần vu chính vụ người, đem có tỷ lệ đạt được.",
+        "type":  "5",
+        "id":  "10"
+    }
+]

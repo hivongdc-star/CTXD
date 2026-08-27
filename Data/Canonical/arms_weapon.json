@@ -1,0 +1,8 @@
+[
+  {"id":1,"name":"Thanh Long Đao","quality":1,"intro":"Vũ khí thượng cổ","pic":"qinglongdao","type":1,"baseAttribute":75,"strengthen":5,"ironSeries":14,"ironExponent":10,"ironTimesSeries":15,"itemId":301,"itemNum":5,"cost":"1,100000;2,100000","gemId":101,"gemNum":1,"incense":0},
+  {"id":2,"name":"Bát Kỳ Lộc","quality":1,"intro":"Vũ khí thượng cổ","pic":"baqilu","type":2,"baseAttribute":45,"strengthen":3,"ironSeries":14,"ironExponent":10,"ironTimesSeries":15,"itemId":302,"itemNum":5,"cost":"1,130000;2,130000","gemId":101,"gemNum":2,"incense":0},
+  {"id":3,"name":"Quan Gia Duẫn","quality":1,"intro":"Vũ khí thượng cổ","pic":"guanjiayun","type":3,"baseAttribute":360,"strengthen":24,"ironSeries":14,"ironExponent":10,"ironTimesSeries":15,"itemId":303,"itemNum":5,"cost":"1,160000;2,160000","gemId":101,"gemNum":3,"incense":0},
+  {"id":4,"name":"Ngũ Long Thương","quality":1,"intro":"Vũ khí thượng cổ","pic":"wulongqiang","type":1,"baseAttribute":150,"strengthen":10,"ironSeries":18,"ironExponent":10,"ironTimesSeries":19,"itemId":304,"itemNum":5,"cost":"1,190000;2,190000","gemId":101,"gemNum":4,"incense":1},
+  {"id":5,"name":"Hổ Bào","quality":1,"intro":"Vũ khí thượng cổ","pic":"hubao","type":2,"baseAttribute":90,"strengthen":6,"ironSeries":18,"ironExponent":10,"ironTimesSeries":19,"itemId":305,"itemNum":5,"cost":"1,220000;2,220000","gemId":101,"gemNum":5,"incense":1},
+  {"id":6,"name":"Xích Thố Mã","quality":1,"intro":"Vũ khí thượng cổ","pic":"chituma","type":3,"baseAttribute":720,"strengthen":48,"ironSeries":18,"ironExponent":10,"ironTimesSeries":19,"itemId":306,"itemNum":5,"cost":"1,250000;2,250000","gemId":101,"gemNum":6,"incense":1}
+]

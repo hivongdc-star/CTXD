@@ -1,0 +1,52 @@
+[
+  {
+    "exp_free": "500",
+    "degree": "1",
+    "exp_extra": "0",
+    "get_exp_prob": "0.7143",
+    "exp_sum": "1000",
+    "cost": "0",
+    "try_gold": "0",
+    "time_extra": "0"
+  },
+  {
+    "exp_free": "1000",
+    "degree": "2",
+    "exp_extra": "5000",
+    "get_exp_prob": "0.8163",
+    "exp_sum": "2000",
+    "cost": "1000",
+    "try_gold": "30",
+    "time_extra": "10"
+  },
+  {
+    "exp_free": "1500",
+    "degree": "3",
+    "exp_extra": "14000",
+    "get_exp_prob": "0.8571",
+    "exp_sum": "3000",
+    "cost": "2000",
+    "try_gold": "30",
+    "time_extra": "25"
+  },
+  {
+    "exp_free": "2000",
+    "degree": "4",
+    "exp_extra": "26000",
+    "get_exp_prob": "0.7143",
+    "exp_sum": "4000",
+    "cost": "3000",
+    "try_gold": "40",
+    "time_extra": "40"
+  },
+  {
+    "exp_free": "0",
+    "degree": "5",
+    "exp_extra": "40000",
+    "get_exp_prob": "0",
+    "exp_sum": "0",
+    "cost": "4000",
+    "try_gold": "40",
+    "time_extra": "60"
+  }
+]
