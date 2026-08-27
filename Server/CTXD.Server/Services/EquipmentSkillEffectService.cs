@@ -13,10 +13,8 @@ public readonly record struct EquipmentSkillBattleEffect(
     int TacticAttack,int TacticDefense);
 
 /// <summary>
-/// Authoritative legacy equipment refresh-skill catalog.
-/// StoreService.getRefreshAttr rolls skill_num entries with replacement from equip_skill by skill_type,
-/// each at skill_lv_default. BattleEffectCache.calcEquipMilitaryEffect consumes the equipped item's
-/// refresh_attribute string as flat ATT/DEF/BLOOD plus ATT_B/DEF_B/TACTIC_ATT/TACTIC_DEF combat effects.
+/// Authoritative legacy equipment refresh-skill catalog. Normal equipment consumes refresh_attribute.
+/// Suit/Proset contribution is resolved by EquipmentCompositeService and appended exactly once here.
 /// </summary>
 public static class EquipmentSkillEffectService
 {
@@ -49,6 +47,12 @@ public static class EquipmentSkillEffectService
         return string.Join(';',result);
     }
 
+    public static EquipmentSkillBattleEffect Resolve(CanonicalContent content,int skillId,int skillLevel)
+    {
+        var catalog=Get(content);
+        return catalog.Effects.TryGetValue((skillId,skillLevel),out var def)?Resolve(def):default;
+    }
+
     public static async Task<EquipmentSkillBattleEffect> BattleAsync(
         NpgsqlConnection connection,NpgsqlTransaction? transaction,CanonicalContent content,long playerId,int generalId,CancellationToken ct)
     {
@@ -60,28 +64,39 @@ public static class EquipmentSkillEffectService
             while(await r.ReadAsync(ct))attributes.Add(r.IsDBNull(0)?"":r.GetString(0));
         }
         var catalog=Get(content);
-        var attack=0;var defense=0;var blood=0;var attackBonus=0;var defenseBonus=0;var tacticAttack=0;var tacticDefense=0;
+        var total=default(EquipmentSkillBattleEffect);
         foreach(var raw in attributes)
         foreach(var token in raw.Split(';',StringSplitOptions.RemoveEmptyEntries|StringSplitOptions.TrimEntries))
         {
             var pair=token.Split(':',2,StringSplitOptions.TrimEntries);
             if(pair.Length!=2||!int.TryParse(pair[0],out var skill)||!int.TryParse(pair[1],out var level))continue;
             if(!catalog.Effects.TryGetValue((skill,level),out var def))continue;
-            var effect=def.Effect.Split('=',2,StringSplitOptions.TrimEntries);
-            if(effect.Length!=2||!int.TryParse(effect[1],out var value))continue;
-            switch(effect[0].ToUpperInvariant())
-            {
-                case "ATT":attack+=value;break;
-                case "DEF":defense+=value;break;
-                case "BLOOD":blood+=value;break;
-                case "ATT_B":attackBonus+=value;break;
-                case "DEF_B":defenseBonus+=value;break;
-                case "TACTIC_ATT":tacticAttack+=value;break;
-                case "TACTIC_DEF":tacticDefense+=value;break;
-            }
+            total=Add(total,Resolve(def));
         }
-        return new(attack,defense,blood,attackBonus,defenseBonus,tacticAttack,tacticDefense);
+        return Add(total,await EquipmentCompositeService.BattleAsync(connection,transaction,content,playerId,generalId,ct));
     }
+
+    static EquipmentSkillBattleEffect Resolve(EffectDef def)
+    {
+        var effect=def.Effect.Split('=',2,StringSplitOptions.TrimEntries);
+        if(effect.Length!=2||!int.TryParse(effect[1],out var value))return default;
+        return effect[0].ToUpperInvariant() switch
+        {
+            "ATT"=>new(value,0,0,0,0,0,0),
+            "DEF"=>new(0,value,0,0,0,0,0),
+            "BLOOD"=>new(0,0,value,0,0,0,0),
+            "ATT_B"=>new(0,0,0,value,0,0,0),
+            "DEF_B"=>new(0,0,0,0,value,0,0),
+            "TACTIC_ATT"=>new(0,0,0,0,0,value,0),
+            "TACTIC_DEF"=>new(0,0,0,0,0,0,value),
+            _=>default
+        };
+    }
+
+    static EquipmentSkillBattleEffect Add(EquipmentSkillBattleEffect a,EquipmentSkillBattleEffect b)=>new(
+        a.Attack+b.Attack,a.Defense+b.Defense,a.Blood+b.Blood,
+        a.AttackBonus+b.AttackBonus,a.DefenseBonus+b.DefenseBonus,
+        a.TacticAttack+b.TacticAttack,a.TacticDefense+b.TacticDefense);
 
     static Catalog Get(CanonicalContent content)=>Cache.GetOrAdd(content.BaseDirectory,Load);
     static Catalog Load(string dir)
