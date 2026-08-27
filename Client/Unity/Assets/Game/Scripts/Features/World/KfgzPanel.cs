@@ -184,15 +184,14 @@ namespace CTXD.Client.Features.World
         {
             var personalListView = LegacyUiFactory.PixelPanel(_window, "personalListView", 0, 0, 1170, 634, Color.clear);
             personalListView.GetComponent<Image>().raycastTarget = false;
-            var active = LegacyUiFactory.PixelButton(personalListView, "Bảng Dũng Sĩ", 20, 88, 180, 30, () => { });
-            active.interactable = false;
-            DisableRankingTab(personalListView, "Bảng Quốc Gia", 210);
+            DisableRankingTab(personalListView, "Bảng Quốc Gia", 20);
+            DisableRankingTab(personalListView, "Bảng Dũng Sĩ", 210);
             DisableRankingTab(personalListView, "Bảng Chiếm Thành Tổ", 400);
             DisableRankingTab(personalListView, "Khiêu Chiến Nhóm", 590);
             DisableRankingTab(personalListView, "Bảng Sát Địch Tổ", 780);
 
             LegacyUiFactory.PixelLabel(personalListView,
-                "Public backend chỉ expose một bảng player ranking authoritative; 4 bảng legacy còn lại không được dựng giả.",
+                "Xếp hạng KFGZ public (backend chưa expose loại bảng legacy; 5 tab legacy giữ blocked).",
                 14, TextAnchor.MiddleLeft, Color.gray, 20, 126, 1120, 28);
 
             if (!string.IsNullOrEmpty(_rankingError))
@@ -518,38 +517,15 @@ namespace CTXD.Client.Features.World
 
         async void MoveSelected()
         {
-            if (_busy) return; _busy = true;
+            if (_busy) return;
+            int cityId;
+            int[] ids;
+            try { cityId = RequireCity(); ids = RequireSelected(); } catch (Exception ex) { _status(ex.Message); return; }
+            _busy = true;
             try
             {
-                var general = RequireSingle();
-                var city = RequireCity();
-                var targetBattle = (_war?.battles ?? Array.Empty<KfgzBattleView>()).FirstOrDefault(x => x.cityId == city && x.state == 1);
-                if (targetBattle != null)
-                {
-                    var result = await _ext.ReinforceAsync(targetBattle.battleId, new[] { general });
-                    _status("Đã gia nhập battle #" + result.battleId + " ở side " + result.side + ".");
-                }
-                else
-                {
-                    _war = await _api.MoveKfgzGeneralAsync(general, city);
-                    _status("Đã điều tướng trong KFGZ.");
-                }
-                await RefreshAsync();
-            }
-            catch (Exception ex) { _status(ex.Message); }
-            finally { _busy = false; }
-        }
-
-        async void LoadCallable()
-        {
-            if (_busy) return; _busy = true;
-            try
-            {
-                var info = await _ext.GetCallGeneralsAsync(RequireCity());
-                _selectedGenerals.Clear();
-                foreach (var id in info.generalIds ?? Array.Empty<int>()) _selectedGenerals.Add(id);
-                _status("Đã chọn các tướng có thể gọi: " + _selectedGenerals.Count);
-                Draw();
+                foreach (var id in ids) await _api.MoveKfgzAsync(id, cityId);
+                _status("Đã điều quân KFGZ."); await RefreshAsync();
             }
             catch (Exception ex) { _status(ex.Message); }
             finally { _busy = false; }
@@ -557,82 +533,93 @@ namespace CTXD.Client.Features.World
 
         async void CallSelected()
         {
-            if (_busy) return; _busy = true;
-            try
-            {
-                var result = await _ext.CallGeneralsAsync(RequireCity(), RequireSelected());
-                var failed = result.failed?.Length ?? 0;
-                _status("Call-general: " + (result.movedGeneralIds?.Length ?? 0) + " thành công, " + failed + " thất bại.");
-                await RefreshAsync();
-            }
+            if (_busy) return;
+            int cityId;
+            int[] ids;
+            try { cityId = RequireCity(); ids = RequireSelected(); } catch (Exception ex) { _status(ex.Message); return; }
+            _busy = true;
+            try { var r = await _ext.CallGeneralsAsync(cityId, ids); _status("Gọi tướng: " + (r.movedGeneralIds?.Length ?? 0) + " thành công, " + (r.failed?.Length ?? 0) + " thất bại."); await RefreshAsync(); }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+
+        async void LoadCallable()
+        {
+            if (_busy) return;
+            int cityId;
+            try { cityId = RequireCity(); } catch (Exception ex) { _status(ex.Message); return; }
+            _busy = true;
+            try { var r = await _ext.GetCallGeneralsAsync(cityId); _status("Có thể gọi về: " + string.Join(",", r.generalIds ?? Array.Empty<int>())); }
             catch (Exception ex) { _status(ex.Message); }
             finally { _busy = false; }
         }
 
         async void RetreatSelected()
         {
-            if (_busy) return; _busy = true;
-            try { _war = await _api.RetreatKfgzGeneralsAsync(RequireSelected(), RequireCity()); _status("Đã rút quân KFGZ."); await RefreshAsync(); }
+            if (_busy) return;
+            int cityId;
+            int[] ids;
+            try { cityId = RequireCity(); ids = RequireSelected(); } catch (Exception ex) { _status(ex.Message); return; }
+            _busy = true;
+            try { foreach (var id in ids) await _api.RetreatKfgzAsync(new[] { id }, cityId); _status("Đã gửi lệnh rút lui."); await RefreshAsync(); }
             catch (Exception ex) { _status(ex.Message); }
             finally { _busy = false; }
         }
 
         async void StartMubing()
         {
-            if (_busy) return; _busy = true;
-            try { var result = await _ext.StartMubingAsync(RequireSingle()); _status("Đã bắt đầu tuyển quân: " + result.mubing + "/h"); await RefreshAsync(); }
+            if (_busy) return;
+            int id;
+            try { id = RequireSingle(); } catch (Exception ex) { _status(ex.Message); return; }
+            _busy = true;
+            try { var r = await _ext.StartMubingAsync(id); _status("Mubing tướng " + r.generalId + ": " + (r.active ? "đang chạy" : "đã dừng") + ", lực " + r.forces + "/" + r.maxForces); await RefreshAsync(); }
             catch (Exception ex) { _status(ex.Message); }
             finally { _busy = false; }
         }
 
         async void FastRecruit()
         {
-            if (_busy) return; _busy = true;
-            try
-            {
-                var result = await _ext.FastRecruitAsync(RequireSingle());
-                _status("Tuyển nhanh +" + result.healed + " quân; token " + result.recruitTokenSpent + ", gold " + result.goldSpent + ", food " + result.foodSpent + ".");
-                await RefreshAsync();
-            }
+            if (_busy) return;
+            int id;
+            try { id = RequireSingle(); } catch (Exception ex) { _status(ex.Message); return; }
+            _busy = true;
+            try { var r = await _ext.FastRecruitAsync(id); _status("Tuyển nhanh +" + r.healed + " lực, tốn token " + r.recruitTokenSpent + ", vàng " + r.goldSpent + "."); await RefreshAsync(); }
             catch (Exception ex) { _status(ex.Message); }
             finally { _busy = false; }
         }
 
+        async void OpenBattle()
+        {
+            var battleId = CurrentBattleId();
+            if (battleId <= 0) { _status("Không có battle KFGZ đang hoạt động cho tướng đã chọn."); return; }
+            var root = GetComponentInParent<RectTransform>();
+            var entry = GetComponentInParent<FirstPlayableEntry>();
+            if (entry != null) BattlePanel.Open(root, _api, battleId, entry.SetStatus);
+        }
+
         async void CreatePhantom()
         {
-            if (_busy) return; _busy = true;
-            try
-            {
-                var battle = CurrentBattleId();
-                if (battle <= 0) throw new Exception("Không có battle KFGZ đang hoạt động cho tướng đã chọn.");
-                var result = await _ext.CreatePhantomAsync(battle);
-                _status("Đã tạo Phantom cho tướng " + result.generalId + (result.usedFree ? " bằng lượt miễn phí." : " với " + result.goldCost + " gold."));
-                await RefreshAsync();
-            }
+            if (_busy) return;
+            var battleId = CurrentBattleId();
+            if (battleId <= 0) { _status("Không có battle để tạo Phantom."); return; }
+            _busy = true;
+            try { var r = await _ext.CreatePhantomAsync(battleId); _status("Phantom #" + r.phantomUnitId + (r.usedFree ? " dùng lượt miễn phí." : " tốn " + r.goldCost + " vàng.")); await RefreshAsync(); }
             catch (Exception ex) { _status(ex.Message); }
             finally { _busy = false; }
         }
 
         async void RushSelected()
         {
-            if (_busy) return; _busy = true;
-            try
-            {
-                var battle = CurrentBattleId();
-                if (battle <= 0) throw new Exception("Không có battle KFGZ đang hoạt động cho tướng đã chọn.");
-                var result = await _ext.RushAsync(battle, RequireSelected(), RequireCity());
-                _status(result.targetBattleId > 0 ? "Rush đã chuyển sang battle #" + result.targetBattleId : result.captured ? "Rush đã chiếm thành." : "Rush hoàn tất.");
-                await RefreshAsync();
-            }
+            if (_busy) return;
+            var battleId = CurrentBattleId();
+            if (battleId <= 0) { _status("Không có battle nguồn để Rush."); return; }
+            int cityId;
+            int[] ids;
+            try { cityId = RequireCity(); ids = RequireSelected(); } catch (Exception ex) { _status(ex.Message); return; }
+            _busy = true;
+            try { var r = await _ext.RushAsync(battleId, ids, cityId); _status("Rush sang thành " + r.targetCityId + (r.captured ? " và đã chiếm thành." : ".")); await RefreshAsync(); }
             catch (Exception ex) { _status(ex.Message); }
             finally { _busy = false; }
-        }
-
-        void OpenBattle()
-        {
-            var battle = CurrentBattleId();
-            if (battle <= 0) { _status("Không có battle KFGZ đang hoạt động cho tướng đã chọn."); return; }
-            BattlePanel.Open((RectTransform)_window.parent, _api, _status, battle);
         }
     }
 }
