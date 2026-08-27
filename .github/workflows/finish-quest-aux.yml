@@ -2,7 +2,8 @@ name: finish-quest-aux
 
 on:
   push:
-    branches: [codex/kfgz-extended-combat]
+    branches:
+      - codex/kfgz-extended-combat
     paths:
       - .github/workflows/finish-quest-aux.yml
 
@@ -22,102 +23,20 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-
-          def replace_once(path, old, new):
-              p = Path(path)
-              s = p.read_text(encoding='utf-8')
-              if old not in s:
-                  raise SystemExit(f'pattern not found: {path}: {old[:100]!r}')
-              p.write_text(s.replace(old, new, 1), encoding='utf-8')
-
-          Path('Server/CTXD.Server/Services/QuestEventLedger.cs').write_text(r'''using CTXD.Server.Data;
-using Npgsql;
-
-namespace CTXD.Server.Services;
-
-public static class QuestEventLedger
-{
-    static string Scoped(string kind,int taskId)=>$"{kind}:{taskId}";
-
-    public static async Task RecordAsync(NpgsqlConnection c,NpgsqlTransaction? t,long playerId,string kind,int arg,CancellationToken ct)
-    {
-        await using var cmd=new NpgsqlCommand(@"INSERT INTO player_quest_events(player_id,kind,arg,count)
-VALUES($1,$2,$3,1)
-ON CONFLICT(player_id,kind,arg) DO UPDATE SET count=player_quest_events.count+1,updated_at=now()",c,t);
-        cmd.Parameters.AddWithValue(playerId);cmd.Parameters.AddWithValue(kind);cmd.Parameters.AddWithValue(arg);await cmd.ExecuteNonQueryAsync(ct);
-    }
-
-    public static async Task RecordCurrentAsync(GameDb db,long playerId,string kind,int arg,CancellationToken ct)
-    {
-        await using var c=await db.DataSource.OpenConnectionAsync(ct);
-        await RecordCurrentAsync(c,null,playerId,kind,arg,ct);
-    }
-
-    public static async Task RecordCurrentAsync(NpgsqlConnection c,NpgsqlTransaction? t,long playerId,string kind,int arg,CancellationToken ct)
-    {
-        int taskId;await using(var q=new NpgsqlCommand("SELECT current_task_id FROM players WHERE id=$1",c,t)){q.Parameters.AddWithValue(playerId);var value=await q.ExecuteScalarAsync(ct);if(value is null)return;taskId=Convert.ToInt32(value);}
-        await RecordAsync(c,t,playerId,Scoped(kind,taskId),arg,ct);
-    }
-
-    public static async Task<int> CountAsync(NpgsqlConnection c,NpgsqlTransaction? t,long playerId,string kind,int? arg,CancellationToken ct)
-    {
-        var sql=arg.HasValue
-            ?"SELECT COALESCE((SELECT count FROM player_quest_events WHERE player_id=$1 AND kind=$2 AND arg=$3),0)"
-            :"SELECT COALESCE(sum(count),0) FROM player_quest_events WHERE player_id=$1 AND kind=$2";
-        await using var cmd=new NpgsqlCommand(sql,c,t);cmd.Parameters.AddWithValue(playerId);cmd.Parameters.AddWithValue(kind);if(arg.HasValue)cmd.Parameters.AddWithValue(arg.Value);return Convert.ToInt32(await cmd.ExecuteScalarAsync(ct));
-    }
-
-    public static Task<int> CountForTaskAsync(NpgsqlConnection c,NpgsqlTransaction? t,long playerId,int taskId,string kind,int? arg,CancellationToken ct)
-        =>CountAsync(c,t,playerId,Scoped(kind,taskId),arg,ct);
-}
-''', encoding='utf-8')
-
-          Path('Server/CTXD.Server/Services/MineEndpoints.cs').write_text(r'''using CTXD.Server.Data;
-using Npgsql;
-
-namespace CTXD.Server.Services;
-
-public static class MineEndpoints
-{
-    public static IEndpointRouteBuilder MapMineEndpoints(this IEndpointRouteBuilder app)
-    {
-        app.MapGet("/api/world/mines",async(int? page,int? style,HttpRequest request,AuthService auth,MineService mines,GameDb db,CancellationToken ct)=>
-        {
-            var player=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var mineStyle=style??1;var result=await mines.GetAsync(player,page??0,mineStyle,ct);
-            if(mineStyle==1)await QuestEventLedger.RecordCurrentAsync(db,player,"world_mine_iron_visit",0,ct);
-            return Results.Ok(result);
-        });
-        app.MapPost("/api/world/mines/occupy",async(MineOccupyRequest body,HttpRequest request,AuthService auth,MineService mines,GameDb db,CancellationToken ct)=>
-        {
-            var player=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await mines.OccupyAsync(player,body.MineId,body.GeneralId,ct);
-            if(await IsIronMineAsync(db,body.MineId,ct))await QuestEventLedger.RecordCurrentAsync(db,player,"world_mine_iron_own",0,ct);
-            return Results.Ok(result);
-        });
-        app.MapPost("/api/world/mines/rush/{style:int}",async(int style,HttpRequest request,AuthService auth,MineService mines,CancellationToken ct)=>{await mines.RushAsync(await auth.ResolvePlayerIdAsync(Bearer(request),ct),style,ct);return Results.Ok();});
-        app.MapPost("/api/world/mines/abandon/{style:int}",async(int style,HttpRequest request,AuthService auth,MineService mines,CancellationToken ct)=>Results.Ok(await mines.AbandonAsync(await auth.ResolvePlayerIdAsync(Bearer(request),ct),style,ct)));
-        app.MapPost("/api/world/mines/harvest/{style:int}",async(int style,HttpRequest request,AuthService auth,MineService mines,CancellationToken ct)=>Results.Ok(await mines.HarvestForceAsync(await auth.ResolvePlayerIdAsync(Bearer(request),ct),style,ct)));
-        return app;
-    }
-    static async Task<bool> IsIronMineAsync(GameDb db,int mineId,CancellationToken ct){await using var c=await db.DataSource.OpenConnectionAsync(ct);await using var q=new NpgsqlCommand("SELECT EXISTS(SELECT 1 FROM world_mine_holdings WHERE mine_id=$1 AND mine_type IN(1,2))",c);q.Parameters.AddWithValue(mineId);return Convert.ToBoolean(await q.ExecuteScalarAsync(ct));}
-    static string? Bearer(HttpRequest request){var h=request.Headers["Authorization"].ToString();return h.StartsWith("Bearer ",StringComparison.OrdinalIgnoreCase)?h[7..].Trim():null;}
-}
-''', encoding='utf-8')
-
-          replace_once(
-              'Server/CTXD.Server/Services/TreasureService.cs',
-              'if(await add.ExecuteNonQueryAsync(ct)!=1)return null;return new(def.Id,def.Pos,def.Name,def.Pic,def.TipsOwned,true,def.Type,def.Effect);',
-              'if(await add.ExecuteNonQueryAsync(ct)!=1)return null;await QuestEventLedger.RecordCurrentAsync(c,t,player,"world_treasure_type",def.Type,ct);return new(def.Id,def.Pos,def.Name,def.Pic,def.TipsOwned,true,def.Type,def.Effect);')
-
-          replace_once(
-              'Server/CTXD.Server/Services/TutorialService.cs',
-              '    {\n        int taskId;\n',
-              '    {\n        await QuestEventLedger.RecordCurrentAsync(conn,tx,playerId,eventKind,args.Length>0?args[0]:0,ct);\n        int taskId;\n')
-
-          quest_insert = '''            case "world_mine_iron_visit":\n                return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_mine_iron_visit",null,ct)>0,null);\n            case "world_mine_iron_own":\n                return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_mine_iron_own",null,ct)>0,null);\n            case "world_treasure_type":\n                var treasureTypeArgs=Args(task.Target);var treasureType=treasureTypeArgs.Length==0?0:treasureTypeArgs[0];var treasureCount=treasureType==0?await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",null,ct):await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",treasureType,ct);return(treasureCount>0,null);\n            case "sell_equip":\n                return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"sell_equip",null,ct)>0,null);\n            case "tavern_refresh":\n                if(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"tavern_refresh",null,ct)>0)return(true,null);await using(var tavernCd=new NpgsqlCommand("SELECT EXISTS(SELECT 1 FROM player_tavern WHERE player_id=$1 AND (next_civil_at>now() OR next_military_at>now()))",c,t)){tavernCd.Parameters.AddWithValue(player);return(Convert.ToBoolean(await tavernCd.ExecuteScalarAsync(ct)),null);}\n'''
-          replace_once(
-              'Server/CTXD.Server/Services/QuestService.cs',
-              '            case "and":\n',
-              quest_insert+'            case "and":\n')
+          def rep(path, old, new):
+              p=Path(path); s=p.read_text(encoding='utf-8')
+              if old not in s: raise SystemExit('pattern not found: '+path+' :: '+old[:80])
+              p.write_text(s.replace(old,new,1),encoding='utf-8')
+          rep('Server/CTXD.Server/Services/QuestEventLedger.cs','using Npgsql;\n','using CTXD.Server.Data;\nusing Npgsql;\n')
+          rep('Server/CTXD.Server/Services/QuestEventLedger.cs','    public static async Task<int> CountAsync(NpgsqlConnection c,NpgsqlTransaction? t,long playerId,string kind,int? arg,CancellationToken ct)\n','    static string Scoped(string kind,int taskId)=>$"{kind}:{taskId}";\n\n    public static async Task RecordCurrentAsync(GameDb db,long playerId,string kind,int arg,CancellationToken ct)\n    {\n        await using var c=await db.DataSource.OpenConnectionAsync(ct);await RecordCurrentAsync(c,null,playerId,kind,arg,ct);\n    }\n\n    public static async Task RecordCurrentAsync(NpgsqlConnection c,NpgsqlTransaction? t,long playerId,string kind,int arg,CancellationToken ct)\n    {\n        await using var q=new NpgsqlCommand("SELECT current_task_id FROM players WHERE id=$1",c,t);q.Parameters.AddWithValue(playerId);var value=await q.ExecuteScalarAsync(ct);if(value is null)return;await RecordAsync(c,t,playerId,Scoped(kind,Convert.ToInt32(value)),arg,ct);\n    }\n\n    public static Task<int> CountForTaskAsync(NpgsqlConnection c,NpgsqlTransaction? t,long playerId,int taskId,string kind,int? arg,CancellationToken ct)=>CountAsync(c,t,playerId,Scoped(kind,taskId),arg,ct);\n\n    public static async Task<int> CountAsync(NpgsqlConnection c,NpgsqlTransaction? t,long playerId,string kind,int? arg,CancellationToken ct)\n')
+          rep('Server/CTXD.Server/Services/MineEndpoints.cs','using CTXD.Server.Data;\n','using CTXD.Server.Data;\nusing Npgsql;\n')
+          rep('Server/CTXD.Server/Services/MineEndpoints.cs','QuestEventLedger.RecordAsync(db,player,"world_mine_iron_visit",0,ct)','QuestEventLedger.RecordCurrentAsync(db,player,"world_mine_iron_visit",0,ct)')
+          rep('Server/CTXD.Server/Services/MineEndpoints.cs','        app.MapPost("/api/world/mines/occupy",async(MineOccupyRequest body,HttpRequest request,AuthService auth,MineService mines,CancellationToken ct)=>Results.Ok(await mines.OccupyAsync(await auth.ResolvePlayerIdAsync(Bearer(request),ct),body.MineId,body.GeneralId,ct)));\n','        app.MapPost("/api/world/mines/occupy",async(MineOccupyRequest body,HttpRequest request,AuthService auth,MineService mines,GameDb db,CancellationToken ct)=>{var player=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await mines.OccupyAsync(player,body.MineId,body.GeneralId,ct);if(await IsIronMineAsync(db,body.MineId,ct))await QuestEventLedger.RecordCurrentAsync(db,player,"world_mine_iron_own",0,ct);return Results.Ok(result);});\n')
+          rep('Server/CTXD.Server/Services/MineEndpoints.cs','    static string? Bearer(HttpRequest request)','    static async Task<bool> IsIronMineAsync(GameDb db,int mineId,CancellationToken ct){await using var c=await db.DataSource.OpenConnectionAsync(ct);await using var q=new NpgsqlCommand("SELECT EXISTS(SELECT 1 FROM world_mine_holdings WHERE mine_id=$1 AND mine_type IN(1,2))",c);q.Parameters.AddWithValue(mineId);return Convert.ToBoolean(await q.ExecuteScalarAsync(ct));}\n    static string? Bearer(HttpRequest request)')
+          rep('Server/CTXD.Server/Services/TreasureService.cs','if(await add.ExecuteNonQueryAsync(ct)!=1)return null;return new(def.Id,def.Pos,def.Name,def.Pic,def.TipsOwned,true,def.Type,def.Effect);','if(await add.ExecuteNonQueryAsync(ct)!=1)return null;await QuestEventLedger.RecordCurrentAsync(c,t,player,"world_treasure_type",def.Type,ct);return new(def.Id,def.Pos,def.Name,def.Pic,def.TipsOwned,true,def.Type,def.Effect);')
+          rep('Server/CTXD.Server/Services/TutorialService.cs','    {\n        int taskId;\n','    {\n        await QuestEventLedger.RecordCurrentAsync(conn,tx,playerId,eventKind,args.Length>0?args[0]:0,ct);\n        int taskId;\n')
+          ins='            case "world_mine_iron_visit":\n                return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_mine_iron_visit",null,ct)>0,null);\n            case "world_mine_iron_own":\n                return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_mine_iron_own",null,ct)>0,null);\n            case "world_treasure_type":\n                var treasureTypeArgs=Args(task.Target);var treasureType=treasureTypeArgs.Length==0?0:treasureTypeArgs[0];var treasureCount=treasureType==0?await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",null,ct):await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"world_treasure_type",treasureType,ct);return(treasureCount>0,null);\n            case "sell_equip":\n                return(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"sell_equip",null,ct)>0,null);\n            case "tavern_refresh":\n                if(await QuestEventLedger.CountForTaskAsync(c,t,player,task.Id,"tavern_refresh",null,ct)>0)return(true,null);await using(var tavernCd=new NpgsqlCommand("SELECT EXISTS(SELECT 1 FROM player_tavern WHERE player_id=$1 AND (next_civil_at>now() OR next_military_at>now()))",c,t)){tavernCd.Parameters.AddWithValue(player);return(Convert.ToBoolean(await tavernCd.ExecuteScalarAsync(ct)),null);}\n'
+          rep('Server/CTXD.Server/Services/QuestService.cs','            case "and":\n',ins+'            case "and":\n')
           PY
       - name: Commit patch
         shell: bash
