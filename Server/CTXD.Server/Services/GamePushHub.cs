@@ -7,15 +7,16 @@ namespace CTXD.Server.Services;
 
 public sealed class GamePushHub
 {
-    readonly ConcurrentDictionary<long, ConcurrentDictionary<Guid, WebSocket>> _players = new();
+    static readonly ConcurrentDictionary<long, ConcurrentDictionary<Guid, WebSocket>> Players = new();
     readonly JsonSerializerOptions _json = new(JsonSerializerDefaults.Web);
 
-    public bool IsConnected(long playerId) => _players.TryGetValue(playerId,out var group) && !group.IsEmpty;
+    public static bool IsPlayerConnected(long playerId) => Players.TryGetValue(playerId,out var group) && !group.IsEmpty;
+    public bool IsConnected(long playerId) => IsPlayerConnected(playerId);
 
     public async Task HoldAsync(long playerId, WebSocket socket, CancellationToken ct)
     {
         var id = Guid.NewGuid();
-        var group = _players.GetOrAdd(playerId, _ => new ConcurrentDictionary<Guid, WebSocket>());
+        var group = Players.GetOrAdd(playerId, _ => new ConcurrentDictionary<Guid, WebSocket>());
         group[id] = socket;
         try
         {
@@ -33,7 +34,7 @@ public sealed class GamePushHub
         finally
         {
             group.TryRemove(id, out _);
-            if (group.IsEmpty) _players.TryRemove(playerId, out _);
+            if (group.IsEmpty) Players.TryRemove(playerId, out _);
             if (socket.State is WebSocketState.Open or WebSocketState.CloseReceived)
             {
                 try { await socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "closed", CancellationToken.None); }
@@ -45,7 +46,7 @@ public sealed class GamePushHub
 
     public async Task SendAsync(long playerId, string type, object payload, CancellationToken ct = default)
     {
-        if (!_players.TryGetValue(playerId, out var group)) return;
+        if (!Players.TryGetValue(playerId, out var group)) return;
         var message = new { type, payload };
         foreach (var pair in group.ToArray())
         {
@@ -66,7 +67,7 @@ public sealed class GamePushHub
 
     public async Task BroadcastAsync(string type, object payload, CancellationToken ct = default)
     {
-        foreach (var playerId in _players.Keys.ToArray())
+        foreach (var playerId in Players.Keys.ToArray())
             await SendAsync(playerId, type, payload, ct);
     }
 
