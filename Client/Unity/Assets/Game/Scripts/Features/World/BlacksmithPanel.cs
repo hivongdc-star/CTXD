@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Threading.Tasks;
 using CTXD.Client.Features.FirstPlayable;
 using CTXD.Client.Networking;
@@ -65,7 +66,8 @@ namespace CTXD.Client.Features.World
             LegacyUiFactory.PixelLabel(_window,"THỢ RÈN 1",19,TextAnchor.MiddleLeft,new Color(1,.82f,.35f),20,92,250,30);
             if(!smith.unlocked)
             {
-                LegacyUiFactory.PixelPanel(_window,"NoBuildBg",20,130,680,245,new Color(.08f,.065f,.045f,.88f));
+                LegacyUiFactory.PixelImage(_window,"LegacyVisual/Blacksmith/NoBuildBg",17,47,628,345);
+                LegacyUiFactory.PixelImage(_window,"LegacyVisual/Blacksmith/Blueprint1",407,217,42,42,true);
                 LegacyUiFactory.PixelLabel(_window,$"Bản vẽ Thợ Rèn cấp 1   {smith.blueprintCount}/1",17,TextAnchor.MiddleCenter,Color.white,75,175,570,34);
                 LegacyUiFactory.PixelLabel(_window,$"Nhân vật Lv.{_view.playerLevel}",14,TextAnchor.MiddleCenter,new Color(.78f,.74f,.65f),75,215,570,26);
                 LegacyUiFactory.PixelLabel(_window,smith.blueprintCount>0?"Đã có bản vẽ, có thể kiến tạo.":"Chưa có bản vẽ Thợ Rèn.",14,TextAnchor.MiddleCenter,smith.blueprintCount>0?new Color(.75f,1f,.58f):new Color(1f,.67f,.45f),75,250,570,27);
@@ -74,11 +76,17 @@ namespace CTXD.Client.Features.World
             }
 
             var remain=Math.Max(0,smith.dailyLimit-smith.dailyUsed);
-            LegacyUiFactory.PixelPanel(_window,"SmithBuiltBg",20,130,680,300,new Color(.08f,.065f,.045f,.88f));
+            LegacyUiFactory.PixelImage(_window,"LegacyVisual/Blacksmith/BuildBg",15,49,650,389);
+            LegacyUiFactory.PixelImage(_window,$"LegacyVisual/Blacksmith/Title/Lv{Mathf.Clamp(smith.level,1,5)}",80,51,156,31,true);
+            LegacyUiFactory.PixelImage(_window,"LegacyVisual/Blacksmith/Smith1",293,60,54,54,true);
             LegacyUiFactory.PixelLabel(_window,$"Thợ Rèn 1 · Lv.{smith.level}",17,TextAnchor.MiddleLeft,Color.white,45,150,310,30);
             LegacyUiFactory.PixelLabel(_window,$"Huyền Thiết Thạch: {smith.stoneCount:N0}",16,TextAnchor.MiddleLeft,Color.white,45,195,300,30);
             LegacyUiFactory.PixelLabel(_window,$"Số lần còn lại hôm nay: {remain}/{smith.dailyLimit}",15,TextAnchor.MiddleLeft,new Color(.92f,.84f,.65f),45,235,380,28);
-            LegacyUiFactory.PixelPanel(_window,"MaterialBg",45,285,430,70,new Color(.12f,.095f,.055f,.92f));
+            LegacyUiFactory.PixelImage(_window,"LegacyVisual/Blacksmith/MaterialSelection",441.5f,136,80,80);
+            if(smith.stoneCount>0)
+                LegacyUiFactory.PixelImage(_window,"LegacyVisual/Blacksmith/XuanTieShi",445.5f,140,72,72);
+            else
+                LegacyUiFactory.PixelImage(_window,"LegacyVisual/Blacksmith/NoMaterial",365,220,231,73,true);
             LegacyUiFactory.PixelLabel(_window,$"1 × Huyền Thiết Thạch   →   +{smith.ironPerDissolve:N0} Sắt",17,TextAnchor.MiddleCenter,new Color(1,.82f,.35f),55,302,410,34);
             if(remain<=0)
                 LegacyUiFactory.PixelLabel(_window,"Hôm nay đã dùng hết số lần nung chảy.",14,TextAnchor.MiddleCenter,new Color(1f,.62f,.45f),490,195,190,55);
@@ -96,6 +104,7 @@ namespace CTXD.Client.Features.World
                 var r=await _api.UnlockBlacksmithSmith1Async();
                 _status($"Đã kiến tạo Thợ Rèn {r.smithId}.");
                 _view=await _api.GetBlacksmithAsync();Draw();
+                StartCoroutine(PlayFrames("LegacyVisual/Blacksmith/BuildComplete",21,175,300,234,235));
                 TicketsMarketPanel.RefreshOpenFromPush();
             }
             catch(Exception e){_status(e.Message);}
@@ -110,9 +119,22 @@ namespace CTXD.Client.Features.World
                 var r=await _api.DissolveBlacksmithSmith1Async();
                 _status($"Nung chảy thành công: +{r.ironAdded:N0} Sắt.");
                 _view=await _api.GetBlacksmithAsync();Draw();
+                StartCoroutine(PlayFrames("LegacyVisual/Blacksmith/MeltEffect",21,438,133,90.3f,90.3f));
             }
             catch(Exception e){_status(e.Message);}
             finally{_busy=false;}
+        }
+
+        IEnumerator PlayFrames(string folder,int count,float x,float y,float width,float height)
+        {
+            var image=LegacyUiFactory.PixelImage(_window,$"{folder}/01",x,y,width,height,true);
+            for(var frame=1;frame<=count;frame++)
+            {
+                if(image==null)yield break;
+                image.sprite=Resources.Load<Sprite>($"{folder}/{frame:00}");
+                yield return new WaitForSecondsRealtime(1f/24f);
+            }
+            if(image!=null)Destroy(image.gameObject);
         }
     }
 }
