@@ -31,6 +31,7 @@ builder.Services.AddSingleton<TeamTimesGrantService>();
 builder.Services.AddSingleton<VipService>();
 builder.Services.AddSingleton<PayEntitlementService>();
 builder.Services.AddSingleton<KfwdService>();
+builder.Services.AddSingleton<KfwdRewardService>();
 builder.Services.AddSingleton<KfzbService>();
 builder.Services.AddSingleton<KfzbFeastService>();
 builder.Services.AddSingleton<KfgzService>();
@@ -91,6 +92,7 @@ static string? Bearer(HttpRequest request)
 
 app.MapGet("/health", () => Results.Ok(new { status = "ok", game = "CTXD Remake" }));
 app.MapKfgzExtendedCombat();
+app.MapKfwdRewards();
 
 app.MapGet("/api/quests/current",async(HttpRequest request,AuthService auth,QuestService quests,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await quests.GetCurrentAsync(id,ct));});
 app.MapPost("/api/quests/current/claim",async(HttpRequest request,AuthService auth,QuestService quests,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await quests.ClaimCurrentAsync(id,ct);await push.SendAsync(id,"quest.updated",result,ct);return Results.Ok(result);});
@@ -365,7 +367,7 @@ app.MapGet("/api/technology", async (int? page, HttpRequest request, AuthService
     return Results.Ok(await technology.GetAsync(id, Math.Max(1, page ?? 1), ct));
 });
 
-app.MapPost("/api/technology/{technologyId:int}/inject", async (int technologyId, HttpRequest request, AuthService auth, TechnologyService technology, MainCityService city, GamePushHub push, CancellationToken ct) =>
+app.MapPost("/api/technology/{technologyId:int}/inject", async (int technologyId, HttpRequest request, AuthService auth, TechnologyService technology, MainCityService city, GamePushHub push,CancellationToken ct) =>
 {
     var id = await auth.ResolvePlayerIdAsync(Bearer(request), ct);
     var result = await technology.InjectAsync(id, technologyId, ct);
