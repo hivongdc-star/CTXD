@@ -43,9 +43,9 @@ ON CONFLICT(player_id,road_id) DO NOTHING",c,t);
         await cmd.ExecuteNonQueryAsync(ct);
     }
 
-    public static async Task PickAndGrantAsync(NpgsqlConnection c,NpgsqlTransaction t,CanonicalContent content,long playerId,int force,int roadId,int generalId,CancellationToken ct)
+    public static async Task<bool> PickAndGrantAsync(NpgsqlConnection c,NpgsqlTransaction t,CanonicalContent content,long playerId,int force,int roadId,int generalId,CancellationToken ct)
     {
-        if(force is <1 or >3)return;
+        if(force is <1 or >3)return false;
         await EnsureAsync(c,t,content,playerId,force,ct);
 
         int treasureId;
@@ -56,7 +56,7 @@ FOR UPDATE",c,t))
         {
             box.Parameters.AddWithValue(playerId);box.Parameters.AddWithValue(roadId);
             var boxValue=await box.ExecuteScalarAsync(ct);
-            if(boxValue is null or DBNull)return;
+            if(boxValue is null or DBNull)return false;
             treasureId=Convert.ToInt32(boxValue);
         }
 
@@ -101,6 +101,7 @@ WHERE player_id=$1 AND road_id=$2 AND treasure_id=$3 AND picked_at IS NULL",c,t)
         await using var notify=new NpgsqlCommand($"SELECT pg_notify('{RewardNotificationChannel}',$1)",c,t);
         notify.Parameters.AddWithValue(notification);
         await notify.ExecuteNonQueryAsync(ct);
+        return true;
     }
 
     public static async Task<bool> HasGottenAllAsync(NpgsqlConnection c,NpgsqlTransaction? t,CanonicalContent content,long playerId,CancellationToken ct)
