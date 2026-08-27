@@ -8,7 +8,7 @@ public sealed record KfgzRoundResultProvision(long RoundId,long PlayerId,int Gro
 public sealed record KfgzEndRewardProfileProvision(long SeasonId,int ForceId,string RewardInfo);
 public sealed record KfgzEndMappingProvision(long SeasonId,int ForceId,int GroupId,int LayerId);
 public sealed record KfgzTitleCandidateProvision(long SeasonId,int ForceId,long PlayerId);
-public sealed record KfgzRewardView(bool Mapped,long SeasonId,long ReferenceId,int ClaimTimes,long BaseTickets,long NextTickets,long GoldCost,string? Blocker);
+public sealed record KfgzRewardView(bool Mapped,long SeasonId,long ReferenceId,int ClaimTimes,long BaseTickets,long NextTickets,long GoldCost,long CityTickets,long WinTickets,long KillRankTickets,long SoloTickets,long OccupyTickets,string? Blocker);
 public sealed record KfgzEndRewardSlotView(int Slot,int ClaimTimes,int RequiredNationScore,long BaseTickets,long NextTickets,long GoldCost,bool Available);
 public sealed record KfgzEndRewardView(bool Mapped,long SeasonId,int NationScore,KfgzEndRewardSlotView[] Slots,string? Blocker);
 public sealed record KfgzRewardClaimResult(long Tickets,long GoldCost,int ClaimTimes);
@@ -111,9 +111,11 @@ WHERE NOT EXISTS(SELECT 1 FROM kfgz_titles WHERE season_id=$1 AND force_id=$2)",
         await using var q=new NpgsqlCommand("SELECT season_id,reward_info,claim_times FROM kfgz_round_rewards WHERE round_id=$1 AND player_id=$2",c);
         q.Parameters.AddWithValue(roundId);q.Parameters.AddWithValue(player);
         await using var r=await q.ExecuteReaderAsync(ct);
-        if(!await r.ReadAsync(ct))return new(false,0,roundId,0,0,0,0,"AUTHORITATIVE_ROUND_REWARD_MISSING");
-        var season=r.GetInt64(0);var reward=r.GetString(1);var times=r.GetInt16(2);var baseTickets=Sum(ParseRoundReward(reward));
-        return new(true,season,roundId,times,baseTickets,times>=MaxClaims?0:Multiply(baseTickets,times),times>=MaxClaims?0:GoldCost(Multiply(baseTickets,times),times),null);
+        if(!await r.ReadAsync(ct))return new(false,0,roundId,0,0,0,0,0,0,0,0,0,"AUTHORITATIVE_ROUND_REWARD_MISSING");
+        var season=r.GetInt64(0);var reward=r.GetString(1);var times=r.GetInt16(2);var components=ParseRoundReward(reward);
+        if(components.Length!=5)throw new GameException("KFGZ_REWARD_MAPPING_INVALID","Persisted KFGZ round reward must contain exactly five ticket components.",409);
+        var baseTickets=Sum(components);var nextTickets=times>=MaxClaims?0:Multiply(baseTickets,times);var goldCost=times>=MaxClaims?0:GoldCost(nextTickets,times);
+        return new(true,season,roundId,times,baseTickets,nextTickets,goldCost,components[0],components[1],components[2],components[3],components[4],null);
     }
 
     public async Task<KfgzRewardClaimResult> ClaimRoundAsync(long player,long roundId,CancellationToken ct)
