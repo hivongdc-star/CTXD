@@ -114,7 +114,7 @@ public sealed class BlacksmithService(GameDb db, IPlayerItemInventory inventory)
             throw new GameException("BLACKSMITH_STONE_NOT_ENOUGH", "Not enough legacy Blacksmith dissolve item 1401/type 16.");
 
         await using (var resource = new NpgsqlCommand(
-            "UPDATE player_resources SET iron=iron+$2,updated_at=now() WHERE player_id=$1",
+            "UPDATE player_resources SET iron=iron+$2,update_time=now() WHERE player_id=$1",
             connection, transaction))
         {
             resource.Parameters.AddWithValue(playerId);
