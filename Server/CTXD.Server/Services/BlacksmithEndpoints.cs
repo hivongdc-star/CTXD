@@ -2,7 +2,7 @@ namespace CTXD.Server.Services;
 
 public static class BlacksmithEndpoints
 {
-    public static void MapBlacksmith(this WebApplication app)
+    public static void MapBlacksmith(this Microsoft.AspNetCore.Builder.WebApplication app)
     {
         app.MapGet("/api/blacksmith", async (
             HttpRequest request,
