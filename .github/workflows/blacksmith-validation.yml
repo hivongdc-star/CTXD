@@ -1,0 +1,134 @@
+name: blacksmith-validation
+
+on:
+  push:
+    branches:
+      - codex/blacksmith-backend-parity-staging
+
+jobs:
+  validate-blacksmith:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: ctxd
+          POSTGRES_USER: ctxd
+          POSTGRES_PASSWORD: ctxd_dev
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ctxd -d ctxd"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Build Release
+        run: dotnet build Server/CTXD.Server/CTXD.Server.csproj --configuration Release --nologo
+      - name: Blacksmith runtime smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PGPASSWORD=ctxd_dev
+          DB="postgresql://ctxd:ctxd_dev@127.0.0.1:5432/ctxd"
+
+          start_server() {
+            dotnet run --project Server/CTXD.Server/CTXD.Server.csproj --configuration Release --no-build > server.log 2>&1 &
+            SERVER_PID=$!
+            for i in $(seq 1 30); do
+              if curl --fail --silent http://127.0.0.1:5080/health > health.json; then
+                jq -e '.status == "ok"' health.json >/dev/null
+                return 0
+              fi
+              if ! kill -0 "$SERVER_PID" 2>/dev/null; then
+                cat server.log
+                return 1
+              fi
+              sleep 1
+            done
+            cat server.log
+            return 1
+          }
+
+          stop_server() {
+            if [ -n "${SERVER_PID:-}" ] && kill -0 "$SERVER_PID" 2>/dev/null; then
+              kill "$SERVER_PID"
+              wait "$SERVER_PID" 2>/dev/null || true
+            fi
+          }
+
+          trap stop_server EXIT
+          start_server
+
+          curl --fail --silent \
+            -H 'Content-Type: application/json' \
+            -d '{"username":"blacksmithci","password":"blacksmith-ci-password"}' \
+            http://127.0.0.1:5080/api/auth/register > auth.json
+          TOKEN=$(jq -r '.token' auth.json)
+          PLAYER_ID=$(jq -r '.player.id' auth.json)
+          test -n "$TOKEN"
+          test "$PLAYER_ID" != "null"
+
+          psql "$DB" -v ON_ERROR_STOP=1 <<SQL
+          UPDATE players SET level=100 WHERE id=$PLAYER_ID;
+          INSERT INTO player_functions(player_id,function_id) VALUES($PLAYER_ID,66) ON CONFLICT DO NOTHING;
+          INSERT INTO player_items(player_id,item_id,item_type,quantity) VALUES($PLAYER_ID,1201,15,2)
+            ON CONFLICT(player_id,item_id,item_type) DO UPDATE SET quantity=excluded.quantity;
+          INSERT INTO player_items(player_id,item_id,item_type,quantity) VALUES($PLAYER_ID,1401,16,7)
+            ON CONFLICT(player_id,item_id,item_type) DO UPDATE SET quantity=excluded.quantity;
+          SQL
+
+          AUTH=(-H "Authorization: Bearer $TOKEN")
+
+          curl --fail --silent "${AUTH[@]}" http://127.0.0.1:5080/api/blacksmith > state.json
+          jq -e '.functionOpen == true and .playerLevel == 100 and .iron == 0 and .smith1.unlocked == false and .smith1.level == 0 and .smith1.dailyUsed == 0 and .smith1.dailyLimit == 5 and .smith1.blueprintItemId == 1201 and .smith1.blueprintItemType == 15 and .smith1.blueprintCount == 2 and .smith1.stoneItemId == 1401 and .smith1.stoneItemType == 16 and .smith1.stoneCount == 7 and .smith1.ironPerDissolve == 4000' state.json >/dev/null
+
+          curl --fail --silent -X POST "${AUTH[@]}" http://127.0.0.1:5080/api/blacksmith/smiths/1/unlock > unlock.json
+          jq -e '.smith1.unlocked == true and .smith1.level == 1 and .smith1.blueprintCount == 1 and .smith1.dailyUsed == 0' unlock.json >/dev/null
+
+          curl --fail --silent -X POST "${AUTH[@]}" http://127.0.0.1:5080/api/blacksmith/smiths/1/unlock > unlock-repeat.json
+          jq -e '.smith1.unlocked == true and .smith1.blueprintCount == 1 and .smith1.dailyUsed == 0' unlock-repeat.json >/dev/null
+
+          for expected in 1 2 3 4 5; do
+            curl --fail --silent -X POST "${AUTH[@]}" http://127.0.0.1:5080/api/blacksmith/smiths/1/dissolve > dissolve.json
+            jq -e --argjson used "$expected" --argjson iron "$((expected * 4000))" --argjson stones "$((7 - expected))" '.smith1.dailyUsed == $used and .iron == $iron and .smith1.stoneCount == $stones' dissolve.json >/dev/null
+          done
+
+          STATUS=$(curl --silent --output limit.json --write-out '%{http_code}' -X POST "${AUTH[@]}" http://127.0.0.1:5080/api/blacksmith/smiths/1/dissolve)
+          test "$STATUS" = "400"
+          jq -e '.code == "BLACKSMITH_DAILY_LIMIT"' limit.json >/dev/null
+          curl --fail --silent "${AUTH[@]}" http://127.0.0.1:5080/api/blacksmith > after-limit.json
+          jq -e '.iron == 20000 and .smith1.dailyUsed == 5 and .smith1.stoneCount == 2 and .smith1.blueprintCount == 1' after-limit.json >/dev/null
+
+          DB_IRON=$(psql "$DB" -Atc "SELECT iron FROM player_resources WHERE player_id=$PLAYER_ID")
+          DB_USED=$(psql "$DB" -Atc "SELECT daily_used FROM player_blacksmith WHERE player_id=$PLAYER_ID AND smith_id=1")
+          DB_BLUEPRINT=$(psql "$DB" -Atc "SELECT quantity FROM player_items WHERE player_id=$PLAYER_ID AND item_id=1201 AND item_type=15")
+          DB_STONE=$(psql "$DB" -Atc "SELECT quantity FROM player_items WHERE player_id=$PLAYER_ID AND item_id=1401 AND item_type=16")
+          test "$DB_IRON" = "20000"
+          test "$DB_USED" = "5"
+          test "$DB_BLUEPRINT" = "1"
+          test "$DB_STONE" = "2"
+
+          stop_server
+          unset SERVER_PID
+          start_server
+          curl --fail --silent "${AUTH[@]}" http://127.0.0.1:5080/api/blacksmith > persisted.json
+          jq -e '.iron == 20000 and .smith1.unlocked == true and .smith1.level == 1 and .smith1.dailyUsed == 5 and .smith1.stoneCount == 2' persisted.json >/dev/null
+
+          psql "$DB" -v ON_ERROR_STOP=1 -c "UPDATE player_blacksmith SET daily_used=5,usage_date=CURRENT_DATE-1 WHERE player_id=$PLAYER_ID AND smith_id=1"
+          curl --fail --silent "${AUTH[@]}" http://127.0.0.1:5080/api/blacksmith > reset.json
+          jq -e '.iron == 20000 and .smith1.dailyUsed == 0 and .smith1.stoneCount == 2' reset.json >/dev/null
+
+          curl --fail --silent -X POST "${AUTH[@]}" http://127.0.0.1:5080/api/blacksmith/smiths/1/dissolve > after-reset.json
+          jq -e '.iron == 24000 and .smith1.dailyUsed == 1 and .smith1.stoneCount == 1' after-reset.json >/dev/null
+
+          DB_IRON=$(psql "$DB" -Atc "SELECT iron FROM player_resources WHERE player_id=$PLAYER_ID")
+          DB_USED=$(psql "$DB" -Atc "SELECT daily_used FROM player_blacksmith WHERE player_id=$PLAYER_ID AND smith_id=1")
+          DB_STONE=$(psql "$DB" -Atc "SELECT quantity FROM player_items WHERE player_id=$PLAYER_ID AND item_id=1401 AND item_type=16")
+          test "$DB_IRON" = "24000"
+          test "$DB_USED" = "1"
+          test "$DB_STONE" = "1"
