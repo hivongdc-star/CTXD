@@ -52,6 +52,7 @@ builder.Services.AddSingleton<TreasureService>();
 builder.Services.AddSingleton<ISystemMailSender>(sp=>sp.GetRequiredService<MailService>());
 builder.Services.AddSingleton<NationProgressService>();
 builder.Services.AddSingleton<IPlayerItemInventory,PlayerItemInventoryService>();
+builder.Services.AddSingleton<BlacksmithService>();
 builder.Services.AddSingleton<CivilAffairService>();
 builder.Services.AddSingleton<PoliticsService>();
 builder.Services.AddSingleton<OfficeService>();
@@ -97,6 +98,7 @@ app.MapQuenching();
 app.MapResourceAdditionEndpoints();
 app.MapKfwdRewards();
 app.MapCourtesy();
+app.MapBlacksmith();
 
 app.MapGet("/api/quests/current",async(HttpRequest request,AuthService auth,QuestService quests,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);return Results.Ok(await quests.GetCurrentAsync(id,ct));});
 app.MapPost("/api/quests/current/claim",async(HttpRequest request,AuthService auth,QuestService quests,GamePushHub push,CancellationToken ct)=>{var id=await auth.ResolvePlayerIdAsync(Bearer(request),ct);var result=await quests.ClaimCurrentAsync(id,ct);await push.SendAsync(id,"quest.updated",result,ct);return Results.Ok(result);});
