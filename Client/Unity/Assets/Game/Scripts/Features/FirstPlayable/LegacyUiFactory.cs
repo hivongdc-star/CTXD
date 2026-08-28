@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ namespace CTXD.Client.Features.FirstPlayable
 
         public static Canvas CreateCanvas()
         {
+            EnsureEventSystem();
             var go = new GameObject("CTXD_LegacyCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             var canvas = go.GetComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -20,6 +22,22 @@ namespace CTXD.Client.Features.FirstPlayable
             scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
             scaler.matchWidthOrHeight = 0.5f;
             return canvas;
+        }
+
+        static void EnsureEventSystem()
+        {
+            var eventSystem = EventSystem.current != null
+                ? EventSystem.current
+                : Object.FindFirstObjectByType<EventSystem>();
+            if (eventSystem == null)
+            {
+                var go = new GameObject("CTXD_EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
+                Object.DontDestroyOnLoad(go);
+                return;
+            }
+
+            if (eventSystem.GetComponent<BaseInputModule>() == null)
+                eventSystem.gameObject.AddComponent<StandaloneInputModule>();
         }
 
         public static RectTransform Panel(Transform parent, string name, Vector2 anchorMin, Vector2 anchorMax, Color color)
