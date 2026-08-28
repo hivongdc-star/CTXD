@@ -24,6 +24,8 @@ jobs:
           --health-retries 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: 06a7a5f46eb22f9d3d830be9d705ca7fe65d5f3f
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
