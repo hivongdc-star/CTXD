@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using CTXD.Client.Features.FirstPlayable;
 using CTXD.Client.Networking;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace CTXD.Client.Features.Tavern
@@ -59,13 +60,53 @@ namespace CTXD.Client.Features.Tavern
         void DrawGeneral(RectTransform parent, GeneralView g, int index)
         {
             var col=index%3; var row=index/3; var x=15+col*181; var y=30+row*135;
-            LegacyUiFactory.PixelImage(parent,"LegacyVisual/Tavern/00903",x,y,163,128);
+            var root=LegacyUiFactory.PixelPanel(parent,$"General_{g.id}",x,y,163,128,Color.clear);
+            root.gameObject.GetComponent<Image>().raycastTarget=true;
+            LegacyUiFactory.PixelImage(root,"LegacyVisual/Tavern/00903",0,0,163,128);
             var q=Mathf.Clamp(g.quality,1,6);
-            LegacyUiFactory.PixelImage(parent,$"LegacyVisual/Tavern/{(697+q*2):00000}",x+8,y+8,76,76);
-            LegacyUiFactory.PixelImage(parent,"LegacyVisual/GeneralPic/"+g.pic,x+10,y+10,72,72,true);
-            LegacyUiFactory.PixelLabel(parent,$"{g.name}  Lv.{g.level}",14,TextAnchor.MiddleLeft,QualityColor(q),x+86,y+6,71,28);
+            LegacyUiFactory.PixelImage(root,$"LegacyVisual/Tavern/{(697+q*2):00000}",8,8,76,76);
+            LegacyUiFactory.PixelImage(root,"LegacyVisual/GeneralPic/"+g.pic,10,10,72,72,true);
+            LegacyUiFactory.PixelLabel(root,$"{g.name}  Lv.{g.level}",14,TextAnchor.MiddleLeft,QualityColor(q),86,6,71,28);
             var stat=g.type==2?$"Thống {g.leader}\nVõ {g.strength}\nSĩ khí {g.morale}":$"Trí {g.intel}\nChính {g.politics}";
-            LegacyUiFactory.PixelLabel(parent,stat,12,TextAnchor.UpperLeft,Color.white,x+88,y+34,69,63);
+            LegacyUiFactory.PixelLabel(root,stat,12,TextAnchor.UpperLeft,Color.white,88,34,69,63);
+            AddHover(root,()=>ShowDetail(parent,g,index),()=>HideDetail(parent));
+        }
+
+        static void AddHover(RectTransform target, Action enter, Action exit)
+        {
+            var trigger=target.gameObject.AddComponent<EventTrigger>();
+            trigger.triggers=new System.Collections.Generic.List<EventTrigger.Entry>();
+            var over=new EventTrigger.Entry{eventID=EventTriggerType.PointerEnter};
+            over.callback.AddListener(_=>enter());
+            trigger.triggers.Add(over);
+            var outEntry=new EventTrigger.Entry{eventID=EventTriggerType.PointerExit};
+            outEntry.callback.AddListener(_=>exit());
+            trigger.triggers.Add(outEntry);
+        }
+
+        void ShowDetail(RectTransform parent, GeneralView g, int index)
+        {
+            HideDetail(parent);
+            var col=index%3;
+            var x=Mathf.Clamp(15+col*181+78,6,368);
+            var detail=LegacyUiFactory.PixelPanel(parent,"GeneralHoverDetail",x,23,190,145,new Color(.055f,.035f,.018f,.97f));
+            var outline=detail.gameObject.AddComponent<Outline>();
+            outline.effectColor=new Color(.72f,.53f,.22f,1f);
+            outline.effectDistance=new Vector2(1,-1);
+            var q=Mathf.Clamp(g.quality,1,6);
+            LegacyUiFactory.PixelImage(detail,$"LegacyVisual/Tavern/{(697+q*2):00000}",8,8,76,76);
+            LegacyUiFactory.PixelImage(detail,"LegacyVisual/GeneralPic/"+g.pic,10,10,72,72,true);
+            LegacyUiFactory.PixelLabel(detail,$"{g.name}  Lv.{g.level}",16,TextAnchor.MiddleLeft,QualityColor(q),90,8,94,26);
+            var stat=g.type==2?$"Thống {g.leader}\nVõ {g.strength}\nSĩ khí {g.morale}":$"Trí {g.intel}\nChính {g.politics}";
+            LegacyUiFactory.PixelLabel(detail,stat,13,TextAnchor.UpperLeft,Color.white,90,38,94,62);
+            LegacyUiFactory.PixelLabel(detail,g.type==2?"Võ tướng":"Văn quan",12,TextAnchor.MiddleLeft,new Color(1f,.84f,.45f),10,108,170,22);
+            detail.SetAsLastSibling();
+        }
+
+        static void HideDetail(RectTransform parent)
+        {
+            var detail=parent.Find("GeneralHoverDetail");
+            if(detail!=null)Destroy(detail.gameObject);
         }
 
         static Color QualityColor(int q) => q switch
