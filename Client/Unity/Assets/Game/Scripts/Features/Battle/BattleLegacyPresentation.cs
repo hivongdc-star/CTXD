@@ -30,6 +30,7 @@ namespace CTXD.Client.Features.Battle
         const float DefY = 200f;
 
         RectTransform _stage;
+        TaskCompletionSource<bool> _activeCompletion;
         readonly Dictionary<long, UnitVisual> _unitVisuals = new Dictionary<long, UnitVisual>();
         readonly Dictionary<string, Sprite[]> _frames = new Dictionary<string, Sprite[]>(StringComparer.Ordinal);
         readonly Dictionary<string, Sprite> _singleSprites = new Dictionary<string, Sprite>(StringComparer.Ordinal);
@@ -39,9 +40,14 @@ namespace CTXD.Client.Features.Battle
             _stage = stage;
         }
 
+        void OnDisable()
+        {
+            CancelPlayback();
+        }
+
         public bool SetSnapshot(BattleView battle, int? terrain)
         {
-            StopAllCoroutines();
+            CancelPlayback();
             return RebuildSnapshot(battle, terrain);
         }
 
@@ -53,10 +59,10 @@ namespace CTXD.Client.Features.Battle
                 return Task.CompletedTask;
             }
 
-            StopAllCoroutines();
-            var completion = new TaskCompletionSource<bool>();
-            StartCoroutine(PlayRound(before, after, round, terrain, completion));
-            return completion.Task;
+            CancelPlayback();
+            _activeCompletion = new TaskCompletionSource<bool>();
+            StartCoroutine(PlayRound(before, after, round, terrain, _activeCompletion));
+            return _activeCompletion.Task;
         }
 
         IEnumerator PlayRound(BattleView before, BattleView after, BattleRoundView round, int? terrain, TaskCompletionSource<bool> completion)
@@ -64,6 +70,15 @@ namespace CTXD.Client.Features.Battle
             RebuildSnapshot(before, terrain);
             _unitVisuals.TryGetValue(round.attackerUnitId, out var attacker);
             _unitVisuals.TryGetValue(round.defenderUnitId, out var defender);
+
+            // Never simulate an invisible placeholder animation. If neither authoritative
+            // soldier frame set exists locally, apply the server result immediately.
+            if (attacker == null && defender == null)
+            {
+                RebuildSnapshot(after, terrain);
+                FinishPlayback(completion);
+                yield break;
+            }
 
             var attackerTicks = round.attackerTicks ?? Array.Empty<int>();
             var defenderTicks = round.defenderTicks ?? Array.Empty<int>();
@@ -88,7 +103,23 @@ namespace CTXD.Client.Features.Battle
             // FightVS removes the defeated Army at fightEnd. The authoritative post-round
             // snapshot decides what remains; no client-side damage/death calculation is used.
             RebuildSnapshot(after, terrain);
+            FinishPlayback(completion);
+        }
+
+        void CancelPlayback()
+        {
+            StopAllCoroutines();
+            if (_activeCompletion != null)
+            {
+                _activeCompletion.TrySetResult(true);
+                _activeCompletion = null;
+            }
+        }
+
+        void FinishPlayback(TaskCompletionSource<bool> completion)
+        {
             completion.TrySetResult(true);
+            if (ReferenceEquals(_activeCompletion, completion)) _activeCompletion = null;
         }
 
         bool RebuildSnapshot(BattleView battle, int? terrain)
