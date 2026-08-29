@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace CTXD.Client.EditorTools
 {
@@ -35,7 +37,16 @@ namespace CTXD.Client.EditorTools
             {
                 EditorUtility.DisplayDialog(
                     "CTXD Battle Legacy Import",
-                    "Selected folder is not the authoritative CTXD-Legacy-Reference snapshot. Expected RemakeInput/GeneratedV5/Workpacks/14_Battle/WORKPACK.md and LegacyReference/Client/AssetsRaw/zh_CN/xml/module/War.xml.",
+                    "Selected folder is not CTXD-Legacy-Reference. Expected RemakeInput/GeneratedV5/Workpacks/14_Battle/WORKPACK.md and LegacyReference/Client/AssetsRaw/zh_CN/xml/module/War.xml.",
+                    "OK");
+                return;
+            }
+
+            if (!TryReadGitHead(sourceRoot, out var sourceHead) || !string.Equals(sourceHead, LegacyRevision, StringComparison.OrdinalIgnoreCase))
+            {
+                EditorUtility.DisplayDialog(
+                    "CTXD Battle Legacy Import",
+                    "Import refused. The selected reference checkout must be exactly " + LegacyRevision + ".\nCurrent HEAD: " + (sourceHead ?? "UNKNOWN"),
                     "OK");
                 return;
             }
@@ -73,6 +84,32 @@ namespace CTXD.Client.EditorTools
                 selected = parent.FullName;
             }
             return null;
+        }
+
+        static bool TryReadGitHead(string root, out string head)
+        {
+            head = null;
+            try
+            {
+                var start = new ProcessStartInfo
+                {
+                    FileName = "git",
+                    Arguments = "-C \"" + root.Replace("\"", "\\\"") + "\" rev-parse HEAD",
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true
+                };
+                using var process = Process.Start(start);
+                if (process == null) return false;
+                head = process.StandardOutput.ReadToEnd().Trim();
+                process.WaitForExit();
+                return process.ExitCode == 0 && head.Length == 40;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         static void CopyRawDirectory(string root, string sourceRelativeToClient, string targetRelative, ICollection<string> copied)
@@ -163,7 +200,6 @@ namespace CTXD.Client.EditorTools
                 "Evidence: LegacyReference/Client/SWF_Export/GCLDServer/wwwroot/Game/module/war/view/War/scripts/game/module/war/view/fightView/FightArea.as\n" +
                 "Evidence: LegacyReference/Client/SWF_Export/GCLDServer/wwwroot/Game/module/war/view/War/scripts/game/module/war/view/fightView/FightVS.as\n" +
                 "Imported files: " + copied.Count + "\n");
-            AssetDatabase.ImportAsset(evidence, ImportAssetOptions.ForceUpdate);
         }
     }
 }
