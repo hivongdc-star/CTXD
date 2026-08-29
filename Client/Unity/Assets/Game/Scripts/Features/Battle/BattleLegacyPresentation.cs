@@ -30,7 +30,6 @@ namespace CTXD.Client.Features.Battle
         const float DefY = 200f;
 
         RectTransform _stage;
-        RawImage _background;
         readonly Dictionary<long, UnitVisual> _unitVisuals = new Dictionary<long, UnitVisual>();
         readonly Dictionary<string, Sprite[]> _frames = new Dictionary<string, Sprite[]>(StringComparer.Ordinal);
         readonly Dictionary<string, Sprite> _singleSprites = new Dictionary<string, Sprite>(StringComparer.Ordinal);
@@ -42,8 +41,60 @@ namespace CTXD.Client.Features.Battle
 
         public bool SetSnapshot(BattleView battle, int? terrain)
         {
+            StopAllCoroutines();
+            return RebuildSnapshot(battle, terrain);
+        }
+
+        public Task PlayRoundAsync(BattleView before, BattleView after, BattleRoundView round, int? terrain)
+        {
+            if (_stage == null || before == null || after == null || round == null)
+            {
+                SetSnapshot(after, terrain);
+                return Task.CompletedTask;
+            }
+
+            StopAllCoroutines();
+            var completion = new TaskCompletionSource<bool>();
+            StartCoroutine(PlayRound(before, after, round, terrain, completion));
+            return completion.Task;
+        }
+
+        IEnumerator PlayRound(BattleView before, BattleView after, BattleRoundView round, int? terrain, TaskCompletionSource<bool> completion)
+        {
+            RebuildSnapshot(before, terrain);
+            _unitVisuals.TryGetValue(round.attackerUnitId, out var attacker);
+            _unitVisuals.TryGetValue(round.defenderUnitId, out var defender);
+
+            var attackerTicks = round.attackerTicks ?? Array.Empty<int>();
+            var defenderTicks = round.defenderTicks ?? Array.Empty<int>();
+            var tickCount = Math.Max(attackerTicks.Length, defenderTicks.Length);
+
+            for (var tick = 0; tick < tickCount; tick++)
+            {
+                if (attacker != null) attacker.BeginAction(3, FightIntervalSeconds);
+                if (defender != null) defender.BeginAction(3, FightIntervalSeconds);
+
+                var elapsed = 0f;
+                while (elapsed < FightIntervalSeconds)
+                {
+                    var delta = Time.unscaledDeltaTime;
+                    elapsed += delta;
+                    if (attacker != null) attacker.Tick(delta);
+                    if (defender != null) defender.Tick(delta);
+                    yield return null;
+                }
+            }
+
+            // FightVS removes the defeated Army at fightEnd. The authoritative post-round
+            // snapshot decides what remains; no client-side damage/death calculation is used.
+            RebuildSnapshot(after, terrain);
+            completion.TrySetResult(true);
+        }
+
+        bool RebuildSnapshot(BattleView battle, int? terrain)
+        {
             if (_stage == null || battle == null) return false;
-            ClearStage();
+            ClearStageObjects();
             var hasLegacyVisual = TryCreateBackground(terrain);
 
             // Legacy FightArea owns three FightVS lanes. The remake BattleView does not expose
@@ -56,62 +107,6 @@ namespace CTXD.Client.Features.Battle
             return hasLegacyVisual;
         }
 
-        public Task PlayRoundAsync(BattleView before, BattleView after, BattleRoundView round, int? terrain)
-        {
-            if (_stage == null || before == null || after == null || round == null)
-            {
-                SetSnapshot(after, terrain);
-                return Task.CompletedTask;
-            }
-
-            var completion = new TaskCompletionSource<bool>();
-            StartCoroutine(PlayRound(before, after, round, terrain, completion));
-            return completion.Task;
-        }
-
-        IEnumerator PlayRound(BattleView before, BattleView after, BattleRoundView round, int? terrain, TaskCompletionSource<bool> completion)
-        {
-            try
-            {
-                SetSnapshot(before, terrain);
-                _unitVisuals.TryGetValue(round.attackerUnitId, out var attacker);
-                _unitVisuals.TryGetValue(round.defenderUnitId, out var defender);
-
-                var attackerTicks = round.attackerTicks ?? Array.Empty<int>();
-                var defenderTicks = round.defenderTicks ?? Array.Empty<int>();
-                var tickCount = Math.Max(attackerTicks.Length, defenderTicks.Length);
-
-                for (var tick = 0; tick < tickCount; tick++)
-                {
-                    if (attacker != null) attacker.BeginAction(3, FightIntervalSeconds);
-                    if (defender != null) defender.BeginAction(3, FightIntervalSeconds);
-
-                    var elapsed = 0f;
-                    while (elapsed < FightIntervalSeconds)
-                    {
-                        elapsed += Time.unscaledDeltaTime;
-                        if (attacker != null) attacker.Tick(Time.unscaledDeltaTime);
-                        if (defender != null) defender.Tick(Time.unscaledDeltaTime);
-                        yield return null;
-                    }
-                }
-
-                if (round.winnerSide == 1 && attacker != null)
-                    attacker.BeginAction(5, attacker.NaturalDuration(5));
-                else if (round.winnerSide == 2 && defender != null)
-                    defender.BeginAction(5, defender.NaturalDuration(5));
-
-                // FightVS removes the defeated Army at fightEnd. The authoritative after-view
-                // is applied immediately; a winner animation keeps playing only when its source
-                // frames exist and the unit remains the front unit after the round.
-                SetSnapshot(after, terrain);
-            }
-            finally
-            {
-                completion.TrySetResult(true);
-            }
-        }
-
         bool TryCreateBackground(int? terrain)
         {
             if (!terrain.HasValue || terrain.Value <= 0) return false;
@@ -122,9 +117,9 @@ namespace CTXD.Client.Features.Battle
             go.transform.SetParent(_stage, false);
             var rt = (RectTransform)go.transform;
             Stretch(rt);
-            _background = go.GetComponent<RawImage>();
-            _background.texture = texture;
-            _background.raycastTarget = false;
+            var background = go.GetComponent<RawImage>();
+            background.texture = texture;
+            background.raycastTarget = false;
             return true;
         }
 
@@ -186,11 +181,9 @@ namespace CTXD.Client.Features.Battle
             return int.TryParse(value, out var number) ? number : int.MaxValue;
         }
 
-        void ClearStage()
+        void ClearStageObjects()
         {
-            StopAllCoroutines();
             _unitVisuals.Clear();
-            _background = null;
             for (var i = _stage.childCount - 1; i >= 0; i--) Destroy(_stage.GetChild(i).gameObject);
         }
 
@@ -230,14 +223,6 @@ namespace CTXD.Client.Features.Battle
                 _elapsed = 0f;
                 _frameTime = Math.Max(.001f, duration / frames.Length);
                 ApplyFrame();
-            }
-
-            public float NaturalDuration(int action)
-            {
-                // Soldier movie clips run inside the same legacy SWF. The reconstructed basic
-                // fight path only relies on the 500 ms FightVS cadence. Until per-SWF frame-rate
-                // metadata is imported, keep the action bounded to that authoritative cadence.
-                return FightIntervalSeconds;
             }
 
             public void Tick(float delta)
