@@ -20,14 +20,21 @@ namespace CTXD.Client.Features.Battle
         public const float FightIntervalSeconds = .5f; // FightVS.INTERVAL_TIME = 500
         public const float DamageLabelDelaySeconds = .2f; // FightVS.takeAction delayedCall(0.2)
 
+        // War.xml: centerSp autoAlign 1000x600 inside a 1280x768 scene.
+        const float CenterWidth = 1000f;
+        const float CenterHeight = 600f;
+        const float CenterOffsetX = (LegacyWidth - CenterWidth) * .5f;
+        const float CenterOffsetY = (LegacyHeight - CenterHeight) * .5f;
+
+        // War.xml config/FightVS properties.
         const float WarX = 380f;
         const float WarY = 250f;
         const float SideWidth = 99f;
         const float SideHeight = 52f;
-        const float AttX = 300f;
-        const float AttY = 200f;
-        const float DefX = 300f;
-        const float DefY = 200f;
+        const float AttXPer = -.41f;
+        const float AttYPer = .42f;
+        const float DefXPer = .4f;
+        const float DefYPer = -.4f;
 
         RectTransform _stage;
         TaskCompletionSource<bool> _activeCompletion;
@@ -160,10 +167,10 @@ namespace CTXD.Client.Features.Battle
             if (actionFrames.Length == 0) return false;
 
             laneIndex = Mathf.Clamp(laneIndex, 0, 2);
-            var laneX = WarX + SideWidth * laneIndex;
-            var laneY = WarY + SideHeight * laneIndex;
-            var x = attacker ? laneX - AttX : laneX + DefX;
-            var y = attacker ? laneY + AttY : laneY - DefY;
+            var laneX = CenterOffsetX + WarX + SideWidth * laneIndex;
+            var laneY = CenterOffsetY + WarY + SideHeight * laneIndex;
+            var x = laneX + (attacker ? AttXPer : DefXPer) * SideWidth;
+            var y = laneY + (attacker ? AttYPer : DefYPer) * SideHeight;
 
             var imageGo = new GameObject((attacker ? "att" : "def") + unit.troopId + "_" + unit.id, typeof(RectTransform), typeof(Image));
             imageGo.transform.SetParent(_stage, false);
