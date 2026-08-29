@@ -15,6 +15,7 @@ using CTXD.Client.Features.Activity;
 using CTXD.Client.Features.Rank;
 using CTXD.Client.Networking;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace CTXD.Client.Features.FirstPlayable
@@ -31,6 +32,12 @@ namespace CTXD.Client.Features.FirstPlayable
         bool _busy;
         RealtimeClient _realtime;
         bool _refreshQueued;
+        InputField _loginUserInput;
+        InputField _loginPasswordInput;
+        int _selectedForceId = 1;
+        readonly Image[] _forceVisuals = new Image[4];
+        readonly bool[] _forceHovered = new bool[4];
+        readonly bool[] _forcePressed = new bool[4];
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Bootstrap()
@@ -41,6 +48,18 @@ namespace CTXD.Client.Features.FirstPlayable
 
         void Update()
         {
+            if (_loginUserInput != null && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
+            {
+                var selected = EventSystem.current != null ? EventSystem.current.currentSelectedGameObject : null;
+                if (selected == _loginUserInput.gameObject)
+                    _loginPasswordInput.Select();
+                else if (selected == _loginPasswordInput.gameObject && !_busy)
+                {
+                    _username = _loginUserInput.text.Trim();
+                    _password = _loginPasswordInput.text;
+                    _ = Auth(false);
+                }
+            }
             if (_realtime == null) return;
             while (_realtime.TryDequeue(out var message))
             {
@@ -105,22 +124,48 @@ namespace CTXD.Client.Features.FirstPlayable
         void ShowLogin()
         {
             LegacyUiFactory.DestroyChildren(_screen);
-            LegacyUiFactory.ResourceImage(_screen, "LegacyVisual/RoleScene/background", Vector2.zero, Vector2.one);
-            var box = LegacyUiFactory.Panel(_screen, "LoginBox", new Vector2(.36f,.27f), new Vector2(.64f,.68f), new Color(.04f,.025f,.015f,.84f));
-            LegacyUiFactory.Label(box, "CÔNG THÀNH XƯNG ĐẾ", 28, TextAnchor.MiddleCenter, new Color(1f,.82f,.35f), new Vector2(.05f,.79f), new Vector2(.95f,.98f));
-            var user = LegacyUiFactory.Input(box, "Tài khoản", new Vector2(.12f,.58f), new Vector2(.88f,.7f));
-            var pass = LegacyUiFactory.Input(box, "Mật khẩu", new Vector2(.12f,.42f), new Vector2(.88f,.54f), true);
-            user.text = _username; pass.text = _password;
-            _status = LegacyUiFactory.Label(box, "", 15, TextAnchor.MiddleCenter, new Color(1f,.75f,.45f), new Vector2(.05f,.05f), new Vector2(.95f,.19f));
-            LegacyUiFactory.SpriteButton(box, "", new Vector2(.12f,.23f), new Vector2(.48f,.36f), async () =>
+            _screen.GetComponent<Image>().color = new Color(51f/255f,51f/255f,51f/255f,1f);
+            const float left=510f, top=279f;
+            var box=LegacyUiFactory.PixelPanel(_screen,"LoginScene",left,top,260,210,Color.clear);
+            var panel=LegacyUiFactory.PixelImage(box,"LegacyVisual/Entry/Login/panel",0,0,260,210);
+            panel.raycastTarget=false;
+            var title=LegacyUiFactory.PixelLabel(box,"Đăng ký và đăng nhập",14,TextAnchor.MiddleCenter,new Color(1f,1f,.8f),0,13,260,20);
+            title.fontStyle=FontStyle.Bold;
+            LegacyUiFactory.PixelLabel(box,"TK:",14,TextAnchor.MiddleLeft,Color.white,25,50,42,20);
+            LegacyUiFactory.PixelLabel(box,"MK:",14,TextAnchor.MiddleLeft,Color.white,25,80,42,20);
+            LegacyUiFactory.PixelLabel(box,"Server:",12,TextAnchor.MiddleLeft,Color.white,25,110,42,20);
+            var user=LegacyUiFactory.PixelInput(box,"Username",67,48,155,20,Color.white,Color.black,14);
+            var pass=LegacyUiFactory.PixelInput(box,"Password",67,78,155,20,Color.white,Color.black,14,true);
+            user.text=_username; pass.text=_password;
+            _loginUserInput=user; _loginPasswordInput=pass;
+
+            var combo=LegacyUiFactory.PixelImage(box,"LegacyVisual/Entry/Login/combo",67,108,130,22);
+            combo.raycastTarget=false;
+            LegacyUiFactory.PixelLabel(box,ClientConfig.ServerUrl,11,TextAnchor.MiddleLeft,new Color(.2f,.2f,.2f),70,109,102,20);
+            var socket=LegacyUiFactory.PixelImage(box,"LegacyVisual/Entry/Login/radio_up",67,139,14,15);
+            var http=LegacyUiFactory.PixelImage(box,"LegacyVisual/Entry/Login/radio_selected",147,139,14,15);
+            socket.raycastTarget=false; http.raycastTarget=false;
+            LegacyUiFactory.PixelLabel(box,"SOCKET",11,TextAnchor.MiddleLeft,Color.white,84,137,56,20);
+            LegacyUiFactory.PixelLabel(box,"HTTP",11,TextAnchor.MiddleLeft,Color.white,164,137,45,20);
+
+            var connect=LegacyUiFactory.PixelButton(box,">",202,108,20,24,()=>{},
+                "LegacyVisual/Entry/Login/button_up","LegacyVisual/Entry/Login/button_over","LegacyVisual/Entry/Login/button_down");
+            connect.GetComponent<Image>().type=Image.Type.Sliced;
+            connect.GetComponentInChildren<Text>().fontSize=12;
+            var register=LegacyUiFactory.PixelButton(box,"Đăng ký",115,173,50,24,async()=>
             {
-                _username=user.text.Trim(); _password=pass.text; await Auth(false);
-            }, "LegacyVisual/RoleScene/enter", "LegacyVisual/RoleScene/enter_over", "LegacyVisual/RoleScene/enter_down");
-            LegacyUiFactory.Button(box, "Tạo tài khoản", new Vector2(.52f,.23f), new Vector2(.88f,.36f), async () =>
+                _username=user.text.Trim();_password=pass.text;await Auth(true);
+            },"LegacyVisual/Entry/Login/button_up","LegacyVisual/Entry/Login/button_over","LegacyVisual/Entry/Login/button_down");
+            register.GetComponent<Image>().type=Image.Type.Sliced;
+            ConfigureCompactButtonText(register.GetComponentInChildren<Text>());
+            var login=LegacyUiFactory.PixelButton(box,"Đăng nhập",172,173,50,24,async()=>
             {
-                _username=user.text.Trim(); _password=pass.text; await Auth(true);
-            });
-            LegacyUiFactory.Label(_screen, "Server: " + ClientConfig.ServerUrl, 13, TextAnchor.LowerRight, new Color(1,1,1,.65f), new Vector2(.55f,.005f), new Vector2(.995f,.045f));
+                _username=user.text.Trim();_password=pass.text;await Auth(false);
+            },"LegacyVisual/Entry/Login/button_up","LegacyVisual/Entry/Login/button_over","LegacyVisual/Entry/Login/button_down");
+            login.GetComponent<Image>().type=Image.Type.Sliced;
+            ConfigureCompactButtonText(login.GetComponentInChildren<Text>());
+            _status=LegacyUiFactory.PixelLabel(_screen,"",13,TextAnchor.MiddleCenter,new Color(1f,.82f,.35f),430,497,420,24);
+            user.Select();
         }
 
         async Task Auth(bool register)
@@ -146,24 +191,94 @@ namespace CTXD.Client.Features.FirstPlayable
         void ShowForceSelection()
         {
             LegacyUiFactory.DestroyChildren(_screen);
-            LegacyUiFactory.ResourceImage(_screen, "LegacyVisual/RoleScene/background", Vector2.zero, Vector2.one);
-            var panel = LegacyUiFactory.Panel(_screen,"ForceSelection",new Vector2(.18f,.18f),new Vector2(.82f,.82f),new Color(.04f,.025f,.015f,.74f));
-            LegacyUiFactory.Label(panel,"LỰA CHỌN THẾ LỰC",30,TextAnchor.MiddleCenter,new Color(1f,.83f,.38f),new Vector2(.05f,.78f),new Vector2(.95f,.96f));
-            LegacyUiFactory.Label(panel,"Giữ đúng bước mở đầu của legacy: chọn phe trước khi vào thành.",17,TextAnchor.MiddleCenter,Color.white,new Vector2(.08f,.65f),new Vector2(.92f,.76f));
-            MakeForceButton(panel,1,"Ngụy",.16f,.38f);
-            MakeForceButton(panel,2,"Thục",.40f,.62f);
-            MakeForceButton(panel,3,"Ngô",.64f,.86f);
-            _status=LegacyUiFactory.Label(panel,"",16,TextAnchor.MiddleCenter,new Color(1f,.72f,.4f),new Vector2(.1f,.08f),new Vector2(.9f,.2f));
+            _screen.GetComponent<Image>().color=Color.black;
+            _loginUserInput=null; _loginPasswordInput=null;
+            _selectedForceId=1;
+            Array.Clear(_forceVisuals,0,_forceVisuals.Length);
+            Array.Clear(_forceHovered,0,_forceHovered.Length);
+            Array.Clear(_forcePressed,0,_forcePressed.Length);
+            var baseImage=LegacyUiFactory.PixelImage(_screen,"LegacyVisual/Entry/Force/scene_up",0,0,1280,768);
+            baseImage.raycastTarget=false;
+
+            // FFDec preserves each symbol's common timeline canvas. These top-left offsets are
+            // the exact exported-canvas origins resolved from the SWF symbol bounds.
+            AddForceChoice(1,"wei",405,12,915,540,502.95f,111.5f,534,340);
+            AddForceChoice(2,"shu",17,105,723,562,196.3f,173.55f,470,422);
+            AddForceChoice(3,"wu",482,193,831,530,582.8f,349.95f,513,236);
+            RefreshForceVisuals();
+
+            var start=LegacyUiFactory.PixelImage(_screen,"LegacyVisual/Entry/Force/start_up",489,606,313,163);
+            start.raycastTarget=false;
+            Action<string> setStartState=state=>start.sprite=Resources.Load<Sprite>("LegacyVisual/Entry/Force/start_"+state);
+            var startHit=LegacyUiFactory.PixelImage(_screen,"LegacyVisual/Entry/Force/start_down",489,606,313,163);
+            startHit.color=new Color(1,1,1,.001f);
+            startHit.alphaHitTestMinimumThreshold=.1f;
+            var startPointer=startHit.gameObject.AddComponent<LegacyForceHitArea>();
+            startPointer.Setup(
+                ()=>setStartState("over"),
+                ()=>setStartState("up"),
+                ()=>setStartState("down"),
+                ()=>setStartState("over"),
+                async()=>await ChooseSelectedForce());
+            _status=LegacyUiFactory.PixelLabel(_screen,"",14,TextAnchor.MiddleCenter,new Color(1f,.8f,.35f),430,736,420,25);
         }
 
-        void MakeForceButton(Transform parent,int id,string name,float x1,float x2)
+        async Task ChooseSelectedForce()
         {
-            LegacyUiFactory.Button(parent,name,new Vector2(x1,.35f),new Vector2(x2,.58f),async()=>
+            if(_busy)return;
+            _busy=true;
+            try
             {
-                if(_busy)return; _busy=true;
-                try { SetStatus("Đang vào thành..."); await _api.ChooseForceAsync(id); await LoadMainCity(); }
-                catch(Exception ex){SetStatus(ex.Message);} finally{_busy=false;}
-            });
+                SetStatus("Đang vào thành...");
+                await _api.ChooseForceAsync(_selectedForceId);
+                await LoadMainCity();
+            }
+            catch(Exception ex){SetStatus(ex.Message);}
+            finally{_busy=false;}
+        }
+
+        static void ConfigureCompactButtonText(Text text)
+        {
+            text.fontSize=11;
+            text.resizeTextForBestFit=true;
+            text.resizeTextMinSize=7;
+            text.resizeTextMaxSize=11;
+            text.horizontalOverflow=HorizontalWrapMode.Overflow;
+        }
+
+        void AddForceChoice(int id,string key,float x,float y,float width,float height,float hitX,float hitY,float hitWidth,float hitHeight)
+        {
+            var visual=LegacyUiFactory.PixelImage(_screen,"LegacyVisual/Entry/Force/"+key+"_selected",x,y,width,height);
+            visual.raycastTarget=false;
+            _forceVisuals[id]=visual;
+            var hit=LegacyUiFactory.PixelImage(_screen,"LegacyVisual/Entry/Force/"+key+"_hit",hitX,hitY,hitWidth,hitHeight);
+            hit.color=new Color(1,1,1,0.001f);
+            hit.alphaHitTestMinimumThreshold=.1f;
+            var pointer=hit.gameObject.AddComponent<LegacyForceHitArea>();
+            pointer.Setup(
+                ()=>{_forceHovered[id]=true;RefreshForceVisuals();},
+                ()=>{_forceHovered[id]=false;_forcePressed[id]=false;RefreshForceVisuals();},
+                ()=>{_forcePressed[id]=true;RefreshForceVisuals();},
+                ()=>{_forcePressed[id]=false;RefreshForceVisuals();},
+                ()=>{_selectedForceId=id;RefreshForceVisuals();});
+        }
+
+        void RefreshForceVisuals()
+        {
+            var keys=new[]{"","wei","shu","wu"};
+            for(var id=1;id<=3;id++)
+            {
+                var image=_forceVisuals[id];
+                if(image==null)continue;
+                var selected=id==_selectedForceId;
+                var visible=selected||_forceHovered[id];
+                image.enabled=visible;
+                if(!visible)continue;
+                var state=selected
+                    ?(_forcePressed[id]?"selected_down":_forceHovered[id]?"selected_over":"selected")
+                    :(_forcePressed[id]?"down":"over");
+                image.sprite=Resources.Load<Sprite>("LegacyVisual/Entry/Force/"+keys[id]+"_"+state);
+            }
         }
 
         async Task LoadMainCity()
@@ -265,29 +380,66 @@ namespace CTXD.Client.Features.FirstPlayable
 
         void ShowCreateRoleOverlay()
         {
-            var overlay=LegacyUiFactory.Panel(_screen,"CreateRole",new Vector2(.241f,.206f),new Vector2(.759f,.782f),Color.clear);
-            LegacyUiFactory.ResourceImage(overlay,"LegacyVisual/CreateRole/00002",Vector2.zero,Vector2.one);
-            LegacyUiFactory.Label(overlay,"TÔN TÍNH ĐẠI DANH",23,TextAnchor.MiddleCenter,new Color(1f,.82f,.35f),new Vector2(.08f,.83f),new Vector2(.92f,.98f));
+            var modal=LegacyUiFactory.Panel(_screen,"CreateRoleModal",Vector2.zero,Vector2.one,new Color(0,0,0,.4f));
+            var overlay=LegacyUiFactory.PixelPanel(modal,"CreateRole",309,164,662,442,Color.clear);
+            var background=LegacyUiFactory.PixelImage(overlay,"LegacyVisual/CreateRole/00002",0,0,662,442);
+            background.raycastTarget=false;
 
-            LegacyUiFactory.ResourceImage(overlay,"LegacyVisual/CreateRole/00009",new Vector2(.08f,.47f),new Vector2(.23f,.70f),true);
-            var portrait=LegacyUiFactory.ResourceImage(overlay,"LegacyVisual/RolePortraits/Big/1",new Vector2(.075f,.38f),new Vector2(.245f,.77f),true);
-            portrait.color=Color.white;
+            var portrait=LegacyUiFactory.PixelImage(overlay,"LegacyVisual/Entry/CreateRole/Big/1",8,71,273,345);
+            portrait.raycastTarget=false;
+            var selectedPic=1;
+            var selectedFrames=new Image[7];
+            var lights=new Image[7];
+            Action<int> selectRole=null;
+            selectRole=pic=>
+            {
+                selectedPic=pic;
+                var widths=new[]{0,273,247,263,290,305,320};
+                var heights=new[]{0,345,338,342,344,395,398};
+                var ys=new[]{0,71,78,74,71,21,18};
+                portrait.sprite=Resources.Load<Sprite>("LegacyVisual/Entry/CreateRole/Big/"+pic);
+                portrait.rectTransform.anchoredPosition=new Vector2(8,-ys[pic]);
+                portrait.rectTransform.sizeDelta=new Vector2(widths[pic],heights[pic]);
+                for(var j=1;j<=6;j++)
+                {
+                    selectedFrames[j].enabled=j==pic;
+                    lights[j].enabled=j!=pic;
+                }
+            };
+            for(var i=1;i<=6;i++)
+            {
+                var pic=i;
+                var x=344+((i-1)%3)*100;
+                var y=53+((i-1)/3)*100;
+                var frame=LegacyUiFactory.PixelImage(overlay,"LegacyVisual/Entry/CreateRole/thumb_frame",x,y,100,100);
+                var head=LegacyUiFactory.PixelImage(overlay,"LegacyVisual/Entry/CreateRole/Thumb/"+i,x+14,y+14,72,72);
+                var selected=LegacyUiFactory.PixelImage(overlay,"LegacyVisual/Entry/CreateRole/thumb_selected",x,y,100,100);
+                var light=LegacyUiFactory.PixelImage(overlay,"LegacyVisual/Entry/CreateRole/thumb_light",x,y,100,100);
+                frame.raycastTarget=false;head.raycastTarget=false;selected.raycastTarget=false;light.raycastTarget=false;
+                selectedFrames[i]=selected;lights[i]=light;
+                var hit=LegacyUiFactory.PixelButton(overlay,"",x,y,100,100,()=>selectRole(pic));
+                hit.image.color=Color.clear;
+            }
 
-            var name=LegacyUiFactory.Input(overlay,"Tên nhân vật",new Vector2(.38f,.56f),new Vector2(.82f,.68f));
-            var dice=LegacyUiFactory.SpriteButton(overlay,"",new Vector2(.835f,.575f),new Vector2(.88f,.655f),async()=>
+            LegacyUiFactory.PixelLabel(overlay,"Vui lòng nhập tên nhân vật",12,TextAnchor.MiddleCenter,new Color(.8f,.73f,.53f),347,270,280,40);
+            var name=LegacyUiFactory.PixelInput(overlay,"RoleName",400,300,150,20,Color.clear,new Color(1f,1f,.8f),14,false,false);
+            name.characterLimit=14;
+            LegacyUiFactory.PixelButton(overlay,"",556,294,25,26,async()=>
             {
                 if(_busy)return; _busy=true;
-                try { var list=await _api.RandomNamesAsync(true,5); if(list.list!=null&&list.list.Length>0) name.text=list.list[UnityEngine.Random.Range(0,list.list.Length)]; }
+                try { var list=await _api.RandomNamesAsync(selectedPic>=4,5); if(list.list!=null&&list.list.Length>0) name.text=list.list[UnityEngine.Random.Range(0,list.list.Length)]; }
                 catch(Exception ex){SetStatus(ex.Message);} finally{_busy=false;}
             },"LegacyVisual/CreateRole/00005");
 
-            _status=LegacyUiFactory.Label(overlay,"",14,TextAnchor.MiddleCenter,new Color(1f,.75f,.45f),new Vector2(.34f,.19f),new Vector2(.92f,.31f));
-            LegacyUiFactory.SpriteButton(overlay,"",new Vector2(.47f,.30f),new Vector2(.76f,.43f),async()=>
+            _status=LegacyUiFactory.PixelLabel(overlay,"",13,TextAnchor.MiddleCenter,new Color(1f,.75f,.45f),340,397,290,25);
+            LegacyUiFactory.PixelButton(overlay,"",395,338,191,53,async()=>
             {
                 if(_busy)return; _busy=true;
-                try { await _api.SetNameAsync(name.text.Trim(),1); Destroy(overlay.gameObject); await LoadMainCity(); }
+                try { await _api.SetNameAsync(name.text.Trim(),selectedPic); Destroy(modal.gameObject); await LoadMainCity(); }
                 catch(Exception ex){SetStatus(ex.Message);} finally{_busy=false;}
             },"LegacyVisual/CreateRole/00012","LegacyVisual/CreateRole/00014","LegacyVisual/CreateRole/00016");
+            selectRole(UnityEngine.Random.Range(1,7));
+            name.Select();
         }
 
 
@@ -318,5 +470,26 @@ namespace CTXD.Client.Features.FirstPlayable
         }
 
         void SetStatus(string value) { if(_status!=null) _status.text=value; }
+    }
+
+    sealed class LegacyForceHitArea : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
+        IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
+    {
+        Action _enter;
+        Action _exit;
+        Action _down;
+        Action _up;
+        Action _click;
+
+        public void Setup(Action enter,Action exit,Action down,Action up,Action click)
+        {
+            _enter=enter;_exit=exit;_down=down;_up=up;_click=click;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)=>_enter?.Invoke();
+        public void OnPointerExit(PointerEventData eventData)=>_exit?.Invoke();
+        public void OnPointerDown(PointerEventData eventData){if(eventData.button==PointerEventData.InputButton.Left)_down?.Invoke();}
+        public void OnPointerUp(PointerEventData eventData){if(eventData.button==PointerEventData.InputButton.Left)_up?.Invoke();}
+        public void OnPointerClick(PointerEventData eventData){if(eventData.button==PointerEventData.InputButton.Left)_click?.Invoke();}
     }
 }

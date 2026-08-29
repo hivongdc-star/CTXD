@@ -86,6 +86,27 @@ namespace CTXD.Client.Features.FirstPlayable
             return f;
         }
 
+        public static InputField PixelInput(Transform parent, string name, float x, float y, float width, float height,
+            Color background, Color textColor, int fontSize, bool password = false, bool outline = true)
+        {
+            var root = PixelPanel(parent, name, x, y, width, height, background);
+            if (outline)
+            {
+                var border = root.gameObject.AddComponent<Outline>();
+                border.effectColor = Color.black;
+                border.effectDistance = new Vector2(1, -1);
+            }
+            var text = PixelLabel(root, "", fontSize, TextAnchor.MiddleLeft, textColor, 3, 0, width - 6, height);
+            text.supportRichText = false;
+            var field = root.gameObject.AddComponent<InputField>();
+            field.textComponent = text;
+            field.contentType = password ? InputField.ContentType.Password : InputField.ContentType.Standard;
+            field.lineType = InputField.LineType.SingleLine;
+            field.caretColor = textColor;
+            field.selectionColor = new Color(.35f, .55f, .8f, .75f);
+            return field;
+        }
+
         public static Button Button(Transform parent, string text, Vector2 anchorMin, Vector2 anchorMax, UnityAction onClick,
             Sprite sprite = null)
         {
