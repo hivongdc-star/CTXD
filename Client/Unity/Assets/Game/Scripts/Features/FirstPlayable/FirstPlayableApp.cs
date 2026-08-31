@@ -381,8 +381,8 @@ namespace CTXD.Client.Features.FirstPlayable
         void ShowCreateRoleOverlay()
         {
             var modal=LegacyUiFactory.Panel(_screen,"CreateRoleModal",Vector2.zero,Vector2.one,new Color(0,0,0,.4f));
-            var overlay=LegacyUiFactory.PixelPanel(modal,"CreateRole",309,164,662,442,Color.clear);
-            var background=LegacyUiFactory.PixelImage(overlay,"LegacyVisual/CreateRole/00002",0,0,662,442);
+            var overlay=LegacyUiFactory.PixelPanel(modal,"CreateRole",309,164,662,440,Color.clear);
+            var background=LegacyUiFactory.PixelImage(overlay,"LegacyVisual/CreateRole/00002",0,0,662,440);
             background.raycastTarget=false;
 
             var portrait=LegacyUiFactory.PixelImage(overlay,"LegacyVisual/Entry/CreateRole/Big/1",8,71,273,345);
@@ -424,8 +424,15 @@ namespace CTXD.Client.Features.FirstPlayable
             LegacyUiFactory.PixelLabel(overlay,"Vui lòng nhập tên nhân vật",12,TextAnchor.MiddleCenter,new Color(.8f,.73f,.53f),347,270,280,40);
             var name=LegacyUiFactory.PixelInput(overlay,"RoleName",400,300,150,20,Color.clear,new Color(1f,1f,.8f),14,false,false);
             name.characterLimit=14;
+            var inputTask=LegacyUiFactory.PixelImage(overlay,"LegacyVisual/Entry/CreateRole/InputTask/01",247,289,150,39);
+            inputTask.raycastTarget=false;
+            var inputTaskAnimation=inputTask.gameObject.AddComponent<LegacyFrameLoop>();
+            inputTaskAnimation.Initialize(inputTask,"LegacyVisual/Entry/CreateRole/InputTask",20,24f);
+            Action hideInputTask=inputTaskAnimation.StopAndHide;
+            name.gameObject.AddComponent<LegacyPointerClick>().Initialize(hideInputTask);
             LegacyUiFactory.PixelButton(overlay,"",556,294,25,26,async()=>
             {
+                hideInputTask();
                 if(_busy)return; _busy=true;
                 try { var list=await _api.RandomNamesAsync(selectedPic>=4,5); if(list.list!=null&&list.list.Length>0) name.text=list.list[UnityEngine.Random.Range(0,list.list.Length)]; }
                 catch(Exception ex){SetStatus(ex.Message);} finally{_busy=false;}
@@ -491,5 +498,44 @@ namespace CTXD.Client.Features.FirstPlayable
         public void OnPointerDown(PointerEventData eventData){if(eventData.button==PointerEventData.InputButton.Left)_down?.Invoke();}
         public void OnPointerUp(PointerEventData eventData){if(eventData.button==PointerEventData.InputButton.Left)_up?.Invoke();}
         public void OnPointerClick(PointerEventData eventData){if(eventData.button==PointerEventData.InputButton.Left)_click?.Invoke();}
+    }
+
+    sealed class LegacyPointerClick : MonoBehaviour, IPointerClickHandler
+    {
+        Action _click;
+        public void Initialize(Action click) { _click=click; }
+        public void OnPointerClick(PointerEventData eventData) { _click?.Invoke(); }
+    }
+
+    sealed class LegacyFrameLoop : MonoBehaviour
+    {
+        Image _image;
+        Sprite[] _frames;
+        float _frameRate;
+        float _startedAt;
+
+        public void Initialize(Image image,string resourceFolder,int frameCount,float frameRate)
+        {
+            _image=image;
+            _frames=new Sprite[frameCount];
+            for(var i=0;i<frameCount;i++)
+                _frames[i]=Resources.Load<Sprite>($"{resourceFolder}/{i+1:00}");
+            _frameRate=frameRate;
+            _startedAt=Time.unscaledTime;
+            if(_frames.Length>0)_image.sprite=_frames[0];
+        }
+
+        void Update()
+        {
+            if(_image==null||_frames==null||_frames.Length==0)return;
+            var frame=(int)((Time.unscaledTime-_startedAt)*_frameRate)%_frames.Length;
+            _image.sprite=_frames[frame];
+        }
+
+        public void StopAndHide()
+        {
+            enabled=false;
+            if(_image!=null)_image.enabled=false;
+        }
     }
 }
