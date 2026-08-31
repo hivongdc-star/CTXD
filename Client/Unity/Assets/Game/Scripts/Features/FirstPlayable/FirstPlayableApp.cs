@@ -290,6 +290,22 @@ namespace CTXD.Client.Features.FirstPlayable
         void ShowMainCity()
         {
             LegacyUiFactory.DestroyChildren(_screen);
+            var visualNav=new MainCityNavigation
+            {
+                tavern=OpenTavern,equipment=OpenEquipment,technology=OpenTechnology,world=OpenWorld,
+                nation=()=>NationPanel.Open(_screen,_api,SetStatus),mail=()=>MailPanel.Open(_screen,_api,SetStatus),
+                market=()=>MarketPanel.Open(_screen,_api,SetStatus),chat=()=>ChatPanel.Open(_screen,_api,SetStatus),
+                team=()=>TeamPanel.Open(_screen,_api,SetStatus),onlineGift=()=>OnlineGiftPanel.Open(_screen,_api,SetStatus),
+                dailyGift=()=>DailyGiftPanel.Open(_screen,_api,SetStatus),battleExp=()=>BattleExpActivityPanel.Open(_screen,_api,SetStatus),
+                levelExp=()=>LevelExpActivityPanel.Open(_screen,_api,SetStatus),seasonal=()=>SeasonalActivityPanel.Open(_screen,_api,SetStatus),
+                vip=()=>VipPanel.Open(_screen,_api,SetStatus),kfwd=()=>KfwdPanel.Open(_screen,_api,SetStatus),
+                kfzb=()=>KfzbPanel.Open(_screen,_api,SetStatus),rank=()=>RankPanel.Open(_screen,_api,SetStatus)
+            };
+            MainCityVisualRenderer.Show(_screen,_city,_api,SetStatus,ShowBuildingInfo,visualNav);
+            _status=LegacyUiFactory.Label(_screen,TaskText(),15,TextAnchor.MiddleLeft,new Color(1f,.88f,.55f),new Vector2(.015f,.005f),new Vector2(.58f,.06f));
+            if(_city.player.canChooseName && _city.player.currentTaskId==8) ShowCreateRoleOverlay();
+            return;
+#pragma warning disable CS0162
             LegacyUiFactory.ResourceImage(_screen,"LegacyVisual/MainCity/legacy_maincity_regional_00001",Vector2.zero,Vector2.one);
 
             var top = LegacyUiFactory.Panel(_screen,"ResourceBar",new Vector2(0,.925f),new Vector2(1,1),new Color(.035f,.025f,.018f,.91f));
@@ -329,6 +345,7 @@ namespace CTXD.Client.Features.FirstPlayable
             LegacyUiFactory.Button(_screen,"KFZB",new Vector2(.2f,.805f),new Vector2(.285f,.855f),()=>KfzbPanel.Open(_screen,_api,SetStatus));
             LegacyUiFactory.Button(_screen,"Xếp hạng",new Vector2(.295f,.805f),new Vector2(.38f,.855f),()=>RankPanel.Open(_screen,_api,SetStatus));
             if(p.canChooseName && p.currentTaskId==8) ShowCreateRoleOverlay();
+#pragma warning restore CS0162
         }
 
         string TaskText()
