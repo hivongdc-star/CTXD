@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,11 +23,9 @@ namespace CTXD.Client.Features.Tavern
         Text _freeRefreshText;
         Button _refreshButton;
         Button _closeButton;
-        List<RectTransform> _cards = new List<RectTransform>(5);
         int _type;
         bool _busy;
         float _nextClockUpdate;
-        Coroutine _refreshAnimation;
 
         const int CivilFunction = 44;
         const int MilitaryFunction = 45;
@@ -71,7 +68,7 @@ namespace CTXD.Client.Features.Tavern
 
         async void SwitchType(int type)
         {
-            if (_busy || _refreshAnimation != null || type == _type) return;
+            if (_busy || type == _type) return;
             _type = type;
             await LoadAsync(false);
         }
@@ -89,14 +86,14 @@ namespace CTXD.Client.Features.Tavern
                     try { _roster = await _api.GetGeneralsAsync(); }
                     catch { _roster = null; }
                 }
-                RenderContent(false);
+                RenderContent();
                 SetStatus("");
             }
             catch (Exception ex) { SetStatus(ex.Message); }
             finally { _busy = false; }
         }
 
-        void RenderContent(bool animateRefresh, IReadOnlyList<RectTransform> previousCards = null)
+        void RenderContent()
         {
             var old = _window.Find("Content");
             if (old != null) Destroy(old.gameObject);
@@ -106,15 +103,16 @@ namespace CTXD.Client.Features.Tavern
             DrawTabs(content);
             DrawOwnedGenerals(content);
 
-            var cards = new List<RectTransform>(5);
             var offers = _data.offers ?? Array.Empty<TavernOfferView>();
             for (var slot = 1; slot <= 5; slot++)
             {
                 var offer = offers.FirstOrDefault(x => x.position == slot);
-                cards.Add(DrawOffer(content, slot, offer));
+                DrawOffer(content, slot, offer);
             }
-            _cards = cards;
 
+            _refreshText = null;
+            _freeRefreshText = null;
+            _refreshButton = null;
             if (HasFunction(_player, RefreshFunction))
             {
                 _refreshText = LegacyUiFactory.PixelLabel(content, "", 12,
@@ -129,9 +127,6 @@ namespace CTXD.Client.Features.Tavern
                 _refreshButton.spriteState = refreshState;
                 UpdateRefreshClock();
             }
-
-            if (animateRefresh)
-                _refreshAnimation = StartCoroutine(AnimateRefreshCards(cards, previousCards));
         }
 
         void DrawTabs(RectTransform parent)
@@ -179,28 +174,26 @@ namespace CTXD.Client.Features.Tavern
                     var level = LegacyUiFactory.PixelLabel(parent, "Lv." + general.level, 11, TextAnchor.MiddleCenter,
                         new Color(1f, .8f, .35f), x + 2, 135, 50, 18);
                     AddOutline(level, Color.black);
-                    TransparentButton(parent, x, 99, 54, 54, () => GeneralRosterPanel.Open(_host, _api, _status, _type));
+                    if (_type == 2)
+                        TransparentButton(parent, x, 99, 54, 54, () => GeneralRosterPanel.Open(_host, _api, _status, 2));
                 }
                 else if (i >= max)
                 {
                     LegacyUiFactory.PixelImage(parent, "LegacyVisual/Tavern/00640", x, 99, 54, 54);
-                    var closed = LegacyUiFactory.PixelLabel(parent, "Chưa mở", 11, TextAnchor.MiddleCenter,
-                        new Color(.4f, .4f, .4f), x + 7, 117, 40, 20);
-                    AddOutline(closed, Color.black);
                 }
             }
         }
 
-        RectTransform DrawOffer(RectTransform parent, int slot, TavernOfferView offer)
+        void DrawOffer(RectTransform parent, int slot, TavernOfferView offer)
         {
             var card = LegacyUiFactory.PixelPanel(parent, "Offer_" + slot, 50 + (slot - 1) * 116, 168, 105, 177, Color.clear);
             LegacyUiFactory.PixelImage(card, "LegacyVisual/Tavern/01216", 0, 0, 105, 177);
-            if (offer == null) return card;
+            if (offer == null) return;
 
             var q = Mathf.Clamp(offer.quality, 1, 6);
             LegacyUiFactory.PixelImage(card, $"LegacyVisual/Tavern/{(697 + q * 2):00000}", 14, 40, 76, 76);
             LegacyUiFactory.PixelImage(card, "LegacyVisual/GeneralPic/" + offer.pic, 16, 42, 72, 72, true);
-            var name = LegacyUiFactory.PixelLabel(card, offer.name, 14, TextAnchor.MiddleCenter, QualityColor(q), 14, 12, 70, 20);
+            var name = LegacyUiFactory.PixelLabel(card, offer.name, 14, TextAnchor.MiddleCenter, Color.white, 14, 12, 70, 20);
             AddOutline(name, new Color(.19f, .13f, .06f));
 
             var currency = offer.isGold ? "LegacyVisual/Tavern/00891" : "LegacyVisual/Tavern/01225";
@@ -211,59 +204,12 @@ namespace CTXD.Client.Features.Tavern
             if (offer.bought)
             {
                 LegacyUiFactory.PixelImage(card, "LegacyVisual/Tavern/01235", 0, 65, 95, 54);
-                return card;
+                return;
             }
 
             var lockPath = offer.locked ? "LegacyVisual/Tavern/01219" : "LegacyVisual/Tavern/01222";
             LegacyUiFactory.PixelButton(card, "", 75, 45, 10, 12, async () => await ToggleLockAsync(offer), lockPath);
             LegacyButton(card, "Chiêu mộ", 15, 138, 78, 35, async () => await RecruitAsync(offer), "Button23");
-            return card;
-        }
-
-        List<RectTransform> CloneCurrentCards()
-        {
-            var clones = new List<RectTransform>(_cards.Count);
-            foreach (var card in _cards)
-            {
-                if (card == null) continue;
-                var clone = Instantiate(card, _window, false);
-                clone.name = card.name + "_Previous";
-                var group = clone.gameObject.AddComponent<CanvasGroup>();
-                group.interactable = false;
-                group.blocksRaycasts = false;
-                clones.Add(clone);
-            }
-            return clones;
-        }
-
-        IEnumerator AnimateRefreshCards(IReadOnlyList<RectTransform> cards, IReadOnlyList<RectTransform> previousCards)
-        {
-            foreach (var card in cards) card.localScale = new Vector3(0, 1, 1);
-            for (var index = 0; index < cards.Count; index++)
-            {
-                var card = cards[index];
-                var previous = previousCards != null && index < previousCards.Count ? previousCards[index] : null;
-                var previousStart = previous == null ? Vector2.zero : previous.anchoredPosition;
-                var elapsed = 0f;
-                while (elapsed < 2f)
-                {
-                    elapsed += Time.unscaledDeltaTime;
-                    var progress = Mathf.Clamp01(elapsed / 2f);
-                    card.localScale = new Vector3(progress, 1, 1);
-                    if (previous != null)
-                    {
-                        previous.localScale = new Vector3(1f - progress, 1, 1);
-                        previous.anchoredPosition = previousStart + new Vector2(193f * progress, 0);
-                    }
-                    yield return null;
-                }
-                card.localScale = Vector3.one;
-                if (previous != null) Destroy(previous.gameObject);
-            }
-            if (previousCards != null)
-                foreach (var previous in previousCards)
-                    if (previous != null) Destroy(previous.gameObject);
-            _refreshAnimation = null;
         }
 
         void DrawBitmapNumber(RectTransform parent, string value, float x, float y)
@@ -296,22 +242,13 @@ namespace CTXD.Client.Features.Tavern
             outline.effectDistance = new Vector2(1, -1);
         }
 
-        static Color QualityColor(int q) => q switch
-        {
-            1 => Color.white,
-            2 => new Color(.45f, 1f, .45f),
-            3 => new Color(.45f, .75f, 1f),
-            4 => new Color(.75f, .45f, 1f),
-            5 => new Color(1f, .62f, .25f),
-            _ => new Color(1f, .32f, .25f)
-        };
-
         void UpdateRefreshClock()
         {
+            if (_refreshText == null) return;
             var sec = RefreshRemainingSeconds(_data?.nextRefreshAt);
             _refreshText.text = sec <= 0 ? "" : "CD:" + FormatRemainingTime(sec);
             if (_freeRefreshText != null) _freeRefreshText.text = sec <= 0 ? "Miễn phí" : "";
-            if (_refreshButton != null) _refreshButton.interactable = sec < 3600;
+            if (_refreshButton != null) _refreshButton.interactable = sec <= 0;
         }
 
         static string FormatRemainingTime(int sec) => sec >= 3600
@@ -326,13 +263,12 @@ namespace CTXD.Client.Features.Tavern
 
         async Task RefreshAsync()
         {
-            if (_busy || _refreshAnimation != null) return;
+            if (_busy) return;
             _busy = true;
             try
             {
                 _data = await _api.RefreshTavernAsync(_type);
-                var previousCards = CloneCurrentCards();
-                RenderContent(true, previousCards);
+                RenderContent();
                 if (_onChanged != null) await _onChanged();
             }
             catch (Exception ex) { SetStatus(ex.Message); }
@@ -341,12 +277,12 @@ namespace CTXD.Client.Features.Tavern
 
         async Task ToggleLockAsync(TavernOfferView offer)
         {
-            if (_busy || _refreshAnimation != null) return;
+            if (_busy) return;
             _busy = true;
             try
             {
                 _data = await _api.LockGeneralAsync(offer.generalId, !offer.locked);
-                RenderContent(false);
+                RenderContent();
             }
             catch (Exception ex) { SetStatus(ex.Message); }
             finally { _busy = false; }
@@ -354,14 +290,14 @@ namespace CTXD.Client.Features.Tavern
 
         async Task RecruitAsync(TavernOfferView offer)
         {
-            if (_busy || _refreshAnimation != null) return;
+            if (_busy) return;
             _busy = true;
             try
             {
                 await _api.RecruitGeneralAsync(offer.generalId);
                 _data = await _api.GetTavernAsync(_type);
                 try { _roster = await _api.GetGeneralsAsync(); } catch { }
-                RenderContent(false);
+                RenderContent();
                 SetStatus($"Đã chiêu mộ {offer.name}.");
                 if (_onChanged != null) await _onChanged();
             }
