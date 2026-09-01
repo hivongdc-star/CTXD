@@ -1,2 +1,91 @@
-using System;using System.Threading.Tasks;using CTXD.Client.Features.FirstPlayable;using CTXD.Client.Networking;using UnityEngine;using UnityEngine.UI;
-namespace CTXD.Client.Features.Mail { public sealed class MailPanel:MonoBehaviour { ApiClient _api;Action<string> _status;RectTransform _window;MailPage _page;bool _deleted;public static MailPanel Open(RectTransform host,ApiClient api,Action<string> status){var go=new GameObject("MailPanel");go.transform.SetParent(host,false);var p=go.AddComponent<MailPanel>();p._api=api;p._status=status;p.Build();_=p.Refresh();return p;}void Build(){var blocker=LegacyUiFactory.Panel(transform,"MailBlocker",Vector2.zero,Vector2.one,new Color(0,0,0,.88f));_window=LegacyUiFactory.PixelPanel(blocker,"MailWindow",250,95,780,540,new Color(.055f,.035f,.018f,1));}async Task Refresh(){try{_page=await _api.GetMailAsync(0,_deleted);Draw();}catch(Exception ex){_status(ex.Message);}}void Draw(){LegacyUiFactory.DestroyChildren(_window);LegacyUiFactory.PixelLabel(_window,_deleted?"THÆ¯ ÄĂƒ XĂ“A":"THÆ¯ Tá»ª",24,TextAnchor.MiddleCenter,new Color(1,.8f,.3f),210,15,350,35);LegacyUiFactory.PixelButton(_window,"ÄĂ³ng",680,18,70,28,()=>Destroy(gameObject));LegacyUiFactory.PixelButton(_window,_deleted?"Há»™p thÆ°":"ThĂ¹ng rĂ¡c",25,18,110,28,()=>{_deleted=!_deleted;_=Refresh();});var rows=_page?.items??Array.Empty<MailView>();for(var i=0;i<Math.Min(6,rows.Length);i++){var m=rows[i];var y=70+i*72;LegacyUiFactory.PixelLabel(_window,(m.isRead?"":"[Má»šI] ")+m.sender+" Â· "+m.title,16,TextAnchor.MiddleLeft,Color.white,30,y,470,25);LegacyUiFactory.PixelLabel(_window,m.body,13,TextAnchor.MiddleLeft,new Color(.85f,.8f,.68f),30,y+25,470,32);if(!m.isRead&&!_deleted)LegacyUiFactory.PixelButton(_window,"Äá»c",510,y,65,27,async()=>{await _api.ReadMailAsync(m.id);await Refresh();});if(!_deleted&&m.attachments!=null&&m.attachments.Length>0&&!m.attachmentsClaimed)LegacyUiFactory.PixelButton(_window,"Nháº­n",580,y,65,27,async()=>{await _api.ClaimMailAsync(m.id);await Refresh();});LegacyUiFactory.PixelButton(_window,_deleted?"KhĂ´i phá»¥c":"XĂ³a",650,y,95,27,async()=>{if(_deleted)await _api.RetrieveMailAsync(m.id);else await _api.DeleteMailAsync(m.id);await Refresh();});}}} }
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using CTXD.Client.Features.Nation;
+using CTXD.Client.Networking;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace CTXD.Client.Features.Mail
+{
+    public sealed class MailPanel : MonoBehaviour
+    {
+        const string Root = "LegacyVisual/Mail/";
+        ApiClient _api; Action<string> _status; RectTransform _window; MailPage _page; MailView _read;
+        readonly HashSet<long> _selected = new HashSet<long>(); int _requestedPage; bool _busy;
+        public static MailPanel Open(RectTransform host, ApiClient api, Action<string> status)
+        {
+            var go = new GameObject("MailPanel"); go.transform.SetParent(host, false);
+            var p = go.AddComponent<MailPanel>(); p._api = api; p._status = status; p.Build(); _ = p.Refresh(); return p;
+        }
+        void Build()
+        {
+            var overlay = W7LegacyUi.Overlay(transform, "MailLegacyOverlay");
+            _window = W7LegacyUi.Window(overlay, W7LegacyUi.Common + "Window3", 309, 191, 662, 385);
+            W7LegacyUi.Close(_window, 635, 6, () => Destroy(gameObject));
+        }
+        async Task Refresh()
+        {
+            try { _page = await _api.GetMailAsync(_requestedPage, false); Draw(); }
+            catch (Exception ex) { _status(ex.Message); }
+        }
+        void Draw()
+        {
+            for (var i = _window.childCount - 1; i >= 0; i--) { var c = _window.GetChild(i); if (c.name != "W7Close") Destroy(c.gameObject); }
+            W7LegacyUi.Image(_window, Root + "mail_list", 0, 0, 220, 360, true);
+            W7LegacyUi.Image(_window, Root + "read_bg", 222, 105, 400, 235, true);
+            var rows = _page?.items ?? Array.Empty<MailView>();
+            for (var i = 0; i < 6; i++)
+            {
+                var y = 80 + i * 46; if (i >= rows.Length) continue; var mail = rows[i];
+                W7LegacyUi.Image(_window, Root + "row_bg", 12, y, 198, 46);
+                W7LegacyUi.Toggle(_window, _selected.Contains(mail.id), 21, y + 8, true, on => { if (on) _selected.Add(mail.id); else _selected.Remove(mail.id); });
+                W7LegacyUi.Text(_window, mail.sender, 39, y + 9, 110, 20, 12, TextAnchor.MiddleLeft, W7LegacyUi.Gold);
+                W7LegacyUi.Text(_window, ShortTime(mail.createdAt), 146, y + 9, 68, 20, 11, TextAnchor.MiddleRight, W7LegacyUi.Muted);
+                W7LegacyUi.Text(_window, mail.title, 42, y + 29, 170, 17, 11, TextAnchor.MiddleLeft, mail.isRead ? W7LegacyUi.Muted : W7LegacyUi.Gold);
+                W7LegacyUi.Hit(_window, 39, y, 173, 46, async () => await OpenMail(mail));
+            }
+            var pages = Math.Max(1, _page?.totalPages ?? 1);
+            W7LegacyUi.Pager(_window, true, 152, 373, _requestedPage, pages,
+                () => { if (_requestedPage > 0) { _requestedPage--; _selected.Clear(); _ = Refresh(); } },
+                () => { if (_requestedPage + 1 < pages) { _requestedPage++; _selected.Clear(); _ = Refresh(); } });
+            W7LegacyUi.Button22(_window, "Xóa", 14, 368, 50, 28, async () => await DeleteSelected());
+            W7LegacyUi.Button22(_window, "Chọn hết", 62, 368, 50, 28, () => { foreach (var m in rows) _selected.Add(m.id); Draw(); });
+            var write = W7LegacyUi.Button23(_window, "Viết", 490, 368, 78, 34, () => { }); write.interactable = false;
+            var reply = W7LegacyUi.Button23(_window, "Trả lời", 572, 368, 78, 34, () => { }); reply.interactable = false;
+            if (_read != null)
+            {
+                W7LegacyUi.Text(_window, _read.sender, 290, 64, 340, 20, 13, TextAnchor.MiddleLeft, W7LegacyUi.Gold);
+                W7LegacyUi.Text(_window, _read.title, 290, 93, 340, 20, 13, TextAnchor.MiddleLeft, W7LegacyUi.Gold);
+                var body = W7LegacyUi.Text(_window, _read.body, 244, 130, 377, 220, 13, TextAnchor.UpperLeft, W7LegacyUi.Gold);
+                body.horizontalOverflow = HorizontalWrapMode.Wrap; body.verticalOverflow = VerticalWrapMode.Truncate;
+            }
+        }
+        async Task OpenMail(MailView mail)
+        {
+            _read = mail;
+            if (!mail.isRead)
+            {
+                try { await _api.ReadMailAsync(mail.id); mail.isRead = true; }
+                catch (Exception ex) { _status(ex.Message); }
+            }
+            Draw();
+        }
+        async Task DeleteSelected()
+        {
+            if (_busy || _selected.Count == 0) return; _busy = true;
+            try
+            {
+                var ids = new List<long>(_selected); foreach (var id in ids) await _api.DeleteMailAsync(id);
+                _selected.Clear(); if (_read != null && ids.Contains(_read.id)) _read = null; await Refresh();
+            }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+        static string ShortTime(string value)
+        {
+            if (DateTimeOffset.TryParse(value, out var t)) return t.ToLocalTime().ToString("MM-dd HH:mm");
+            return value ?? string.Empty;
+        }
+    }
+}

@@ -1,2 +1,50 @@
-using System;using System.Threading.Tasks;using CTXD.Client.Features.FirstPlayable;using CTXD.Client.Networking;using UnityEngine;using UnityEngine.UI;
-namespace CTXD.Client.Features.Activity { public sealed class DailyGiftPanel:MonoBehaviour { ApiClient _api;Action<string> _status;RectTransform _window;public static DailyGiftPanel Open(RectTransform host,ApiClient api,Action<string> status){var go=new GameObject("DailyGiftPanel");go.transform.SetParent(host,false);var p=go.AddComponent<DailyGiftPanel>();p._api=api;p._status=status;p.Build();_=p.Refresh();return p;}void Build(){var b=LegacyUiFactory.Panel(transform,"DailyGiftBlocker",Vector2.zero,Vector2.one,new Color(0,0,0,.8f));_window=LegacyUiFactory.PixelPanel(b,"DailyGiftWindow",400,220,480,250,new Color(.055f,.035f,.018f,1));}async Task Refresh(){try{var v=await _api.GetDailyGiftAsync();LegacyUiFactory.DestroyChildren(_window);LegacyUiFactory.PixelLabel(_window,"DAILY LOGIN GIFT",22,TextAnchor.MiddleCenter,new Color(1,.8f,.3f),90,15,300,35);LegacyUiFactory.PixelButton(_window,"Close",390,18,65,27,()=>Destroy(gameObject));LegacyUiFactory.PixelLabel(_window,v.available?"Three legacy reward cards are ready.":"Claimed today",17,TextAnchor.MiddleCenter,Color.white,55,75,370,30);if(v.available)LegacyUiFactory.PixelButton(_window,"Reveal",165,135,150,35,async()=>{try{var r=await _api.ClaimDailyGiftAsync(Guid.NewGuid().ToString("N"));_status("Daily gift: gold +"+r.gold+", worship +"+r.worship);await Refresh();}catch(Exception ex){_status(ex.Message);}});}catch(Exception ex){_status(ex.Message);Destroy(gameObject);}}} }
+using System;
+using System.Threading.Tasks;
+using CTXD.Client.Features.Nation;
+using CTXD.Client.Networking;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace CTXD.Client.Features.Activity
+{
+    public sealed class DailyGiftPanel : MonoBehaviour
+    {
+        const string Root = "LegacyVisual/Activity/DailyGift/";
+        ApiClient _api; Action<string> _status; RectTransform _surface; DailyGiftView _view; bool _busy;
+        public static DailyGiftPanel Open(RectTransform host, ApiClient api, Action<string> status)
+        {
+            var go = new GameObject("DailyGiftPanel"); go.transform.SetParent(host, false);
+            var p = go.AddComponent<DailyGiftPanel>(); p._api = api; p._status = status; p.Build(); _ = p.Refresh(); return p;
+        }
+        void Build()
+        {
+            var overlay = W7LegacyUi.Overlay(transform, "DailyGiftLegacyOverlay");
+            _surface = LegacyUiFactory.PixelPanel(overlay, "DailyGiftSurface", 415, 252, 449, 264, Color.clear);
+            W7LegacyUi.Image(_surface, Root + "background", 0, 0, 449, 264, true);
+            W7LegacyUi.Close(_surface, 319, -22, () => Destroy(gameObject));
+        }
+        async Task Refresh()
+        {
+            try { _view = await _api.GetDailyGiftAsync(); Draw(); }
+            catch (Exception ex) { _status(ex.Message); Destroy(gameObject); }
+        }
+        void Draw()
+        {
+            for (var i = _surface.childCount - 1; i >= 0; i--) { var c = _surface.GetChild(i); if (c.name != "W7Close" && c.name != "background") Destroy(c.gameObject); }
+            if (_view == null || !_view.available) return;
+            W7LegacyUi.Button(_surface, string.Empty, 74, 158, 160, 71, async () => await Claim(), Root + "try_up", Root + "try_over", Root + "try_down");
+        }
+        async Task Claim()
+        {
+            if (_busy) return; _busy = true;
+            try
+            {
+                var r = await _api.ClaimDailyGiftAsync(Guid.NewGuid().ToString("N"));
+                W7LegacyUi.Text(_surface, "×" + (r.cards == null ? 0 : r.cards.Length), 75, 10, 280, 22, 14, TextAnchor.MiddleCenter, new Color(1f, .8f, 0f));
+                await Refresh();
+            }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+    }
+}

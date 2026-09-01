@@ -1,6 +1,6 @@
 using System;
-using CTXD.Client.Features.Battle;
-using CTXD.Client.Features.FirstPlayable;
+using System.Linq;
+using System.Threading.Tasks;
 using CTXD.Client.Networking;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,32 +9,59 @@ namespace CTXD.Client.Features.Nation
 {
     public sealed class NationPanel : MonoBehaviour
     {
-        ApiClient _api; Action<string> _status; RectTransform _window; NationView _view; PoliticsView _politics; OfficeView[] _offices; GeneralView[] _military; NationTrialView _trial; NationTaskView _task; int _generalIndex; bool _busy;
-        public static NationPanel Open(RectTransform host,ApiClient api,Action<string> status){var go=new GameObject("NationPanel");go.transform.SetParent(host,false);var panel=go.AddComponent<NationPanel>();panel._api=api;panel._status=status;panel.Build();_=panel.Refresh();return panel;}
-        void Build(){var blocker=LegacyUiFactory.Panel(transform,"NationBlocker",Vector2.zero,Vector2.one,new Color(0,0,0,.88f));_window=LegacyUiFactory.PixelPanel(blocker,"NationWindow",225,105,830,510,new Color(.055f,.035f,.018f,1));}
-        async System.Threading.Tasks.Task Refresh(){try{_view=await _api.GetNationAsync();_politics=await _api.GetPoliticsAsync();_offices=await _api.GetOfficesAsync();_trial=await _api.GetNationTrialAsync();_task=await _api.GetNationTaskAsync();var roster=await _api.GetGeneralsAsync();_military=Array.FindAll(roster.military??Array.Empty<GeneralView>(),x=>x.state<=1&&x.forces>0);if(_generalIndex>=_military.Length)_generalIndex=0;Draw();}catch(Exception ex){_status(ex.Message);}}
+        const string Root = "LegacyVisual/Nation/";
+        ApiClient _api; Action<string> _status; RectTransform _window; NationView _view; NationTaskView _task; bool _busy;
+        public static NationPanel Open(RectTransform host, ApiClient api, Action<string> status)
+        {
+            var go = new GameObject("NationPanel"); go.transform.SetParent(host, false);
+            var p = go.AddComponent<NationPanel>(); p._api = api; p._status = status; p.Build(); _ = p.Refresh(); return p;
+        }
+        void Build()
+        {
+            var overlay = W7LegacyUi.Overlay(transform, "NationLegacyOverlay");
+            _window = W7LegacyUi.Window(overlay, W7LegacyUi.Common + "Window3", 309, 191, 662, 385);
+            W7LegacyUi.Close(_window, 635, 6, () => Destroy(gameObject));
+        }
+        async Task Refresh()
+        {
+            try { _view = await _api.GetNationAsync(); _task = await _api.GetNationTaskAsync(); Draw(); }
+            catch (Exception ex) { _status(ex.Message); Destroy(gameObject); }
+        }
         void Draw()
         {
-            if(_view==null)return;LegacyUiFactory.DestroyChildren(_window);LegacyUiFactory.PixelLabel(_window,"QUỐC GIA",26,TextAnchor.MiddleCenter,new Color(1,.8f,.3f),260,12,310,38);LegacyUiFactory.PixelButton(_window,"Đóng",742,14,70,28,()=>Destroy(gameObject));var names=new[]{"","Ngụy","Thục","Ngô"};
-            for(var i=0;i<_view.nations.Length;i++){var n=_view.nations[i];var y=65+i*52;LegacyUiFactory.PixelLabel(_window,names[n.forceId]+" Lv."+n.level,18,TextAnchor.MiddleLeft,n.forceId==_view.playerForceId?new Color(1,.75f,.25f):Color.white,35,y,170,26);LegacyUiFactory.PixelLabel(_window,"EXP "+n.exp+"/"+n.maxExp,14,TextAnchor.MiddleLeft,new Color(.85f,.8f,.68f),190,y,180,26);}
-            if(_trial!=null){LegacyUiFactory.PixelLabel(_window,"Thí luyện · ải "+_trial.stage+" · hạ "+_trial.playerKills+" · hạng "+_trial.rank,14,TextAnchor.MiddleLeft,new Color(1,.8f,.4f),410,68,370,24);if(_trial.rewardAvailable)LegacyUiFactory.PixelButton(_window,"Nhận thưởng",620,98,145,27,async()=>await TrialReward());else if(_trial.stage<4)LegacyUiFactory.PixelButton(_window,"Vào thí luyện",620,98,145,27,async()=>await TrialBattle());else LegacyUiFactory.PixelButton(_window,"Mở thí luyện",620,98,145,27,async()=>await StartTrial());}
-            if(_task!=null){LegacyUiFactory.PixelLabel(_window,"Quốc vụ "+_task.type+" · "+_task.progress+"/"+_task.target,14,TextAnchor.MiddleLeft,new Color(1,.8f,.4f),410,135,370,24);if(_task.type==0||string.IsNullOrEmpty(_task.endsAt))LegacyUiFactory.PixelButton(_window,"Nâng quốc gia",620,165,145,27,async()=>await StartUpgrade());else if(_task.type==1)LegacyUiFactory.PixelButton(_window,"Đánh Man tộc",620,165,145,27,async()=>await TaskBattle());else if(_task.type==4)LegacyUiFactory.PixelButton(_window,"Đầu tư",620,165,145,27,async()=>await Invest());}
-            LegacyUiFactory.PixelButton(_window,"Bảo vệ",500,226,110,30,()=>NationProtectionPanel.Open((RectTransform)_window.parent,_api,_status));
-            LegacyUiFactory.PixelLabel(_window,"Quan chức: "+_view.officialName,16,TextAnchor.MiddleLeft,Color.white,35,230,300,26);if(_view.salaryAvailable)LegacyUiFactory.PixelButton(_window,"Bổng lộc "+_view.salary,340,226,145,30,async()=>await Salary());LegacyUiFactory.PixelLabel(_window,"Chính vụ "+(_politics?.eventCount??0)+"/24 · Dân trung "+(_politics?.peopleLoyal??0)+"/100",16,TextAnchor.MiddleLeft,new Color(1,.8f,.4f),35,275,370,26);
-            var events=_politics?.events??Array.Empty<PoliticsEventView>();if(events.Length>0){var e=events[0];LegacyUiFactory.PixelLabel(_window,e.name,15,TextAnchor.MiddleLeft,Color.white,35,307,260,24);LegacyUiFactory.PixelButton(_window,e.option1,300,303,180,30,async()=>await Politics(e,1));LegacyUiFactory.PixelButton(_window,e.option2,490,303,180,30,async()=>await Politics(e,2));}
-            LegacyUiFactory.PixelLabel(_window,"Quan phủ",17,TextAnchor.MiddleLeft,new Color(1,.8f,.4f),35,355,130,25);if(_military!=null&&_military.Length>0){var g=_military[_generalIndex];LegacyUiFactory.PixelButton(_window,"Tướng: "+g.name,570,355,220,27,()=>{_generalIndex=(_generalIndex+1)%_military.Length;Draw();});}
-            var offices=_offices??Array.Empty<OfficeView>();for(var i=0;i<Math.Min(3,offices.Length);i++){var o=offices[i];var y=385+i*34;LegacyUiFactory.PixelLabel(_window,"#"+o.buildingId+" "+o.leaderTitle+" ("+(o.members?.Length??0)+"/3)",14,TextAnchor.MiddleLeft,Color.white,35,y,310,28);LegacyUiFactory.PixelButton(_window,"Xin vào",355,y,90,27,async()=>await ApplyOffice(o.buildingId));LegacyUiFactory.PixelButton(_window,"Tranh chức",452,y,100,27,async()=>await PositionBattle(o.buildingId));}
+            if (_view == null) return;
+            for (var i = _window.childCount - 1; i >= 0; i--) { var c = _window.GetChild(i); if (c.name != "W7Close") Destroy(c.gameObject); }
+            W7LegacyUi.Image(_window, Root + "nation_view_bg", 18, 50, 626, 344);
+            var forces = (_view.nations ?? Array.Empty<NationForceView>()).OrderBy(n => n.forceId).ToArray();
+            var player = forces.FirstOrDefault(n => n.forceId == _view.playerForceId);
+            W7LegacyUi.Text(_window, "Lv." + _view.forceLevel, 290, 150, 60, 20, 13, TextAnchor.MiddleLeft);
+            W7LegacyUi.Text(_window, _view.forceExp + "/" + _view.maxExp, 408, 150, 130, 20, 12, TextAnchor.MiddleCenter);
+            W7LegacyUi.Text(_window, player == null ? string.Empty : player.exp + "/" + player.maxExp, 139, 329, 120, 20, 12, TextAnchor.MiddleCenter);
+            var other = forces.Where(n => n.forceId != _view.playerForceId).Take(2).ToArray();
+            if (other.Length > 0)
+            {
+                W7LegacyUi.Text(_window, W7LegacyUi.ForceName(other[0].forceId), 290, 260, 150, 20);
+                W7LegacyUi.Text(_window, "Lv." + other[0].level, 290, 276, 60, 20);
+                W7LegacyUi.Text(_window, other[0].exp + "/" + other[0].maxExp, 408, 276, 130, 20, 12, TextAnchor.MiddleCenter);
+            }
+            if (other.Length > 1)
+            {
+                W7LegacyUi.Text(_window, W7LegacyUi.ForceName(other[1].forceId), 290, 309, 150, 20);
+                W7LegacyUi.Text(_window, "Lv." + other[1].level, 290, 325, 60, 20);
+                W7LegacyUi.Text(_window, other[1].exp + "/" + other[1].maxExp, 408, 326, 130, 20, 12, TextAnchor.MiddleCenter);
+            }
+            if (_task != null && !string.IsNullOrEmpty(_task.endsAt))
+                W7LegacyUi.Text(_window, W7LegacyUi.Remaining(_task.endsAt), 484, 220, 120, 20, 12, TextAnchor.MiddleCenter, W7LegacyUi.Danger);
+            W7LegacyUi.Button22(_window, "Quốc vụ", 365, 183, 78, 34, () => _status("Quốc vụ hiện tại: " + (_task == null ? "-" : _task.progress + "/" + _task.target)));
+            var upgrade = W7LegacyUi.Button22(_window, "Thăng cấp", 503, 183, 78, 34, async () => await StartUpgrade());
+            upgrade.interactable = !_busy && (_task == null || string.IsNullOrEmpty(_task.endsAt) || _task.type == 0);
         }
-        async System.Threading.Tasks.Task Salary(){if(_busy)return;_busy=true;try{var result=await _api.ClaimNationSalaryAsync();_status("Đã nhận "+result.output+" bạc.");await Refresh();}catch(Exception ex){_status(ex.Message);}finally{_busy=false;}}
-        async System.Threading.Tasks.Task Politics(PoliticsEventView e,int option){if(_busy)return;_busy=true;try{var reward=await _api.ChoosePoliticsAsync(e.buildingId,option);_status("Chính vụ: "+reward.type+" +"+reward.value);await Refresh();}catch(Exception ex){_status(ex.Message);}finally{_busy=false;}}
-        async System.Threading.Tasks.Task ApplyOffice(int building){if(_busy)return;_busy=true;try{await _api.ApplyOfficeAsync(building);_status("Đã gửi đơn vào quan phủ #"+building);await Refresh();}catch(Exception ex){_status(ex.Message);}finally{_busy=false;}}
-        async System.Threading.Tasks.Task PositionBattle(int building){if(_busy||_military==null||_military.Length==0){_status("Không có tướng quân sự sẵn sàng.");return;}_busy=true;try{var result=await _api.StartPositionBattleAsync(building,_military[_generalIndex].id);BattlePanel.Open((RectTransform)_window.parent,_api,_status,result.battleId);}catch(Exception ex){_status(ex.Message);}finally{_busy=false;}}
-        async System.Threading.Tasks.Task StartTrial(){if(_busy)return;_busy=true;try{_trial=await _api.StartNationTrialAsync();_status("Đã mở quốc gia thí luyện.");await Refresh();}catch(Exception ex){_status(ex.Message);}finally{_busy=false;}}
-        async System.Threading.Tasks.Task TrialBattle(){if(!ReadyGeneral())return;_busy=true;try{var result=await _api.StartNationTrialBattleAsync(_trial.cityId,_military[_generalIndex].id);BattlePanel.Open((RectTransform)_window.parent,_api,_status,result.battleId);}catch(Exception ex){_status(ex.Message);}finally{_busy=false;}}
-        async System.Threading.Tasks.Task TrialReward(){if(_busy)return;_busy=true;try{var r=await _api.ClaimNationTrialRewardAsync();_status("Thưởng thí luyện: EXP "+(r.winExp+r.rankExp)+", sắt "+(r.winIron+r.rankIron));await Refresh();}catch(Exception ex){_status(ex.Message);}finally{_busy=false;}}
-        async System.Threading.Tasks.Task StartUpgrade(){if(_busy)return;_busy=true;try{_task=await _api.StartNationUpgradeAsync();_status("Đã mở chiến nâng cấp quốc gia.");await Refresh();}catch(Exception ex){_status(ex.Message);}finally{_busy=false;}}
-        async System.Threading.Tasks.Task TaskBattle(){if(!ReadyGeneral())return;_busy=true;try{var city=_trial!=null?_trial.cityId:0;var result=await _api.StartNationTaskBattleAsync(city,_military[_generalIndex].id);BattlePanel.Open((RectTransform)_window.parent,_api,_status,result.battleId);}catch(Exception ex){_status(ex.Message);}finally{_busy=false;}}
-        async System.Threading.Tasks.Task Invest(){if(_busy)return;_busy=true;try{var r=await _api.InvestNationAsync();_status("Đầu tư "+r.copper+" bạc, nhận "+r.exp+" EXP.");await Refresh();}catch(Exception ex){_status(ex.Message);}finally{_busy=false;}}
-        bool ReadyGeneral(){if(_busy||_military==null||_military.Length==0){_status("Không có tướng quân sự sẵn sàng.");return false;}return true;}
+        async Task StartUpgrade()
+        {
+            if (_busy) return; _busy = true;
+            try { _task = await _api.StartNationUpgradeAsync(); await Refresh(); }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
     }
 }

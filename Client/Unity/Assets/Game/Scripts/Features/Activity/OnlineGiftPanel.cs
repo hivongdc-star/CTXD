@@ -1,3 +1,50 @@
-using System;using System.Threading.Tasks;using CTXD.Client.Features.FirstPlayable;using CTXD.Client.Networking;using UnityEngine;using UnityEngine.UI;
-namespace CTXD.Client.Features.Activity { public sealed class OnlineGiftPanel:MonoBehaviour { ApiClient _api;Action<string> _status;RectTransform _window;OnlineGiftView _view;public static OnlineGiftPanel Open(RectTransform host,ApiClient api,Action<string> status){var go=new GameObject("OnlineGiftPanel");go.transform.SetParent(host,false);var p=go.AddComponent<OnlineGiftPanel>();p._api=api;p._status=status;p.Build();_=p.Refresh();return p;}void Build(){var blocker=LegacyUiFactory.Panel(transform,"GiftBlocker",Vector2.zero,Vector2.one,new Color(0,0,0,.8f));_window=LegacyUiFactory.PixelPanel(blocker,"GiftWindow",400,220,480,250,new Color(.055f,.035f,.018f,1));}async Task Refresh(){try{_view=await _api.GetOnlineGiftAsync();Draw();}catch(Exception ex){_status(ex.Message);Destroy(gameObject);}}void Draw(){LegacyUiFactory.DestroyChildren(_window);LegacyUiFactory.PixelLabel(_window,"ONLINE GIFT",23,TextAnchor.MiddleCenter,new Color(1,.8f,.3f),100,15,280,35);LegacyUiFactory.PixelButton(_window,"Close",390,18,65,27,()=>Destroy(gameObject));LegacyUiFactory.PixelLabel(_window,"Available: "+_view.available+" · Remaining: "+_view.remaining,17,TextAnchor.MiddleCenter,Color.white,55,75,370,30);if(_view.available>0)LegacyUiFactory.PixelButton(_window,"Claim",165,135,150,35,async()=>{try{var r=await _api.ClaimOnlineGiftAsync(Guid.NewGuid().ToString("N"));_status("Online gift: food +"+r.food);await Refresh();}catch(Exception ex){_status(ex.Message);}});}}
+using System;
+using System.Threading.Tasks;
+using CTXD.Client.Features.Nation;
+using CTXD.Client.Networking;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace CTXD.Client.Features.Activity
+{
+    public sealed class OnlineGiftPanel : MonoBehaviour
+    {
+        const string Root = "LegacyVisual/Activity/OnlineGift/";
+        ApiClient _api; Action<string> _status; RectTransform _surface; OnlineGiftView _view; bool _busy;
+        public static OnlineGiftPanel Open(RectTransform host, ApiClient api, Action<string> status)
+        {
+            var go = new GameObject("OnlineGiftPanel"); go.transform.SetParent(host, false);
+            var p = go.AddComponent<OnlineGiftPanel>(); p._api = api; p._status = status; p.Build(); _ = p.Refresh(); return p;
+        }
+        void Build()
+        {
+            var overlay = W7LegacyUi.Overlay(transform, "OnlineGiftLegacyOverlay");
+            _surface = LegacyUiFactory.PixelPanel(overlay, "OnlineGiftSurface", 415, 255, 449, 258, Color.clear);
+            W7LegacyUi.Image(_surface, Root + "background", 0, 0, 449, 258, true);
+            W7LegacyUi.Close(_surface, 310, -18, () => Destroy(gameObject));
+        }
+        async Task Refresh()
+        {
+            try { _view = await _api.GetOnlineGiftAsync(); Draw(); }
+            catch (Exception ex) { _status(ex.Message); Destroy(gameObject); }
+        }
+        void Draw()
+        {
+            for (var i = _surface.childCount - 1; i >= 0; i--) { var c = _surface.GetChild(i); if (c.name != "W7Close" && c.name != "background") Destroy(c.gameObject); }
+            if (_view == null) return;
+            W7LegacyUi.Text(_surface, W7LegacyUi.Remaining(_view.nextAt), 48, 80, 200, 40, 25, TextAnchor.MiddleCenter, W7LegacyUi.Gold);
+            if (_view.available > 0)
+            {
+                W7LegacyUi.Text(_surface, _view.available.ToString(), 48, 44, 200, 40, 14, TextAnchor.MiddleCenter, W7LegacyUi.Muted);
+                W7LegacyUi.Button23(_surface, "Nhận", 105, 178, 78, 34, async () => await Claim());
+            }
+        }
+        async Task Claim()
+        {
+            if (_busy) return; _busy = true;
+            try { await _api.ClaimOnlineGiftAsync(Guid.NewGuid().ToString("N")); await Refresh(); }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+    }
 }

@@ -1,2 +1,47 @@
-using System;using System.Threading.Tasks;using CTXD.Client.Features.FirstPlayable;using CTXD.Client.Networking;using UnityEngine;using UnityEngine.UI;
-namespace CTXD.Client.Features.Activity { public sealed class BattleExpActivityPanel:MonoBehaviour { ApiClient _api;Action<string> _status;RectTransform _window;public static BattleExpActivityPanel Open(RectTransform host,ApiClient api,Action<string> status){var go=new GameObject("BattleExpActivityPanel");go.transform.SetParent(host,false);var p=go.AddComponent<BattleExpActivityPanel>();p._api=api;p._status=status;p.Build();_=p.Refresh();return p;}void Build(){var b=LegacyUiFactory.Panel(transform,"BattleExpBlocker",Vector2.zero,Vector2.one,new Color(0,0,0,.8f));_window=LegacyUiFactory.PixelPanel(b,"BattleExpWindow",400,220,480,250,new Color(.055f,.035f,.018f,1));}async Task Refresh(){try{var v=await _api.GetBattleExpActivityAsync();LegacyUiFactory.DestroyChildren(_window);LegacyUiFactory.PixelLabel(_window,"BATTLE EXP EVENT",22,TextAnchor.MiddleCenter,new Color(1,.8f,.3f),90,15,300,35);LegacyUiFactory.PixelButton(_window,"Close",390,18,65,27,()=>Destroy(gameObject));LegacyUiFactory.PixelLabel(_window,v.active?v.condition+": battle EXP +"+v.addPercent+"%":"Event inactive",17,TextAnchor.MiddleCenter,Color.white,55,75,370,30);if(v.active&&!v.activated)LegacyUiFactory.PixelButton(_window,"Activate today",150,135,180,35,async()=>{try{var r=await _api.ActivateBattleExpActivityAsync();_status("Battle EXP +"+r.addPercent+"% active.");await Refresh();}catch(Exception ex){_status(ex.Message);}});else if(v.activated)LegacyUiFactory.PixelLabel(_window,"ACTIVE",18,TextAnchor.MiddleCenter,new Color(.3f,1,.3f),165,135,150,35);}catch(Exception ex){_status(ex.Message);Destroy(gameObject);}}} }
+using System;
+using System.Threading.Tasks;
+using CTXD.Client.Features.Nation;
+using CTXD.Client.Networking;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace CTXD.Client.Features.Activity
+{
+    public sealed class BattleExpActivityPanel : MonoBehaviour
+    {
+        const string Root = "LegacyVisual/Activity/BattleExp/";
+        ApiClient _api; Action<string> _status; RectTransform _window; BattleExpActivityView _view; bool _busy;
+        public static BattleExpActivityPanel Open(RectTransform host, ApiClient api, Action<string> status)
+        {
+            var go = new GameObject("BattleExpActivityPanel"); go.transform.SetParent(host, false);
+            var p = go.AddComponent<BattleExpActivityPanel>(); p._api = api; p._status = status; p.Build(); _ = p.Refresh(); return p;
+        }
+        void Build()
+        {
+            var overlay = W7LegacyUi.Overlay(transform, "BattleExpLegacyOverlay");
+            _window = W7LegacyUi.Window(overlay, W7LegacyUi.Common + "Window3", 309, 191, 662, 385);
+            W7LegacyUi.Close(_window, 635, 6, () => Destroy(gameObject));
+        }
+        async Task Refresh()
+        {
+            try { _view = await _api.GetBattleExpActivityAsync(); Draw(); }
+            catch (Exception ex) { _status(ex.Message); Destroy(gameObject); }
+        }
+        void Draw()
+        {
+            for (var i = _window.childCount - 1; i >= 0; i--) { var c = _window.GetChild(i); if (c.name != "W7Close") Destroy(c.gameObject); }
+            W7LegacyUi.Image(_window, Root + "background", 0, 0, 630, 343);
+            if (_view == null || !_view.active) return;
+            W7LegacyUi.Text(_window, _view.condition, 430, 370, 100, 20, 13, TextAnchor.MiddleLeft, W7LegacyUi.Muted);
+            W7LegacyUi.Text(_window, "+" + _view.addPercent + "%", 265, 210, 120, 30, 16, TextAnchor.MiddleCenter, W7LegacyUi.Gold);
+            if (!_view.activated) W7LegacyUi.Button30(_window, "Kích hoạt", 370, 325, 103, 38, async () => await Activate());
+        }
+        async Task Activate()
+        {
+            if (_busy) return; _busy = true;
+            try { await _api.ActivateBattleExpActivityAsync(); await Refresh(); }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+    }
+}
