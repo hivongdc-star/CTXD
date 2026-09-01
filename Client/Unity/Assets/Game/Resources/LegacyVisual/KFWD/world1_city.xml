@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<map row="2" column="2" width="1000" height="600"/>
+	<cities>
+		<city id="1" x="207" y="890" name="Lạc Dương" model="model601"/>
+		<city id="2" x="1644" y="148" name="Tín Đô" model="model601"/>
+		<city id="3" x="152" y="665" name="Lạc Dương Bắc" model="model604"/>
+		<city id="4" x="71" y="354" name="Quảng Tông Nam" model="model301" trick="luoshi"/>
+		<city id="5" x="211" y="177" name="Quảng Tông" model="model602"/>
+		<city id="6" x="475" y="91" name="Quảng Tông Đông" model="model301" trick="luoshi"/>
+		<city id="7" x="892" y="113" name="Thường Sơn" model="model301" trick="luoshi"/>
+		<city id="8" x="1297" y="149" name="Tín Đô Tây" model="model604"/>
+		<city id="9" x="522" y="744" name="Nghiệp Thành" model="model604"/>
+		<city id="10" x="612" y="449" name="Cự Lộc Tây" model="model101" trick="huogong"/>
+		<city id="11" x="732" y="652" name="Nghiệp Thành Giao Ngoại" model="model101" trick="huogong"/>
+		<city id="12" x="951" y="799" name="Cự Lộc Nam" model="model101" trick="huogong"/>
+		<city id="13" x="966" y="545" name="Cự Lộc" model="model602"/>
+		<city id="14" x="958" y="358" name="Cự Lộc Bắc" model="model101" trick="huogong"/>
+		<city id="15" x="1218" y="479" name="Thanh Hà Giao Ngoại" model="model101" trick="huogong"/>
+		<city id="16" x="1331" y="652" name="Cự Lộc Đông" model="model101" trick="huogong"/>
+		<city id="17" x="1478" y="363" name="Thanh Hà" model="model604"/>
+		<city id="18" x="634" y="1037" name="Lạc Dương Đông" model="model604"/>
+		<city id="19" x="1034" y="999" name="Bạch Mã" model="model402" trick="shuigong"/>
+		<city id="20" x="1417" y="945" name="Khúc Dương Tây" model="model401" trick="shuigong"/>
+		<city id="21" x="1668" y="958" name="Khúc Dương" model="model602"/>
+		<city id="22" x="1683" y="744" name="Khúc Dương Bắc" model="model402" trick="shuigong"/>
+		<city id="23" x="1758" y="438" name="Tín Đô Nam" model="model604"/>
+		<city id="24" x="319" y="762" name="Lạc Dương Giao Ngoại" model="model101"/>
+		<city id="25" x="1447" y="226" name="Tín Đô Giao Ngoại" model="model101"/>
+	</cities>
+	<roads>
+		<road city="1-3" points="309|928;238|738;273|901;241|852;230|790"/>
+		<road city="3-4" points="246|703;151|424;247|657;229|593;185|538;149|494;146|465"/>
+		<road city="4-5" points="172|395;300|243;190|355;228|310;286|279"/>
+		<road city="5-6" points="345|208;548|158;385|183;454|168;521|164"/>
+		<road city="6-7" points="592|150;972|181;633|173;697|193;769|199;843|199;922|189"/>
+		<road city="7-8" points="998|178;1375|207;1063|179;1119|186;1180|202;1232|212;1296|212"/>
+		<road city="8-2" points="1412|206;1728|227;1480|206;1540|210;1595|223;1670|235"/>
+		<road city="2-23" points="1775|238;1852|466;1805|283;1838|363;1851|444"/>
+		<road city="23-22" points="1848|503;1773|801;1873|536;1825|575;1779|616;1750|671;1746|742"/>
+		<road city="22-21" points="1777|801;1765|1018;1758|837;1803|871;1840|921;1836|978;1803|1016"/>
+		<road city="21-20" points="1741|1016;1516|993;1675|1016;1614|987;1548|988"/>
+		<road city="20-19" points="1492|1004;1138|1061;1456|1031;1374|1031;1256|1031;1182|1048"/>
+		<road city="19-18" points="1107|1071;744|1088;1070|1096;1027|1111;974|1128;918|1134;841|1131;777|1117"/>
+		<road city="18-1" points="698|1088;335|964;652|1084;572|1074;489|1061;435|1034;386|1007"/>
+		<road city="1-9" points="341|947;595|818;411|931;485|913;524|883;565|854"/>
+		<road city="9-10" points="608|777;682|517;600|713;614|630;649|570"/>
+		<road city="10-14" points="719|504;1056|423;774|467;869|432;952|436;1006|431"/>
+		<road city="14-17" points="1058|420;1562|425;1142|425;1211|435;1257|427;1326|417;1403|427;1481|440"/>
+		<road city="17-2" points="1586|414;1746|210;1615|370;1643|324;1683|283;1712|257"/>
+		<road city="17-16" points="1569|431;1429|705;1566|477;1532|518;1495|568;1475|628;1458|681"/>
+		<road city="16-12" points="1408|724;1056|862;1379|754;1338|793;1296|827;1246|851;1185|860;1131|864"/>
+		<road city="12-9" points="1030|861;615|822;955|876;855|887;778|894;715|894;658|879"/>
+		<road city="9-11" points="625|803;803|718;672|789;731|755;778|735"/>
+		<road city="11-13" points="834|698;1043|625;880|670;935|652;995|645;1021|645"/>
+		<road city="13-14" points="1056|601;1053|432;1041|545;1036|494;1048|446"/>
+		<road city="13-15" points="1091|613;1296|558;1124|602;1173|583;1239|574;1274|570"/>
+		<road city="15-17" points="1318|545;1561|429;1360|518;1422|517;1476|493;1518|462"/>
+		<road city="13-12" points="1052|620;1047|853;1058|661;1067|706;1071|752;1064|800"/>
+		<road city="10-13" points="715|513;1024|608;769|529;847|535;911|554;992|591"/>
+		<road city="13-16" points="1067|614;1407|705;1130|654;1193|682;1276|697;1362|708"/>
+		<road city="1-24" points="339|955;403|826;328|909;356|870"/>
+		<road city="2-25" points="1755|202;1539|280;1708|239;1675|251;1608|274"/>
+	</roads>
+</config>

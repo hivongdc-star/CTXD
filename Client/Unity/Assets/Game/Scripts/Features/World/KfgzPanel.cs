@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CTXD.Client.Features.Battle;
-using CTXD.Client.Features.FirstPlayable;
+using CTXD.Client.Features.Social;
 using CTXD.Client.Networking;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,13 +14,14 @@ namespace CTXD.Client.Features.World
     {
         const int LegacyClaimLimit = 4;
         static KfgzPanel _open;
-
-        enum ViewMode { Battle, Ranking, Rewards }
+        enum WindowMode { None, Ranking, Rewards }
 
         ApiClient _api;
         KfgzExtendedApi _ext;
         Action<string> _status;
-        RectTransform _window;
+        RectTransform _host;
+        RectTransform _root;
+        CrossServerLegacyVisuals.MapSurface _map;
         PlayerView _player;
         KfgzView _view;
         KfgzWarView _war;
@@ -38,7 +39,7 @@ namespace CTXD.Client.Features.World
         int _cityId;
         bool _busy;
         float _nextRefresh;
-        ViewMode _mode;
+        WindowMode _windowMode;
 
         public static KfgzPanel Open(RectTransform host, ApiClient api, Action<string> status)
         {
@@ -49,14 +50,22 @@ namespace CTXD.Client.Features.World
             panel._api = api;
             panel._ext = new KfgzExtendedApi(api);
             panel._status = status;
+            panel._host = host;
             _open = panel;
             panel.Build();
             _ = panel.RefreshAsync();
             return panel;
         }
 
-        public static void RefreshOpenFromPush() { if (_open != null && !_open._busy) _ = _open.RefreshAsync(); }
-        void OnDestroy() { if (_open == this) _open = null; }
+        public static void RefreshOpenFromPush()
+        {
+            if (_open != null && !_open._busy) _ = _open.RefreshAsync();
+        }
+
+        void OnDestroy()
+        {
+            if (_open == this) _open = null;
+        }
 
         void Update()
         {
@@ -67,11 +76,8 @@ namespace CTXD.Client.Features.World
 
         void Build()
         {
-            var blocker = LegacyUiFactory.Panel(transform, "KfgzBlocker", Vector2.zero, Vector2.one, new Color(0, 0, 0, .84f));
-            _window = LegacyUiFactory.PixelPanel(blocker, "KfgzWindow", 55, 43, 1170, 634, new Color(.045f, .032f, .018f, 1));
-            LegacyUiFactory.PixelLabel(_window, "KFGZ", 24, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 450, 9, 270, 34);
-            LegacyUiFactory.PixelButton(_window, "Đóng", 1082, 9, 72, 28, () => Destroy(gameObject));
-            LegacyUiFactory.PixelLabel(_window, "Đang đồng bộ KFGZ...", 16, TextAnchor.MiddleCenter, Color.white, 330, 285, 510, 36);
+            _root = CrossServerLegacyVisuals.Root(transform, "KfgzKfWorldScene", Color.black);
+            CrossServerLegacyVisuals.Label(_root, "Đang đồng bộ KFGZ...", 440, 360, 400, 30, 16, TextAnchor.MiddleCenter, Color.white, true);
         }
 
         async Task RefreshAsync()
@@ -94,10 +100,8 @@ namespace CTXD.Client.Features.World
 
                 try { _ranking = await _api.GetKfgzRankingAsync(); }
                 catch (Exception ex) { _rankingError = ex.Message; }
-
                 try { _endReward = await _ext.GetEndRewardAsync(); }
                 catch (Exception ex) { _endRewardError = ex.Message; }
-
                 try { _titles = await _ext.GetTitlesAsync(); }
                 catch (Exception ex) { _titleError = ex.Message; }
 
@@ -109,21 +113,15 @@ namespace CTXD.Client.Features.World
                     {
                         if (_cityId == 0)
                         {
-                            var own = (_war.deployments ?? Array.Empty<KfgzDeploymentView>()).FirstOrDefault(x => x.playerId == _player.id);
-                            _cityId = own != null ? own.cityId : (_war.cities ?? Array.Empty<KfgzCityView>()).FirstOrDefault()?.id ?? 0;
+                            var own = (_war.deployments ?? Array.Empty<KfgzDeploymentView>()).FirstOrDefault(x => _player != null && x.playerId == _player.id);
+                            _cityId = own != null ? own.cityId : ((_war.cities ?? Array.Empty<KfgzCityView>()).FirstOrDefault()?.id ?? 0);
                         }
                         try { _roundReward = await _ext.GetRoundRewardAsync(_war.roundId); }
                         catch (Exception ex) { _roundRewardError = ex.Message; }
                     }
-                    else
-                    {
-                        _roundRewardError = "Public KFGZ state hiện không cung cấp roundId để đọc round reward.";
-                    }
+                    else _roundRewardError = "KFGZ world state chưa trả roundId authoritative.";
                 }
-                else
-                {
-                    _roundRewardError = "Round reward cần roundId authoritative của người chơi đã tham gia KFGZ.";
-                }
+                else _roundRewardError = "Round reward cần người chơi đã tham gia KFGZ.";
 
                 _nextRefresh = Time.unscaledTime + 10f;
                 Draw();
@@ -137,247 +135,412 @@ namespace CTXD.Client.Features.World
 
         void Draw()
         {
-            if (_window == null || _view == null) return;
-            LegacyUiFactory.DestroyChildren(_window);
-            LegacyUiFactory.PixelLabel(_window, "KFGZ - SEASON " + _view.seasonNo, 23, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 400, 8, 370, 34);
-            LegacyUiFactory.PixelButton(_window, "Đóng", 1082, 9, 72, 28, () => Destroy(gameObject));
-            LegacyUiFactory.PixelButton(_window, "Làm mới", 995, 9, 78, 28, () => _ = RefreshAsync());
-            DrawViewTabs();
-            LegacyUiFactory.PixelLabel(_window, "State " + _view.state + "   Force " + _view.forceId + "   " + (_view.signed ? "Đã đăng ký" : "Chưa đăng ký"), 15, TextAnchor.MiddleLeft, Color.white, 415, 47, 560, 26);
+            if (_root == null || _view == null) return;
+            CrossServerLegacyVisuals.DestroyChildren(_root);
+            DrawWorldSurface();
+            DrawChrome();
+            DrawFinishOverlay();
+            if (_windowMode != WindowMode.None) DrawWindow();
+        }
 
-            if (_mode == ViewMode.Ranking) { DrawRanking(); return; }
-            if (_mode == ViewMode.Rewards) { DrawRewards(); return; }
+        void DrawWorldSurface()
+        {
+            var worldId = _war != null && (_war.worldId == 1 || _war.worldId == 2) ? _war.worldId : 1;
+            _map = CrossServerLegacyVisuals.BuildWorldMap(_root, worldId, 140, 84, 1000, 600);
+            if (_map == null) return;
 
-            if (!_view.signed)
+            var stateCities = _war != null ? (_war.cities ?? Array.Empty<KfgzCityView>()) : Array.Empty<KfgzCityView>();
+            if (stateCities.Length == 0)
             {
-                LegacyUiFactory.PixelLabel(_window, "KFGZ chưa đồng bộ đội hình cho season hiện tại.", 17, TextAnchor.MiddleCenter, Color.white, 310, 245, 550, 36);
-                LegacyUiFactory.PixelButton(_window, "Đăng ký KFGZ", 455, 300, 260, 42, Signup);
+                // Pre-round/signed state: show recovered map without inventing ownership/state.
+                for (var i = 0; i < _map.definition.cities.Count; i++) CrossServerLegacyVisuals.AddCityModel(_map, _map.definition.cities[i]);
                 return;
             }
+
+            for (var i = 0; i < stateCities.Length; i++)
+            {
+                var state = stateCities[i];
+                var city = _map.definition.FindCity(state.id);
+                if (city == null) continue;
+                CrossServerLegacyVisuals.AddCityModel(_map, city);
+                if (city.id == _cityId) CrossServerLegacyVisuals.AddSelectionLight(_map, city);
+                var id = city.id;
+                CrossServerLegacyVisuals.HitArea(_map.content, city.x - 42, city.y - 48, 84, 92, () => SelectCity(id));
+                var owner = state.ownerSide == 1 ? "P1" : state.ownerSide == 2 ? "P2" : "--";
+                var fighting = (_war.battles ?? Array.Empty<KfgzBattleView>()).Any(x => x.cityId == state.id && x.state == 1);
+                CrossServerLegacyVisuals.Label(_map.content, city.name + "  " + owner,
+                    city.x - 90, city.y + 40, 180, 20, 12, TextAnchor.MiddleCenter, new Color(1f, .88f, .57f), true).raycastTarget = false;
+                if (fighting)
+                    CrossServerLegacyVisuals.AtlasImage(_map.content, "KFWD", "war.window.vs", city.x + 40, city.y - 18, 35, 37);
+            }
+
+            var selected = _map.definition.FindCity(_cityId);
+            if (selected != null) CrossServerLegacyVisuals.Focus(_map, selected.x, selected.y);
+        }
+
+        void DrawFinishOverlay()
+        {
+            if (_war == null || _war.winnerSide <= 0 || _war.side <= 0) return;
+            var won = _war.winnerSide == _war.side;
+            if (won)
+            {
+                CrossServerLegacyVisuals.AddTimeline(_root, "KFWD", "world.win.fx", 10, 540, 284, 200, 200);
+                CrossServerLegacyVisuals.AtlasImage(_root, "KFWD", "world.win.title", 457, 347, 366, 75);
+            }
+            else
+            {
+                CrossServerLegacyVisuals.AtlasImage(_root, "KFWD", "world.lose.title", 457, 347, 366, 75);
+            }
+            CrossServerLegacyVisuals.Label(_root, "Winner Side " + _war.winnerSide, 550, 439, 180, 24, 14,
+                TextAnchor.MiddleCenter, new Color(.81f, .74f, .51f), true);
+        }
+
+        void DrawChrome()
+        {
+            CrossServerLegacyVisuals.AtlasImage(_root, "KFWD", "world.vsbg", 379, 34, 522, 67);
+            var left = _war != null ? _war.force1.ToString() : _view.forceId.ToString();
+            var right = _war != null ? _war.force2.ToString() : "--";
+            CrossServerLegacyVisuals.Label(_root, left, 283, 46, 205, 20, 14, TextAnchor.MiddleRight, new Color(.95f, .69f, .22f), true);
+            CrossServerLegacyVisuals.Label(_root, right, 792, 46, 205, 20, 14, TextAnchor.MiddleLeft, new Color(.95f, .69f, .22f), true);
+            CrossServerLegacyVisuals.Label(_root, (_war != null ? _war.side1Cities : 0).ToString(), 604, 39, 25, 22, 16, TextAnchor.MiddleCenter, Color.white, true);
+            CrossServerLegacyVisuals.Label(_root, (_war != null ? _war.side2Cities : 0).ToString(), 666, 39, 25, 22, 16, TextAnchor.MiddleCenter, Color.white, true);
+            CrossServerLegacyVisuals.Label(_root, _war != null ? "Round " + _war.round : "Season " + _view.seasonNo,
+                579, 78, 125, 18, 11, TextAnchor.MiddleCenter, new Color(.81f, .74f, .51f));
+
+            var worldId = _war != null && _war.worldId == 2 ? 2 : 1;
+            CrossServerLegacyVisuals.ResourceImage(_root, "LegacyVisual/KFWD/map" + worldId + "_smallMap", 1120, 35, 150, 90);
+            CrossServerLegacyVisuals.CloseButton(_root, 1234, 10, () => Destroy(gameObject));
 
             var resource = _view.resources;
             var extra = _battleResources;
-            LegacyUiFactory.PixelLabel(_window,
-                "Gold " + (resource?.gold ?? 0) + "   Food " + (resource?.food ?? 0) + "   Iron " + (resource?.iron ?? 0) +
-                "   RecruitToken " + (extra?.recruitToken ?? 0) + "   Phantom " + (extra?.phantomCount ?? 0) + "   Mubing/h " + (extra?.mubing ?? 0),
-                14, TextAnchor.MiddleCenter, new Color(.9f, .84f, .66f), 20, 76, 1130, 28);
+            CrossServerLegacyVisuals.AtlasImage(_root, "KFWD", "world.downbg", 150, 106, 631, 30);
+            CrossServerLegacyVisuals.Label(_root,
+                "Gold " + (resource != null ? resource.gold : 0) + "   Food " + (resource != null ? resource.food : 0) +
+                "   Iron " + (resource != null ? resource.iron : 0) + "   Token " + (extra != null ? extra.recruitToken : 0) +
+                "   Phantom " + (extra != null ? extra.phantomCount : 0),
+                160, 111, 580, 22, 12, TextAnchor.MiddleLeft, new Color(.9f, .84f, .66f), true);
 
-            DrawGenerals();
-            DrawCities();
-            DrawActions();
+            if (!_view.signed)
+            {
+                CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Đăng ký KFGZ", 560, 640, 160, 38, Signup);
+                return;
+            }
+
+            DrawGeneralCards();
+            DrawActionStrip();
+            CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Xếp hạng", 1010, 704, 105, 32, () => { _windowMode = WindowMode.Ranking; Draw(); });
+            CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Thưởng", 1120, 704, 105, 32, () => { _windowMode = WindowMode.Rewards; Draw(); });
         }
 
-        void DrawViewTabs()
+        void DrawGeneralCards()
         {
-            LegacyUiFactory.PixelButton(_window, _mode == ViewMode.Battle ? "[Chiến trường]" : "Chiến trường", 18, 45, 120, 28, () => SetMode(ViewMode.Battle));
-            LegacyUiFactory.PixelButton(_window, _mode == ViewMode.Ranking ? "[Xếp hạng]" : "Xếp hạng", 145, 45, 120, 28, () => SetMode(ViewMode.Ranking));
-            LegacyUiFactory.PixelButton(_window, _mode == ViewMode.Rewards ? "[Thưởng]" : "Thưởng", 272, 45, 120, 28, () => SetMode(ViewMode.Rewards));
+            var generals = _view.generals ?? Array.Empty<KfgzGeneralStateView>();
+            for (var i = 0; i < Math.Min(6, generals.Length); i++)
+            {
+                var g = generals[i];
+                var roster = (_roster != null ? _roster.military : null) ?? Array.Empty<GeneralView>();
+                var info = roster.FirstOrDefault(x => x.id == g.generalId);
+                var name = info != null ? info.name : "#" + g.generalId;
+                var x = 150 + i * 145;
+                var y = 645;
+                CrossServerLegacyVisuals.AtlasImage(_root, "KFWD", "world.general.bg", x, y, 76, 23);
+                CrossServerLegacyVisuals.Label(_root, name,
+                    x, y + 23, 135, 18, 11, TextAnchor.MiddleCenter, _selectedGenerals.Contains(g.generalId) ? new Color(1f, .84f, .31f) : Color.white, true);
+                CrossServerLegacyVisuals.Label(_root, "HP " + g.forces, x, y + 40, 135, 16, 10, TextAnchor.MiddleCenter, new Color(.82f, .77f, .66f));
+                var id = g.generalId;
+                CrossServerLegacyVisuals.HitArea(_root, x - 4, y - 4, 140, 62, () => ToggleGeneral(id));
+            }
         }
 
-        void SetMode(ViewMode mode)
+        void DrawActionStrip()
         {
-            _mode = mode;
+            CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Đi thành", 150, 704, 90, 32, MoveSelected);
+            CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Gọi tướng", 245, 704, 90, 32, CallSelected);
+            CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Có thể gọi", 340, 704, 90, 32, LoadCallable);
+            CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Rút lui", 435, 704, 90, 32, RetreatSelected);
+            CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Tuyển", 530, 704, 90, 32, StartMubing);
+            CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Tuyển nhanh", 625, 704, 90, 32, FastRecruit);
+            CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Battle", 720, 704, 90, 32, OpenBattle);
+            CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Phantom", 815, 704, 90, 32, CreatePhantom);
+            CrossServerLegacyVisuals.SkinButton(_root, "Button23", "Rush", 910, 704, 90, 32, RushSelected);
+        }
+
+        void SelectCity(int cityId)
+        {
+            _cityId = cityId;
             Draw();
         }
 
-        void DrawRanking()
+        void ToggleGeneral(int generalId)
         {
-            var personalListView = LegacyUiFactory.PixelPanel(_window, "personalListView", 0, 0, 1170, 634, Color.clear);
-            personalListView.GetComponent<Image>().raycastTarget = false;
-            var active = LegacyUiFactory.PixelButton(personalListView, "Bảng Dũng Sĩ", 20, 88, 180, 30, () => { });
-            active.interactable = false;
-            DisableRankingTab(personalListView, "Bảng Quốc Gia", 210);
-            DisableRankingTab(personalListView, "Bảng Chiếm Thành Tổ", 400);
-            DisableRankingTab(personalListView, "Khiêu Chiến Nhóm", 590);
-            DisableRankingTab(personalListView, "Bảng Sát Địch Tổ", 780);
+            if (!_selectedGenerals.Add(generalId)) _selectedGenerals.Remove(generalId);
+            Draw();
+        }
 
-            LegacyUiFactory.PixelLabel(personalListView,
-                "Public backend chỉ expose một bảng player ranking authoritative; 4 bảng legacy còn lại không được dựng giả.",
-                14, TextAnchor.MiddleLeft, Color.gray, 20, 126, 1120, 28);
+        void DrawWindow()
+        {
+            var modal = CrossServerLegacyVisuals.Root(_root, "KfgzWarWindowModal", new Color(0f, 0f, 0f, .58f));
+            CrossServerLegacyVisuals.AtlasImage(modal, "KFWD", "war.window.bg", 193, 180, 894, 409);
+            CrossServerLegacyVisuals.CloseButton(modal, 1044, 193, () => { _windowMode = WindowMode.None; Draw(); });
+            if (_windowMode == WindowMode.Ranking) DrawRanking(modal); else DrawRewards(modal);
+        }
 
+        void DrawRanking(RectTransform modal)
+        {
+            CrossServerLegacyVisuals.AtlasImage(modal, "KFWD", "war.window.rank.title", 598, 192, 84, 54);
             if (!string.IsNullOrEmpty(_rankingError))
             {
-                LegacyUiFactory.PixelLabel(personalListView, "Ranking API: " + _rankingError, 16, TextAnchor.MiddleCenter, Color.white, 100, 245, 970, 42);
+                CrossServerLegacyVisuals.Label(modal, _rankingError, 350, 350, 580, 40, 14, TextAnchor.MiddleCenter, Color.gray);
                 return;
             }
-
-            var items = _ranking?.items ?? Array.Empty<KfgzRankEntry>();
-            LegacyUiFactory.PixelLabel(personalListView, "Hạng", 14, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 25, 168, 65, 28);
-            LegacyUiFactory.PixelLabel(personalListView, "Người chơi", 14, TextAnchor.MiddleLeft, new Color(1f, .82f, .35f), 100, 168, 260, 28);
-            LegacyUiFactory.PixelLabel(personalListView, "Force", 14, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 365, 168, 75, 28);
-            LegacyUiFactory.PixelLabel(personalListView, "Sát địch", 14, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 445, 168, 130, 28);
-            LegacyUiFactory.PixelLabel(personalListView, "Chiếm thành", 14, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 580, 168, 130, 28);
-            LegacyUiFactory.PixelLabel(personalListView, "Solo thắng", 14, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 715, 168, 120, 28);
-            LegacyUiFactory.PixelLabel(personalListView, "Thắng", 14, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 840, 168, 100, 28);
-            LegacyUiFactory.PixelLabel(personalListView, "Thua", 14, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 945, 168, 100, 28);
-
-            for (var i = 0; i < Math.Min(items.Length, 12); i++)
+            var items = _ranking != null ? (_ranking.items ?? Array.Empty<KfgzRankEntry>()) : Array.Empty<KfgzRankEntry>();
+            CrossServerLegacyVisuals.Label(modal, "Hạng", 285, 270, 60, 22, 12, TextAnchor.MiddleCenter, new Color(.94f, .79f, .34f), true);
+            CrossServerLegacyVisuals.Label(modal, "Người chơi", 355, 270, 210, 22, 12, TextAnchor.MiddleLeft, new Color(.94f, .79f, .34f), true);
+            CrossServerLegacyVisuals.Label(modal, "Sát địch", 580, 270, 100, 22, 12, TextAnchor.MiddleCenter, new Color(.94f, .79f, .34f), true);
+            CrossServerLegacyVisuals.Label(modal, "Chiếm", 690, 270, 80, 22, 12, TextAnchor.MiddleCenter, new Color(.94f, .79f, .34f), true);
+            CrossServerLegacyVisuals.Label(modal, "Solo", 780, 270, 75, 22, 12, TextAnchor.MiddleCenter, new Color(.94f, .79f, .34f), true);
+            CrossServerLegacyVisuals.Label(modal, "W/L", 865, 270, 100, 22, 12, TextAnchor.MiddleCenter, new Color(.94f, .79f, .34f), true);
+            for (var i = 0; i < Math.Min(items.Length, 8); i++)
             {
                 var row = items[i];
-                var y = 198 + i * 31;
-                LegacyUiFactory.PixelLabel(personalListView, row.rank.ToString(), 14, TextAnchor.MiddleCenter, Color.white, 25, y, 65, 27);
-                LegacyUiFactory.PixelLabel(personalListView, string.IsNullOrEmpty(row.name) ? "#" + row.playerId : row.name, 14, TextAnchor.MiddleLeft, Color.white, 100, y, 260, 27);
-                LegacyUiFactory.PixelLabel(personalListView, row.forceId.ToString(), 14, TextAnchor.MiddleCenter, Color.white, 365, y, 75, 27);
-                LegacyUiFactory.PixelLabel(personalListView, row.killArmy.ToString(), 14, TextAnchor.MiddleCenter, Color.white, 445, y, 130, 27);
-                LegacyUiFactory.PixelLabel(personalListView, row.occupyCity.ToString(), 14, TextAnchor.MiddleCenter, Color.white, 580, y, 130, 27);
-                LegacyUiFactory.PixelLabel(personalListView, row.soloWins.ToString(), 14, TextAnchor.MiddleCenter, Color.white, 715, y, 120, 27);
-                LegacyUiFactory.PixelLabel(personalListView, row.wins.ToString(), 14, TextAnchor.MiddleCenter, Color.white, 840, y, 100, 27);
-                LegacyUiFactory.PixelLabel(personalListView, row.losses.ToString(), 14, TextAnchor.MiddleCenter, Color.white, 945, y, 100, 27);
+                var y = 302 + i * 31;
+                CrossServerLegacyVisuals.Label(modal, row.rank.ToString(), 285, y, 60, 22, 12, TextAnchor.MiddleCenter, Color.white);
+                CrossServerLegacyVisuals.Label(modal, string.IsNullOrEmpty(row.name) ? "#" + row.playerId : row.name, 355, y, 210, 22, 12, TextAnchor.MiddleLeft, Color.white);
+                CrossServerLegacyVisuals.Label(modal, row.killArmy.ToString(), 580, y, 100, 22, 12, TextAnchor.MiddleCenter, Color.white);
+                CrossServerLegacyVisuals.Label(modal, row.occupyCity.ToString(), 690, y, 80, 22, 12, TextAnchor.MiddleCenter, Color.white);
+                CrossServerLegacyVisuals.Label(modal, row.soloWins.ToString(), 780, y, 75, 22, 12, TextAnchor.MiddleCenter, Color.white);
+                CrossServerLegacyVisuals.Label(modal, row.wins + "/" + row.losses, 865, y, 100, 22, 12, TextAnchor.MiddleCenter, Color.white);
             }
-
             if (items.Length == 0)
-                LegacyUiFactory.PixelLabel(personalListView, "Server chưa trả dữ liệu ranking KFGZ.", 16, TextAnchor.MiddleCenter, Color.gray, 260, 260, 650, 36);
+                CrossServerLegacyVisuals.Label(modal, "Server chưa trả ranking KFGZ.", 390, 365, 500, 30, 14, TextAnchor.MiddleCenter, Color.gray);
         }
 
-        void DisableRankingTab(RectTransform parent, string label, float x)
+        void DrawRewards(RectTransform modal)
         {
-            var button = LegacyUiFactory.PixelButton(parent, label, x, 88, 180, 30, () => { });
-            button.interactable = false;
-        }
+            CrossServerLegacyVisuals.AtlasImage(modal, "KFWD", "war.window.endbg", 272, 244, 736, 36);
+            CrossServerLegacyVisuals.Label(modal, "KFGZ REWARD", 480, 203, 320, 30, 18, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), true);
 
-        void DrawRewards()
-        {
-            var endView = LegacyUiFactory.PixelPanel(_window, "endView", 0, 0, 1170, 634, Color.clear);
-            endView.GetComponent<Image>().raycastTarget = false;
-            LegacyUiFactory.PixelImage(endView, "LegacyVisual/Kfgz/kfgz", 22, 84, 60, 60, true);
-            LegacyUiFactory.PixelLabel(endView, "KFGZ REWARD", 18, TextAnchor.MiddleLeft, new Color(1f, .82f, .35f), 94, 91, 240, 30);
-            LegacyUiFactory.PixelLabel(endView, "Mọi số liệu dưới đây lấy trực tiếp từ public server state.", 14, TextAnchor.MiddleLeft, Color.gray, 94, 119, 500, 24);
-
-            var roundPanel = LegacyUiFactory.PixelPanel(endView, "roundRewardState", 18, 154, 542, 456, new Color(.07f, .05f, .026f, .96f));
-            LegacyUiFactory.PixelLabel(roundPanel, "ROUND REWARD", 17, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 12, 10, 518, 28);
-            DrawRoundReward(roundPanel);
-
-            var endPanel = LegacyUiFactory.PixelPanel(endView, "endRewardState", 575, 84, 577, 526, new Color(.07f, .05f, .026f, .96f));
-            LegacyUiFactory.PixelLabel(endPanel, "END REWARD / TITLE", 17, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 12, 10, 553, 28);
-            DrawEndReward(endPanel);
-        }
-
-        void DrawRoundReward(RectTransform panel)
-        {
             if (!string.IsNullOrEmpty(_roundRewardError))
+                CrossServerLegacyVisuals.Label(modal, _roundRewardError, 285, 290, 370, 45, 12, TextAnchor.MiddleCenter, Color.gray);
+            else if (_roundReward != null && _roundReward.mapped)
             {
-                LegacyUiFactory.PixelLabel(panel, _roundRewardError, 14, TextAnchor.MiddleCenter, Color.gray, 24, 58, 494, 70);
-                return;
+                CrossServerLegacyVisuals.Label(modal,
+                    "Round #" + _roundReward.referenceId + "  Base " + _roundReward.baseTickets + "  Next " + _roundReward.nextTickets +
+                    "  Gold " + _roundReward.goldCost + "  Nhận " + _roundReward.claimTimes + "/4",
+                    285, 292, 420, 38, 13, TextAnchor.MiddleLeft, Color.white, true);
+                CrossServerLegacyVisuals.Label(modal,
+                    "City " + _roundReward.cityTickets + "   Win " + _roundReward.winTickets + "   Kill " + _roundReward.killRankTickets +
+                    "   Solo " + _roundReward.soloTickets + "   Occupy " + _roundReward.occupyTickets,
+                    285, 334, 420, 30, 12, TextAnchor.MiddleLeft, new Color(.86f, .82f, .7f));
+                if (_roundReward.claimTimes < LegacyClaimLimit)
+                    CrossServerLegacyVisuals.SkinButton(modal, "Button23", "Nhận round", 435, 382, 140, 34, ClaimRoundReward);
             }
-            if (_roundReward == null || !_roundReward.mapped)
-            {
-                LegacyUiFactory.PixelLabel(panel, "Round reward: " + SafeBlocker(_roundReward?.blocker), 14, TextAnchor.MiddleCenter, Color.gray, 24, 58, 494, 70);
-                return;
-            }
+            else CrossServerLegacyVisuals.Label(modal, "Round reward: " + SafeBlocker(_roundReward != null ? _roundReward.blocker : null), 285, 292, 420, 42, 12, TextAnchor.MiddleCenter, Color.gray);
 
-            LegacyUiFactory.PixelLabel(panel, "Round #" + _roundReward.referenceId + "   Season " + _roundReward.seasonId, 14, TextAnchor.MiddleCenter, Color.white, 18, 44, 506, 26);
-            LegacyUiFactory.PixelLabel(panel, "CityTickets: " + _roundReward.cityTickets, 15, TextAnchor.MiddleLeft, Color.white, 28, 79, 235, 26);
-            LegacyUiFactory.PixelLabel(panel, "WinTickets: " + _roundReward.winTickets, 15, TextAnchor.MiddleLeft, Color.white, 278, 79, 235, 26);
-            LegacyUiFactory.PixelLabel(panel, "KillRankTickets: " + _roundReward.killRankTickets, 15, TextAnchor.MiddleLeft, Color.white, 28, 110, 235, 26);
-            LegacyUiFactory.PixelLabel(panel, "SoloTickets: " + _roundReward.soloTickets, 15, TextAnchor.MiddleLeft, Color.white, 278, 110, 235, 26);
-            LegacyUiFactory.PixelLabel(panel, "OccupyTickets: " + _roundReward.occupyTickets, 15, TextAnchor.MiddleLeft, Color.white, 28, 141, 300, 26);
-
-            var me = (_ranking?.items ?? Array.Empty<KfgzRankEntry>()).FirstOrDefault(x => _player != null && x.playerId == _player.id);
-            if (me != null)
-            {
-                LegacyUiFactory.PixelLabel(panel, string.Format("Sát địch {0} người", me.killArmy), 14, TextAnchor.MiddleLeft, new Color(.86f, .82f, .7f), 28, 177, 235, 24);
-                LegacyUiFactory.PixelLabel(panel, string.Format("Chiếm Thành {0} tòa", me.occupyCity), 14, TextAnchor.MiddleLeft, new Color(.86f, .82f, .7f), 278, 177, 235, 24);
-                LegacyUiFactory.PixelLabel(panel, "SoloWins: " + me.soloWins, 14, TextAnchor.MiddleLeft, new Color(.86f, .82f, .7f), 28, 201, 235, 24);
-            }
-
-            LegacyUiFactory.PixelLabel(panel, "BaseTickets: " + _roundReward.baseTickets, 15, TextAnchor.MiddleLeft, Color.white, 28, 241, 235, 26);
-            LegacyUiFactory.PixelLabel(panel, "NextTickets: " + _roundReward.nextTickets, 15, TextAnchor.MiddleLeft, Color.white, 278, 241, 235, 26);
-            LegacyUiFactory.PixelLabel(panel, "GoldCost: " + _roundReward.goldCost, 15, TextAnchor.MiddleLeft, Color.white, 28, 272, 235, 26);
-            LegacyUiFactory.PixelLabel(panel, "ClaimTimes: " + _roundReward.claimTimes, 15, TextAnchor.MiddleLeft, Color.white, 278, 272, 235, 26);
-
-            var remaining = Math.Max(0, LegacyClaimLimit - _roundReward.claimTimes);
-            LegacyUiFactory.PixelLabel(panel, string.Format("(Còn có thể nhận {0} lần)", remaining), 14, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 65, 310, 420, 25);
-            if (_roundReward.claimTimes < LegacyClaimLimit)
-            {
-                if (_roundReward.goldCost > 0)
-                    LegacyUiFactory.PixelLabel(panel, string.Format("Tốn {0} Vàng, nhận gấp {1} thưởng?", _roundReward.goldCost, RepeatMultiplier(_roundReward.claimTimes)), 14, TextAnchor.MiddleCenter, Color.white, 45, 338, 450, 30);
-                LegacyUiFactory.PixelImage(panel, "LegacyVisual/Kfgz/costGetTicket", 120, 378, 46, 46, true);
-                LegacyUiFactory.PixelButton(panel, "Nhận thưởng", 180, 382, 190, 38, ClaimRoundReward);
-            }
-            else
-            {
-                LegacyUiFactory.PixelLabel(panel, "Đã nhận đủ 4 lần.", 15, TextAnchor.MiddleCenter, Color.gray, 100, 380, 340, 38);
-            }
-        }
-
-        void DrawEndReward(RectTransform panel)
-        {
             if (!string.IsNullOrEmpty(_endRewardError))
+                CrossServerLegacyVisuals.Label(modal, _endRewardError, 690, 290, 300, 40, 12, TextAnchor.MiddleCenter, Color.gray);
+            else if (_endReward != null && _endReward.mapped)
             {
-                LegacyUiFactory.PixelLabel(panel, "End reward API: " + _endRewardError, 14, TextAnchor.MiddleCenter, Color.gray, 24, 46, 529, 48);
-            }
-            else if (_endReward == null || !_endReward.mapped)
-            {
-                LegacyUiFactory.PixelLabel(panel, "End reward: " + SafeBlocker(_endReward?.blocker), 14, TextAnchor.MiddleCenter, Color.gray, 24, 46, 529, 48);
-            }
-            else
-            {
-                LegacyUiFactory.PixelLabel(panel, "Season " + _endReward.seasonId + "   NationScore " + _endReward.nationScore, 14, TextAnchor.MiddleCenter, Color.white, 20, 42, 537, 26);
+                CrossServerLegacyVisuals.Label(modal, "NationScore " + _endReward.nationScore, 700, 292, 270, 24, 13, TextAnchor.MiddleCenter, Color.white, true);
                 var slots = _endReward.slots ?? Array.Empty<KfgzEndRewardSlotView>();
-                for (var i = 0; i < Math.Min(slots.Length, 4); i++)
+                for (var i = 0; i < Math.Min(4, slots.Length); i++)
                 {
                     var slot = slots[i];
-                    var y = 76 + i * 78;
-                    LegacyUiFactory.PixelLabel(panel,
-                        "Slot " + slot.slot + "  yêu cầu " + slot.requiredNationScore + "  Base " + slot.baseTickets + "  Next " + slot.nextTickets,
-                        13, TextAnchor.MiddleLeft, slot.available ? Color.white : Color.gray, 22, y, 395, 24);
-                    LegacyUiFactory.PixelLabel(panel,
-                        "GoldCost " + slot.goldCost + "  ClaimTimes " + slot.claimTimes,
-                        13, TextAnchor.MiddleLeft, slot.available ? new Color(.86f, .82f, .7f) : Color.gray, 22, y + 25, 395, 22);
-
+                    var y = 326 + i * 46;
+                    CrossServerLegacyVisuals.Label(modal, "#" + slot.slot + "  req " + slot.requiredNationScore + "  next " + slot.nextTickets,
+                        690, y, 210, 22, 11, TextAnchor.MiddleLeft, slot.available ? Color.white : Color.gray);
                     if (slot.available && slot.claimTimes < LegacyClaimLimit)
                     {
-                        var capturedSlot = slot.slot;
-                        LegacyUiFactory.PixelButton(panel, "Nhận thưởng", 425, y + 7, 125, 38, () => ClaimEndReward(capturedSlot));
-                    }
-                    else
-                    {
-                        var state = !slot.available ? "Chưa đạt" : "Đã đủ 4 lần";
-                        LegacyUiFactory.PixelLabel(panel, state, 13, TextAnchor.MiddleCenter, Color.gray, 425, y + 7, 125, 38);
+                        var captured = slot.slot;
+                        CrossServerLegacyVisuals.SkinButton(modal, "Button23", "Nhận", 905, y - 3, 75, 27, () => ClaimEndReward(captured));
                     }
                 }
             }
+            else CrossServerLegacyVisuals.Label(modal, "End reward: " + SafeBlocker(_endReward != null ? _endReward.blocker : null), 690, 292, 300, 42, 12, TextAnchor.MiddleCenter, Color.gray);
 
-            LegacyUiFactory.PixelLabel(panel, "TITLE", 15, TextAnchor.MiddleLeft, new Color(1f, .82f, .35f), 22, 393, 80, 24);
             if (!string.IsNullOrEmpty(_titleError))
+                CrossServerLegacyVisuals.Label(modal, _titleError, 690, 525, 300, 26, 11, TextAnchor.MiddleCenter, Color.gray);
+            else
             {
-                LegacyUiFactory.PixelLabel(panel, "Title API: " + _titleError, 13, TextAnchor.MiddleLeft, Color.gray, 22, 420, 525, 42);
-                return;
-            }
-
-            var titles = _titles?.items ?? Array.Empty<KfgzTitleView>();
-            if (titles.Length == 0)
-            {
-                LegacyUiFactory.PixelLabel(panel, "Không có title KFGZ do server cấp.", 13, TextAnchor.MiddleLeft, Color.gray, 22, 420, 525, 28);
-                return;
-            }
-
-            for (var i = 0; i < Math.Min(titles.Length, 3); i++)
-            {
-                var title = titles[i];
-                LegacyUiFactory.PixelLabel(panel,
-                    "Season " + title.seasonId + "  " + title.playerName + "  " + TitleDisplay(title.titleKey),
-                    13, TextAnchor.MiddleLeft, Color.white, 22, 420 + i * 26, 525, 24);
+                var titles = _titles != null ? (_titles.items ?? Array.Empty<KfgzTitleView>()) : Array.Empty<KfgzTitleView>();
+                if (titles.Length > 0)
+                    CrossServerLegacyVisuals.Label(modal, titles[0].playerName + "  " + TitleDisplay(titles[0].titleKey), 690, 525, 300, 26, 12, TextAnchor.MiddleCenter, new Color(.95f, .79f, .38f), true);
             }
         }
 
-        static string SafeBlocker(string blocker) => string.IsNullOrEmpty(blocker) ? "authoritative state chưa khả dụng" : blocker;
-
-        static int RepeatMultiplier(int claimTimes)
+        static string SafeBlocker(string blocker)
         {
-            switch (claimTimes)
-            {
-                case 0: return 1;
-                case 1: return 1;
-                case 2: return 2;
-                case 3: return 4;
-                default: return 0;
-            }
+            return string.IsNullOrEmpty(blocker) ? "authoritative state chưa khả dụng" : blocker;
         }
 
         static string TitleDisplay(string titleKey)
         {
-            return string.Equals(titleKey, "TITLE_KFGZ_1", StringComparison.Ordinal) ? "TITLE_KFGZ_1  第一勇士" : titleKey;
+            return string.Equals(titleKey, "TITLE_KFGZ_1", StringComparison.Ordinal) ? "第一勇士" : titleKey;
+        }
+
+        int[] RequireSelected()
+        {
+            var ids = _selectedGenerals.OrderBy(x => x).ToArray();
+            if (ids.Length == 0) throw new Exception("Chọn ít nhất một võ tướng.");
+            return ids;
+        }
+
+        int RequireSingle()
+        {
+            var ids = RequireSelected();
+            if (ids.Length != 1) throw new Exception("Thao tác này cần chọn đúng một võ tướng.");
+            return ids[0];
+        }
+
+        int RequireCity()
+        {
+            if (_cityId == 0) throw new Exception("Chọn thành đích.");
+            return _cityId;
+        }
+
+        long CurrentBattleId()
+        {
+            if (_war == null || _player == null) return 0;
+            var deployments = _war.deployments ?? Array.Empty<KfgzDeploymentView>();
+            var d = deployments.FirstOrDefault(x => x.playerId == _player.id && x.state == 3 && x.battleId > 0 &&
+                (_selectedGenerals.Count == 0 || _selectedGenerals.Contains(x.generalId)));
+            return d != null ? d.battleId : 0;
+        }
+
+        async void Signup()
+        {
+            if (_busy) return;
+            _busy = true;
+            try { _view = await _api.SignupKfgzAsync(); _status("Đã đăng ký KFGZ."); await RefreshAsync(); }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+
+        async void MoveSelected()
+        {
+            if (_busy) return;
+            _busy = true;
+            try
+            {
+                var general = RequireSingle();
+                var city = RequireCity();
+                var targetBattle = (_war != null ? _war.battles : null) ?? Array.Empty<KfgzBattleView>();
+                var active = targetBattle.FirstOrDefault(x => x.cityId == city && x.state == 1);
+                if (active != null)
+                {
+                    var result = await _ext.ReinforceAsync(active.battleId, new[] { general });
+                    _status("Đã gia nhập battle #" + result.battleId + ".");
+                }
+                else
+                {
+                    _war = await _api.MoveKfgzGeneralAsync(general, city);
+                    _status("Đã điều tướng trong KFGZ.");
+                }
+                await RefreshAsync();
+            }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+
+        async void LoadCallable()
+        {
+            if (_busy) return;
+            _busy = true;
+            try
+            {
+                var info = await _ext.GetCallGeneralsAsync(RequireCity());
+                _selectedGenerals.Clear();
+                foreach (var id in info.generalIds ?? Array.Empty<int>()) _selectedGenerals.Add(id);
+                _status("Đã chọn " + _selectedGenerals.Count + " tướng có thể gọi.");
+                Draw();
+            }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+
+        async void CallSelected()
+        {
+            if (_busy) return;
+            _busy = true;
+            try
+            {
+                var result = await _ext.CallGeneralsAsync(RequireCity(), RequireSelected());
+                _status("Call-general: " + (result.movedGeneralIds != null ? result.movedGeneralIds.Length : 0) + " thành công, " + (result.failed != null ? result.failed.Length : 0) + " thất bại.");
+                await RefreshAsync();
+            }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+
+        async void RetreatSelected()
+        {
+            if (_busy) return;
+            _busy = true;
+            try { _war = await _api.RetreatKfgzGeneralsAsync(RequireSelected(), RequireCity()); _status("Đã rút quân KFGZ."); await RefreshAsync(); }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+
+        async void StartMubing()
+        {
+            if (_busy) return;
+            _busy = true;
+            try { var result = await _ext.StartMubingAsync(RequireSingle()); _status("Đã bắt đầu tuyển quân: " + result.mubing + "/h"); await RefreshAsync(); }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+
+        async void FastRecruit()
+        {
+            if (_busy) return;
+            _busy = true;
+            try
+            {
+                var result = await _ext.FastRecruitAsync(RequireSingle());
+                _status("Tuyển nhanh +" + result.healed + " quân; token " + result.recruitTokenSpent + ", gold " + result.goldSpent + ", food " + result.foodSpent + ".");
+                await RefreshAsync();
+            }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+
+        async void CreatePhantom()
+        {
+            if (_busy) return;
+            _busy = true;
+            try
+            {
+                var battle = CurrentBattleId();
+                if (battle <= 0) throw new Exception("Không có battle KFGZ đang hoạt động cho tướng đã chọn.");
+                var result = await _ext.CreatePhantomAsync(battle);
+                _status("Đã tạo Phantom cho tướng " + result.generalId + (result.usedFree ? " bằng lượt miễn phí." : " với " + result.goldCost + " gold."));
+                await RefreshAsync();
+            }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+
+        async void RushSelected()
+        {
+            if (_busy) return;
+            _busy = true;
+            try
+            {
+                var battle = CurrentBattleId();
+                if (battle <= 0) throw new Exception("Không có battle KFGZ đang hoạt động cho tướng đã chọn.");
+                var result = await _ext.RushAsync(battle, RequireSelected(), RequireCity());
+                _status(result.targetBattleId > 0 ? "Rush sang battle #" + result.targetBattleId : result.captured ? "Rush đã chiếm thành." : "Rush hoàn tất.");
+                await RefreshAsync();
+            }
+            catch (Exception ex) { _status(ex.Message); }
+            finally { _busy = false; }
+        }
+
+        void OpenBattle()
+        {
+            var battle = CurrentBattleId();
+            if (battle <= 0) { _status("Không có battle KFGZ đang hoạt động cho tướng đã chọn."); return; }
+            BattlePanel.Open(_host, _api, _status, battle);
         }
 
         async void ClaimRoundReward()
@@ -411,228 +574,6 @@ namespace CTXD.Client.Features.World
             }
             catch (Exception ex) { _status(ex.Message); }
             finally { _busy = false; }
-        }
-
-        void DrawGenerals()
-        {
-            LegacyUiFactory.PixelLabel(_window, "VÕ TƯỚNG KFGZ", 17, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 16, 112, 330, 27);
-            var generals = _view.generals ?? Array.Empty<KfgzGeneralStateView>();
-            for (var i = 0; i < Math.Min(generals.Length, 10); i++)
-            {
-                var g = generals[i];
-                var roster = (_roster?.military ?? Array.Empty<GeneralView>()).FirstOrDefault(x => x.id == g.generalId);
-                var name = roster != null ? roster.name : "General " + g.generalId;
-                var selected = _selectedGenerals.Contains(g.generalId);
-                var state = g.state == 3 ? " [chiến]" : g.state == 1 ? "" : " [state " + g.state + "]";
-                LegacyUiFactory.PixelButton(_window, (selected ? "✓ " : "") + name + " Lv" + g.level + "  HP " + g.forces + state,
-                    18, 145 + i * 38, 326, 31, () => ToggleGeneral(g.generalId));
-            }
-        }
-
-        void DrawCities()
-        {
-            LegacyUiFactory.PixelLabel(_window, "THÀNH KFGZ", 17, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 365, 112, 390, 27);
-            if (_war == null)
-            {
-                LegacyUiFactory.PixelLabel(_window, "Chưa có round chiến đấu đang khả dụng.", 15, TextAnchor.MiddleCenter, Color.gray, 365, 155, 390, 40);
-                return;
-            }
-            var cities = _war.cities ?? Array.Empty<KfgzCityView>();
-            for (var i = 0; i < Math.Min(cities.Length, 11); i++)
-            {
-                var city = cities[i];
-                var mark = city.id == _cityId ? "▶ " : "";
-                var owner = city.ownerSide == 1 ? "P1" : city.ownerSide == 2 ? "P2" : "--";
-                var fighting = (_war.battles ?? Array.Empty<KfgzBattleView>()).Any(x => x.cityId == city.id && x.state == 1) ? " ⚔" : "";
-                LegacyUiFactory.PixelButton(_window, mark + city.name + " #" + city.id + "  " + owner + fighting,
-                    370, 145 + i * 36, 380, 29, () => { _cityId = city.id; Draw(); });
-            }
-        }
-
-        void DrawActions()
-        {
-            LegacyUiFactory.PixelLabel(_window, "ĐIỀU KHIỂN", 17, TextAnchor.MiddleCenter, new Color(1f, .82f, .35f), 775, 112, 375, 27);
-            var selected = _selectedGenerals.OrderBy(x => x).ToArray();
-            var selectedText = selected.Length == 0 ? "Chưa chọn tướng" : "Đã chọn: " + string.Join(",", selected);
-            LegacyUiFactory.PixelLabel(_window, selectedText + "\nThành đích: " + (_cityId == 0 ? "--" : _cityId.ToString()), 14, TextAnchor.UpperLeft, Color.white, 785, 148, 350, 55);
-
-            LegacyUiFactory.PixelButton(_window, "Đi tới thành", 785, 215, 165, 34, MoveSelected);
-            LegacyUiFactory.PixelButton(_window, "Gọi tướng", 965, 215, 165, 34, CallSelected);
-            LegacyUiFactory.PixelButton(_window, "Có thể gọi", 785, 258, 165, 34, LoadCallable);
-            LegacyUiFactory.PixelButton(_window, "Rút lui", 965, 258, 165, 34, RetreatSelected);
-            LegacyUiFactory.PixelButton(_window, "Bắt đầu tuyển", 785, 315, 165, 34, StartMubing);
-            LegacyUiFactory.PixelButton(_window, "Tuyển nhanh", 965, 315, 165, 34, FastRecruit);
-
-            var battleId = CurrentBattleId();
-            LegacyUiFactory.PixelLabel(_window, battleId > 0 ? "Battle #" + battleId : "Không có battle đang chọn", 15, TextAnchor.MiddleCenter, Color.white, 785, 370, 345, 28);
-            LegacyUiFactory.PixelButton(_window, "Mở battle", 785, 409, 165, 34, OpenBattle);
-            LegacyUiFactory.PixelButton(_window, "Phantom", 965, 409, 165, 34, CreatePhantom);
-            LegacyUiFactory.PixelButton(_window, "Rush", 785, 452, 345, 36, RushSelected);
-
-            if (_war != null)
-                LegacyUiFactory.PixelLabel(_window, "Round " + _war.round + "   Side " + _war.side + "   World " + _war.worldId, 14, TextAnchor.MiddleCenter, new Color(.8f, .76f, .66f), 785, 510, 345, 28);
-        }
-
-        void ToggleGeneral(int generalId)
-        {
-            if (!_selectedGenerals.Add(generalId)) _selectedGenerals.Remove(generalId);
-            Draw();
-        }
-
-        int[] RequireSelected()
-        {
-            var ids = _selectedGenerals.OrderBy(x => x).ToArray();
-            if (ids.Length == 0) throw new Exception("Chọn ít nhất một võ tướng.");
-            return ids;
-        }
-
-        int RequireSingle()
-        {
-            var ids = RequireSelected();
-            if (ids.Length != 1) throw new Exception("Thao tác này cần chọn đúng một võ tướng.");
-            return ids[0];
-        }
-
-        int RequireCity()
-        {
-            if (_cityId == 0) throw new Exception("Chọn thành đích.");
-            return _cityId;
-        }
-
-        long CurrentBattleId()
-        {
-            if (_war == null) return 0;
-            var selected = _selectedGenerals;
-            var deployments = _war.deployments ?? Array.Empty<KfgzDeploymentView>();
-            var d = deployments.FirstOrDefault(x => x.playerId == _player.id && x.state == 3 && x.battleId > 0 && (selected.Count == 0 || selected.Contains(x.generalId)));
-            return d != null ? d.battleId : 0;
-        }
-
-        async void Signup()
-        {
-            if (_busy) return; _busy = true;
-            try { _view = await _api.SignupKfgzAsync(); _status("Đã đăng ký KFGZ."); await RefreshAsync(); }
-            catch (Exception ex) { _status(ex.Message); }
-            finally { _busy = false; }
-        }
-
-        async void MoveSelected()
-        {
-            if (_busy) return; _busy = true;
-            try
-            {
-                var general = RequireSingle();
-                var city = RequireCity();
-                var targetBattle = (_war?.battles ?? Array.Empty<KfgzBattleView>()).FirstOrDefault(x => x.cityId == city && x.state == 1);
-                if (targetBattle != null)
-                {
-                    var result = await _ext.ReinforceAsync(targetBattle.battleId, new[] { general });
-                    _status("Đã gia nhập battle #" + result.battleId + " ở side " + result.side + ".");
-                }
-                else
-                {
-                    _war = await _api.MoveKfgzGeneralAsync(general, city);
-                    _status("Đã điều tướng trong KFGZ.");
-                }
-                await RefreshAsync();
-            }
-            catch (Exception ex) { _status(ex.Message); }
-            finally { _busy = false; }
-        }
-
-        async void LoadCallable()
-        {
-            if (_busy) return; _busy = true;
-            try
-            {
-                var info = await _ext.GetCallGeneralsAsync(RequireCity());
-                _selectedGenerals.Clear();
-                foreach (var id in info.generalIds ?? Array.Empty<int>()) _selectedGenerals.Add(id);
-                _status("Đã chọn các tướng có thể gọi: " + _selectedGenerals.Count);
-                Draw();
-            }
-            catch (Exception ex) { _status(ex.Message); }
-            finally { _busy = false; }
-        }
-
-        async void CallSelected()
-        {
-            if (_busy) return; _busy = true;
-            try
-            {
-                var result = await _ext.CallGeneralsAsync(RequireCity(), RequireSelected());
-                var failed = result.failed?.Length ?? 0;
-                _status("Call-general: " + (result.movedGeneralIds?.Length ?? 0) + " thành công, " + failed + " thất bại.");
-                await RefreshAsync();
-            }
-            catch (Exception ex) { _status(ex.Message); }
-            finally { _busy = false; }
-        }
-
-        async void RetreatSelected()
-        {
-            if (_busy) return; _busy = true;
-            try { _war = await _api.RetreatKfgzGeneralsAsync(RequireSelected(), RequireCity()); _status("Đã rút quân KFGZ."); await RefreshAsync(); }
-            catch (Exception ex) { _status(ex.Message); }
-            finally { _busy = false; }
-        }
-
-        async void StartMubing()
-        {
-            if (_busy) return; _busy = true;
-            try { var result = await _ext.StartMubingAsync(RequireSingle()); _status("Đã bắt đầu tuyển quân: " + result.mubing + "/h"); await RefreshAsync(); }
-            catch (Exception ex) { _status(ex.Message); }
-            finally { _busy = false; }
-        }
-
-        async void FastRecruit()
-        {
-            if (_busy) return; _busy = true;
-            try
-            {
-                var result = await _ext.FastRecruitAsync(RequireSingle());
-                _status("Tuyển nhanh +" + result.healed + " quân; token " + result.recruitTokenSpent + ", gold " + result.goldSpent + ", food " + result.foodSpent + ".");
-                await RefreshAsync();
-            }
-            catch (Exception ex) { _status(ex.Message); }
-            finally { _busy = false; }
-        }
-
-        async void CreatePhantom()
-        {
-            if (_busy) return; _busy = true;
-            try
-            {
-                var battle = CurrentBattleId();
-                if (battle <= 0) throw new Exception("Không có battle KFGZ đang hoạt động cho tướng đã chọn.");
-                var result = await _ext.CreatePhantomAsync(battle);
-                _status("Đã tạo Phantom cho tướng " + result.generalId + (result.usedFree ? " bằng lượt miễn phí." : " với " + result.goldCost + " gold."));
-                await RefreshAsync();
-            }
-            catch (Exception ex) { _status(ex.Message); }
-            finally { _busy = false; }
-        }
-
-        async void RushSelected()
-        {
-            if (_busy) return; _busy = true;
-            try
-            {
-                var battle = CurrentBattleId();
-                if (battle <= 0) throw new Exception("Không có battle KFGZ đang hoạt động cho tướng đã chọn.");
-                var result = await _ext.RushAsync(battle, RequireSelected(), RequireCity());
-                _status(result.targetBattleId > 0 ? "Rush đã chuyển sang battle #" + result.targetBattleId : result.captured ? "Rush đã chiếm thành." : "Rush hoàn tất.");
-                await RefreshAsync();
-            }
-            catch (Exception ex) { _status(ex.Message); }
-            finally { _busy = false; }
-        }
-
-        void OpenBattle()
-        {
-            var battle = CurrentBattleId();
-            if (battle <= 0) { _status("Không có battle KFGZ đang hoạt động cho tướng đã chọn."); return; }
-            BattlePanel.Open((RectTransform)_window.parent, _api, _status, battle);
         }
     }
 }
