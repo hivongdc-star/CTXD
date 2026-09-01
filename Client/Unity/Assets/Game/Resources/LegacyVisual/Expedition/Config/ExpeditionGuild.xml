@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--副本指引窗口配置文件-->
+<config properties='{"styleName":"window3"}'  autoAlign='{"width":662, "height":385}'>
+	<!-- 副本指引模块 -->	
+	<container name="expeditionGuildPan" properties='{"x":0, "y":0}'>
+		<displayObject definition="expeditionGuild.Bg" properties='{"x":17, "y":50}' />
+		<label properties='{"x":210, "y":188,"width":80, "height":20, "size":15, "color":"0xC1835E","stroke":"0x000000","mouseEnabled":false,"autoSize":"none","align":"center","textID":"1431002"}'/>
+		<label properties='{"x":526, "y":188,"width":80, "height":20, "size":15, "color":"0xC1835E","stroke":"0x000000","mouseEnabled":false,"autoSize":"none","align":"center","textID":"1431003"}'/>
+		<label properties='{"x":494, "y":214,"width":40, "height":20, "color":"0xCCB986","stroke":"0x000000","mouseEnabled":false,"autoSize":"none","align":"left","textID":"1431004"}'/>
+		<label properties='{"x":494, "y":255,"width":40, "height":20,"color":"0xCCB986","stroke":"0x000000","mouseEnabled":false,"autoSize":"none","align":"left","textID":"1431005"}'/>
+		<list name="expeditionList" properties='{"x":58, "y":59, "columnCount":12, "rowCount":1, "horizontalGap":2, "verticalGap":1}' />
+		<list name="targetList" properties='{"x":27, "y":214, "columnCount":2, "rowCount":2, "horizontalGap":1, "verticalGap":1}' />
+		<displayObject name="wait" definition="expedition.wait" properties='{"x":33, "y":211,"visible":false}' />
+		<page name="page" properties='{"x":241, "y":364,
+						"prevBtnProp":{"skin":"skin.page5.PrevBtn", "x":-42, "y":-3},
+						"nextBtnProp":{"skin":"skin.page5.NextBtn", "x":40, "y":-3},
+						"pageTextProp":{"color":"0xffffff"}
+						}' />
+		<label name="targetNameLb" properties='{"x":494, "y":232,"width":148, "height":20, "color":"0xF3D6B6","stroke":"0x000000","mouseEnabled":false,"autoSize":"none","align":"center"}'/>
+		<label name="targetDescLb" properties='{"x":494, "y":275,"width":145, "height":110, "color":"0xF3D6B6","stroke":"0x000000","mouseEnabled":false,"autoSize":"none","align":"left","multiline":true}'/>
+	</container>
+	
+	<!--副本指引列表呈現器-->
+	<expeditionGuildRender properties='{"itemWidth":271, "itemHeight":114}'>
+		<baseButton name="bgBaseButton" properties='{"x":0, "y":0, "skin":"expeditionGuild.view.listBgBtn"}'/>
+		<imageLoader name="expeditionGuildImg" properties='{"x":3, "y":3, "width":265, "height":108, "pathFormatName":"expeditionGuild","mouseEnabled":false}'/> 
+		<displayObject name="noOpen" definition="expeditionGuild.noOpen" properties='{"x":0, "y":0,"visible":false,"mouseEnabled":false}' />
+		<label name="noOpenLb" parent="noOpen" properties='{"x":96, "y":48,"width":80, "height":20, "size":14, "color":"0x666666","stroke":"0x000000","mouseEnabled":false,"autoSize":"none","align":"center","textID":"1422023","bold":true}'/>
+		<displayObject name="nameMC" definition="expeditionGuild.name" properties='{"x":17, "y":10,"mouseEnabled":false,"mouseChildren":false}' />
+		<displayObject parent="nameMC" definition="expedition.lvBG" properties='{"x":0, "y":34}' />
+		<label parent="nameMC" name="levelDisLb" properties='{"x":0, "y":35,"width":102, "height":20, "size":15, "color":"0xE8D1B3","stroke":"0x000000","mouseEnabled":false,"autoSize":"none","align":"center","bold":true}'/>
+	</expeditionGuildRender>
+	
+	<!--目标列表呈現器-->
+	<targetGuildRender properties='{"itemWidth":225, "itemHeight":72,"mouseEnabled":false}'>
+		<baseButton name="selectBgButton" properties='{"x":0, "y":0, "skin":"expeditionGuild.select.BG", "buttonMode":true}' />
+		<displayObject name="headImgKuan" definition="expeditionGuild.headImgKuan" properties='{"x":3 , "y":0,"mouseEnabled":false}'/>
+		<displayObject name="imgMask" definition="expeditionGuild.mask" properties='{"x":20 , "y":6,"mouseEnabled":false}'/>
+		<imageLoader name="generalPic" properties='{"x":15, "y":-4, "width":72, "height":72, "pathFormatName":"generalPic","mouseEnabled":false}'/> 
+		<displayObject name="renwu" definition="expeditionGuild.renwu" properties='{"x":25 , "y":16,"visible":false,"mouseEnabled":false}'/>
+		<label name="targetNameLb" properties='{"x":90, "y":16,"width":120, "height":20, "color":"0xF3AF5C","stroke":"0x2F271A","mouseEnabled":false,"autoSize":"none","align":"center","size":15}'/>
+		<label name="targetDescLb" properties='{"x":83, "y":38,"width":146, "height":20, "color":"0xFFFFCC","stroke":"0x2F271A","mouseEnabled":false,"autoSize":"none","align":"center","autoTooltip":true}'/>
+		<displayObject name="compltet" definition="expeditionGuild.compltet" properties='{"x":154, "y":14,"visible":false,"mouseEnabled":false}' />
+		<numberDisplay name="numDis" properties='{"x":46, "y":49, "classPath":"expedition.numDis", "staticWidth":11,"autoSize":"right", "mouseEnabled":false}'/>
+		<displayObject name="levelFont" definition="expeditionGuild.levelFont" properties='{"x":48, "y":48,"mouseEnabled":false}' />
+	</targetGuildRender>
+	
+	<!--翻页按钮-->
+	<guildPage>
+		<baseButton name="prevBtn" properties='{"x":22, "y":90, "skin":"expeditionGuild.prevBtn", "buttonMode":true}' />
+		<baseButton name="nextBtn" properties='{"x":614, "y":90, "skin":"expeditionGuild.nextBtn", "buttonMode":true}' />
+	</guildPage>
+</config>

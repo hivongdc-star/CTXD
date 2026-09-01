@@ -1,0 +1,37 @@
+CTXD Legacy Expedition visual sources
+
+Authoritative visual base:
+456555cc609b1fd40e8f4ecb81049f8f84915548
+
+Legacy source root on coordinator machine:
+D:\Sever
+
+Authoritative files used for this visual reconstruction:
+GCLDServer\wwwroot\assets\zh_CN\swf\module\Expedition.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\module\ExpeditionGuild.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\core\Component.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition1.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition2.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition3.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition4.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition5.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition6.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition7.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition8.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition9.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition10.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition11.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition12.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition201.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition301.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition401.swf
+GCLDServer\wwwroot\assets\zh_CN\swf\expedition\expedition601.swf
+GCLDServer\wwwroot\assets\zh_CN\xml\module\Expedition.xml
+GCLDServer\wwwroot\assets\zh_CN\xml\module\ExpeditionGuild.xml
+GCLDServer\wwwroot\assets\zh_CN\xml\core\Language.xml
+GCLDServer\wwwroot\assets\zh_CN\img\expeditionGuild\1.png .. 12.png
+GCLDServer\wwwroot\assets\zh_CN\img\fubenPic40\dongzhuo1.png
+GCLDServer\wwwroot\assets\zh_CN\img\fubenPic40\liuzhang1.png
+GCLDServer\wwwroot\assets\zh_CN\img\fubenPic40\lvbu.png
+
+Packed contains rasterized SWF display/timeline assets and a runtime manifest. Original SWF files are reference input only and are not required by the Unity runtime surface.

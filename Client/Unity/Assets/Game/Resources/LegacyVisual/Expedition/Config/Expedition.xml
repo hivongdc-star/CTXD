@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--征战场景配置文件-->
+<config properties='{"cdLbProp":{"color":"0xE6E0D4",  "autoSize":"none", "align":"center", "width":130, "height":17,  "stroke":"0x29241b","mouseEnabled":false}
+,"expenditionArry":[1,2,3,4,5,6,7,8,9,10]}' autoAlign='{"width":1280, "height":768}'>
+	<sprite parent="uiModule" name="centerSp" autoAlign='{"width":1000, "height":600}'/>
+	<sprite parent="uiModule" name="centerXSp" autoAlign='{"width":1000, "height":600, "cancelV":true}' />
+	<sprite parent="uiModule" name="rdSp" autoAlign='{"width":1000, "height":600, "paddingRight":0, "paddingBottom":0}' />
+	<sprite parent="uiModule" name="rSp" autoAlign='{"width":1000, "height":600, "paddingRight":0, "cancelV":true}' />
+	
+	<sprite name="smokeContainer" properties='{"mouseEnabled":false, "mouseChildren":false}'/>
+	<sprite name="dropContainer" properties='{"mouseEnabled":false, "mouseChildren":false}'/>
+	<sprite name="moveContainer" properties='{"mouseEnabled":false, "mouseChildren":false}'/>
+	<!--策略箭头-->
+	<displayObject name="jiantou" definition="expedition.jianTou" properties='{"x":0, "y":0,"mouseEnabled":false, "mouseChildren":false,"visible":false}' />
+	<sprite name="noticeContainer" properties='{"mouseEnabled":false, "mouseChildren":false}'/>
+	
+	<sprite name="bonusStateContainer" properties='{"mouseEnabled":false, "mouseChildren":false}'/>
+	<sprite name="autoBattleContainer" properties='{}'/>
+	<sprite name="fubenStateContainer" properties='{"mouseEnabled":false}'/>
+	
+	<!--剧本按钮-->
+	<baseButton parent="rSp" name="dramaBtn" properties='{"x":871, "y":87, "skin":"expedition.dramaBtn","visible":true,"buttonMode":true}' />
+	<label parent="dramaBtn" name="soloNameLb" properties='{"x":30, "y":4,"width":74, "height":20, "border":false, "color":"0xF3C276", "autoSize":"none", "align":"center","mouseEnabled":false,"stroke":"0x2F271A","textID":"1400000"}'/>
+	<baseButton name="helpBtn" parent="rdSp" properties='{"x":936, "y":428, "skin":"expedition.helpBtn","visible":true,"buttonMode":true}' />
+
+	<!--额外副本-->
+	<displayObject parent="centerSp" name="lightMC1" definition="expedition.get.Light" properties='{"x":487 , "y":288,"mouseEnabled":false, "visible":false}'/>	
+	<sprite parent="rSp" name="changeSp" properties='{"x":0, "y":0}'/>
+	<modalBG name="modalBG" properties='{"alpha":0.3,"visible":false}' />
+	<displayObject parent="changeSp" name="lightMC" definition="expedition.lightmc" properties='{"x":850 , "y":126,"mouseEnabled":false, "visible":false}'/>	
+	<baseButton name="extraBtn" parent="changeSp" properties='{"x":871, "y":136, "skin":"expedition.fuben","buttonMode":true,"visible":false}' />
+	<label name="labelText" parent="changeSp" properties='{"x":905, "y":140,"width":74, "height":20, "border":false, "color":"0xF3C276", "autoSize":"none", "align":"center","mouseEnabled":false,"stroke":"0x2F271A"}'/>
+	<label parent="rSp" name="extraText" properties='{"x":809, "y":163,"width":111, "height":20, "border":false, "color":"0xEB8175", "autoSize":"none", "align":"center","mouseEnabled":false,"stroke":"0x2F271A"}'/>
+	<!--再次挑战-->
+	<imageLoader parent="changeSp" name="smallPic" properties='{"x":860,"y":126,"width":40, "height":40,"pathFormatName":"fubenPic","visible":false,"mouseEnabled":false}' />
+	<displayObject parent="extraBtn" name="extraMask" definition="expedition.extra.Mask" properties='{"x":-10 , "y":-2}'/>
+	
+	<baseButton parent="rSp" name="backBtn" properties='{"x":733, "y":38, "skin":"skin.page6.PrevBtn","buttonMode":true}' />
+	<label parent="rSp" name="backBtnText" properties='{"x":746,"y":45, "width":60, "height":20, "border":false, "color":"0xDDCDAC", "autoSize":"none", "align":"center", "stroke":"0x29241b","mouseEnabled":false}'/>
+	
+	<displayObject name="levelBgC" definition="expedition.levelBg"  properties='{"x":0 , "y":0,"mouseEnabled":false}'/>	
+	<numberDisplay name="levelDis" properties='{"x":0, "y":0, "classPath":"game.ui.numDisplay", "staticWidth":10,"autoSize":"right", "mouseEnabled":false,"mouseChildren":false }'/>
+	<displayObject name="leveOpenC" definition="expedition.levelOpen"  properties='{"x":0 , "y":0,"mouseEnabled":false}'/>	
+
+	<!--自动战斗-->
+	<displayObject  name="autoBattleC" definition="expedition.autoBattle"  properties='{"visible":false}'/>	
+	<label name="autoBattleCText" properties='{"width":80, "height":20, "border":false, "color":"0xFFCC00", "autoSize":"none", "align":"left","mouseEnabled":false}'/>
+	
+	<label name="firstWinText" properties='{"width":200, "size":18, "height":35, "bold":true,"border":false, "color":"0xFFCC00", "autoSize":"none", "align":"center","mouseEnabled":false}'/>
+	
+	<!--通关奖励-->
+	<mcLabel parent="null" name="resultMC" properties='{"multiColor":"gameUI.color.Test", "x":380, "y":150, "mouseEnabled":false,"mouseChildren":false, "labelProp":{"font":"黑体","size":30, "bold":true}, "stroke":"0x302010"}'/> 
+	
+	<baseButton parent="rSp" name="prevBtnProp" properties='{"x":733, "y":38, "skin":"skin.page6.PrevBtn","buttonMode":true}' />
+	<label parent="rSp" name="prevBtnText" properties='{"x":746,"y":45, "width":60, "height":20, "border":false, "color":"0xDDCDAC", "autoSize":"none", "align":"center", "stroke":"0x29241b","mouseEnabled":false}'/>
+	<baseButton parent="rSp" name="nextBtnProp" properties='{"x":878, "y":38, "skin":"skin.page6.NextBtn","buttonMode":true}' />
+	<label parent="rSp" name="nextBtnText" properties='{"x":917,"y":45, "width":60, "height":20, "border":false, "color":"0xDDCDAC", "autoSize":"none", "align":"center", "stroke":"0x29241b","mouseEnabled":false}'/>
+	<displayObject parent="rSp" name="nowBGC" definition="expendition.nowBG" properties='{"x":799 , "y":32}'/>	
+	<label parent="rSp" name="pageTextPropText" properties='{"x":822,"y":45, "width":80, "height":20, "border":false, "color":"0xFFFECD", "autoSize":"none", "align":"center", "stroke":"0x29241b","mouseEnabled":false}'/>
+
+	
+	<!--自动攻击-->
+	<autoBattle properties='{"x":0, "y":0}'>
+		<displayObject name="bgc" definition="expedition.att.bg"  properties='{"x":0 , "y":0}'/>
+		<button name="attackBtn" properties='{"x":4, "y":5, "width":72, "height":25,"styleName":"button5", "labelID":"111013", "visible":true}' />
+		<button name="fivesweepBtn" properties='{"x":4, "y":32, "width":72, "height":25,"styleName":"button5", "labelID":"111049", "visible":false}' />
+		<button name="tensweepBtn" properties='{"x":4, "y":59, "width":72, "height":25,"styleName":"button5", "labelID":"111050", "visible":false}' />
+		<button name="nightsweepBtn" properties='{"x":4, "y":86, "width":72, "height":25,"styleName":"button5", "labelID":"111051", "visible":false}' />
+	</autoBattle>
+	
+	<!--扫荡中选择按钮-->
+	<sweepBattle properties='{"x":0, "y":0}'>
+		<displayObject name="bgc" definition="expedition.att.bg"  properties='{"x":0 , "y":0}'/>
+		<button name="lookBtn" properties='{"x":4, "y":5, "width":72, "height":25,"styleName":"button5", "labelID":"111063", "visible":true}' />
+		<button name="endBtn" properties='{"x":4, "y":32, "width":72, "height":25,"styleName":"button5", "labelID":"111064", "visible":true}' />
+	</sweepBattle>
+	
+	<!--扫荡选择-->
+	<container name="sweepPanel" >
+		<displayObject  definition="expedition.sweepPanel.BG"  properties='{"x":0 , "y":0}'/>
+		<baseButton name="closeBtn" properties='{"x":270, "y":6, "skin":"skin.CloseButton1","visible":true}' />
+		<label properties='{"x":7, "y":7, "width":60, "height":20,"autoSize":"none", "align":"left", "bold":false, "border":false, "color":"0xCCB986", "stroke":"0x2F271A", "textID":"111004"}'/>
+		
+		<label name="numText" properties='{"x":53,"y":50, "width":120, "height":20, "border":false, "color":"0xFFFFCC", "autoSize":"none", "align":"left", "stroke":"0x2F271A","mouseEnabled":false}'/>
+		
+		<displayObject name="max" properties='{"x":53 , "y":83}'/>
+		
+		<label name="foodStaicText" properties='{"x":104, "y":90, "size":17,"width":50, "height":50, "color":"0xFFBD42", "autoSize":"none","align":"left", "bold":true, "stroke":"0x2F271A" ,"textID":"103045"}'/>
+		<displayObject name="foodc" definition="expedition.food" properties='{"x":150, "y":93}' />
+		<label name="foodText" properties='{"x":176, "y":95, "width":90, "height":20, "border":false,"color":"0xFFBD42", "autoSize":"none","align":"left", "bold":true, "stroke":"0x2F271A"}'/>
+		
+		
+		<checkBox name="fullSoldier" properties='{"x":56, "y":120,"styleName":"checkBox2", "labelID":"111011" , "enabled":true}'/>
+		<checkBox name="continuous" properties='{"x":160, "y":120,"styleName":"checkBox2", "labelID":"111012" , "enabled":true}'/>
+		<button name="sweepBtn" properties='{"x":60, "y":155, "width":75, "height":30, "styleName":"button5", "labelID":"111009", "visible":true}' />
+		<button name="extBtn" properties='{"x":152, "y":155, "width":75, "height":30, "styleName":"button5", "labelID":"111010", "visible":true}' />
+		
+	</container>
+	
+	<!-- 隐藏副本显示状态-->
+	<container name="bonusPanel" properties='{"x":0, "y":0}'>
+		<sprite name="bitmapSp" properties='{"x":0,"y":0}'/>
+		<sprite name="disContainer" properties='{"x":0,"y":0,"mouseEnabled":false, "mouseChildren":false}'/>
+		<sprite name="stateContainer" properties='{"x":0,"y":0}'/>
+		<displayObject parent="stateContainer" name="bonusMC" definition="expedition.bonus.bg" properties='{"x":0 , "y":0}'/>
+		<displayObject parent="stateContainer" name="rightbonusMC" definition="expedition.bonus.rightBG" properties='{"x":0 , "y":0}'/>
+		<displayObject parent="stateContainer" name="downbonusMC" definition="expedition.bonus.downBG" properties='{"x":0 , "y":0}'/>
+		<displayObject parent="stateContainer" name="rightdownBGbonusMC" definition="expedition.bonus.rightdownBG" properties='{"x":0 , "y":0}'/>
+		
+		<imageLoader parent="stateContainer" name="generalPic" properties='{"x":26,"y":21,"width":52, "height":52,"pathFormatName":"generalPic"}' />
+		<label parent="stateContainer" name="playerNameText" properties='{"x":26,"y":78, "width":52, "height":20, "border":false, "color":"0xE6E0D4", "autoSize":"none", "align":"center", "stroke":"0x29241b","mouseEnabled":false}'/>
+		<label parent="stateContainer" name="desText" properties='{"x":91,"y":25, "width":138, "height":60, "border":false, "multiline":true,"color":"0xE6E0D4", "autoSize":"none", "align":"left", "stroke":"0x29241b","mouseEnabled":false}'/>
+	</container >
+	
+	<!-- 隐藏状态 -->
+	<bonusStatePanel parent="rSp" properties='{"x":0, "y":0, "mouseEnabled":false,"mouseChildren":false}'>
+		<sprite name="shakeSp" properties='{"x":0,"y":0}'/>
+		<displayObject parent="shakeSp" name="haemMC" definition="expedition.bonus.haem" properties='{"x":17 , "y":0}'/>
+		<displayObject parent="shakeSp" name="resbg" definition="expedition.bouns.resbg" properties='{"x":42 , "y":20,"mouseChildren":false,"mouseEnabled":false}'/>
+		<displayObject parent="shakeSp" name="picBg" definition="expedition.bounus.picbg" properties='{"x":-13 , "y":-12}'/>
+		<imageLoader parent="shakeSp" name="generalsmallPic" properties='{"x":-13,"y":-12,"width":35, "height":35,"pathFormatName":"generalPic","mouseEnabled":false}' />
+		<displayObject parent="shakeSp" name="dropMask" definition="expedition.drop.mask" properties='{"x":-9 , "y":-8,"mouseEnabled":false}'/>
+		<displayObject parent="shakeSp" name="vip5" definition="expedition.vip5" properties='{"x":-10, "y":-10,"visible":false}'/>
+		
+		<displayObject name="stateBgMC" definition="expedition.bonus.stateBg" properties='{"x":0 , "y":50}'/>
+		<label name="cdText" properties='{"x":0,"y":53, "width":120, "height":20, "border":false, "bold":true,"color":"0xffc600", "autoSize":"none", "align":"center", "stroke":"0x29241b","mouseEnabled":false}'/>
+		<displayObject name="levelBgC" definition="expedition.levelBg"  properties='{"x":22 , "y":64,"mouseEnabled":false,"visible":false}'/>	
+		<numberDisplay parent="levelBgC" name="levelDis" properties='{"x":22, "y":0, "classPath":"game.ui.numDisplay", "staticWidth":10,"autoSize":"right", "mouseEnabled":false,"mouseChildren":false }'/>
+		<displayObject parent="levelBgC" definition="expedition.levelOpen"  properties='{"x":22 , "y":0,"mouseEnabled":false}'/>	
+	</bonusStatePanel>
+	
+	<!-- 额外副本 -->
+	<fubenStatePanel parent="rSp" properties='{"x":0, "y":0, "mouseEnabled":false}'>
+		<displayObject name="haemMC" definition="expedition.bonus.haem" properties='{"x":17 , "y":0}'/>
+		<displayObject name="resbg" definition="expedition.bouns.resbg" properties='{"x":42 , "y":20,"mouseChildren":false,"mouseEnabled":false}'/>
+		<displayObject name="picBg" definition="expedition.bounus.picbg" properties='{"x":-13 , "y":-12}'/>
+		<imageLoader name="generalsmallPic" properties='{"x":-13,"y":-12,"width":35, "height":35,"pathFormatName":"generalPic","mouseEnabled":false}' />
+		<displayObject name="dropMask" definition="expedition.drop.mask" properties='{"x":-9 , "y":-8,"mouseEnabled":false}'/>
+	</fubenStatePanel>
+	
+	<!-- 购买隐藏副本飞翔 -->
+	<container name="bounsBuyFlyPanel" properties='{"x":0, "y":0}'>
+		<modalBG properties='{"alpha":0.1}'/>
+		<sprite name="stateContainer" properties='{"x":0,"y":0}'/>
+		<imageLoader parent="stateContainer" name="generalPic" properties='{"x":0,"y":0,"width":52, "height":52,"pathFormatName":"generalPic"}' />
+	</container>
+	
+	<!-- 掉落副本显示 -->
+	<container name="dropPanel" properties='{"x":0, "y":0}'>
+		<sprite name="disContainer" properties='{"x":0,"y":0,"mouseEnabled":false, "mouseChildren":false}'/>
+		<sprite name="stateContainer" properties='{"x":0,"y":0}'/>
+		<sprite name="dropContainer" properties='{"x":0,"y":0}'/>
+		
+		<displayObject parent="stateContainer" name="bonusMC" definition="expedition.bonus.bg" properties='{"x":0 , "y":0}'/>
+		<displayObject parent="stateContainer" name="rightbonusMC" definition="expedition.bonus.rightBG" properties='{"x":0 , "y":0}'/>
+		<displayObject parent="stateContainer" name="downbonusMC" definition="expedition.bonus.downBG" properties='{"x":0 , "y":0}'/>
+		<displayObject parent="stateContainer" name="rightdownBGbonusMC" definition="expedition.bonus.rightdownBG" properties='{"x":0 , "y":0}'/>
+		
+		<imageLoader parent="stateContainer" name="generalPic" properties='{"x":26,"y":21,"width":52, "height":52,"pathFormatName":"generalPic"}' />
+		<label parent="stateContainer" name="playerNameText" properties='{"x":26,"y":78, "width":52, "height":20, "border":false, "color":"0xE6E0D4", "autoSize":"none", "align":"center", "stroke":"0x29241b","mouseEnabled":false}'/>
+		<label parent="stateContainer" name="desText" properties='{"x":91,"y":25, "width":138, "height":60, "border":false, "multiline":true,"color":"0xE6E0D4", "autoSize":"none", "align":"left", "stroke":"0x29241b","mouseEnabled":false}'/>
+	
+		<displayObject parent="dropContainer" name="dropMC" definition="expedition.drop.bg" properties='{"x":-50 , "y":0,"buttonMode":true }'/>
+		<imageLoader parent="dropContainer" name="generalsmallPic" properties='{"x":-50,"y":0,"width":35, "height":35,"pathFormatName":"generalPic"}' />
+		<displayObject parent="dropContainer" name="dropMask" definition="expedition.drop.mask" properties='{"x":-45 , "y":4}'/>
+		
+	</container>
+	
+	
+	<!--扫荡结果-->
+	<container name="sweepResult" >
+		<displayObject  definition="expedition.sweepResule.bg"  properties='{"x":0 , "y":0}'/>
+		<baseButton name="closeBtn" properties='{"x":237, "y":6, "skin":"skin.CloseButton1","visible":false}' />
+		<label properties='{"x":7, "y":7, "width":60, "height":20,"autoSize":"none", "align":"left", "bold":false, "border":false, "color":"0xCCB986", "stroke":"0x2F271A", "textID":"111006"}'/>
+		
+		<label name="sweepText" properties='{"x":20,"y":42, "width":120, "height":20, "border":false, "color":"0xE6E0D4", "autoSize":"none", "align":"left", "stroke":"0x29241b","mouseEnabled":false}'/>
+		<label name="numText" properties='{"x":175,"y":42, "width":80, "height":20, "border":false, "color":"0xE6E0D4", "autoSize":"none", "align":"center", "stroke":"0x29241b","mouseEnabled":false}'/>
+		<label name="resultText" properties='{"x":25,"y":65, "width":200, "height":223, "border":false, "multiline":true, "color":"0xE6E0D4", "autoSize":"none", "align":"left", "stroke":"0x29241b","mouseEnabled":false}'/>
+		
+		<button name="exitBtn" properties='{"x":95, "y":290, "width":75, "height":30, "styleName":"button5", "labelID":"111026", "visible":true}' />
+		<button name="recoveryBtn" properties='{"x":95, "y":290, "width":75, "height":30, "styleName":"button5", "labelID":"111007", "visible":true}' />
+		
+		<button name="backBtn" properties='{"x":95, "y":290, "width":75, "height":30, "styleName":"button5", "labelID":"111008", "visible":false}' />
+		
+		
+	</container>
+	
+	<!--扫荡状态-->
+	<container name="sweepstatePlane" >
+		<displayObject name="resultMC" definition="expedition.sweep.result"  properties='{"x":-50 , "y":-75,"visible":true}'/>
+		<displayObject name="stateMC" definition="expedition.sweep.state"  properties='{"x":-32 , "y":30,"visible":true}'/>
+		<label name="cdText" properties='{"x":-15,"y":50, "width":120, "height":20, "border":false, "color":"0xCCB986", "autoSize":"none", "align":"left", "stroke":"0x29241b","mouseEnabled":false}'/>
+		
+		<displayObject name="autoBy" definition="expedition.sweep.by" properties='{"x":35, "y":10}' />
+		<displayObject name="autoNum" properties='{"x":40, "y":10}' />	
+		
+		<displayObject name="recruitMC" definition="expedition.sweep.recruit"  properties='{"x":0 , "y":0,"visible":false,"buttonMode":true}'/>
+		<displayObject name="wineMC" definition="expedition.sweep.wine"  properties='{"x":0 , "y":0,"visible":false,"buttonMode":true}'/>
+		<displayObject name="failureMC" definition="expedition.sweep.failure"  properties='{"x":0 , "y":0,"visible":false,"buttonMode":true}'/>
+		<displayObject name="battleMC" definition="expedition.sweep.battle"  properties='{"x":0 , "y":0,"visible":false,"buttonMode":true}'/>
+	
+	</container>
+	
+	<!-- 购买隐藏副本 -->
+	<list parent="rSp" name="bounsRightList" properties='{"x":926, "y":184, "columnCount":1, "rowCount":5, "horizontalGap":0, "verticalGap":0}' />
+
+	
+	<bounsRightRenderer properties='{"itemWidth":56, "itemHeight":56}'>
+		<displayObject name="dupMC" definition="expedition.dup_hide_por_mc2" properties='{"x":10 , "y":0}'/>
+		<imageLoader name="generalsmallPic" properties='{"x":10,"y":0,"width":50, "height":50,"pathFormatName":"generalPic"}' />
+		<displayObject name="dropMask" definition="expedition.drop.mask1" properties='{"x":15 , "y":4}'/>
+		<displayObject definition="expedition.dup_hide_por_mc" properties='{"x":10 , "y":0}'/>
+		<displayObject name="restypeMC" definition="expedition.restype" properties='{"x":10 , "y":0}'/>
+	</bounsRightRenderer>
+	
+	<!---
+	<displayObject  definition="expendition.nowBG"  properties='{"x":487 , "y":500}'/>	
+	<page name="page" properties='{"x":450, "y":503,
+						"prevBtnProp":{"skin":"skin.page3.PrevBtn", "x":-40},
+						"nextBtnProp":{"skin":"skin.page3.NextBtn", "x":152},
+						"pageTextProp":{"color":"0xffffff"}
+						}' />
+	-->
+	<!--战报结果
+	<list name="resultsList" properties='{"x":93, "y":64, "columnCount":5, "rowCount":1, "horizontalGap":2, "verticalGap":2}' />
+	
+	<resultsRenderer properties='{"itemWidth":25, "itemHeight":38}'>
+		<baseButton  properties='{"x":0, "y":0, "skin":"expedition.results.item.Bg","visible":true,"buttonMode":true}' />
+	</resultsRenderer>
+	-->
+	<!--战斗结果
+	<container name="warResult" properties='{"x":0, "y":0}'>
+		<imageLoader name="bgLoader" properties='{"pathFormatName":"warBG"}' />
+		<displayObject definition="expedition.result.BG" properties='{"x":0, "y":0}' />
+		<imageLoader name="myFeature" properties='{"pathFormatName":"rolePic72", "x":24, "y":5, "doubleClickEnabled":true}' />		
+		<displayObject name="myMask" definition="gameui.role.mask" properties='{"x":28, "y":8,"visible":false}' />
+		<label name="myFlagLb" properties='{"x":26, "y":25, "border":false, "width":68, "height":40, "autoSize":"none", "align":"center", "size":26, "color":"0xffa200", "stroke":"0x1C0303"}' />
+		<displayObject name="attBlood" definition="expedition.result.attBlood" properties='{"x":108, "y":38}' />
+		<displayObject name="attBloodMask" definition="expedition.result.attBlood" properties='{"x":-17, "y":38}' />
+		<label name="myNameLb" properties='{"x":107, "y":18, "color":"0xE7E3BD", "stroke":"0x302010", "autoSize":"none", "width":165, "height":20,"align":"left", "bold":true}'/>
+		<numberDisplay name="myLvDis" properties='{"x":107, "y":55, "classPath":"game.ui.numDisplay", "staticWidth":11,"autoSize":"left"}'/>
+		<imageLoader name="npcFeature" properties='{"pathFormatName":"generalPic", "x":901, "y":5, "doubleClickEnabled":true}' />		
+		<displayObject name="npcMask" definition="gameui.role.mask" properties='{"x":905, "y":8,"visible":false}' />
+		<label name="npcFlagLb" properties='{"x":903, "y":25, "border":false, "width":68, "height":40, "autoSize":"none", "align":"center", "size":26, "color":"0xffa200", "stroke":"0x1C0303"}' />
+		<displayObject name="defBlood" definition="expedition.result.defBlood" properties='{"x":767, "y":38}' />
+		<displayObject name="defBloodMask" definition="expedition.result.attBlood" properties='{"x":892, "y":38}' />
+		<label name="npcNameLb" properties='{"x":728, "y":18, "color":"0xE7E3BD", "stroke":"0x302010", "autoSize":"none", "width":165, "height":20,"align":"right", "bold":true}'/>
+		<numberDisplay name="npcLvDis" properties='{"x":891, "y":55, "classPath":"game.ui.numDisplay", "staticWidth":11,"autoSize":"right"}'/>
+		<imageLoader name="titleImage" properties='{"x":410, "y":25, "pathFormatName":"warTitle", "fileName":"1"}' />
+	</container>-->
+	<!-- 战斗结果面板 
+	<container name="battleResultPanel">
+		<modalBG properties='{"alpha":0.1}'/>
+		<displayObject name="bg" definition="expedition.result.BGc" properties='{"x":0, "y":0}' />
+		<displayObject name="resultTitle" definition="expedition.result.title" properties='{"x":453, "y":55}' />
+		<imageLoader name="rolePic" properties='{"x":8, "y":5,  "width":289, "height":335, "pathFormatName":"warTitle"}'/>
+		<label name="killNameText" properties='{"x":336, "y":120, "size":14,"bold":true, "width":80, "height":32, "color":"0xffe8ac","autoSize":"none","align":"center", "mouseEnabled":false}'/>
+		<displayObject name="killNum" properties='{"x":655, "y":120}'/>
+		<displayObject name="killMaxNum" properties='{"x":355, "y":138}'/>
+		<displayObject name="loseNum" properties='{"x":655, "y":156}'/>
+		<displayObject name="expwarNum" properties='{"x":430 ,"y":197}'/>
+		<displayObject name="warexploit" properties='{"x":430, "y":228}'/>
+		<displayObject name="robNum" properties='{"x":430, "y":260}'/>
+		<button name="backBtn" properties='{"x":390, "y":361, "skin":"expedition.result.confirmBtn","buttonMode":true,"style":{"labelStyle":{"size":15, "bold":true, "color":"0xE7E3BD", "stroke":"0x302010"}}}' />
+	</container>-->
+	<!-- 战斗结果面板武将进阶列表呈示器 
+	<battleResultRenderer properties='{"itemWidth":155, "itemHeight":61}'>
+		<displayObject name="upMC" definition="expedition.result.upMC" properties='{"x":127, "y":10,"visible":false,"buttonMode":true}' />
+		<label name="lvText" properties='{"x":5, "y":28, "width":40, "height":20,"autoSize":"none", "align":"left", "bold":false, "border":false, "color":"0xFFFFCC"}'/>
+		<label name="generalNameLb" properties='{"x":5, "y":12, "color":"0xE7E3BD", "bold":true, "stroke":"0x302010"}'/>
+		<label name="gainExpLb" properties='{"x":5, "y":45, "color":"0x0099CC", "stroke":"0x302010"}'/>
+		<label name="gainExpText" properties='{"x":5, "y":5, "width":102, "height":19, "autoSize":"none","align":"center",  "color":"0x0099CC", "stroke":"0x302010"}'/>
+		<displayObject name="shengji" definition="expedition.result.shengji" properties='{"x":64, "y":27}' />
+	</battleResultRenderer>-->
+	
+	
+	<!--郎中都请不起，还想和我打面板>
+	<container name="goonWarPanel" properties='{"x":228, "y":236}'>
+		<displayObject definition="expedtion.black.Bg" properties='{"x":0, "y":0}' />
+		<baseButton name="closeBtn" properties='{"x":465, "y":16, "skin":"skin.CloseButton3"}' />
+		<displayObject name="kuanMC" definition="expedition.imgae.kuan" properties='{"x":78, "y":26.5}' />
+		<imageLoader name="rolePic" properties='{"x":80, "y":28.5,  "width":72, "height":72, "pathFormatName":"generalPic"}'/>
+		<label name="nameText" properties='{"x":162, "y":36, "width":100, "height":32, "color":"0xFFFFCC","autoSize":"none","align":"left", "mouseEnabled":false,"bold":true,"size":14}'/>
+		<label name="descText" properties='{"x":162, "y":66, "width":200, "height":40, "color":"0xFFFFCC","autoSize":"none","align":"left", "mouseEnabled":false,"leading":4,"multiline":true}'/>
+		<label name="goldText" properties='{"x":403, "y":60, "width":80, "height":32, "color":"0xFFCC00","autoSize":"none","align":"left", "mouseEnabled":false}'/>
+		<button name="sureBtn" properties='{"x":375, "y":75, "width":75, "height":30, "styleName":"button23", "labelID":"111009", "visible":true}' />
+	</container-->
+	
+	<!--还想和我打一架吗？-->
+	<sprite parent="rSp" name="goonContentSp" properties='{"x":780,"y":160,"mouseEnabled":false, "mouseChildren":false,"visible":false}'/>
+	<displayObject parent="goonContentSp" definition="expedition.speak.kuan" properties='{"x":0, "y":0}' />
+	<label parent="goonContentSp" name="speakLb" properties='{"x":8, "y":10, "width":146, "height":36,"autoSize":"none", "align":"left", "bold":false,"border":false, "color":"0xCCBA87","stroke":"0x2F271A","textType":"htmlText","multiline":true}'/>
+	
+	<!--攻打信息提示 -->
+	<expeditionNotice>
+		<!-- <displayObject definition="world.notice.BG" properties='{"x":0, "y":0, "mouseEnabled":false}' /> -->
+		<label name="noticText" properties='{"x":0, "y":5, "size":12, "bold":true, "border":false, "width":220, "autoSize":"none", "height":20, "align":"center", "color":"0xf9f9c8", "stroke":"0x302010", "mouseEnabled":false,"textType":"htmlText"}' />
+		<label name="newText" properties='{"x":0, "y":28, "size":12, "bold":true, "border":false, "width":220, "autoSize":"none", "height":20, "align":"center", "color":"0xf9f9c8", "stroke":"0x302010", "mouseEnabled":false,"textType":"htmlText"}' />
+	</expeditionNotice>
+	
+</config>
