@@ -1,0 +1,28 @@
+{
+  "source": "GCLDServer\\wwwroot\\assets\\zh_CN\\swf\\soldiers\\def21.swf",
+  "actions": {
+    "1": [
+      "frame_000.png"
+    ],
+    "2": [
+      "frame_000.png",
+      "frame_001.png",
+      "frame_002.png",
+      "frame_003.png",
+      "frame_004.png",
+      "frame_005.png"
+    ],
+    "3": [
+      "frame_000.png"
+    ],
+    "4": [
+      "frame_000.png",
+      "frame_001.png",
+      "frame_002.png",
+      "frame_003.png"
+    ],
+    "5": [
+      "frame_000.png"
+    ]
+  }
+}

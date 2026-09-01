@@ -1,0 +1,52 @@
+{
+  "source": "GCLDServer\\wwwroot\\assets\\zh_CN\\swf\\soldiers\\def14.swf",
+  "actions": {
+    "1": [
+      "frame_000.png"
+    ],
+    "2": [
+      "frame_000.png",
+      "frame_001.png",
+      "frame_002.png",
+      "frame_003.png",
+      "frame_004.png",
+      "frame_005.png"
+    ],
+    "3": [
+      "frame_000.png",
+      "frame_001.png",
+      "frame_002.png",
+      "frame_003.png",
+      "frame_004.png",
+      "frame_005.png",
+      "frame_006.png",
+      "frame_007.png",
+      "frame_008.png",
+      "frame_009.png",
+      "frame_010.png",
+      "frame_011.png"
+    ],
+    "4": [
+      "frame_000.png",
+      "frame_001.png",
+      "frame_002.png",
+      "frame_003.png"
+    ],
+    "5": [
+      "frame_000.png",
+      "frame_001.png",
+      "frame_002.png",
+      "frame_003.png",
+      "frame_004.png",
+      "frame_005.png",
+      "frame_006.png",
+      "frame_007.png",
+      "frame_008.png",
+      "frame_009.png",
+      "frame_010.png",
+      "frame_011.png",
+      "frame_012.png",
+      "frame_013.png"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "source": "GCLDServer\\wwwroot\\assets\\zh_CN\\swf\\skill\\2.swf",
+  "fps": 25.0,
+  "primarySymbol": "skill02_1",
+  "exports": [
+    {
+      "symbol": "skill02_1",
+      "characterId": 94,
+      "fps": 25.0,
+      "frames": [
+        "frame_000.png",
+        "frame_001.png",
+        "frame_002.png",
+        "frame_003.png",
+        "frame_004.png",
+        "frame_005.png",
+        "frame_006.png",
+        "frame_007.png",
+        "frame_008.png",
+        "frame_009.png",
+        "frame_010.png"
+      ],
+      "crop": [
+        0,
+        129,
+        640,
+        477
+      ]
+    },
+    {
+      "symbol": "skill02_5",
+      "characterId": 93,
+      "fps": 25.0,
+      "frames": [
+        "frame_000.png",
+        "frame_001.png",
+        "frame_002.png",
+        "frame_003.png",
+        "frame_004.png",
+        "frame_005.png",
+        "frame_006.png",
+        "frame_007.png",
+        "frame_008.png",
+        "frame_009.png",
+        "frame_010.png"
+      ],
+      "crop": [
+        167,
+        13,
+        640,
+        359
+      ]
+    }
+  ]
+}

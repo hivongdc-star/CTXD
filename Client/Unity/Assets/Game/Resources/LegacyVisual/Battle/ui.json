@@ -1,0 +1,62 @@
+{
+  "legacyWidth": 1280,
+  "legacyHeight": 768,
+  "centerWidth": 1000,
+  "centerHeight": 600,
+  "warX": 380,
+  "warY": 250,
+  "sideWidth": 99,
+  "sideHeight": 52,
+  "attForms": {
+    "xPer": -1.7,
+    "yPer": 1.7,
+    "rowXPer": -0.75,
+    "rowYPer": 0.75
+  },
+  "defForms": {
+    "xPer": 1.7,
+    "yPer": -1.7,
+    "rowXPer": 0.75,
+    "rowYPer": -0.75
+  },
+  "fightVS": {
+    "attXPer": -0.41,
+    "attYPer": 0.42,
+    "defXPer": 0.4,
+    "defYPer": -0.4,
+    "intervalMs": 500,
+    "damageDelayMs": 200,
+    "entryMs": 1400
+  },
+  "strategyPanel": {
+    "x": 585,
+    "y": 383,
+    "charge": {
+      "x": 54,
+      "y": -6
+    },
+    "prud": {
+      "x": 119,
+      "y": 95
+    },
+    "divers": {
+      "x": 0,
+      "y": 95
+    }
+  },
+  "resultTitles": {
+    "title_0": "win",
+    "title_1": "lose",
+    "title_2": "retreat"
+  },
+  "apiWiring": {
+    "attack": "war.enemy.attackBtn",
+    "legion": "war.warlegionBtn",
+    "tactic": "general portrait",
+    "strategy": [
+      "war.strategy.charge",
+      "war.strategy.prud",
+      "war.strategy.divers"
+    ]
+  }
+}
